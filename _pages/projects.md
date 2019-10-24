@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: posts
 classes:
   - landing
   - dark-theme
@@ -11,5 +11,5 @@ defaults:
       path: ""
       type: pages
     values:
-      layout: single
+      layout: posts
       author_profile: true
