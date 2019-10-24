@@ -1,3 +1,10 @@
+---
+layout: splash
+classes:
+  - landing
+  - dark-theme
+---
+
 defaults:
   # _pages
   - scope:
