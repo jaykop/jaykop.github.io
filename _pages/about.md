@@ -3,7 +3,7 @@ defaults:
   # _pages
   - scope:
       path: ""
-      type: pages
+      type: single
     values:
       layout: single
       author_profile: true
