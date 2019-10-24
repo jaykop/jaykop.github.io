@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: posts
 title:  "Welcome to Jekyll!"
 classes:
   - landing
