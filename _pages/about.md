@@ -1,9 +1,6 @@
 ---
 layout: splash
 author_profile: true
-classes:
-  - landing
-  - dark-theme
 ---
 
 # ABOUT ME
