@@ -111,7 +111,7 @@ author:
   avatar           : "/_images/bio.jpg"
   bio              : "I am an **amazing** person."
   location         : "Redmond, WA"
-  email            : ""
+  #email            : ""
   links:
     - label: "Email"
       icon: "fab fa-fw fa-google"
