@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Jay Board"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Juyong Jeong"
+name                     : # "Juyong Jeong"
 description              : "Jay's portfolio."
 url                      : "https://jaykop.github.io"
 baseurl                  : # "/home"
