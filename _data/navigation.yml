@@ -2,6 +2,6 @@ main:
   - title: "Home"
     url: https://jaykop.github.io/
   - title: "Projects"
-    url: /../_pages/projecs
+    url: /../_pages/projects/
   - title: "About"
-    url: /../_pages/about
+    url: /../_pages/about/
