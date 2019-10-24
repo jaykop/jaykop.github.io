@@ -111,7 +111,7 @@ author:
   avatar           : "/_images/bio.jpg"
   bio              : "I am an **amazing** person."
   location         : "Redmond, WA"
-  email            : "jaykop.jy@gmail.com"
+  # email            : "jaykop.jy@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
