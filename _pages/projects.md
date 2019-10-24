@@ -6,11 +6,3 @@ classes:
 author_profile: true
 ---
 
-defaults:
-  # _pages
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: posts
-      author_profile: true
