@@ -4,6 +4,7 @@ title:  "Welcome to Jekyll!"
 classes:
   - landing
   - dark-theme
+author_profile: true
 ---
 
 # Welcome
