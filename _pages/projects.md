@@ -3,7 +3,7 @@ defaults:
   # _pages
   - scope:
       path: ""
-      type: pages
+      type: posts
     values:
       layout: posts
       author_profile: true
