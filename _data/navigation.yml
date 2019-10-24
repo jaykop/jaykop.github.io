@@ -1,7 +1,7 @@
 main:
   - title: "Home"
     url: https://jaykop.github.io/
-  - title: "Project"
-    url: https://google.com
+  - title: "Projects"
+    url: /../_pages/projecs
   - title: "About"
-    url: https://google.com
+    url: /../_pages/about
