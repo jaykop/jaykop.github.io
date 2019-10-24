@@ -1,15 +1,9 @@
 ---
-defaults:
-  # _pages
-  - scope:
-      path: ""
-      type: single
-    values:
-      layout: single
-      author_profile: true
-    classes:
-      - landing
-      - dark-theme
+layout: splash
+author_profile: true
+classes:
+  - landing
+  - dark-theme
 ---
 
 # ABOUT ME
