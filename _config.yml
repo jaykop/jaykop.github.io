@@ -115,7 +115,7 @@ author:
   links:
     - label: "Email"
       icon: "fab fa-fw fa-google"
-      url: mailto:jaykop.jy@gmail.com
+      #url: mailto:jaykop.jy@gmail.com
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/juyong-jeong/"
