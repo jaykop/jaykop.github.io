@@ -114,7 +114,7 @@ author:
   # email            : "jaykop.jy@gmail.com"
   links:
     - label: "Email"
-      icon: "fas fa-fw fa-google"
+      icon: "fab fa-fw fa-google"
       url: mailto:jaykop.jy@gmail.com
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
