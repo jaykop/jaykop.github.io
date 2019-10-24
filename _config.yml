@@ -278,6 +278,13 @@ compress_html:
   ignore:
     envs: development
 
+main:
+  - title: "Home"
+    url: https://google.com
+  - title: "Project"
+    url: https://google.com
+  - title: "Contact"
+    url: https://google.com
 
 # Defaults
 defaults:
