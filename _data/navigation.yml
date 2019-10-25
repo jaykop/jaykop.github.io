@@ -1,6 +1,6 @@
 main:
   - title: "Home"
-    url: /index/
+    url: https://jaykop.github.io/
   - title: "Projects"
     url: /_pages/projects/
   - title: "About"
