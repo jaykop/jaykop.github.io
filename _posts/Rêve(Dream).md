@@ -1,0 +1,38 @@
+---
+title: "Welcome to Jekyll!"
+date: 2017-10-20 08:26:28 -0400
+categories: jekyll update
+---
+Rêve(Dream)
+2D side-scrolling, puzzle/adventure game with a dreamlike and dark atmosphere
+
+ 
+
+There is a girl who lost her teddy bear, so she got out of the room to look for her precious. The player can get into pictures that contain another level. To solve puzzles, the player should rotate the picture to control the gravity. Once the player got a key, he can make a progress to the next stage.
+
+​​
+
+The main mechanism which is changing the direction of the gravity is developed by myself. Also, I designed all the levels containing several types of puzzle, tweaked gravity, and trap/enemy behavior pattern.
+
+Rêve(Dream)
+Mar. 2013 - June 2013
+
+By VALUES
+
+Team Of 4
+
+C, Warp Engine
+
+ 
+
+  Rêve is a 2D platformer adventure game, providing a dreamy and dark atmosphere with puzzles.
+
+  To solve the puzzle, the player should get a key to the exit of each level, and the key is captured inside one of the pictures on the wall.
+
+  There are platforms where the player can stand on in the picture level, and the picture level can be rotated by the player in the corridor level, outside the picture.
+
+  
+
+  Using C language based engine, given by DigiPen, a team of 4 worked on this project from March to June 2013. 
+
+  As a lead programmer, I implemented custom physics direction works which is the main feature of this game. Also, I designed the traps work, wandering AI of enemies., and the art assets.
