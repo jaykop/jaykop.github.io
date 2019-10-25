@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme             : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -22,10 +22,10 @@ subtitle                 : # site tagline that appears below site title in masth
 name                     : "Juyong Jeong"
 description              : "Jay's portfolio."
 url                      : "https://jaykop.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+baseurl                  : # "/index"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+teaser                   : "/assets/images/logo.png"
+logo                     : # "/assets/images/logo.jpg"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -108,20 +108,14 @@ analytics:
 # Site Author
 author:
   name             : "Juyong Jeong"
-  avatar           : "/_images/bio.png"
-  bio              : "I am an **amazing** person."
+  avatar           : "assets/images/bio.jpg"
+  bio              : "Computer Programmer"
   location         : "Redmond, WA"
-  email            : "jaykop.jy@gmail.com"
+  #email            : ""
   links:
     - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
+      icon: "fab fa-fw fa-google"
       url: mailto:jaykop.jy@gmail.com
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/juyong-jeong/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/jaykop.jy/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/jaykop/"
@@ -271,8 +265,20 @@ defaults:
       type: posts
     values:
       layout: single
+      author_profile: false
+      read_time: false
+      comments: false # 블로그 댓글 기능 true
+      share: false
+      related: false
+
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
       author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: true
+      read_time: false
+      comments: false
+      share: false
+      related: false
