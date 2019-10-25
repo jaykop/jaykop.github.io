@@ -11,18 +11,18 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-remote_theme             : "mmistakes/minimal-mistakes"
+# remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Jay Board"
+title                    : "Site Title"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Juyong Jeong"
-description              : "Jay's portfolio."
-url                      : "https://jaykop.github.io"
-baseurl                  : # "/home"
+name                     : "Your Name"
+description              : "An amazing website."
+url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
@@ -107,37 +107,52 @@ analytics:
 
 # Site Author
 author:
-  name             : "Juyong Jeong"
-  avatar           : "assets/images/bio.jpg"
+  name             : "Your Name"
+  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an **amazing** person."
-  location         : "Redmond, WA"
-  #email            : ""
+  location         : "Somewhere"
+  email            :
   links:
     - label: "Email"
-      icon: "fab fa-fw fa-google"
-      url: mailto:jaykop.jy@gmail.com
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/juyong-jeong/"
+      icon: "fas fa-fw fa-envelope-square"
+      # url: mailto:your.name@email.com
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      # url: "https://your-website.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      # url: "https://twitter.com/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/jaykop.jy/"
+      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jaykop/"
+      # url: "https://github.com/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      # url: "https://instagram.com/"
 
 # Site Footer
 footer:
   links:
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/juyong-jeong/"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      # url:
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/jaykop.jy/"
+      # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jaykop/"
+      # url:
+    - label: "GitLab"
+      icon: "fab fa-fw fa-gitlab"
+      # url:
+    - label: "Bitbucket"
+      icon: "fab fa-fw fa-bitbucket"
+      # url:
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      # url:
 
 
 # Reading Files
@@ -262,6 +277,7 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+
 
 # Defaults
 defaults:
