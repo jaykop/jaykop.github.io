@@ -1,7 +1,6 @@
 ---
-title: "Welcome to Jekyll!"
-date: 2017-10-20 08:26:28 -0400
-categories: jekyll update
+title: "Captain Korea"
+categories: game project
 ---
 Captain Korea
 2D top-down view action/sneaking game with powerful feedback

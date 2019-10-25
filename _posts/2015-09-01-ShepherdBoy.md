@@ -1,8 +1,8 @@
 ---
-title: "Welcome to Jekyll!"
-date: 2017-10-20 08:26:28 -0400
-categories: jekyll update
+title: "Shepherd Boy"
+categories: game project
 ---
+
 Shepherd Boy
 2D platformer shooting/management game providing user-oriented experience
 

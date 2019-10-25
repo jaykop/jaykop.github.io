@@ -22,7 +22,7 @@ subtitle                 : # site tagline that appears below site title in masth
 name                     : "Juyong Jeong"
 description              : "Jay's portfolio."
 url                      : "https://jaykop.github.io"
-baseurl                  : "/index"
+baseurl                  : # "/index"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/logo.png"
 logo                     : # "/assets/images/logo.jpg"
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Juyong Jeong"
   avatar           : "assets/images/bio.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "Computer Programmer"
   location         : "Redmond, WA"
   #email            : ""
   links:
@@ -265,8 +265,20 @@ defaults:
       type: posts
     values:
       layout: single
+      author_profile: false
+      read_time: false
+      comments: false # 블로그 댓글 기능 true
+      share: false
+      related: false
+
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
       author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: true
+      read_time: false
+      comments: false
+      share: false
+      related: false
