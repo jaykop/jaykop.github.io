@@ -22,7 +22,7 @@ subtitle                 : # site tagline that appears below site title in masth
 name                     : "Juyong Jeong"
 description              : "Jay's portfolio."
 url                      : "https://jaykop.github.io"
-baseurl                  : # "/home"
+baseurl                  : "/index"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/logo.png"
 logo                     : # "/assets/images/logo.jpg"
