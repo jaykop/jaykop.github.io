@@ -1,9 +1,11 @@
 ---
 title: "Shepherd Boy"
+excerpt: "2D platformer shooting/management game providing user-oriented experience"
 categories: game project
 ---
 
-Shepherd Boy
+{% include video id="JxO_-v_9M3k" provider="youtube" %}
+
 2D platformer shooting/management game providing user-oriented experience
 
  
@@ -14,7 +16,6 @@ This game is motivated by the story “The Shepherd Boy and The Wolf”. The pla
 
 My position for this project was a graphics programmer. Spent most of my time to building the 2D graphics engine from scratch supporting text rendering and particle system using OpenGL. In addition, revised game levels using playtest data and designed wandering pattern of objects to farm, attacking patterns of enemies, and random events with NPCs
 
-Shepherd Boy
 Sep 2015 - May 2016
 
 By RecycleBin

@@ -1,8 +1,11 @@
 ---
 title: "Captain Korea"
+excerpt: "2D top-down view action/sneaking game with powerful feedback"
 categories: game project
 ---
-Captain Korea
+
+{% include video id="k2ooXgu3zLE" provider="youtube" %}
+
 2D top-down view action/sneaking game with powerful feedback
 
 ​
@@ -13,7 +16,6 @@ Captain Korea is a 2D top-down game which has a military theme, based on stealth
 
 I was a lead programmer of this project. Mainly worked on the base engine which takes the entity-component design from scratch. While designing gameplay, built 2D node-based system for the enemy path-finding algorithm. Other than that, implemented a sound system using FMOD, built data-driven system loading app configuration and level info using JSON library. 
 
-Captain Korea
 June 2016 - May 2017
 
 By HOW

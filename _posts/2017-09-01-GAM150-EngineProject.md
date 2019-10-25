@@ -4,6 +4,8 @@ categories: game project
 ---
 
 
+{% include video id="6ixNLrx-PT4" provider="youtube" %}
+
 GAM150 Engine Project
 2D engine project to provide the students in school projects class
 
