@@ -15,7 +15,7 @@ toc: true
 Education
 ---
 * **DigiPen Institute of Technology**
-    * *Computer Science in Real-Time Interactive Simulation*  
+    * *BS in Computer Science in Real-Time Interactive Simulation*  
 * **Keimyung University**
     * *Bachelor of Engineering in Game and Mobile Contents*
   
