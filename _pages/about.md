@@ -30,7 +30,7 @@ Experince
 
 Resume
 ---
-[Download Resume](#https://jaykop.github.io/download/Resume-JuyongJeong.pdf){: .btn .btn--success}  
+[Download Resume](download/Resume-JuyongJeong.pdf){: .btn .btn--success}  
 
 Contact
 ---
