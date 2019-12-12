@@ -3,7 +3,7 @@ title: "Shepherd Boy"
 excerpt: "2D platformer shooting/management game providing user-oriented experience"
 categories: game project academic
 header:
-  teaser: "assets/images/ShepherdBoy_thumnail.png"
+  teaser: "assets/images/ShepherdBoy_thumbnail.png"
 ---
 
 {% include video id="JxO_-v_9M3k" provider="youtube" %}

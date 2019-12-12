@@ -3,7 +3,7 @@ title: "Captain Korea"
 excerpt: "2D top-down view action/sneaking game with powerful feedback"
 categories: game project academic
 header:
-  teaser: "assets/images/CaptainKorea_thumnail.png"
+  teaser: "assets/images/CaptainKorea_thumbnail.png"
 ---
 
 {% include video id="k2ooXgu3zLE" provider="youtube" %}

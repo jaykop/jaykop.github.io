@@ -3,7 +3,7 @@ title: "Candlelight"
 excerpt: "A 1st person horror game with undertones of tragedy and a sense of powerlessness"
 categories: game project academic
 header:
-  teaser: "assets/images/Candlelight_thumnail.png"
+  teaser: "assets/images/Candlelight_thumbnail.png"
 ---
 
 {% include video id="30J5UbIuBP0" provider="youtube" %}
