@@ -1,7 +1,7 @@
 ---
-title:  "For Fun"
+title:  "Sides"
 layout: category
-taxonomy: forfun
+taxonomy: sides
 author_profile: true
 ---
 

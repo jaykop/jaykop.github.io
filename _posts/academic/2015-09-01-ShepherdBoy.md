@@ -1,7 +1,7 @@
 ---
 title: "Shepherd Boy"
 excerpt: "2D platformer shooting/management game providing user-oriented experience"
-categories: game project academic
+categories: academic
 header:
   teaser: "assets/images/ShepherdBoy_thumbnail.png"
 ---

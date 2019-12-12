@@ -1,7 +1,7 @@
 ---
 title: "GAM150 Engine Project"
 excerpt: "2D side-scrolling, puzzle/adventure game with a dreamlike and dark atmosphere"
-categories: game project academic
+categories: academic
 header:
   teaser: "assets/images/GAM150 Projects_thumbnail.png"
 ---
