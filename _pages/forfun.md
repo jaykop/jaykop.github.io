@@ -1,7 +1,7 @@
 ---
-title:  "Projects"
+title:  "For Fun"
 layout: category
-taxonomy: academic
+taxonomy: forfun
 author_profile: true
 ---
 
