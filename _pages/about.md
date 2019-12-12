@@ -21,16 +21,18 @@ Education
 
 Skill
 ---
-**C, C++, OpenGL, GLSL, Python, Git, Unity**
+**C++, OpenGL, GLSL, Python, Git, C, C#, Unity**
 
 Experince
 ---
-* **Department Assistant** in *DigiPen-KMU* (Sep 2017 ~ June 2018) 
-* **Sergeant** in *Republic of Korea Army* (Oct 2013 ~ June 2015)
+* **Department Assistant** 
+    - *DigiPen-KMU* (Sep 2017 ~ June 2018) 
+* **Sergeant** 
+    - *Republic of Korea Army* (Oct 2013 ~ June 2015)
 
 Resume
 ---
-[Download Resume](download/Resume-JuyongJeong.pdf){: .btn .btn--success}  
+[Download Resume](https://jaykop.github.io/download/Resume-JuyongJeong.pdf){: .btn .btn--success}  
 
 Contact
 ---
