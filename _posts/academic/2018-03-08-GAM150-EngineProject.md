@@ -6,23 +6,40 @@ header:
   teaser: "assets/images/GAM150 Projects_thumbnail.png"
 ---
 
-![Projects_thumnail](/assets/images/GAM150 Projects_thumnail.png)
+![Projects_thumnail](/assets/images/GAM150 Projects_thumbnail.png)
 
+---
 *Feb 2018 - June 2018*  
 *C++, Custom Engine*  
 *2D engine project to provide the students in school projects class*  
 
+---
+**Desciption:**  
 <div style="text-align: justify" markdown="1">
-&nbsp;&nbsp;&nbsp;&nbsp;For the GAM150 course, which is an game project class in DigiPen-KMU curriculum, a C++ base 2D custom engine is provided to the students. The engine supports necessary features for **2D game development using SDL graphic API and Box2D library**, and **base engine parts from scratch**.
+&nbsp;&nbsp;&nbsp;&nbsp;For the GAM150 course, which is an game project class in DigiPen-KMU curriculum, a C++ base 2D custom engine is provided to the students. The engine supports necessary features for 2D game development using SDL graphic API and Box2D library, and base engine parts from scratch.
 </div>
 
 <div style="text-align: justify" markdown="1">
-&nbsp;&nbsp;&nbsp;&nbsp;**8 teams of 28 students worked on their project with this engine**. Not only just implemented but also I and professor Ly gathered feedback/requests from the students having a session to instruct how to use the engine so that I added new features, fixed bugs, and updated new versions constantly.
+&nbsp;&nbsp;&nbsp;&nbsp;8 teams of 28 students worked on their project with this engine. Not only just implemented but also I and professor Ly gathered feedback/requests from the students having a session to instruct how to use the engine so that I added new features, fixed bugs, and updated new versions constantly.
 </div>
+
+---
+**What I did for this project**  
+  * Role: Programmer  
+  * Built base engine
+    - fullscreen / window mode
+    - scene manager
+    - object manager
+  * Developed graphic system using SDL API
+    - render 2d sprite animation
+    - render text
+  * Designed physics system using Box2D library
+  * Constantly fixed bugs and updated features requested from students
+
 ---
 {% include video id="c7lGp2M4y_M" provider="youtube" %}
 
-**ColorLeon**  
+***ColorLeon***  
 *Mar 2018 - June 2018*  
 *By MIA (Team of 4)*  
 
@@ -32,7 +49,7 @@ header:
 ---
 {% include video id="YZg0gvVT83g" provider="youtube" %}
 
-**Be My Platform**  
+***Be My Platform***  
 *Mar 2018 - June 2018*  
 *By LHS (Team of 3)*  
 
@@ -42,10 +59,12 @@ header:
 ---
 {% include video id="eQSMGRXDYMQ" provider="youtube" %}
 
-**Dice & Castle**  
+***Dice & Castle***  
 *Mar 2018 - June 2018*  
 *By CJJ (Team of 4)*  
 
 <div style="text-align: justify" markdown="1">
 &nbsp;&nbsp;&nbsp;&nbsp;Dice&Castle is a board game with multiple types of random event. The player rolls a dice and moves tiles as many as it lands on. Sometimes player goes back to the start point, plays gambling, and has a battle to the enemy.
 </div>
+---
+[Other GAM150 Project Videos](https://www.youtube.com/playlist?list=PLb1paRaCLIPrr_vOv2o0-PvDDWY467yMn){: .btn .btn--info}
