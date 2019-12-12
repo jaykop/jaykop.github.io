@@ -18,7 +18,7 @@ Education
     * *DigiPen Institute of Technology*  
 * **Bachelor of Engineering in Game and Mobile Contents**
     * *Keimyung University*
-  
+
 Skill
 ---
 **C, C++, OpenGL, GLSL, Python, Git, Unity**
@@ -30,7 +30,7 @@ Experince
 
 Resume
 ---
-[Download Resume](#https://jaykop.github.io/download/Resume-JuyongJeong.pdf){: .btn .btn--success}  
+[Download Resume](download/Resume-JuyongJeong.pdf){: .btn .btn--success}  
 
 Contact
 ---
