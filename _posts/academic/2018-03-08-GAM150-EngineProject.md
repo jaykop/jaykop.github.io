@@ -6,7 +6,7 @@ header:
   teaser: "assets/images/GAM150 Projects_thumbnail.png"
 ---
 
-![Projects_thumnail](/assets/images/GAM150 Projects_thumbnail.png)
+![Projects_thumbnail](/assets/images/GAM150 Projects_thumbnail.png)
 
 ---
 *Feb 2018 - June 2018*  
