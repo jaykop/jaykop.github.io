@@ -10,25 +10,35 @@ toc: true
     <a href="/assets/images/face.png"><img src="/assets/images/face.jpg"></a>
 </div>
 ---
-<div style="text-align: justify"> I am a computer programmer. Currently senior year in DigiPen institute of Technology. For most of my school projects, I was in charge of gameplay programmer position. Also I have experience in base engine, graphics engine, and AI programming using C/C++ as well.   </div>
+<div style="text-align: justify"> 
+Hi!  <br>
+Currently in senior year from DigiPen Institute of Technology.  <br>
+For most of my school projects, I was in charge of game engine designer, graphics programmer, and AI programmer using C++/OpenGL.  <br>
+Other than that, I also have experience using ReactJS to develop a web application, data mining using Python, and C#/Unity experience for game development.  
+</div>
   
 Education
 ---
-* **BS in Computer Science in Real-Time Interactive Simulation**
-    * *DigiPen Institute of Technology*  
-* **Bachelor of Engineering in Game and Mobile Contents**
-    * *Keimyung University*
+* DigiPen Institute of Technology
+    - ***BS in Computer Science in Real-Time Interactive Simulation***
+* Keimyung University
+    - ***Bachelor of Engineering in Game and Mobile Contents***
 
-Skill
+Technical Skills
 ---
-**C++, OpenGL, GLSL, Python, Git, C, C#, Unity**
+* Languages
+    - ***C++, Python, C#, C, JavaScript***
+* Tools
+    - ***Visual Studio, Git, OpenGL, GLSL, Unity Engine, ReactJS***
+* Skills
+    - ***Data structure, Algorithm analysis, Artificial intelligence, Parallel programming, 3D graphics, Data mining***
 
 Experince
 ---
-* **Department Assistant** 
-    - *DigiPen-KMU* (Sep 2017 ~ June 2018) 
-* **Sergeant** 
-    - *Republic of Korea Army* (Oct 2013 ~ June 2015)
+* DigiPen-KMU (09/2017 ~ 06/2018) 
+    - ***Engine Programmer*** 
+* Republic of Korea Army (10/2013 ~ 06/2015)
+    - ***Sergeant*** 
 
 Resume
 ---
