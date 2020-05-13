@@ -33,7 +33,7 @@ Technical Skills
 * Skills
     - ***Data structure, Algorithm analysis, Artificial intelligence, Parallel programming, 3D graphics, Data mining***
 
-Experince
+Experience
 ---
 * DigiPen-KMU (09/2017 ~ 06/2018) 
     - ***Engine Programmer*** 
