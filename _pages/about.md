@@ -11,10 +11,13 @@ toc: true
 </div>
 ---
 <div style="text-align: justify"> 
-Hi!  <br>
-Currently in senior year from DigiPen Institute of Technology.  <br>
-For most of my school projects, I was in charge of game engine designer, graphics programmer, and AI programmer using C++/OpenGL.  <br>
-Other than that, I also have experience using ReactJS to develop a web application, data mining using Python, and C#/Unity experience for game development.  
+안녕하세요!  <br>
+DigiPen Institute of Technology를 졸업하고 Real-Time Interactive Simulation을 전공했습니다.  <br>
+C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경험도 있습니다.
+대학교 팀 프로젝트에서 주로 맡은 역할은 엔진 프로그래머, 게임플레이 프로그래머였고
+이따금 그래픽스 프로그래머 포지션을 담당해 OpenGL과 GLSL을 사용한 경험도 있습니다.<br>
+다년 간의 팀 프로젝트 경험으로 효율적인 협업과 프로젝트의 주기를 이해하며
+게임 개발을 공부하며 CS 전반에 걸친 지식을 갖고 있다고 자부합니다!
 </div>
   
 Education
@@ -27,11 +30,9 @@ Education
 Technical Skills
 ---
 * Languages
-    - ***C++, Python, C#, C, JavaScript***
-* Tools
-    - ***Visual Studio, Git, OpenGL, GLSL, Unity Engine, ReactJS***
-* Skills
-    - ***Data structure, Algorithm analysis, Artificial intelligence, Parallel programming, 3D graphics, Data mining***
+    - ***C++, C#, GLSL, Python***
+* Tools/API
+    - ***Visual Studio, Git, OpenGL, Unity Engine***
 
 Experience
 ---
@@ -47,7 +48,6 @@ Resume
 Contact
 ---
 * **Email:** jaykop.jy@gmail.com  
-* **Mobile:** +1)206-468-7054
   
 <!-- [Facebook](#https://www.facebook.com/jaykop.jy/){: .btn .btn--facebook}
 [LinkedIn](#https://www.linkedin.com/in/juyong-jeong/){: .btn .btn--linkedin}
