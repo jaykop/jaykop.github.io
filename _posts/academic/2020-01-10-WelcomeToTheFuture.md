@@ -1,6 +1,6 @@
 ---
 title: "Welcom to The Future"
-excerpt: "2D platformer shooting game with science fiction theme"
+excerpt: "SF 테마의 2.5D 플랫포머 슈팅 게임"
 categories: academic
 header:
   teaser: "assets/images/wttf_thumbnail.png"
@@ -22,33 +22,31 @@ header:
 ---
 *01/2020 - 04/2020*  
 *By WhitePaper (Team of 5 prorgrammers)*  
-*C#, Unity Engine*  
-*2D platformer shooting game with science fiction theme*  
+*C#, 유니티 엔진 Engine*  
+*SF 테마의 2.5D 플랫포머 슈팅 게임*  
 
 ---
 **Description:**  
-This game is a 2.5D platformer shooting game made with the Unity engine. 
-The primitive caveman came to the future for mysterious reason. He wants to go back to his generation but the robots don’t let him go easily.
+<div style="text-align: justify" markdown="1">
+원시 시대의 유인원이 미래 세계에 초대되었습니다. 플레이어는 과거로 돌아가기 위해 그를 방해하는 로봇 적들을 모두 상대해야 할 것입니다.  
 <br>
-There are 3 levels to go through for the player and he/she can control with either XBOX controller or keyboard.
-Every end of the each level, player has to beat the boss.
-While playing the game, player would face to various enemies and destroy them using several types of weapon!
-With awesome particle effects and abundant audios, you should take him back to the past!
+이 게임은 유니티 엔진으로 개발된 2.5D 플랫포머 슈팅 게임입니다.  
+총 3개 레벨로 구성되어 있으며, 각 레벨의 끝에는 보스 몹이 등장하고 이들을 처치해야 다음 레벨로 진행을 이어나갈 수 있습니다.  
+게임을 플레이 하는 동안, 플레이어는 다양한 방식으로 공격하는 여러 타입의 적들을 마주할 것이고, 소지한 무기로 이들을 파괴해야 합니다.  
+  
+5인의 프로그래머로 구성된 팀이 유니이 엔진을 사용, 1년 시간을 소요해서 개발한 게임입니다. 해당 프로젝트에서 제가 맡은 역할은 게임플레이 프로그래머였습니다.
+  
+* 5가지 종류의 적 패턴 개발
+  - 이동하며 총 발사하는 적
+  -	점프하며 총 발사하는 적
+  -	폭탄을 투척하는 적
+  -	상공에서 폭탄을 투하하는 적
+  -	군집 상태로 공중을 떠다니다 플레이어를 추격하는 적
+*	위치, 개체 수, 종류를 입력받아 적을 생산해주는 Generator 구현
+*	3가지 타입의 보스 구현
+  -	점핑하며 플레이어를 향해 총을 발사, 폭탄을 투척
+  -	상공에서 비행 타입 적을 생성, 360도 전방향으로 총을 난사
+  -	원형 포메이션을 유지하면서 자기 복제, 총 발사, 플레이어를 향해 돌진, 빠른 속도로 회전해 플레이어를 가두는 행동 패턴
 
+<dov>
 ---
-**What I did for this project**  
-  * Role: Gameplay Programmer  
-  * Implemented 5 types of enemy attacking pattern 
-    - Simply shooting bullets linearly
-    -	Added jumping action while shooting
-    -	Throwing grenades in parabolic trajectory 
-    -	Dropping grenades from the air
-    -	Flocking, floating in the air, and dashing to the player
-  *	Created mob generator with spawning effects which creates multiple types of, a number of enemies
-  *	Designed 3 types of boss for each level
-    -	Jumping around, shooting bullets, and throwing grenades to the player
-    -	Generating boids, shooting bullets in 360 degrees from the top of the level
-    -	In a circle formation, cloning by themselves, shooting bullets, dashing to the player, and rotating not to let him get out of the range
-  *	Fixing and debugging
-  *	Designed level 3  platform assignment
-  *	Playtests for balancing and xInput experience
