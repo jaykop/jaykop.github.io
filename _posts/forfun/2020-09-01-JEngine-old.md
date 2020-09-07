@@ -1,6 +1,6 @@
 `---
 title: "JEngine-old"
-excerpt: "커스틈 3D 프레임워크"
+excerpt: "커스텀 3D 프레임워크"
 categories: sides
 header:
   teaser: "assets/images/jengine_thumbnail.png"
