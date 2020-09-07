@@ -36,5 +36,5 @@ Python 언어와 Numpy, Panda 라이브러리를 사용해 주어진 샘플을 �
  - 데이터 패턴의 확률을 계산하기 위해 Decision Tree 구현
  - K-means 알고리즘을 이용한 Image processing
  - Feed Forward, Back Propagation 등을 이용해 Neural Network 구현
-</dov>
+</div>
 ---
