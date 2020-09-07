@@ -1,4 +1,4 @@
-`---
+---
 title: "JEngine-old"
 excerpt: "커스텀 3D 프레임워크"
 categories: sides
@@ -51,4 +51,4 @@ header:
     - Flee, Arrival, Evade, Seek, Wander, Pursuit등의 행동 구현
 
   ---
-  [Github](https://github.com/jaykop/JEngine/){: .btn .btn--dark}`
+  [Github](https://github.com/jaykop/JEngine-old/){: .btn .btn--dark}`
