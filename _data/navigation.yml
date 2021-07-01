@@ -1,9 +1,29 @@
 main:
-  - title: "Home"
-    url: /index
-  - title: "Projects"
-    url: /_pages/projects/
-  - title: "Sides"
-    url: /_pages/sides/
+  - title: "Post"
+    url: /_pages/post/
+  - title: "Project"
+    url: /_pages/project/
   - title: "About"
     url: /_pages/about/
+project:
+  - title: Project
+    children:
+      - title: "All"
+        url: /docs/quick-start-guide/
+      - title: "Academic"
+        url: /docs/quick-start-guide/
+      - title: "Side Project"
+        url: /docs/structure/
+blog:
+  - title: Blog
+    children:
+      - title: "All"
+        url: /docs/quick-start-guide/
+      - title: "C++"
+        url: /docs/quick-start-guide/
+      - title: "C#"
+        url: /docs/structure/
+      - title: "Unity"
+        url: /docs/quick-start-guide/
+      - title: "Etc"
+        url: /docs/structure/

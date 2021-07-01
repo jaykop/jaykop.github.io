@@ -1,7 +1,0 @@
----
-title:  "Projects"
-layout: category
-taxonomy: academic
-author_profile: true
----
-

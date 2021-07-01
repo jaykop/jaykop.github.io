@@ -1,7 +1,9 @@
 ---
 title: "Welcome to The Future"
 excerpt: "SF 테마의 2.5D 플랫포머 슈팅 게임"
-categories: academic
+categories: 
+  - project
+  - academic
 header:
   teaser: "assets/images/wttf_thumbnail.png"
 ---

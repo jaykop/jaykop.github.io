@@ -1,7 +1,7 @@
 ---
-title:  "Sides"
+title:  "Blog"
 layout: category
-taxonomy: sides
+taxonomy: blog
 author_profile: true
 ---
 

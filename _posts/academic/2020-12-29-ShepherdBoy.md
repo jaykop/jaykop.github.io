@@ -1,7 +1,9 @@
 ---
 title: "Shepherd Boy"
 excerpt: "플레이 자유도에 초점을 맞춘 2D 슈팅/경영 게임"
-categories: academic
+categories:
+  - project
+  - academic
 header:
   teaser: "assets/images/ShepherdBoy_thumbnail.png"
 ---

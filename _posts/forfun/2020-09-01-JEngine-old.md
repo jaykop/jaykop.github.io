@@ -1,7 +1,9 @@
 ---
 title: "JEngine-old"
 excerpt: "커스텀 3D 프레임워크"
-categories: sides
+categories: 
+  - project
+  - side
 header:
   teaser: "assets/images/jengine_thumbnail.png"
 ---

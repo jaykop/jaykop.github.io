@@ -109,8 +109,8 @@ analytics:
 author:
   name             : "Juyong Jeong"
   avatar           : "assets/images/avatar.jpg"
-  bio              : "💻Software Engineer"
-  location         : "Redmond, WA"
+  bio              : "💻Game Programmer"
+  location         : "Seoungnam, South Korea"
   #email            : ""
   links:
     - label: "Email"
@@ -122,16 +122,16 @@ author:
     #- label: "Facebook"
     #  icon: "fab fa-fw fa-facebook-square"
     #  url: "https://www.facebook.com/jaykop.jy/"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/juyong-jeong/"
+    #- label: "LinkedIn"
+    #  icon: "fab fa-fw fa-linkedin"
+    #  url: "https://www.linkedin.com/in/juyong-jeong/"
 
 # Site Footer
 footer:
   links:
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/juyong-jeong/"
+    #- label: "LinkedIn"
+    #  icon: "fab fa-fw fa-linkedin"
+    #  url: "https://www.linkedin.com/in/juyong-jeong/"
     #- label: "Facebook"
     #  icon: "fab fa-fw fa-facebook-square"
     #  url: "https://www.facebook.com/jaykop.jy/"
