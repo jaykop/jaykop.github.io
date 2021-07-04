@@ -1,6 +1,6 @@
 main:
-  - title: "Post"
-    url: /_pages/post/
+  - title: "Blog"
+    url: /_pages/blog/
   - title: "Project"
     url: /_pages/project/
   - title: "About"
@@ -8,22 +8,18 @@ main:
 project:
   - title: Project
     children:
-      - title: "All"
-        url: /docs/quick-start-guide/
       - title: "Academic"
-        url: /docs/quick-start-guide/
+        url: /_posts/project/academic/
       - title: "Side Project"
-        url: /docs/structure/
+        url: /_posts/project/side_project/
 blog:
   - title: Blog
     children:
-      - title: "All"
-        url: /docs/quick-start-guide/
       - title: "C++"
-        url: /docs/quick-start-guide/
+        url: /_posts/blog/C++/
       - title: "C#"
-        url: /docs/structure/
+        url: /_posts/blog/C#/
       - title: "Unity"
-        url: /docs/quick-start-guide/
-      - title: "Etc"
-        url: /docs/structure/
+        url: /_posts/blog/Unity/
+      - title: "etc"
+        url: /_posts/blog/etc/

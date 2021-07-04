@@ -1,6 +1,7 @@
 ---
 title: "Class Scheduler"
 excerpt: "A web based class scheduler for DigiPen students"
+classes: wide
 categories: 
   - project
   - academic

@@ -1,6 +1,7 @@
 ---
 title: "Data Mining"
 excerpt: "Python을 이용해 데이터 사이언스 알고리즘 및 기술을 구현, 데이터 샘플을 분석"
+classes: wide
 categories:
   - project
   - academic

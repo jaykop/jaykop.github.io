@@ -1,6 +1,7 @@
 ---
 title: "Candlelight"
 excerpt: "무력감과 비극적인 분위기의 1인칭 호러 게임"
+classes: wide
 categories: 
   - project
   - academic
