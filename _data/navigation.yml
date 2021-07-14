@@ -8,18 +8,22 @@ main:
 project:
   - title: Project
     children:
+      - title: "All"
+        url: /_pages/project/all
       - title: "Academic"
-        url: /_posts/project/academic/
+        url: /_pages/project/academic
       - title: "Side Project"
-        url: /_posts/project/side_project/
+        url: /_pages/project/side_project
 blog:
   - title: Blog
     children:
+      - title: "All"
+        url: /_pages/blog/all
       - title: "C++"
-        url: /_posts/blog/C++/
+        url: /_pages/blog/C++
       - title: "C#"
-        url: /_posts/blog/C#/
+        url: /_pages/blog/CSharp
       - title: "Unity"
-        url: /_posts/blog/Unity/
+        url: /_pages/blog/Unity
       - title: "etc"
-        url: /_posts/blog/etc/
+        url: /_pages/blog/etc
