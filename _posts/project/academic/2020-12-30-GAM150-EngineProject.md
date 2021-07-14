@@ -1,7 +1,10 @@
 ---
 title: "GAM150 Engine Project"
 excerpt: "게임 프로젝트 수업에 사용될 게임 엔진 개발"
-categories: academic
+classes: wide
+categories: 
+  - project
+  - academic
 header:
   teaser: "assets/images/GAM150 Projects_thumbnail.png"
 ---

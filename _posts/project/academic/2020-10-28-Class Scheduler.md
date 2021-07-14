@@ -1,7 +1,10 @@
 ---
 title: "Class Scheduler"
 excerpt: "A web based class scheduler for DigiPen students"
-categories: academic
+classes: wide
+categories: 
+  - project
+  - academic
 header:
   teaser: "assets/images/DigiPenScheduler_thumbnail.png"
 ---
