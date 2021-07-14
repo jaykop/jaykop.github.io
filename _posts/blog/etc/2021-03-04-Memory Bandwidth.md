@@ -1,5 +1,5 @@
 ---
-title: "base64 인코딩"
+title: "Memory Bandwidth"
 classes: wide
 categories: 
   - blog
