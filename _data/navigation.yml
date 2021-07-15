@@ -24,6 +24,6 @@ blog:
       - title: "C#"
         url: /_pages/blog/CSharp
       - title: "Unity"
-        url: /_pages/blog/Unity
+        url: /_pages/blog/unity
       - title: "etc"
         url: /_pages/blog/etc
