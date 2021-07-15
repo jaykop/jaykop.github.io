@@ -1,5 +1,5 @@
 ---
-title: "Memory Bandwidth"
+title: "메모리 대역폭(Memory Bandwidth)"
 classes: wide
 categories: 
   - blog
@@ -7,27 +7,17 @@ categories:
 ---
    
 
-**인코딩이란?**  
+**메모리 대역폭(Memory Bandwidth)**  
   
-Encoding - 문자나 기호를 암호화하는 것   
-Decoding - 암호화를 해독하는 것, 복호화
+* 메모리 클럭 
+  - 메인보드에서 발생하는 램 동작 주기 신호(MHz)
+* 메모리 버스 폭 
+  - 메모리 입출력 라인 개수(bit)
+* Memory Clock * Memory bus width = 메모리 대역폭
+  - 한번의 클럭 신호를 통해서 처리할 수 있는 용량
+* GPU가 읽을 수 있는 데이터의 한계보다 높은 옹량의 텍스쳐를 읽어오게 되면 병목현상 발생
+  - Texture Bandwidth Bottleneck
   
-인코딩과 디코딩은 정해진 기준에 따라 입력되고 해독해야 하는데, ASCII나 UNICODE와 같은 문자셋이 그것이다.
-  
-**Base64 인코딩은?**  
-  
-8비트 이진 데이터를 문자 코드에 영향을 받지 않는 공통 ASCII 영역의 문자들로만 이루어진 일련의 문자열로 바꾸는 인코딩 방식이다.
-화면에 표시되는 ASCII 문자들은 128개가 되지 않기 때문에 이 문자셋으로 표현할 수 있는 가장 큰 진법이 64진법이다.
-처음 64개 문자열 중 62개는 알파벳 A-Z, a-z와 0-9를 사용하고 있으며 마지막 두 개를 어떤 기호를 쓰느냐의 차이만 있다.
-  
-|Text content|M|a|n| |
-|:---|:---:|:---:|:---:|:---:|
-|ASCII|77|97|110|
-|Bit pattern|01001101|01100001|01101110|
-|Bit pattern converted|010011|010110|000101|101110|
-|Index|19|22|5|46|
-|Base64-Encoded|T|W|F|u|
-
 ---  
 출처:   
-<https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%8A%A464>  
+<https://m.blog.naver.com/PostView.nhn?blogId=shakey7&logNo=221435517430&proxyReferer=https:%2F%2Fwww.google.com%2F>  
