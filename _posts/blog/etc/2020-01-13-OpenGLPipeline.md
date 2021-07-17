@@ -7,8 +7,6 @@ categories:
 ---
 ---
 
-**OpenGL 파이프라인 개요**
-
 1. vertex specification
 * 정렬된 버틱스 리스트를 나열
 * 이를 이용해 primitive boundaries를 정의해 텍스처 좌표와 색깔을 정의할 수 있음 / 파이프라인 첫 단계

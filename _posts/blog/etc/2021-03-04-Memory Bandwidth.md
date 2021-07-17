@@ -6,8 +6,6 @@ categories:
   - etc
 ---
 ---
-
-**메모리 대역폭(Memory Bandwidth)**  
   
 * 메모리 클럭 
   - 메인보드에서 발생하는 램 동작 주기 신호(MHz)
