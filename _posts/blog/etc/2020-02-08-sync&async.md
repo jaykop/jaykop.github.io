@@ -5,19 +5,24 @@ categories:
   - blog
   - etc
 ---
-   
+---
 
-**메모리 대역폭(Memory Bandwidth)**  
-  
-* 메모리 클럭 
-  - 메인보드에서 발생하는 램 동작 주기 신호(MHz)
-* 메모리 버스 폭 
-  - 메모리 입출력 라인 개수(bit)
-* Memory Clock * Memory bus width = 메모리 대역폭
-  - 한번의 클럭 신호를 통해서 처리할 수 있는 용량
-* GPU가 읽을 수 있는 데이터의 한계보다 높은 옹량의 텍스쳐를 읽어오게 되면 병목현상 발생
-  - Texture Bandwidth Bottleneck
+**데이터 처리 모델**  
+* 데이터를 받는 방식을 뜻한다. 
+
+**동기 처리 모델**
+* 데이터 요청과 결과가 함께 일어난다
+* 이 일련의 과정이 일어나는 동안 다른 작업은 수행되지 않는다
+* 설계가 간단하고 직관적이다
+* 결과가 도출될 때까지 다른 작업을 수행할 수 없다 (= 블록 상태)
+
+**비동기 처리 모델**
+* 데이터 요청과 결과가 별개로 수행된다
+* 다른 작업이 동시에, 번갈아가며 수행된다
+* 작업이 수행되는 동안 다른 작업을 수행 가능하다 (= 논블록 상태)
+* 동기식보다 설계가 복잡하다   
+
   
 ---  
 출처:   
-<https://m.blog.naver.com/PostView.nhn?blogId=shakey7&logNo=221435517430&proxyReferer=https:%2F%2Fwww.google.com%2F>  
+<https://juyeop.tistory.com/22>  
