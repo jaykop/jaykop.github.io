@@ -4,6 +4,8 @@ classes: wide
 categories: 
   - blog
   - CSharp
+sidebar:
+  nav: "main"
 ---
    
 C# (*difference between C++)

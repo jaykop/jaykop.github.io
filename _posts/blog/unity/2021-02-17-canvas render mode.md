@@ -4,6 +4,8 @@ classes: wide
 categories: 
   - blog
   - unity
+sidebar:
+  nav: "main"
 ---
    
 

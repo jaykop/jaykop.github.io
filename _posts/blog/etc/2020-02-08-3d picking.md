@@ -4,6 +4,8 @@ classes: wide
 categories: 
   - blog
   - etc
+sidebar:
+  nav: "main"
 ---
    
 

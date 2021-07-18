@@ -4,6 +4,8 @@ classes: wide
 categories: 
   - blog
   - CSharp
+sidebar:
+  nav: "main"
 ---
    
 Action = no return type, only params

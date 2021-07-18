@@ -7,6 +7,8 @@ categories:
   - academic
 header:
   teaser: "assets/images/GAM150 Projects_thumbnail.png"
+sidebar:
+  nav: "main"
 ---
 
 ![Projects_thumbnail](/assets/images/GAM150 Projects_thumbnail.png)

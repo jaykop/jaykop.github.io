@@ -4,6 +4,8 @@ classes: wide
 categories: 
   - blog
   - etc
+sidebar:
+  nav: "main"
 ---
 ## 행동트리(Behavior Tree)
 * 도식화했을 때 직관적이고 쉽게 디자인할 수 있음  

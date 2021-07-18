@@ -7,6 +7,8 @@ categories:
   - academic
 header:
   teaser: "assets/images/wttf_thumbnail.png"
+sidebar:
+  nav: "main"
 ---
 
 <figure class="half">

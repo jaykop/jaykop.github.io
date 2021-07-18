@@ -7,6 +7,8 @@ categories:
   - side
 header:
   teaser: "assets/images/jengine_thumbnail.png"
+sidebar:
+  nav: "main"
 ---
 
 <figure class="half">

@@ -5,6 +5,6 @@ layout: category
 taxonomy: etc
 author_profile: true
 sidebar:
-  nav: "blog"
+  nav: "main"
 ---
 

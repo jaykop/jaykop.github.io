@@ -21,23 +21,3 @@ main:
         url: /_pages/project/side_project
   - title: "About"
     url: /_pages/about/
-project:
-  - title: Project
-    children:
-      - title: "Academic"
-        url: /_pages/project/academic
-      - title: "Side Project"
-        url: /_pages/project/side_project
-blog:
-  - title: Blog
-    children:
-      - title: "C++"
-        url: /_pages/blog/C++
-      - title: "C#"
-        url: /_pages/blog/CSharp
-      - title: "Unity"
-        url: /_pages/blog/unity
-      - title: "OS"
-        url: /_pages/blog/os
-      - title: "etc"
-        url: /_pages/blog/etc

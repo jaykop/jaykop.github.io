@@ -4,6 +4,8 @@ classes: wide
 categories: 
   - blog
   - etc
+sidebar:
+  nav: "main"
 ---
 
 ## 빌더 패턴(Builder Pattern)

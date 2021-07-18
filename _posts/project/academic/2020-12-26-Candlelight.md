@@ -7,6 +7,8 @@ categories:
   - academic
 header:
   teaser: "assets/images/Candlelight_thumbnail.png"
+sidebar:
+  nav: "main"
 ---
 
 {% include video id="30J5UbIuBP0" provider="youtube" %}

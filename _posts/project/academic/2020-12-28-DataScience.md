@@ -7,6 +7,8 @@ categories:
   - academic
 header:
   teaser: "assets/images/data_science_2.png"
+sidebar:
+  nav: "main"
 ---
 
 <figure class="half">

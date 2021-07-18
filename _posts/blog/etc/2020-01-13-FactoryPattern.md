@@ -4,6 +4,8 @@ classes: wide
 categories: 
   - blog
   - etc
+sidebar:
+  nav: "main"
 ---
 ## 탬플릿 메소드 패턴(template method pattern)
 * 소프트웨어 공학에서 동작 상의 알고리즘의 프로그램 뼈대를 정의하는 행위 디자인 패턴

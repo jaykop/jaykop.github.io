@@ -7,6 +7,8 @@ categories:
   - academic
 header:
   teaser: "assets/images/ShepherdBoy_thumbnail.png"
+sidebar:
+  nav: "main"
 ---
 
 {% include video id="JxO_-v_9M3k" provider="youtube" %}
