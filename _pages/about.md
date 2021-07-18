@@ -20,36 +20,31 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
 게임 개발을 공부하며 CS 전반에 걸친 지식을 갖고 있다고 자부합니다!
 </div> -->
   
-Education
----
+## Education
 * DigiPen Institute of Technology
     - ***BS in Computer Science in Real-Time Interactive Simulation***
 * Keimyung University
     - ***Bachelor of Engineering in Game and Mobile Contents***
 
-Technical Skills
----
+## Technical Skills
 * Languages
     - ***C++, C#***
 * Tools/API
     - ***Visual Studio, Git, OpenGL, Unity Engine***
 
-Career
----
+## Career
 * SundayToz (02/2021 ~ Current)
-    - ***Client Programmer***
+    - ***DisneyPop Client Programmer***
 <!-- * DigiPen-KMU (09/2017 ~ 06/2018) -->
 <!--     - ***Engine Programmer*** -->
 <!-- * Republic of Korea Army (10/2013 ~ 06/2015)-->
 <!--     - ***Sergeant***  -->
 
-Resume
----
+## Resume
 <!-- [Download Resume](https://jaykop.github.io/download/Resume-JuyongJeong.pdf){: .btn .btn--success}   -->
 
-Contact
----
-* **Email:** jeykop14@gmail.com  
+## Contact
+* **e-mail:** jeykop14@gmail.com  
   
 <!-- [Facebook](#https://www.facebook.com/jaykop.jy/){: .btn .btn--facebook}
 [LinkedIn](#https://www.linkedin.com/in/juyong-jeong/){: .btn .btn--linkedin}
