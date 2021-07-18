@@ -6,6 +6,7 @@ categories:
   - etc
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 ## 빌더 패턴(Builder Pattern)

@@ -6,6 +6,7 @@ categories:
   - etc
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 ## 포워드 렌더링(Forward Rendering)

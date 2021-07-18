@@ -6,6 +6,7 @@ categories:
   - etc
 sidebar:
   nav: "main"
+author_profile: true
 ---
   
 ## 메모리 클럭 

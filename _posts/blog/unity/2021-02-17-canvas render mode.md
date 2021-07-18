@@ -6,6 +6,7 @@ categories:
   - unity
 sidebar:
   nav: "main"
+author_profile: true
 ---
    
 

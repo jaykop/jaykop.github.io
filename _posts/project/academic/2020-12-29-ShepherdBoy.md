@@ -9,6 +9,7 @@ header:
   teaser: "assets/images/ShepherdBoy_thumbnail.png"
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 {% include video id="JxO_-v_9M3k" provider="youtube" %}

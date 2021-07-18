@@ -6,6 +6,7 @@ categories:
   - CSharp
 sidebar:
   nav: "main"
+author_profile: true
 ---
    
 

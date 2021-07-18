@@ -9,6 +9,7 @@ header:
   teaser: "assets/images/GAM150 Projects_thumbnail.png"
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 ![Projects_thumbnail](/assets/images/GAM150 Projects_thumbnail.png)

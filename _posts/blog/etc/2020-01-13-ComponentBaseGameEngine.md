@@ -6,6 +6,7 @@ categories:
   - etc
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 ## 왜 컴포넌트를 사용하는가?

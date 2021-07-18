@@ -9,6 +9,7 @@ header:
   teaser: "assets/images/CaptainKorea_thumbnail.png"
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 {% include video id="k2ooXgu3zLE" provider="youtube" %}

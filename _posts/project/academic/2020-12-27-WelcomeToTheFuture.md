@@ -9,6 +9,7 @@ header:
   teaser: "assets/images/wttf_thumbnail.png"
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 <figure class="half">

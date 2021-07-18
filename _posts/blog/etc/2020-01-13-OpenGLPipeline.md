@@ -6,6 +6,7 @@ categories:
   - etc
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 1. **Vertex Specification**

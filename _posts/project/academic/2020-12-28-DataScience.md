@@ -9,6 +9,7 @@ header:
   teaser: "assets/images/data_science_2.png"
 sidebar:
   nav: "main"
+author_profile: true
 ---
 
 <figure class="half">
