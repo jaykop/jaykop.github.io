@@ -21,13 +21,12 @@ author_profile: true
     <a href="/assets/images/data_science_4.png"><img src="/assets/images/data_science_4.png"></a>
 </figure>
 
----
-*09/2019 - 12/2019*  
-*Python, Panda, Numpy*  
-*Python을 이용해 데이터 사이언스 알고리즘 및 기술을 구현, 데이터 샘플을 분석*  
+## 개요
+* 09/2019 - 12/2019
+* Python, Panda, Numpy
+* Python을 이용해 데이터 사이언스 알고리즘 및 기술을 구현, 데이터 샘플을 분석
 
----
-**Description:**  
+## 프로젝트 설명
 <div style="text-align: justify" markdown="1">
 
 한 학기 동안 데이터 사이언스 수업을 진행하며 몇가지 알고리즘을 직접 구현했습니다.
@@ -35,7 +34,7 @@ Python 언어와 Numpy, Panda 라이브러리를 사용해 주어진 샘플을 �
 
 자율적으로 필요에 따라 2인 팀을 구성하여 과제를 수행한 적도 있는데, Neural Network Project가 이에 해당합니다.
 
-**구현 기능**
+## 개발 내용
  - 데이터 샘플을 Data Visualization
  - Naive Bayes 및 KNN 알고리즘 구현해 Data Classification
  - Linear Regression과 Gradient Descent로 데이터 분류 오차범위 최소화
