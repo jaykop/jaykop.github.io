@@ -1,5 +1,5 @@
 ---
-title: "ContainsKey와 TryGetValue의 차이"
+title: "ContainsKey & TryGetValue"
 classes: wide
 categories: 
   - blog
@@ -8,86 +8,58 @@ sidebar:
   nav: "main"
 author_profile: true
 ---
-   
 
-**delegate(대리자) 키워드**  
-  
-delegate는 메서드를 다른 메서드에 인수로 전달하는 데 사용된다. 형식이 일치하는 구조의 모든 메서드는 대리자에 할당할 수 있다. 메서드는 정적/인스턴스일 수 있다. 
-  
-**delegate 속성**  
-  
-* 함수 포인터와 유사하지만, 객체 지향적으로 인스턴스 및 메서드를 캡슐화한다.
-* 메서드를 매개 변수로 전달할 수 있다.
-* 콜백 메서드를 정의할 수 있다.
-  
-**delegate 가변성 사용**  
-  
-* Covariance(공변성)
-  - 메서드가 대리자에 정의된 것보다 더 많은 수의 파생된 형식을 반환하도록 허용  
-  - 기존에 정의된 반환 타입의 파생 클래스를 반환하는 것을 허용
+## TryGetValue vs. ContainsKey?
+```csharp
+// key가 있는지 체크
+public bool ContainsKey(TKey key)
+{
+  return (this.FindEntry(key) >= 0);
+}
 
-```cs
-  class Mammals {}  
-  class Dogs : Mammals {}  
-    
-  class Program  
-  {  
-      
-      //Define the delegate.
-      public delegate Mammals HandlerMethod();  
-    
-      public static Mammals MammalsHandler()  
-      {  
-          return null;  
-      }  
-    
-      public static Dogs DogsHandler()  
-      {  
-          return null;  
-      }  
-    
-      static void Test()  
-      {  
-          HandlerMethod handlerMammals = MammalsHandler;  
-    
-          // Covariance enables this assignment.  
-          HandlerMethod handlerDogs = DogsHandler;  
-      }  
+// key가 있는지 체크
+// key를 발견 시, value에 out 키워드로 값을 담음
+public bool TryGetValue(TKey key, out TValue value)
+{
+  int index = this.FindEntry(key);
+  if (index >= 0)
+  {
+    value = this.entries[index].value;
+    return true;
   }
-```  
-  
-* Contravariance(반공변성)
-  - 메서드가 대리자 형식보다 더 적은 수의 파생된 매개 변수 형식을 갖도록 허용  
-  - 부모 클래스를 매개 변수를 사용하는 메서드를 정의하고, 파생 클래스를 매개 변수로 하는 대리자를 통해 이를 처리
+  value = default(TValue);
+  return false;
+}
+```
 
-```cs  
-public delegate void KeyEventHandler(object sender, KeyEventArgs e);
+* 지정한 키가 해당 Dictionary에 있는지 여부를 확인하는 메서드
+* Boolean 반환 
+  * 있는 경우 -> true
+  * 없는 경우 -> false
+  * 값의 존재 여부를 체크한 뒤, 그 값을 받아오는 방식은 TryGetValue를 사용하는 것을 권장
 
-public delegate void MouseEventHandler(object sender, MouseEventArgs e);
+```csharp
+// Dictionary[key]
+public TValue this[TKey key] 
+{
+  get {
+      int i = FindEntry(key);
+      if (i >= 0) return entries[i].value;
+      ThrowHelper.ThrowKeyNotFoundException();
+      return default(TValue);
+  }
+  set {
+      Insert(key, value, false);
+  }
+}
+// 따라서 아래와 같은 경우는 overhead가 발생
+if (dic.ContainsKey(key))
+{
+   getValue = dic[key];
+}
+```
 
-// Event handler that accepts a parameter of the EventArgs type.  
-private void MultiHandler(object sender, System.EventArgs e)  
-{  
-    label1.Text = System.DateTime.Now.ToString();  
-}  
-  
-public Form1()  
-{  
-    InitializeComponent();  
-  
-    // You can use a method that has an EventArgs parameter,  
-    // although the event expects the KeyEventArgs parameter.  
-    this.button1.KeyDown += this.MultiHandler;  
-  
-    // You can use the same method
-    // for an event that expects the MouseEventArgs parameter.  
-    this.button1.MouseClick += this.MultiHandler;  
-  
-}  
-
-```  
-  
----  
-출처:   
-<https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/delegates/>  
-<https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/covariance-contravariance/using-variance-in-delegates>
+## 출처   
+* <https://ckhyeok.tistory.com/37>
+* <https://m.blog.naver.com/PostView.nhn?blogId=crusaderholy&logNo=100112263890&proxyReferer=https:%2F%2Fwww.google.com%2F>
+* <https://stackoverflow.com/questions/39885203/is-there-a-reason-why-one-should-use-containskey-over-trygetvalue>
