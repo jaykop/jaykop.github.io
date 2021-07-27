@@ -10,84 +10,105 @@ author_profile: true
 ---
    
 
-**delegate(대리자) 키워드**  
-  
-delegate는 메서드를 다른 메서드에 인수로 전달하는 데 사용된다. 형식이 일치하는 구조의 모든 메서드는 대리자에 할당할 수 있다. 메서드는 정적/인스턴스일 수 있다. 
-  
-**delegate 속성**  
-  
-* 함수 포인터와 유사하지만, 객체 지향적으로 인스턴스 및 메서드를 캡슐화한다.
-* 메서드를 매개 변수로 전달할 수 있다.
-* 콜백 메서드를 정의할 수 있다.
-  
-**delegate 가변성 사용**  
-  
-* Covariance(공변성)
-  - 메서드가 대리자에 정의된 것보다 더 많은 수의 파생된 형식을 반환하도록 허용  
-  - 기존에 정의된 반환 타입의 파생 클래스를 반환하는 것을 허용
-
-```cs
-  class Mammals {}  
-  class Dogs : Mammals {}  
-    
-  class Program  
-  {  
-      
-      //Define the delegate.
-      public delegate Mammals HandlerMethod();  
-    
-      public static Mammals MammalsHandler()  
-      {  
-          return null;  
-      }  
-    
-      public static Dogs DogsHandler()  
-      {  
-          return null;  
-      }  
-    
-      static void Test()  
-      {  
-          HandlerMethod handlerMammals = MammalsHandler;  
-    
-          // Covariance enables this assignment.  
-          HandlerMethod handlerDogs = DogsHandler;  
-      }  
+## in 키워드
+* in 매개변수로 전달되는 변수는 메서드로 전달되기 전 반드시 초기화
+* 인수가 참조로 전달되지만, 수정되지 않음
+* C++에서의 const Type&과 유사
+* **오버로딩 규칙**
+  ```csharp
+  class InOverloads
+  {
+      // 오버로딩 허용
+      public void SampleMethod(in int i) { }
+      public void SampleMethod(int i) { }
   }
-```  
-  
-* Contravariance(반공변성)
-  - 메서드가 대리자 형식보다 더 적은 수의 파생된 매개 변수 형식을 갖도록 허용  
-  - 부모 클래스를 매개 변수를 사용하는 메서드를 정의하고, 파생 클래스를 매개 변수로 하는 대리자를 통해 이를 처리
 
-```cs  
-public delegate void KeyEventHandler(object sender, KeyEventArgs e);
+  class CS0663_Example
+  {
+      // Compiler error CS0663: "Cannot define overloaded
+      // methods that differ only on in, ref and out".
+      public void SampleMethod(in int i) { }
+      public void SampleMethod(ref int i) { }
+  }
+  ```
 
-public delegate void MouseEventHandler(object sender, MouseEventArgs e);
+## out 키워드
+* out 매개변수로 전달되는 변수는 메서드로 전달되기 초기화할 필요 없음
+* 그러나 메서드가 반환되기 전, 반드시 값을 할당
+* **오버로딩 규칙**
+  ```csharp
+  class OutOverloadExample
+  {
+      // 오버로딩 허용
+      public void SampleMethod(int i) { }
+      public void SampleMethod(out int i) => i = 5;
+  }
 
-// Event handler that accepts a parameter of the EventArgs type.  
-private void MultiHandler(object sender, System.EventArgs e)  
-{  
-    label1.Text = System.DateTime.Now.ToString();  
-}  
-  
-public Form1()  
-{  
-    InitializeComponent();  
-  
-    // You can use a method that has an EventArgs parameter,  
-    // although the event expects the KeyEventArgs parameter.  
-    this.button1.KeyDown += this.MultiHandler;  
-  
-    // You can use the same method
-    // for an event that expects the MouseEventArgs parameter.  
-    this.button1.MouseClick += this.MultiHandler;  
-  
-}  
+  class CS0663_Example
+  {
+      // Compiler error CS0663: "Cannot define overloaded
+      // methods that differ only on ref and out".
+      public void SampleMethod(out int i) { }
+      public void SampleMethod(ref int i) { }
+  }
+  ```
 
-```  
-  
----  
-출처:   
-<https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/delegates/>  
-<https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/covariance-contravariance/using-variance-in-delegates>
+## ref 키워드  
+* 참조로 메서드에 인수 전달
+* 메서드 정의와 호출 메서드가 모두 ref 키워드를 명시적으로 사용
+  ```csharp
+  void Method(ref int refArgument)
+  {
+      refArgument = refArgument + 44;
+  }
+
+  int number = 1;
+  Method(ref number);
+  Console.WriteLine(number);
+  // Output: 45
+  ```
+* **오버로딩 규칙**
+  ```csharp
+  class RefOverloadExample
+  {
+      // 오버로딩 허용
+      public void SampleMethod(int i) { }
+      public void SampleMethod(ref int i) { }
+  }
+  ```
+
+## 테이블
+
+|키워드|읽기|쓰기|
+|:---:|:---:|:---:|
+|ref|가능|가능|
+|in|가능|불가능|
+|out|가능|필수|
+
+## params 키워드
+* 가변 개수의 인수를 사용하는 메서드 매개 변수를 지정
+* params 키워드 뒤에 매개 변수를 추가할 수 없음
+* 선언 형식은 1차원 array
+* **사용 예시**
+  ```csharp
+  public void UseParams(params int[] list) 
+  {
+    // do something withe the list...
+  }
+
+  int Main()
+  {
+    // 지정된 형식의 쉼표로 구분된 인수 목록으로 호출
+    UseParams(1,2,3,4);
+
+    // 지정된 형식의 array로 호출
+    int [] a = {1,2,3,4,5};
+    UseParams(a);
+  }
+```
+
+## 출처
+* <https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/ref>
+* <https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/in-parameter-modifier>
+* <https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/out-parameter-modifier>
+* <https://dobby-the-house-elf.tistory.com/159>
