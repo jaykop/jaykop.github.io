@@ -32,6 +32,25 @@ author_profile: true
 * 코루틴이 종료되고 다시 시작할 지점을 지정하는 키워드
 * 루프 안에서 현재 상태를 기억하고, 값을 하나씩 반환
 * 특정 상황에 따라 부하를 줄일 수 있다
+* 사용법
+
+```csharp
+yield break;
+// method를 iterator로서 사용하고 있음을 의미
+// 코루틴을 중지할 때 사용
+// == return;
+// https://riptutorial.com/csharp/example/29811/the-difference-between-break-and-yield-break
+
+yield return <expression>;
+// yield return 문을 사용하여 각 요소를 따로따로 반환할 수 있습니다.
+// http://davidgiard.com/CommentView,guid,ec46ef9d-9cae-4629-9cf9-e10c20d795ef.aspx
+yield return null;
+// 다음 프레임에 이 분기를 마무리 할 수 있도록 기다림
+
+yield return new;
+// == yield return null;
+// 새로운 코루틴을 호출할 때 사용
+```
 
 ## IEnumerator & IEnumerable
 
