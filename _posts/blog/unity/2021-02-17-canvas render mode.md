@@ -46,3 +46,4 @@ author_profile: true
 * <https://sunghojang.tistory.com/13>
 * <https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/class-Canvas.html?>
 * <https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=pxkey&logNo=221558646854>
+* <https://wergia.tistory.com/223>
