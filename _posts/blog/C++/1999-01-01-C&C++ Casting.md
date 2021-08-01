@@ -1,0 +1,79 @@
+---
+title: "C/C++ Casting"
+classes: wide
+categories: 
+  - blog
+  - C++
+sidebar:
+  nav: "main"
+author_profile: true
+---
+
+## static_cast
+* 논리 형변환
+* Built-in casting
+* 그럴 듯한 것들끼리의 캐스팅
+
+## reinterpret_cast
+* 강제 형변환
+* Pointer Casting
+
+## const_cast
+* non const -> const
+    * 그냥 const 키워드를 써라
+* const -> non const
+    * 잠재 위험이 너무 많다
+* **그냥 쓰지 말자**
+```c++
+// const_cast
+#include <iostream>
+using namespace std;
+
+void print (char * str)
+{
+  cout << str << '\n';
+}
+
+// 아래 print 함수는 정상적으로 작동한다 
+// constless object를 read만 하고, write을 하지 않기 땨문
+// constless object에 write하는 건 undefined behavior를 유발
+int main () {
+  const char * c = "sample text";
+  print ( const_cast<char *> (c) );
+  return 0;
+}
+```
+
+## dynamic_cast
+* Inheritance Casting: Base <-> Derived
+
+```c++
+Parent* parent = new Parent; // 페런트 그 자체
+Child* child = new Child; // 차일드 그 자체
+Parent* parent2 = new Child; // 페런트의 탈을 쓴 차일드
+
+Parent* downcasted = dynamic_cast<Parent*>(child);
+Child* upcasted1 = dynamic_cast<Child*>(parent2);
+
+// 캐스팅 실패 시 null 을 반환,
+// 안전한 캐스팅 가능
+Child* upcasted2 = dynamic_cast<Child*>(parent); // failed
+```
+
+## 다른 캐스팅 방법
+
+```c++
+// basically the same behavior
+int(a); // Function
+(int)a; // Operator
+```
+* **캐스팅 시도 순서**
+    1. const_cast 
+    2. static_cast 
+    3. static_cast + const_cast 
+    4. reinterpret_cast 
+    5. reinterpret_cast  + const_cast 
+
+## 출처
+* <https://en.cppreference.com/w/cpp/language/explicit_cast>
+* <http://www.cplusplus.com/doc/tutorial/typecasting/>
