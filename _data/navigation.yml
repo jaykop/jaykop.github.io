@@ -8,8 +8,8 @@ main:
         url: /_pages/blog/CSharp
       - title: "Unity"
         url: /_pages/blog/unity
-      - title: "OS"
-        url: /_pages/blog/os
+      # - title: "OS"
+      #   url: /_pages/blog/os
       - title: "etc"
         url: /_pages/blog/etc
   - title: "Project"

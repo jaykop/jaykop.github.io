@@ -21,9 +21,10 @@ author_profile: true
 * NPOT 텍스쳐는 상대적으로 POT보다 느리게 처리된다
 * 구형 GPU는 NPOT 지원하더라도 느린 경우가 많다
    * NPOT Texture를 지원하지 않는 경우도 있다
-* 사이즈가 2의 제곱수가 아닌 Texture의 장점?
-  * 저장장치에서 차지하는 Texture 용량이 작다
-  * NPOT -> POT로 변환하지 않으니 시간 절약
+
+## 사이즈가 2의 제곱수가 아닌 Texture의 장점?
+* 저장장치에서 차지하는 Texture 용량이 작다
+* NPOT -> POT로 변환하지 않으니 시간/코스트 절약
 
 ## 출처
 * <https://gamedev.stackexchange.com/questions/7927/should-i-use-textures-not-sized-to-a-power-of-2>
