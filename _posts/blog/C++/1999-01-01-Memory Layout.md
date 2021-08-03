@@ -1,5 +1,5 @@
 ---
-title: "C/C++ Memory Layout"
+title: "Memory Layout"
 classes: wide
 categories: 
   - blog
