@@ -37,6 +37,20 @@ author_profile: true
     * 다형성,  상속성이 없음
     * constructor, destructor가 없음
 
+## 컴파일러에 의해 자동 생성되는 class 생성자 및 연산자 
+* default constructor
+* default destructor
+* copy constructor
+* assignment operator
+* move constructor
+  ```c++
+  A (A&& rhs) { ... };
+  ```
+* move assignment operator
+  ```c++
+  A& operator=(A&& rhs) { ... };
+  ```
+
 ## 패러다임의 차이
 * **C**
   * 절차지향적

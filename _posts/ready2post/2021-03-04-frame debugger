@@ -2,8 +2,8 @@
 title: "Frame Debugger"
 classes: wide
 categories: 
-//  - blog
-//  - unity
+  - blog
+  - unity
 sidebar:
   nav: "main"
 author_profile: true
