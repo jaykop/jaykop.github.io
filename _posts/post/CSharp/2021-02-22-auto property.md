@@ -2,7 +2,7 @@
 title: "Auto Property"
 classes: wide
 categories: 
-  - blog
+  - post
   - CSharp
 sidebar:
   nav: "main"

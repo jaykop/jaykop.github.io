@@ -2,7 +2,7 @@
 title: "C# 개요"
 classes: wide
 categories: 
-  - blog
+  - post
   - CSharp
 sidebar:
   nav: "main"

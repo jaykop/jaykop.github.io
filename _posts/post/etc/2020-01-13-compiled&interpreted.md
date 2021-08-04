@@ -2,7 +2,7 @@
 title: "Compiled & Interpreted"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"

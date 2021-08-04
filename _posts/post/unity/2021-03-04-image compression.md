@@ -2,7 +2,7 @@
 title: "Image Compressing"
 classes: wide
 categories: 
-  - blog
+  - post
   - unity
 sidebar:
   nav: "main"

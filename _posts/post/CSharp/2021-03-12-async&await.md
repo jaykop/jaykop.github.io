@@ -2,7 +2,7 @@
 title: "async와 await 키워드"
 classes: wide
 categories: 
-  - blog
+  - post
   - CSharp
 sidebar:
   nav: "main"

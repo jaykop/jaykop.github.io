@@ -2,7 +2,7 @@
 title: "동기와 비동기의 차이"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"

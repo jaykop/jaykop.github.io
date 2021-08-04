@@ -1,8 +1,8 @@
 ---
-title:  "Blog"
+title:  "Post"
 classes: wide
 layout: category
-taxonomy: blog
+taxonomy: post
 author_profile: true
 sidebar:
   nav: "main"

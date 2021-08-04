@@ -2,7 +2,7 @@
 title: "팩토리 패턴(Factory Pattern)"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"

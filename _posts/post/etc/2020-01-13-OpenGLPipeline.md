@@ -2,7 +2,7 @@
 title: "OpenGL 파이프라인 개요"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"

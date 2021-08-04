@@ -2,7 +2,7 @@
 title: "Coroutine"
 classes: wide
 categories: 
-  - blog
+  - post
   - CSharp
 sidebar:
   nav: "main"

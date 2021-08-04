@@ -2,7 +2,7 @@
 title: "C와 C++ 차이 몇 가지"
 classes: wide
 categories: 
-  - blog
+  - post
   - C++
 sidebar:
   nav: "main"

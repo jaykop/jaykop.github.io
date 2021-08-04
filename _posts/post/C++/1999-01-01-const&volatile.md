@@ -2,7 +2,7 @@
 title: "const & volatile 키워드"
 classes: wide
 categories: 
-  - blog
+  - post
   - C++
 sidebar:
   nav: "main"

@@ -2,7 +2,7 @@
 title: "Reference와 Pointer의 차이"
 classes: wide
 categories: 
-  - blog
+  - post
   - C++
 sidebar:
   nav: "main"

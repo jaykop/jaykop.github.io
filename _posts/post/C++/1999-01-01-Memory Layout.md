@@ -2,7 +2,7 @@
 title: "Memory Layout"
 classes: wide
 categories: 
-  - blog
+  - post
   - C++
 sidebar:
   nav: "main"

@@ -2,7 +2,7 @@
 title: "행동트리(Behavior Tree)"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"

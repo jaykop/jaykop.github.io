@@ -2,7 +2,7 @@
 title: "Texture 사이즈"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 author_profile: true
 sidebar:

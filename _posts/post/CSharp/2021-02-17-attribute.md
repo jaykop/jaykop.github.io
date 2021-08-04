@@ -2,7 +2,7 @@
 title: "Reflaction & Attribute"
 classes: wide
 categories: 
-  - blog
+  - post
   - CSharp
 sidebar:
   nav: "main"

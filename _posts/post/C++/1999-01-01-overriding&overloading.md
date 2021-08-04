@@ -2,7 +2,7 @@
 title: "Overriding & Overloading"
 classes: wide
 categories: 
-  - blog
+  - post
   - C++
 sidebar:
   nav: "main"

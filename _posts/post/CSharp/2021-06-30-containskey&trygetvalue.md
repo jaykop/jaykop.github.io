@@ -2,7 +2,7 @@
 title: "ContainsKey & TryGetValue"
 classes: wide
 categories: 
-  - blog
+  - post
   - CSharp
 sidebar:
   nav: "main"

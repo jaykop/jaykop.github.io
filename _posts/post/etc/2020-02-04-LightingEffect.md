@@ -2,7 +2,7 @@
 title: "Lighting Effect"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"

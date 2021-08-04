@@ -2,7 +2,7 @@
 title: "template class 사용의 장단점"
 classes: wide
 categories: 
-  - blog
+  - post
   - C++
 sidebar:
   nav: "main"

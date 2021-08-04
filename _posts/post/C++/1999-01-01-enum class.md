@@ -2,7 +2,7 @@
 title: "enum과 enum class"
 classes: wide
 categories: 
-  - blog
+  - post
   - C++
 sidebar:
   nav: "main"

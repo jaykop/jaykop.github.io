@@ -2,7 +2,7 @@
 title: "포인터 선언"
 classes: wide
 categories: 
-  - blog
+  - post
   - C++
 sidebar:
   nav: "main"

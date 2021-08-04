@@ -2,7 +2,7 @@
 title: "컴포넌트 베이스 게임 엔진"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"

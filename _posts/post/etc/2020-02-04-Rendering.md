@@ -2,7 +2,7 @@
 title: "포워드 렌더링(Forward Rendering) & 디퍼드 렌더링(Deferred Rendering)"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"

@@ -2,7 +2,7 @@
 title: "빌더 패턴(Builder Pattern)"
 classes: wide
 categories: 
-  - blog
+  - post
   - etc
 sidebar:
   nav: "main"
