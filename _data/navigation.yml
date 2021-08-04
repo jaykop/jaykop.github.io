@@ -8,7 +8,7 @@ main:
         url: /_pages/project/academic
       - title: "Side Project"
         url: /_pages/project/side_project
-  - title: "Blog"
+  - title: "Post"
     url: /_pages/blog/
     children:
       - title: "C++"
