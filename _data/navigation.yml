@@ -1,4 +1,13 @@
 main:
+  - title: "About"
+    url: /_pages/about/
+  - title: "Project"
+    url: /_pages/project/
+    children:
+      - title: "Academic"
+        url: /_pages/project/academic
+      - title: "Side Project"
+        url: /_pages/project/side_project
   - title: "Blog"
     url: /_pages/blog/
     children:
@@ -12,12 +21,4 @@ main:
       #   url: /_pages/blog/os
       - title: "etc"
         url: /_pages/blog/etc
-  - title: "Project"
-    url: /_pages/project/
-    children:
-      - title: "Academic"
-        url: /_pages/project/academic
-      - title: "Side Project"
-        url: /_pages/project/side_project
-  - title: "About"
-    url: /_pages/about/
+
