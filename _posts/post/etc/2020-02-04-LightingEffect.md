@@ -71,7 +71,7 @@ author_profile: true
     - **θ**: face normal과 L의 사이각
   - N과 L의 사이각이 90보다 커지면 diffuse 의 값은 0
     - I_diffuse = I_d * K_d * max(N*L, 0) 과 같이 조정
-  - diffuse 값의 연산은 viewer를 고려하지 않고 연산하기 때문에 vier의 위치 및 각도로부터 독립
+  - diffuse 값의 연산은 viewer를 고려하지 않고 연산하기 때문에 viewer의 위치 및 각도로부터 독립
 
 * **Specular**
 
@@ -107,7 +107,7 @@ author_profile: true
   * 퐁 쉐이딩에서 리플렉션 벡터를 이용하는 대신 하프 벡터를 이용
     * **Half Vector = Lighting Vector + Viewer Vector**
   * 더 광범위하고 평평한 표면에 대해 연산이 표율적
-    * Face Normal과 Reflection Vector(R)를 일일이 연산할 필요 없음
+    * Reflection Vector(R)를 일일이 연산할 필요 없음
     * 광원과 viewer가 물체로부터 어느 정도 멀더라도, V와 L은 상수
   * specular 값의 왜곡을 방지
 * **Lighting Direction** = -(Lighting Vector)
