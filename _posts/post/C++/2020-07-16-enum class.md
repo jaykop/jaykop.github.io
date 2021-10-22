@@ -25,7 +25,6 @@ enum class color {none, white, red, black, yellow}
 
 // enum class는 값 호출 시 class::까지 표기
 enum class people {none, white, black, yellow}
-enum class color {none, white, red, black, yellow}
 people p = white; // 에러 
 people p = people::white; // 가능
 ```

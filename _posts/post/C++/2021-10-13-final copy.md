@@ -42,7 +42,7 @@ class D : public C
 	D();
 
   // Error!!!
-  virtual void Func(String InParam) final; 
+  virtual void Func(String InParam) override; 
 };
 
 // - A는 final로 선언되었기 때문에 상속 불가

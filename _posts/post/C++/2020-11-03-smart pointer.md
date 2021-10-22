@@ -11,8 +11,9 @@ author_profile: true
 
 ## RAII
 * **Resource Acquisition Is Initialization**
+  * **자원 관리는 초기화이다**
   * 자원 관리를 스택에 할당한 객체를 통해 수행
-  * stack unwinding을 통해 예외가 발생하더라도 stack frame을 빠져나갈 때 소멸자를 호출
+  * stack unwinding을 통해 예외가 발생하더라도 stack frame을 빠져나갈 때 소멸자를 호출하는 원리를 이용
 
 ## unique_ptr
 * 객체에 대한 유일한 소유권을 보장
@@ -33,3 +34,7 @@ std::unique_prt<A> pa(new A);
 * shared_ptr를 인자로 받아 값을 저장
   * valid한 값이 있다면 사용 가능
   * 이미 해제된 shared_ptr값이면 false값을 리턴
+
+# 출처
+* <https://modoocode.com/229>
+* <https://modoocode.com/252>
