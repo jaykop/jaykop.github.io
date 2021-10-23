@@ -15,6 +15,47 @@ author_profile: true
   * 자원 관리를 스택에 할당한 객체를 통해 수행
   * stack unwinding을 통해 예외가 발생하더라도 stack frame을 빠져나갈 때 소멸자를 호출하는 원리를 이용
 
+## 자원 관리를 못하는 순간
+
+```c++
+class A {
+  int *data;
+
+ public:
+  A() {
+    data = new int[100];
+    std::cout << "자원을 획득함!" << std::endl;
+  }
+
+  ~A() {
+    std::cout << "자원을 해제함!" << std::endl;
+    delete[] data;
+  }
+};
+
+void thrower() {
+  // 예외를 발생시킴!
+  throw 1;
+}
+
+void do_something() {
+  A *pa = new A();
+  thrower();
+
+  // 발생된 예외로 인해 delete pa 가 호출되지 않는다!
+  delete pa;
+}
+
+int main() {
+  try {
+    do_something();
+  } catch (int i) {
+    std::cout << "예외 발생!" << std::endl;
+    // 예외 처리
+  }
+}
+```
+
 ## unique_ptr
 * 객체에 대한 유일한 소유권을 보장
   * **복사 금지**
