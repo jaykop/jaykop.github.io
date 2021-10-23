@@ -30,12 +30,14 @@ class B
   private int copied_id;
 
   // A의 id를 복사
+  // A의 private 멤버 변수에 접근 가능
   void copy_id(const A& a)
   {
     copied_id = a.id;
   }
 
   // A의 id를 출력
+  // A의 private 멤버 변수에 접근 가능
   void print_id(const A& a)
   {
     printf("%d", a.id);
@@ -73,6 +75,7 @@ class B
 
   // A의 id를 출력
   // 이 함수는 a.id에 접근할 수 없음
+  // !! 컴파일 에러 !!
   void print_id(const A& a)
   {
     printf("%d", a.id);
@@ -90,7 +93,7 @@ class A
 {
     int x;
     public:
-         void setdata (int i)
+         void set_data (int i)
            {
               x=i;
            }
@@ -101,7 +104,7 @@ class B
 {
      int y;
      public:
-          void setdata (int i)
+          void set_data (int i)
             {
                y=i;
             }
@@ -121,8 +124,8 @@ int main ()
 {
   A a;
   B b;
-  a. setdata (10);
-  b. setdata (20);
+  a.set_data (10);
+  b.set_data (20);
   max (a, b);
   // max 함수는 클래스 A,B 모두에게 friend이고, 
   // max는 이 두 함수의 field에 접근 가능
@@ -145,6 +148,7 @@ int main ()
       // ...
   };
 
+  // class X 바깥의 글로벌 전역 변수
   std::ostream& operator<<(std::ostream& os, const X& x)
   {
       return os << x.a << x.b << x.c << '\n';
@@ -156,11 +160,15 @@ int main ()
   class X
   {
   public:
+      // 3. 함수에 대해 friend 키워드 선언
       friend X makeX(/* something easier */);
+
   protected:
+      // 1. class X의 생성자는 외부로부터 접근 불가
       X(/* something complex */);
   };
 
+  // 2. 이 함수를 통해서만 객체 X를 생성 가능
   X makeX(/* something easier */)
   {
       // some logic
