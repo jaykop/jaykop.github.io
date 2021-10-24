@@ -1,5 +1,5 @@
 ---
-title: "friend keyword"
+title: "friend 키워드"
 classes: wide
 categories: 
   - post
