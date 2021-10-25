@@ -29,6 +29,9 @@ MyClass ab = (a != null) ? a : b;
 int i1=1; //ok
 int i2=null; //not ok
 int? i3=1; //ok
+
+// int? 는, "boxed" 정수 값을 의미한다
+// 참조형 정수 값이므로, nullable이다
 int? i4=null; //ok
 ```
   
