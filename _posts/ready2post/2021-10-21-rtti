@@ -1,13 +1,29 @@
 ---
-title: "RTTI"
+title: "Runtime Type Information"
 classes: wide
 categories: 
   - post
-  - unity
+  - C++
 sidebar:
   nav: "main"
 author_profile: true
 ---
-  
-## 출처
-* <https://modoocode.com/254>
+
+## RTTI
+* C++ 컴파일러 내의 있는 객체의 타입 정보를 알아내는 기능
+  * 객체의 유형을 실행 시에 결정할 수 있도록 허용
+  * 메모리 상주 객체에 유형 정보 추가
+  * 실행 시 객체의 캐스팅이 유효한지 알아내기 위해, 객체의 특정 유형을 결정 가능
+* 가상 함수를 가지고 있는 클래스에 대해서 사용 가능
+  * 파생 객체들의 주소를 기초 클래스 포인터들에 대입해야하는 유일한 클래스 계층 때문
+
+## RTTI의 목적
+* 
+* typeid(type)
+  * type을 나타내는 std::type_info 객체의 참조를 리턴
+* typeid(expr)
+  * 식이 다형성을 가진 객체를 식별하는 glvalue일 경우 식을 평가한 후 식의 동적유형을 나타내는 std::type_info 객체의 참조를 리턴
+  * 만약 단항 연산자로 얻은 값이 nullptr인 경우 
+
+# 출처  
+* <https://genesis8.tistory.com/109>

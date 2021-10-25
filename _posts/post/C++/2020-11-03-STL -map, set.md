@@ -1,5 +1,5 @@
 ---
-title: "Standard Template Library"
+title: "STL - Map, Set"
 classes: wide
 categories: 
   - post
@@ -8,48 +8,6 @@ sidebar:
   nav: "main"
 author_profile: true
 ---
-
-## 벡터 vector
-* 후입선출(LIFO)
-* back이 아닌 다른 포지션에 삽입하거나 제거할 때 불리
-* 메모리 접근할 때 subscription operator를 사용하기 때문에 O(1) 소요
-* capacity가 더 필요한 경우, 기존 메모리보다 더 큰 사이즈로 할당 후 복사 실행
-  * capacity: 메모리만 할당 받고 초기화 되지 않은 용량까지 반환([]로 접근 불가능)
-  * size: 메모리를 할당 받고 초기화도 된 용량만 반환([]로 접근 가능)
-
-  ```c++
-  vector<int> a = { 1,2,3,4,5 };
-
-  // case 1
-  // c = 11
-  // s = 11
-  a.resize(11);
-
-  // case 2
-  // c = 5
-  // s = 2
-  a.resize(2);
-
-  // case 3
-  // c = 11
-  // s = 5
-  a.reserve(11);
-
-  // case 4
-  // c = 5
-  // s = 5
-  a.reserve(2);
-
-  // 이미 할당한 메모리를 반환하지 않는다
-  // reize를 통해 가용 가능한 메모리 사이즈는 조절힌다
-  int c = a.capacity();
-  int s = a.size();
-  ```
-
-## 리스트 List
-* 어느 위치로든 삽입/삭제가 가능
-* 메모리에 접근할 때 O(n)의 시간이 소요
-* fragmentation을 유발
 
 ## 맵 map & 셋 set
 * 맵은 key와 value를 동시에 저장
@@ -101,18 +59,3 @@ author_profile: true
 * **Chaining**
   * 각 슬롯이 list 구조로 되어 있음
   * 같은 key를 공유하는 value들이 한 slot 안에 list 구조로 여러 개 저장
-
-## 큐 queue & 덱 deque
-* **큐**
-  * FIFO (선입선출)
-  * iteration 불가
-* **덱**
-  * LIFO FIFO 모두 가능
-  * 그러나 중간 위치의 삽입과 삭제는 어려움
-  * iteration 가능
-* index로 값 접근이 가능
-
-## 스택 stack
-* LAST IN FIRST OUT
-* 벡터와 사실상 같으나 가독성 면에서 쓰임의 목적이 다름
-* iteration 불가
