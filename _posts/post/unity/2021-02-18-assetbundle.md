@@ -3,7 +3,7 @@ title: "AssetBundle"
 classes: wide
 categories: 
   - post
-  - Unity
+  - unity
 sidebar:
   nav: "main"
 author_profile: true

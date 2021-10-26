@@ -3,7 +3,7 @@ title: "Paralell Programming"
 classes: wide
 categories: 
   - post
-  - OS
+  - os
 sidebar:
   nav: "main"
 author_profile: true

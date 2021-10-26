@@ -16,11 +16,11 @@ main:
       - title: "C#"
         url: /_pages/post/CSharp
       - title: "Unity"
-        url: /_pages/post/Unity
+        url: /_pages/post/unity
       - title: "OS"
-        url: /_pages/post/OS
+        url: /_pages/post/os
       - title: "Network"
-        url: /_pages/post/Network
+        url: /_pages/post/network
       - title: "etc"
         url: /_pages/post/etc
 

@@ -3,7 +3,7 @@ title: "CAS Algorithm"
 classes: wide
 categories: 
   - post
-  - OS
+  - os
 sidebar:
   nav: "main"
 author_profile: true

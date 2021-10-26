@@ -3,7 +3,7 @@ title: "동기와 비동기의 차이"
 classes: wide
 categories: 
   - post
-  - Network
+  - network
 sidebar:
   nav: "main"
 author_profile: true
