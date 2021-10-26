@@ -3,7 +3,7 @@ title: "Memory Hierarchy"
 classes: wide
 categories: 
   - post
-  - os
+  - OS
 sidebar:
   nav: "main"
 author_profile: true

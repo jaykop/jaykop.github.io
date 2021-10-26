@@ -3,7 +3,7 @@ title: "Image Compressing"
 classes: wide
 categories: 
   - post
-  - unity
+  - Unity
 sidebar:
   nav: "main"
 author_profile: true

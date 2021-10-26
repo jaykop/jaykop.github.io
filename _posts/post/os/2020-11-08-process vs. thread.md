@@ -3,7 +3,7 @@ title: "Process vs. Thread"
 classes: wide
 categories: 
   - post
-  - os
+  - OS
 sidebar:
   nav: "main"
 author_profile: true
