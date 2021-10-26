@@ -3,7 +3,7 @@ title: "exception"
 classes: wide
 categories: 
   - post
-  - unity
+  - C++
 sidebar:
   nav: "main"
 author_profile: true
