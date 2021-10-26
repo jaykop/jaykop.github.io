@@ -13,6 +13,9 @@ author_profile: true
 
 ```c++
 // 1 byte
+// 이 객체의 크기가 1 byte인 이유는 
+// 이 클래스가 여러 객체로 선언되었을 때, 
+// 그 객체들 간의 주소값이 구분되도록 하기 위함
 class A{}; 
 
 // 1 byte
@@ -63,3 +66,6 @@ class B: public A
 	void function2();
 } 
 ```
+
+## 출처:
+* <https://www.geeksforgeeks.org/why-is-the-size-of-an-empty-class-not-zero-in-c/>

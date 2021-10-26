@@ -37,10 +37,86 @@ author_profile: true
     * 다형성,  상속성이 없음
     * constructor, destructor가 없음
 
+```c++
+// 클래스에서 스트럭트 파생 가능
+class Base {
+public:
+    int x;
+};
+ 
+ // 이 경우
+ // struct Derived : public Base {}
+struct Derived : Base { }; 
+ 
+int main()
+{
+  Derived d;
+  d.x = 20; // 멤버 변수에 접근 가능
+  getchar();
+  return 0;
+}
+```
+
 ## 컴파일러에 의해 자동 생성되는 class 생성자 및 연산자 
 * default constructor
 * default destructor
 * copy constructor
+  * **사용자가 직접 copy constructor를 작성하지 않으면, 컴파일러는 shallow copy를 하는 copy constructor를 생성**
+  * **인자는 항상 레퍼런스로 넘겨줘야 한다**
+    * 동일한 하나의 인자를 받는 생성자를 작성할 때, &가 없으면 컴파일 에러 발생
+    * copy constructor는 오브젝트가 값으로서 인자를 받을 때 호출된다. Copy constructor는 그 자체로 하나의 함수이다. 따라서 만약 값으로서 인자를 받게 된다면, 무한한 호출이 발생할 것이다. 이런 이유로, copy constructor는 항상 참조값으로 인자를 받아야 한다.
+
+```c++
+// ex 1)
+class Point {
+    int x;
+public:
+    Point(int x) { this->x = x; }
+    // 에러 발생
+    Point(Point p) { x = p.x;}
+    // 에러 발생
+    Point(const Point p) { x = p.x;}
+    // ok
+    Point(Point& p) { x = p.x;}
+    // ok
+    Point(const Point& p) { x = p.x;}
+    int getX() { return x; }
+};
+ 
+int main()
+{
+   Point p1(10);
+   Point p2 = p1;
+   cout << p2.getX();
+   return 0;
+}
+
+// ex 2)
+// fun()을 통해 반환된 임시 객체는
+// non-const references 인자로 받아들여질 수 없음
+// 따라서 아래 코드는 컴파일 에러를 발생
+class Test
+{
+public:
+    Test(Test& t) { }
+    Test() { }
+};
+
+Test fun()
+{
+    cout << "fun() Calledn";
+    Test t;
+    return t;
+}
+
+int main()
+{
+    Test t1;
+    Test t2 = fun();
+    return 0;
+}
+```
+
 * assignment operator
 * move constructor
   ```c++
@@ -50,6 +126,7 @@ author_profile: true
   ```c++
   A& operator=(A&& rhs) { ... };
   ```
+* **사용자가 어떤 생성자를 작성해주면, 컴파일러는 default constructor를 생성하지 않음**
 
 ## 패러다임의 차이
 * **C**
@@ -101,3 +178,5 @@ author_profile: true
 
 ## 출처
 * <https://geekhub.tistory.com/68>
+* <https://www.geeksforgeeks.org/structure-vs-class-in-cpp/>
+* <https://www.geeksforgeeks.org/copy-constructor-argument-const/>
