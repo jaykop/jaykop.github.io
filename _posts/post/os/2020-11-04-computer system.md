@@ -13,10 +13,10 @@ author_profile: true
 
 |시스템|내용|
 |:---:|:---:|
-|하드웨어|CPU, I/O,. memory 등 기본 연산 자원을 제공|
-|OS|사용자와 application에 따른 하드웨어의 사용을 제어하고 관리|
-|Application|사용자의 연산 문제를 풀기 위해 어떤 시스템 자원을 어떤 방식으로 사용할지 정의|
-|사용자| - |
+|<strong>하드웨어<strong/>|CPU, I/O,. memory 등 기본 연산 자원을 제공|
+|<strong>OS<strong/>|사용자와 application에 따른 하드웨어의 사용을 제어하고 관리|
+|<strong>Application<strong/>|사용자의 연산 문제를 풀기 위해 어떤 시스템 자원을 어떤 방식으로 사용할지 정의|
+|<strong>사용자<strong/>| - |
 
 ## 컴퓨터 시작
 1. 컴퓨터 전원 작동 혹은 reboot를 할 때 bootstrap이 작동
@@ -57,9 +57,9 @@ author_profile: true
 
   |구분|역할|
   |:---:|:---:|
-  |RAM|단기 기억|
-  |Disk|장기 기억|
-  |CPU|사고|
+  |<strong>RAM<strong/>|단기 기억|
+  |<strong>Disk<strong/>|장기 기억|
+  |<strong>CPU<strong/>|사고|
 
 ## 코어 Core
   * CPU의 각종 연산을 수행 핵심 요소 중 하나
