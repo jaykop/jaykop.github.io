@@ -3,7 +3,7 @@ title: "OpenGL 파이프라인 개요"
 classes: wide
 categories: 
   - post
-  - etc
+  - graphics
 sidebar:
   nav: "main"
 author_profile: true

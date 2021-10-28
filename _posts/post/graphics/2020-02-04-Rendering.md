@@ -3,7 +3,7 @@ title: "포워드 렌더링(Forward Rendering) & 디퍼드 렌더링(Deferred Re
 classes: wide
 categories: 
   - post
-  - etc
+  - graphics
 sidebar:
   nav: "main"
 author_profile: true

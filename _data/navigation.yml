@@ -15,6 +15,8 @@ main:
         url: /_pages/post/C++
       - title: "C#"
         url: /_pages/post/CSharp
+      - title: "Graphics"
+        url: /_pages/post/graphics
       - title: "Unity"
         url: /_pages/post/unity
       - title: "OS"

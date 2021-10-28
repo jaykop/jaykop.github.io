@@ -3,7 +3,7 @@ title: "Texture 사이즈"
 classes: wide
 categories: 
   - post
-  - etc
+  - graphics
 author_profile: true
 sidebar:
   nav: "main"
@@ -11,7 +11,6 @@ author_profile: true
 ---
 
 ## Texture 사이즈를 2의 제곱수로 세팅하는 이유
-
 * ETC와 PVRTC가 지향
   * 유니티 아틀라스를 사용하면 별도로 세팅하지 않아도 된다
 * 오늘날 대부분의 GPU는 이러한 제약으로부터 자유롭다 (NPOT)
