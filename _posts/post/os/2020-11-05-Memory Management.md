@@ -3,7 +3,7 @@ title: "Memory Management"
 classes: wide
 categories: 
   - post
-  - os
+  - OS
 sidebar:
   nav: "main"
 author_profile: true

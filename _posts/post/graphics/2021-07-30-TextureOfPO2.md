@@ -3,7 +3,7 @@ title: "Texture 사이즈"
 classes: wide
 categories: 
   - post
-  - graphics
+  - Graphics
 author_profile: true
 sidebar:
   nav: "main"

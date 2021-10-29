@@ -2,7 +2,7 @@
 title:  "Graphics"
 classes: wide
 layout: category
-taxonomy: graphics
+taxonomy: Graphics
 author_profile: true
 sidebar:
   nav: "main"

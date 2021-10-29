@@ -3,7 +3,7 @@ title: "Lighting Effect"
 classes: wide
 categories: 
   - post
-  - graphics
+  - Graphics
 sidebar:
   nav: "main"
 author_profile: true

@@ -2,7 +2,7 @@
 title:  "Network"
 classes: wide
 layout: category
-taxonomy: network
+taxonomy: Network
 author_profile: true
 sidebar:
   nav: "main"

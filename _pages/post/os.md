@@ -2,7 +2,7 @@
 title:  "Operating System"
 classes: wide
 layout: category
-taxonomy: os
+taxonomy: OS
 author_profile: true
 sidebar:
   nav: "main"

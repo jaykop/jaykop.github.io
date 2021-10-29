@@ -3,7 +3,7 @@ title: "Canvas"
 classes: wide
 categories: 
   - post
-  - unity
+  - Unity
 sidebar:
   nav: "main"
 author_profile: true
