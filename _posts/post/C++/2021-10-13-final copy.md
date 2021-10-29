@@ -12,6 +12,8 @@ author_profile: true
 ## final
 
 ```c++
+// 클래스에 final 키워드
+// 상속될 수 없음
 class A final
 {
   public:
@@ -33,7 +35,8 @@ class C
 {
 	C();
 
-  // Error!!!
+  // 함수에 final 키워드
+  // 상속될 수 없음
    void Func(String InParam) final; 
 };
 
@@ -46,7 +49,7 @@ class D : public C
 };
 
 // - A는 final로 선언되었기 때문에 상속 불가
-// - B의 Func 멤버 함수는 final로 선언되었기 때문에 C에서  overriding이 불가능
+// - C의 Func 멤버 함수는 final로 선언되었기 때문에 D에서 overriding이 불가능
 ```
 * 더 이상의 상속을 차단하는 키워드
   * 클래스, 메서드에 사용 가능
