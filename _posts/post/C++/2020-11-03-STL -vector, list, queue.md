@@ -96,7 +96,7 @@ itr + 5  // 불가능!
   * itr + 5의 주소값에 해당하는 레퍼런스는 list가 아닐 수 있음
 * fragmentation을 유발
 
-## 큐 queue & 덱 deque
+## 덱 deque & 큐 queue
 * **덱**
 
 ![post_thumbnail](/assets/images/245FC94C595B5F9B133E4E.webp)
