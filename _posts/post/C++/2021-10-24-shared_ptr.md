@@ -122,34 +122,6 @@ int main() {
   std::shared_ptr<A> pa2 = pa1->get_shared_ptr();
 }
 ```
-## 서로 참조하는 shared_ptr
-* 순환 참조하는 shared_ptr은 사용하지 않는대도 자동으로 메모리 해제 불가
-
-```c++
-class A {
-  int *data;
-  std::shared_ptr<A> other;
-
- public:
-  // ...
-  
-  void set_other(std::shared_ptr<A> o) { other = o; }
-};
-
-int main() {
-  std::shared_ptr<A> pa = std::make_shared<A>();
-  std::shared_ptr<A> pb = std::make_shared<A>();
-
-  pa->set_other(pb);
-  pb->set_other(pa);
-}
-```
-
-## weak_ptr
-* 객체를 안전하게 참조할 수 있게 해주지만, 참조 개수를 늘리지 않음
-* shared_ptr를 인자로 받아 값을 저장
-  * valid한 값이 있다면 사용 가능
-  * 이미 해제된 shared_ptr값이면 false값을 리턴
 
 # 출처  
 * <https://modoocode.com/252>
