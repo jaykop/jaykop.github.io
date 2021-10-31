@@ -18,8 +18,8 @@ author_profile: true
 ## 장기 스케줄링 Long-Term Scheduler / Job Scheduler
 
 ![post_thumbnail](/assets/images/img.png)
-* 한정된 메모리를 배분하기 위하여 프로세스를 임시로 대용량 메모리에 저장
-* 이 중 어느 프로세스를 Ready Queue로 보낼지 결정하는 작업
+* 한정된 메모리를 배분하기 위하여 프로세스는 임시로 대용량 메모리에 저장
+* **이 중 어느 프로세스를 Ready Queue로 보낼지 결정하는 작업**
   * CPU Bound Process 
     - CPU가 처리해야 하는 비중이 높은 프로세스
     - 이 프로세스 위주로 스케줄링 되면 상호작용 효율이 떨어짐
@@ -32,14 +32,14 @@ author_profile: true
 ## 단기 스케줄링 Short-Term Scheduler / CPU Scheduler
 
 ![post_thumbnail](/assets/images/img(1).png)
-* Ready Queue에 있는 프로세스 중 어떤 프로세스를 실행할지 결정
-* 실행 / 중기되는 태스크의 교체를 매 순간 수행
+* **Ready Queue에 있는 프로세스 중 어떤 프로세스를 실행할지 결정**
+* 실행 / 중지되는 태스크의 교체를 매 순간 수행
   * 최소 100ms interval
 
 ## 중기 스케줄링 Medium-Term Scheduler / Swapper
 
 ![post_thumbnail](/assets/images/img(3).png)
-* 중기/단기 이후에 고안된 스케줄러
+* 중기 / 단기 이후에 고안된 스케줄러
 * 자원 관리를 위해 CPU에서 디스크로 swapping(쫓아내는) 하는 작업 
   * 우선순위가 가장 낮거나, 일정시간 동안 활성화되지 않았던 프로세스 위주
   * 멀티프로그래밍할 개수를 줄이는 의의

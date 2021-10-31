@@ -31,7 +31,10 @@ author_profile: true
 * 메모리 자원을 이상적으로 추상화하여 물리 기억 장치의 크기보다 더 큰 메모리를 제공
 * 활성 RAM과 디스크의 비활성 메모리로 결합
 * 가상 주소와 물리 주소로 구분되며, Memory Management Unit에 의해 가상 주소에서 물리 주소로 변환
-* 페이징을 하는 방법
+* Paging(페이징)
+  * 동일한 사이즈의 메모리 청크를 추가 및 할당
+* Segmentation(세그멘테이션)
+  * 각기 다른 사이즈의 메모리 청크를 추가 및 할당
 
 ## MMU Memory Management Unit
 * CPU가 메모리에 접근하는 것을 관리하는 하드웨어
@@ -68,12 +71,6 @@ author_profile: true
 
   * 일반적인 기기 - 드라이브 인터페이스 제공
   * 특정 하드웨어 기기를 위한 드라이버
-
-## System Call
-* 컴퓨터 프로그램이 실행할 때 커널이나 OS에 서비스를 요청하는 방법
-* OS 서비스가 제공되기 위한 프로그래밍 인터페이스
-* 주로 C나 C++로 작성됨
-* 프로그램이 직접 시스템 콜을 하기보다 API를 거쳐 접근 
 
 ## 출처
 * <https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EA%B4%80%EB%A6%AC_%EC%9E%A5%EC%B9%98>

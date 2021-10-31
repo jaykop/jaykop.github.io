@@ -9,7 +9,7 @@ sidebar:
 author_profile: true
 ---
    
-## CAS Algorithm
+## CAS Algorithm (Compare and Swap)
 * lock-base 코드의 몇가지 문제점
   * lock 순서를 제대로 관리하지 않으면 데드락의 가능성
   * priority inversion - 낮은 우선 순위의 스레드가 진행되기 위해 높은 순위의 스레드 락을 요구하는 경우

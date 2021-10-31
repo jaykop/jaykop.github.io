@@ -89,6 +89,12 @@ author_profile: true
   |<strong>사용자 모드<br/>User Mode<strong/>|* 사용자 태스크는 여기서 처리<br/>* 유저 임의로 커널 모드로 스위치 불가<br/>* OS만이 할 수 있음<br/>* 커널모드에서만 처리되는 태스크가 필요하면 사용자가 시스템에 리퀘스트해야 함(System Call)<br/>|
   |<strong>커널 모드<br/>Kernel Mode<strong/>|* 시스템 작업과 같은 것들이 OS에 의해 작동<br/>* 인터럽트는 커널 모드에서 처리<br/>* 무한 루프, 자원 낭비 등을 막기 위해 OS는 커널모드 진입시 타이머를 세팅하고 시간이 0이 되면 기존 실행하던 application을 resume할지, 아니면 terminate할지 결정|
 
+## System Call
+* 컴퓨터 프로그램이 실행할 때 커널이나 OS에 서비스를 요청하는 방법
+* OS 서비스가 제공되기 위한 프로그래밍 인터페이스
+* 주로 C나 C++로 작성됨
+* 프로그램이 직접 시스템 콜을 하기보다 API를 거쳐 접근 
+
 ## 출처
 * <https://raisonde.tistory.com/entry/인터럽트Interrupt의-개념과-종류>
 * <https://kkhipp.tistory.com/155>
