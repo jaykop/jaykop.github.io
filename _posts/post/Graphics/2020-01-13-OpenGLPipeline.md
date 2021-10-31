@@ -1,5 +1,5 @@
 ---
-title: "OpenGL 파이프라인 개요"
+title: "OpenGL 파이프라인"
 classes: wide
 categories: 
   - post
