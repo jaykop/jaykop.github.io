@@ -1,5 +1,5 @@
 ---
-title: "template class 사용의 장단점"
+title: "Template"
 classes: wide
 categories: 
   - post
@@ -8,6 +8,62 @@ sidebar:
   nav: "main"
 author_profile: true
 ---
+
+## 템플릿(Template)이란
+* 함수나 클래스를 개별적으로 다시 작성하지 않아도, 여러 자료 형으로 사용할 수 있도록 하게 만들어 놓은 틀
+* 함수 템플릿(Function Template)와 클래스 템플릿(Class Template)으로 분류
+
+```c++
+// 같은 기능을 하는, 다른 타입을 인자로 받는 두 함수
+int sum(int a, int b)
+{
+    return a + b;
+}
+double sum(double a, double b)
+{
+    return a + b;
+}
+
+// 아래의 하나의 함수로 변환 가능
+// 함수 템플릿
+template <typename T>
+T sum(T a, T b)
+{
+    return a + b;
+}
+
+// 배열 Vector를 직접 만든 경우,
+// 어떤 타입이든지 받아 사용할 수 있음
+// 클래스 템플릿
+template <typename T>
+class Vector {
+  T* data;
+  int capacity;
+  // ...
+}
+```
+
+## 특수화
+
+```c++
+// 아래와 같은 클래스 템플릿이 정의
+template <typename A, typename B, typename C>
+class test {};
+
+// 일부만 특수화 하거나
+template <typename B>
+class test<int, B, double> {};
+
+// 모든 특수화가 가능
+template <>
+class test<int, int, double> {};
+
+// 위와 같은 특수화된 탬플릿에 대해 
+// 오리지널 클래스 템플릿과는 다른 별도의 처리를 수행
+```
+
+## 비형식 인자
+* 상수를 템플릿 인자로 받는 것
 
 ## 장점
 * 타입마다 중복되는 코드를 줄일 수 있음
@@ -27,3 +83,5 @@ author_profile: true
 
 ## 출처
 * <https://jjeongil.tistory.com/1033>
+* <https://blockdmask.tistory.com/43>
+* <https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ruvendix&logNo=220950843517>
