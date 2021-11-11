@@ -3,7 +3,7 @@ title: "Coroutine"
 classes: wide
 categories: 
   - post
-  - CSharp
+  - Unity
 sidebar:
   nav: "main"
 author_profile: true
@@ -21,6 +21,50 @@ author_profile: true
   - 진입하는 시점을 여러 개를 가질 수 있는 함수
   - 함수가 실행되고 return 으로 종료되는 대신, yield 키워드로 종료 지점을 기억했다가 나중에 그 지점부터 재개
   - 쓰레드가 아니라 **함수**
+
+## 사용하는 이유?
+* 어떤 동작을 매 프레임 단위로 꾸준히 실행시켜야 할 때
+  *Update에서도 가능하지만, MonoBehaviour의 Update는 매번 호출되므로 비효율적
+* 코루틴은 실행을 일시 중지하고 Unity에 제어 권한을 반환한 후 다음 프레임에서 중단했던 위치에서 계속할 수 있는 함수
+
+```csharp
+// 컬러 알파값을 조정해 점점 희미해지는 함수
+// 일정 시간 텀을 두고 업데이트 가능
+IEnumerator Fade() 
+{
+    for (float ft = 1f; ft >= 0; ft -= 0.1f) 
+    {
+        Color c = renderer.material.color;
+        c.a = ft;
+        renderer.material.color = c;
+        yield return new WaitForSeconds(.1f);
+    }
+}
+
+// 적이 지근 거리에 있는지 확인하는 함수
+// 매초 Update로 호출하기에는 overhead과 발생
+function ProximityCheck() 
+{
+    for (int i = 0; i < enemies.Length; i++)
+    {
+        if (Vector3.Distance(transform.position, enemies[i].transform.position) < dangerDistance) {
+                return true;
+        }
+    }
+    
+    return false;
+}
+
+// 아래와 같이 시간 텀을 두어 확인 가능
+IEnumerator DoCheck() 
+{
+    for(;;) 
+    {
+        ProximityCheck();
+        yield return new WaitForSeconds(.1f);
+    }
+}
+```
 
 ## 스레드와의 차이?
 
@@ -80,6 +124,11 @@ author_profile: true
     }
     ```
 
+## Invoke
+* 컨트롤의 핸들을 가진 스레드에서 사용자 코드를 대신 실행
+  * 컨트롤의 핸들이 있는 스레드가 아닌 다른 스레드에서 컨트롤의 데이터에 접근하게 될 경우, 크로스 스레드 오류가 발생
+  * 원하는 메소드(delegate) 및 인자를 컨트롤 핸들의 스레드에서 대리 실행(Invoke) 함으로써 컨트롤의 데이터에 접근 및 수정이 가능
+  
 ## 출처
 * <https://happysalmon.tistory.com/4>  
 * <https://www.slideshare.net/QooJuice/coroutine-119750550>
@@ -87,3 +136,6 @@ author_profile: true
 * <https://teraphonia.tistory.com/723>
 * <https://ansohxxn.github.io/c%20sharp/enumerate/>
 * <https://angangmoddi.tistory.com/224#:~:text=%EA%B7%B8%EB%9F%B0%EB%8D%B0%2C%20%EC%8A%A4%EB%A0%88%EB%93%9C%EC%99%80%20%EC%BD%94%EB%A3%A8%ED%8B%B4,%EB%B9%84%EB%8F%99%EA%B8%B0%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EC%9E%91%EB%8F%99%ED%95%9C%EB%8B%A4.&text=%EC%BD%94%EB%A3%A8%ED%8B%B4%EC%9D%80%20%ED%95%9C%20%EB%AA%85%EC%9D%98,%EB%90%98%EB%8A%94%20%EA%B2%83%EC%B2%98%EB%9F%BC%20%EB%B3%B4%EC%9D%B4%EA%B2%8C%20%ED%95%98%EB%8A%94%20%EA%B2%83%EC%9D%B4%EB%8B%A4.>
+* <https://docs.unity3d.com/kr/current/Manual/30_search.html?q=>
+* <https://cartiertk.tistory.com/67>
+* <https://docs.microsoft.com/ko-kr/dotnet/api/system.windows.forms.control.invoke?view=net-5.0>

@@ -75,9 +75,19 @@ public class myint
 }
 ```
 * 사실 상기 두 클래스의 기능적 차이는 없음
+* get/set에 대해 property 보다 더 제한된 aceess level을 부여하는 것은 불가능
+
+  ```csharp
+  // error!
+  private int maxTime { public get; public set; }
+
+  // ok
+  public int maxTime { get; private set; }
+  ```
+
+* property에 접근하는 데 더 많은 overhead가 발생
 * 자동 프로퍼티는 .Net 프레임워크에서 데이터 바인딩에 많이 사용
 * Reflection 사용 시 다르게 작동
-* 일반적인 get/set이 public/private/protected/static/readonly 등의 키워드에 접근할 수 있는 것과 달리, 자동 프로퍼티는 access level이 다름
 
 ## 출처
 * <https://dobby-the-house-elf.tistory.com/298>

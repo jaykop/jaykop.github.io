@@ -25,6 +25,7 @@ author_profile: true
 
   class CS0663_Example
   {
+      // 오버로딩 미허용
       // Compiler error CS0663: "Cannot define overloaded
       // methods that differ only on in, ref and out".
       public void SampleMethod(in int i) { }
@@ -46,6 +47,7 @@ author_profile: true
 
   class CS0663_Example
   {
+      // 오버로딩 미허용
       // Compiler error CS0663: "Cannot define overloaded
       // methods that differ only on ref and out".
       public void SampleMethod(out int i) { }

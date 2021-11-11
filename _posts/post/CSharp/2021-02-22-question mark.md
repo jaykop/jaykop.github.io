@@ -25,6 +25,7 @@ MyClass ab = (a != null) ? a : b;
 ## 타입 뒤의 물음표 연산자
 * 변수의 Boxing(참조 형식) 여부를 뜻함
 * 쉽게 말하자면, nullable 여부를 뜻함
+
 ```csharp
 int i1=1; //ok
 int i2=null; //not ok
