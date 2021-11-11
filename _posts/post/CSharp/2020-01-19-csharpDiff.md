@@ -21,10 +21,10 @@ author_profile: true
   - **자체적인 Memory Management**
     1. 메모리를 할당해 오브젝트를 생성, Contructor 실행(considered live)
     2. Destructor를 호출하는 방법 외에 해당 오브젝트에 접근할 수 없으면, 미사용 오브젝트로 분류(Destroy 후보군으로 분류)
-    3. 불특정 시간 이후, Destructor 실행
+    3. 일정 시간 이후, Destructor 실행
     4. Destructor가 한번 호출되면, 어떤 접근도 불가능해짐
     5. Garbage Collection에 귀속되는 후보군으로 분류
-    6. 불특정 시간 이후, 메모리로 반환
+    6. 일정 시간 이후, 메모리로 반환
 
 ## 출처
 * <https://ko.wikipedia.org/wiki/%EA%B3%B5%ED%86%B5_%EC%96%B8%EC%96%B4_%EB%9F%B0%ED%83%80%EC%9E%84>
