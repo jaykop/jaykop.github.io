@@ -80,6 +80,8 @@ author_profile: true
     - 그러나 특정한 방향으로 완전히 반사되는 빛
     - viewer의 위치에 따라 달라짐
   - 흰색의 광으로 표현
+  - R과 V의 사이각이 90보다 커지면 specular 의 값은 0
+    - diffuse가 0이되면 specular 역시 0
 
   ![post_thumbnail](/assets/images/spec_vectors.png)    
   - **I_specular = I_s * K_s * (R*L)^ns**
