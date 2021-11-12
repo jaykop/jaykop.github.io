@@ -24,7 +24,7 @@ author_profile: true
 
 ## 사용하는 이유?
 * 어떤 동작을 매 프레임 단위로 꾸준히 실행시켜야 할 때
-  *Update에서도 가능하지만, MonoBehaviour의 Update는 매번 호출되므로 비효율적
+  * Update에서도 가능하지만, MonoBehaviour의 Update는 매번 호출되므로 비효율적
 * 코루틴은 실행을 일시 중지하고 Unity에 제어 권한을 반환한 후 다음 프레임에서 중단했던 위치에서 계속할 수 있는 함수
 
 ```csharp
