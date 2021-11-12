@@ -23,7 +23,9 @@ author_profile: true
 
 ## 사이즈가 2의 제곱수가 아닌 Texture의 장점?
 * 저장장치에서 차지하는 Texture 용량이 작다
-* NPOT -> POT로 변환하지 않으니 시간/코스트 절약
+  - 하지만 GPU RAM은 낭비된다
+* NPOT -> POT로 변환하는 과정을 거치지 않으니 시간과 코스트 절약
+  - 하지만 GPU가 이용할 땐 느리다
 
 ## 출처
 * <https://gamedev.stackexchange.com/questions/7927/should-i-use-textures-not-sized-to-a-power-of-2>
