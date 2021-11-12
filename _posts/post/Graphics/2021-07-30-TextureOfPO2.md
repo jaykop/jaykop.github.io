@@ -11,8 +11,6 @@ author_profile: true
 ---
 
 ## Texture 사이즈를 2의 제곱수로 세팅하는 이유
-* ETC와 PVRTC가 지향
-  * 유니티 아틀라스를 사용하면 별도로 세팅하지 않아도 된다
 * 오늘날 대부분의 GPU는 이러한 제약으로부터 자유롭다 (NPOT)
 * RAM을 사용할 때 NPOT 이미지는 그보다 큰 사이즈의 POT로 확장된다
   * 이 과정에서 메모리는 낭비된다
@@ -27,5 +25,10 @@ author_profile: true
 * NPOT -> POT로 변환하는 과정을 거치지 않으니 시간과 코스트 절약
   - 하지만 GPU가 이용할 땐 느리다
 
+## 모바일 환경에서의 이미지 압축
+* ETC, PVRTC, ...
+* 유니티 아틀라스를 사용하면 별도로 세팅하지 않아도 된다
+
 ## 출처
 * <https://gamedev.stackexchange.com/questions/7927/should-i-use-textures-not-sized-to-a-power-of-2>
+* <https://wonsorang.tistory.com/523>
