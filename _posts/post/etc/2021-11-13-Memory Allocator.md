@@ -109,6 +109,85 @@ author_profile: true
 * **같은 크기의 다른 block을 buddy**
 * 큰 Block이 필요한 경우, buddy와 merge되어 사용
 
+## Word
+* 하드웨어 또는 프로세서에 의해 제어되는, 고정 크기의 데이터 처리 안뒤
+  * **컴퓨터가 한번에 처리할 수 있는 명령 크기**
+* 꼭 byte일 필요는 없다
+* 하드웨어는 한번에 하나의 word에 대한 작업만 수행
+* 한 Word 보다 더 큰 메모리 접근이 필요한 경우?
+  * 하나 이상의 operation을 통해 수행
+
+```c++
+// 예시
+struct Student1 
+{ 
+  int Age;      // 4 bytes 
+  char Initial_1; // 1 byte 
+  char Initial_2; // 1 byte 
+}; 
+
+Student1 * pS = new Student1[2];
+```
+
+![post_thumbnail](/assets/images/{21F2592C-5C04-47A7-9547-3CF105DAEFC9}.png)
+
+|**Instruction**|**Number of Operation**|
+|:---:|:---:|
+|**pS[0].Age**|1|
+|**pS[0].I1**|1|
+|**pS[1].Age**|2|
+
+* 위 케이스에서 pS[1].Age는 두번의 작업이 수행되어야만 접근 가능
+
+```c++
+// 다른 예시
+struct Student1 
+{ 
+  char Initial_1; // 1 byte 
+  int Age;      // 4 bytes 
+  char Initial_2; // 1 byte 
+}; 
+```
+![post_thumbnail](/assets/images/{3A2677B0-8624-4FF6-976F-77D609C1BC96}.png)
+
+|**Instruction**|**Number of Operation**|
+|:---:|:---:|
+|**pS[0].Age**|2|
+|**pS[0].I1**|1|
+|**pS[0].I2**|1|
+|**pS[1].Age**|2|
+
+## Alignment
+* 데이터를 메모리 주소에 맞게 조정하는 것
+* **Padding**
+  * 사용하지 않는 byte를 추가적으로 할당하는 것
+
+```c++
+struct Student1 
+{ 
+  int Age;      // 4 bytes 
+  char Initial_1; // 1 byte 
+  char Initial_2; // 1 byte 
+};
+
+// size of Student1 = 8
+cout << "size of Student1 = " << sizeof(Student1) << endl; 
+```
+![post_thumbnail](/assets/images/{8BC6FEFD-356D-4683-B5EC-A776678C247D}.png)
+
+```c++
+struct Student2 
+{ 
+  char Initial_1; // 1 byte 
+  int Age;      // 4 bytes 
+  char Initial_2; // 1 byte 
+};
+
+// size of Student1 = 12
+cout << "size of Student2 = " << sizeof(Student2) << endl; 
+```
+![post_thumbnail](/assets/images/{581E7E2E-2AA5-4343-9775-4462D0ED484E}.png)
 
 ## 출처
 * <https://cenenh.tistory.com/66>
+* <https://ko.wikipedia.org/wiki/%EC%9B%8C%EB%93%9C_(%EC%BB%B4%ED%93%A8%ED%8C%85)>
