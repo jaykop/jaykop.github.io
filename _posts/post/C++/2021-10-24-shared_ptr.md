@@ -123,5 +123,5 @@ int main() {
 }
 ```
 
-# 출처  
+## 출처  
 * <https://modoocode.com/252>

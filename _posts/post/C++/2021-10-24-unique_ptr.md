@@ -191,6 +191,6 @@ int main() {
 }
 ```
 
-# 출처
+## 출처
 * <https://modoocode.com/229>
 * <https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EB%88%84%EC%88%98>
