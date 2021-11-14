@@ -43,7 +43,7 @@ author_profile: true
 3. 링크
     * 각 모듈별로 생성된 오브젝트 파일을 연결
     * .a나 .exe 파일을 최종적으로 생성
-    * Linking takes separate object files or libraries and converts them to an executable or library
+    * 각 오브젝트 파일이나 라이브러리를 실행가능한 파일 또는 라이브러리로 변환하는 것
 4. 코드 생성
 5. 실행
 
