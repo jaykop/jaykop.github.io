@@ -89,7 +89,7 @@ author_profile: true
 
 ## params 키워드
 * 가변 개수의 인수를 사용하는 메서드 매개 변수를 지정
-* params 키워드 뒤에 매개 변수를 추가할 수 없음
+* params 키워드 뒤에 다른 매개 변수를 추가할 수 없음
 * 선언 형식은 1차원 array
 * **사용 예시**
   ```csharp
