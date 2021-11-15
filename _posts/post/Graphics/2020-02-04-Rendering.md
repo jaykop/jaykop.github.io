@@ -1,5 +1,5 @@
 ---
-title: "포워드 렌더링(Forward Rendering) & 디퍼드 렌더링(Deferred Rendering)"
+title: "Forward Rendering & Deferred Rendering"
 classes: wide
 categories: 
   - post
