@@ -75,7 +75,7 @@ public class myint
 }
 ```
 * 사실 상기 두 클래스의 기능적 차이는 없음
-* get/set에 대해 property 보다 더 제한된 aceess level을 부여하는 것은 불가능
+* get/set에 대해 property 보다 더 제한된 aceess level을 부여하는 것만 가능
 
   ```csharp
   // error!
