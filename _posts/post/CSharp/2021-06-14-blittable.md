@@ -1,5 +1,5 @@
 ---
-title: "Blittable & Unbittable"
+title: "Blittable & Unblittable"
 classes: wide
 categories: 
   - post
