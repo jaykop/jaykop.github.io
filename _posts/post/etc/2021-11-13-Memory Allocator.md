@@ -96,7 +96,7 @@ author_profile: true
   * 가용 가능한 block 중 가장 작은 사이즈의 block을 사용
   * 실용적이지는 않다고 함
 
-* **Sergetated Fit**
+* **Segregated Fit**
   * 여러 사이즈의 Fixed Sized Blocks, 즉 Pool을 가짐
   * 가용 가능한 최소 사이즈의 Pool을 선택
 

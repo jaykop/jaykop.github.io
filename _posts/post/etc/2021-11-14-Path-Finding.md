@@ -64,17 +64,20 @@ struct Node
 ![post_thumbnail](/assets/images/{293326BC-E385-49F7-B1E5-ED067CC24061}.png)
 * xDiff + yDiff = 9 + 3 = 12
 * 체스에서 거리를 정의할 때 이동
+
 ### Chebyshev distance
 ![post_thumbnail](/assets/images/{FDB81158-1C49-4FFC-BD56-075161EA63C5}.png)
 * max(xDiff, yDiff) = max(9, 3) = 9
 * **두 지점 사이의 벡터 값 중 가장 큰 값**
 * 체스에서 킹의 움직임을 정의할 때 이용
   * 킹은 대각선 이동도 가능하므로, 이 경우를 커버하기 위함
+
 ### Euclidean distance
 ![post_thumbnail](/assets/images/{83040582-7CEB-49E8-A44C-B8F34E173DFB}.png)
 * sqrt(xDiff2 + yDiff2) = sqrt(92 + 32) = 9.48
 * 두 지점 사이의 최단 거리를 측정
 * **Most optimal**
+
 ### Octile distance
 ![post_thumbnail](/assets/images/{1BD82934-0A8F-4A8C-A715-2061E86688BE}.png)
 * min(xDiff, yDiff) * sqrt(2) + (max(xDiff, yDiff) – min(xDiff, yDiff))
