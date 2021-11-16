@@ -23,3 +23,4 @@ author_profile: true
   - Inverter - 값의 역을 return
 * Action - Behavior tree 노드 중 리프 노드
   - 실행 결과에 따라 success, failure, running 중 하나를 리턴
+  - running인 경우에는 실행 중인 Action이 종료하지 않았다는 뜻
