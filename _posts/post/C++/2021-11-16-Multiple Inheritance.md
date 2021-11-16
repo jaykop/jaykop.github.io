@@ -92,7 +92,7 @@ int main()
 
 ![post_thumbnail](/assets/images/997279425AA73DCC0E.png)
 * 가상 상속을 하지 않는 경우
-* class D는 class A를 한번만 호출했지만, 2개의 class 메서드/변수가 불려온다
+* class D는 class A를 한번만 호출했지만, 2개의 class A가 불려온다
 * ambiguous compile error가 발생
 
 ![post_thumbnail](/assets/images/99E87B465AA73F4004.png)
