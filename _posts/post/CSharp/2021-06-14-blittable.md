@@ -9,6 +9,13 @@ sidebar:
 author_profile: true
 ---
    
+## [Managed vs. Unmanaged Code](https://jaykop.github.io/post/etc/compiled&interpreted/)
+* Unmanaged code란 컴퓨터 구조, 프로세서에 특화되어 그에 의존하는 코드
+  * C#에서는 unsafe 키워드를 이용하는 코드
+  * 프로그래머에 의해 직접 관리
+* Managed code란 .NET 프레임워크에서 구동하는 C# 코드 자체
+  * 메모리 관리, 컴파일러로부터 독립적
+
 ## Blittable vs. Non-Blittable
 * Blittable 
   - Managed / Unmanaged 양 쪽 모두에서 마샬러에 의한 처리 없이 공통된 표현을 사용
@@ -54,3 +61,4 @@ class B
 * <https://hwanine.github.io/network/Marshalling/>
 * <https://scvtwo.tistory.com/14>
 * <https://m.blog.naver.com/gmldbsdl6/80195745104>
+* <https://www.partech.nl/en/publications/2021/03/managed-and-unmanaged-code---key-differences#>
