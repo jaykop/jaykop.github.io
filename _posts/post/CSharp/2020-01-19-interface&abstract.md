@@ -25,8 +25,8 @@ author_profile: true
 
 ## 용법 예시
 
-* interface 
-  * 특정 메서드들의 조합을 고려
+### interface 
+* 특정 메서드들의 조합을 고려
 
   ```csharp
 
@@ -87,8 +87,8 @@ author_profile: true
 
   ```
 
-* abstract 
-  * 하나의 class를 전체적으로 상속해 사용해야 하는 경우
+### abstract 
+* 하나의 class를 전체적으로 상속해 사용해야 하는 경우
 
   ```csharp
 
@@ -111,5 +111,17 @@ author_profile: true
   }
   ```
 
+### abstract 다중 상속이 안되는 이유
+![post_thumbnail](/assets/images/{B943E995-082D-4B3E-B6C4-1ED8D525A763}.png)
+* **죽음의 다이아몬드**
+* 다중 상속 시 모호성이 발생
+
+```csharp
+// MyVehicle의 Ride가 어떤 Ride를 상속할 지 알수 없다
+Plane plane = new MyVehicle();
+Car car = new MyVehicle();
+```
+
 ## 출처
 * <https://holjjack.tistory.com/41>
+* <https://nomad-programmer.tistory.com/170>
