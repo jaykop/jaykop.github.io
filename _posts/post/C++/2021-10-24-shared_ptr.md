@@ -12,8 +12,8 @@ author_profile: true
 ## shared_ptr
 * 여러 개의 스마트 포인터가 하나의 객체를 같이 소유해야하는 상황
 * **control block**을 할당하여 복사를 허용
-  * 각 shared_ptr 객체에 저장되는 것이 아니라 실제 객체를 가리지는 control block을 할당
-  * 객체를 가리키는 모든 스마트 포인터 들이 소멸되어야만 객체를 파괴
+  * 각 shared_ptr 객체에 저장되는 것이 아니라 실제 객체를 가리키는 control block을 할당
+  * 객체를 가리키는 모든 스마트 포인터들이 소멸되어야만 객체를 파괴
   * **reference count**가 0이 되면 자원을 해제
 
 ```c++

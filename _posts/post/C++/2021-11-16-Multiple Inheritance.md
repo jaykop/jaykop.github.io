@@ -70,11 +70,11 @@ int main()
 
 // 가상 상속 
 // ...
-struct A : public X // X의 멤버 x를 상속 
+struct A : virtual public X // X의 멤버 x를 상속 
 { 
   int a; 
 }; 
-struct B : public X // X의 멤버 x를 상속 
+struct B : virtual public X // X의 멤버 x를 상속 
 { 
   int b; 
 }; 
