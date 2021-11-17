@@ -1,5 +1,5 @@
 ---
-title: "Vritual Function"
+title: "Virtual Function"
 classes: wide
 categories: 
   - post
