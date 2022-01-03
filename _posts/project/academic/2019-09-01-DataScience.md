@@ -22,7 +22,7 @@ author_profile: true
 </figure>
 
 ## 개요
-* 09/2019 - 12/2019
+* 2019.09 ~ 2019.12
 * Python, Panda, Numpy
 * Python을 이용해 데이터 사이언스 알고리즘 및 기술을 구현, 데이터 샘플을 분석
 

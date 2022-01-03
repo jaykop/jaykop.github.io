@@ -15,7 +15,7 @@ author_profile: true
 ![Projects_thumbnail](/assets/images/GAM150 Projects_thumbnail.png)
   
 ## 개요
-* 02/2018 - 06/2018
+* 2018.02 ~ 2018.06
 * C++, 스크래치 엔진
 * 게임 프로젝트 수업에 사용될 게임 엔진 개발
 

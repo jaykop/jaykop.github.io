@@ -15,7 +15,7 @@ author_profile: true
 {% include video id="JxO_-v_9M3k" provider="youtube" %}
 
 ## 개요
-* 09/2015 - 05/2016
+* 2015.09 ~ 2016.05
 * By RecycleBin (Team of 4 programmers)
 * C++, 스크래치 엔진
 * 플레이 자유도에 초점을 맞춘 2D 슈팅/경영 게임

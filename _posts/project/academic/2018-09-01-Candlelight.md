@@ -15,9 +15,9 @@ author_profile: true
 {% include video id="30J5UbIuBP0" provider="youtube" %}
 
 ## 개요
-* 09/2018 - 04/2019
+* 2018.09 ~ 2019.04
 * By Somnia (Team of 3 prorgrammers, 4 designers)
-* C#, 유니티 엔진
+* C#, Unity Engine
 * 무력감과 비극적인 분위기의 1인칭 호러 게임
 
 ## 게임 설명

@@ -15,7 +15,7 @@ author_profile: true
 {% include video id="k2ooXgu3zLE" provider="youtube" %}
 
 ## 개요
-* 09/2016 - 05/2017
+* 2016.09 ~ 2017.05
 * By HOW (Team of 2 programmers)
 * C++, 스크래치 엔진
 * 2D 탑다운 시점의 강력한 타격감을 제공하는 액션 잠입 게임

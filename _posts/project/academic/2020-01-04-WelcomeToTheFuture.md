@@ -26,9 +26,9 @@ author_profile: true
 {% include video id="NiU92czdzOE" provider="youtube" %}
 
 ## 개요
-* 01/2020 - 04/2020
+* 2020.01 ~ 2020.04
 * By WhitePaper (Team of 5 prorgrammers)
-* C#, 유니티 엔진 Engine
+* C#, Unity Engine
 * SF 테마의 2.5D 플랫포머 슈팅 게임
 
 ## 게임 설명

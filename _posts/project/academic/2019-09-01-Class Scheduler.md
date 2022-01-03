@@ -24,7 +24,7 @@ author_profile: true
 </div>
 
 ## 개요
-* 09/2019 - 12/2019
+* 2019.09 ~ 2019.12
 * By Webcake (Team of 3 programmers)
 * ReactJS, Postgresql
 * 브라우저 기반의 DigiPen 학생을 타켓으로 한 수강 스케줄러
