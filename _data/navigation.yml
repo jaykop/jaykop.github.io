@@ -4,6 +4,8 @@ main:
   - title: "Project"
     url: /_pages/project/
     children:
+      - title: "Career"
+        url: /_pages/project/career
       - title: "Academic"
         url: /_pages/project/academic
       - title: "Side Project"
