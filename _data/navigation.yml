@@ -25,6 +25,10 @@ main:
         url: /_pages/post/os
       - title: "Network"
         url: /_pages/post/network
+      - title: "Pattern"
+        url: /_pages/post/pattern
+      - title: "Math"
+        url: /_pages/post/math
       - title: "etc"
         url: /_pages/post/etc
 
