@@ -3,7 +3,7 @@ title: "Singleton 패턴"
 classes: wide
 categories: 
   - post
-  - etc
+  - Pattern
 author_profile: true
 sidebar:
   nav: "main"
