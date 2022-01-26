@@ -50,6 +50,7 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
 ## Resume
 [Github](#https://github.com/jaykop/){: .btn .btn--dark}
 [이력서 다운로드](https://jaykop.github.io/download/JuyongJeong_Resume.pdf){: .btn .btn--success}
+[포트폴리오 다운로드](https://jaykop.github.io/download/JuyongJeong_Portfolio.pdf){: .btn .btn--success}
 <!-- [Facebook](#https://www.facebook.com/jaykop.jy/){: .btn .btn--facebook}
 [LinkedIn](#https://www.linkedin.com/in/juyong-jeong/){: .btn .btn--linkedin} -->
 
