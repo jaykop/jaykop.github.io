@@ -4,7 +4,7 @@ excerpt: "게임 프로젝트 수업에 사용될 게임 엔진 개발"
 classes: wide
 categories: 
   - project
-  - academic
+  - career
 header:
   teaser: "assets/images/GAM150 Projects_thumbnail.png"
 sidebar:
