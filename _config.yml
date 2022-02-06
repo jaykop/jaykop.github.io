@@ -109,8 +109,8 @@ analytics:
 author:
   name             : "Juyong Jeong"
   avatar           : "assets/images/avatar.jpg"
-  bio              : "💻Game Programmer"
-  location         : "Seoungnam, South Korea"
+  bio              : "💻Game Clien Programmer"
+  location         : "Kangnam, South Korea"
   #email            : ""
   links:
     - label: "Email"
