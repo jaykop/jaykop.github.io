@@ -130,6 +130,23 @@ constexpr int b = a;
 const int i = 3;
 ```
 
+### const는 언제 runtime 상수인가?
+```c++
+// case 1
+// 다른 변수로 초기화되는 const 변수
+std::cout << "Enter your age: ";
+int age;
+std::cin >> age;
+const int usersAge { age }; // usersAge can not be changed
+
+// case 2
+// 함수의 파라미터
+void printInteger(const int myValue)
+{
+    std::cout << myValue;
+}
+```
+
 ## constexpr 함수
 * 컴파일 타임 상수인 객체를 만드는 함수를 정의
 
@@ -342,3 +359,4 @@ void show_value(T t) {
 ## 출처
 * <https://geekhub.tistory.com/68>
 * <https://modoocode.com/293>
+* <https://heroine-day.tistory.com/m/60>

@@ -176,6 +176,57 @@ int main()
   }
   ```
 
+### C언어에서의 다형성 구현
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+
+//  "C-style" virtual function
+struct B 
+{
+  // p points to the first element of array of pointers
+  // this array is the pointer to the virtual table
+  int (**p)(void*);
+};    
+
+// virtual "methods" for B
+int B_foo(struct B* p) { return 1; }
+int B_bar(struct B* p) { return 2; } 
+int (*b_a[2])(void*) = { (int (*)(void*))B_foo, (int (*)(void*))B_bar }; // global VMT
+
+void makeB (struct B* this) { this->p = b_a; } // ctor
+
+struct D  
+{
+  // p points to the first element of array of pointers
+  // this array is the pointer to the virtual table
+  int (**p)(void*);    
+};    
+
+// virtual "methods" for D
+int D_foo(struct D* p) { return 3; }
+int D_bar(struct D* p) { return 4; } 
+int (*d_a[2])(void*) = { (int (*)(void*))D_foo, (int (*)(void*))D_bar };
+void makeD (struct D* this) { this->p = d_a; } // ctor
+
+int call( void* p_obj, int i ) {
+    return ((struct B*)p_obj)->p[i]( p_obj );
+    //            1     0      2 3    4
+
+}
+
+int main() {
+    struct B* p = (struct B*)malloc( sizeof( struct B ) );
+    makeB(p);
+    printf("%i\n", call( p, 0 ) );
+    free ( p );
+
+    struct D* p2 = (struct D*)malloc( sizeof(  struct D ) );
+    makeD(p2);
+    printf("%i\n", call( p2, 1 ) );
+    free ( p2 );
+```
+
 ## 출처
 * <https://geekhub.tistory.com/68>
 * <https://www.geeksforgeeks.org/structure-vs-class-in-cpp/>
