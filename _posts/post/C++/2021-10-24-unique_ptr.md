@@ -78,7 +78,9 @@ int main() {
 * ***Resource Acquisition Is Initialization***
   * **자원 관리는 초기화이다**
   * 자원 관리를 스택에 할당한 객체를 통해 수행
-  * stack unwinding을 통해 예외가 발생하더라도, stack frame을 빠져나갈 때 소멸자를 호출하는 원리를 이용
+  * **stack unwinding**을 통해 예외가 발생하더라도, stack frame을 빠져나갈 때 소멸자를 호출하는 원리를 이용
+    * 스택의 항상성 유지를 위함
+    * 예외 발생시, 함수 내부에 catch 구문이 없다면 호출원을 거슬러 올라가여 스택을 정리
   * 일반적인 포인터가 아닌, 객체로서의 포인터를 정의
     * auto_ptr을 보완하는 새로운 스마트 포인터
 
@@ -194,3 +196,4 @@ int main() {
 ## 출처
 * <https://modoocode.com/229>
 * <https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EB%88%84%EC%88%98>
+* <https://banaba.tistory.com/42>

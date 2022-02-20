@@ -3,7 +3,7 @@ title: "팩토리 패턴(Factory Pattern)"
 classes: wide
 categories: 
   - post
-  - etc
+  - pattern
 sidebar:
   nav: "main"
 author_profile: true

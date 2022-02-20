@@ -3,7 +3,7 @@ title: "빌더 패턴(Builder Pattern)"
 classes: wide
 categories: 
   - post
-  - etc
+  - pattern
 sidebar:
   nav: "main"
 author_profile: true

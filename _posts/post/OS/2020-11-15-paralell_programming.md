@@ -48,9 +48,9 @@ favored = A
 
 // Thread A
 while ( 1 ) do {
-  threadAwantsin = 1
-  // 양 쓰레드에서 동시 진입하더라도,
-  while ( threadBwantsin == 1 ) do {
+    threadAwantsin = 1
+    // 양 쓰레드에서 동시 진입하더라도,
+    while ( threadBwantsin == 1 ) do {}
     if ( favored == B ) do {
       // 상대방이 진입하도록 토글을 바꾼다
       threadAwantsin = 0
@@ -69,9 +69,9 @@ while ( 1 ) do {
 
 // Thread B
 while ( 1 ) do {
-  threadBwantsin = 1
-  // 양 쓰레드에서 동시 진입하더라도,
-  while ( threadBwantsin == 1 ) do {
+    threadBwantsin = 1
+    // 양 쓰레드에서 동시 진입하더라도,
+    while ( threadBwantsin == 1 ) do {}
     if ( favored == A ) do {
       // 상대방이 진입하도록 토글을 바꾼다
       threadBwantsin = 0
