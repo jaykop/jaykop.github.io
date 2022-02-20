@@ -20,8 +20,8 @@ author_profile: true
 * 관찰자 패턴을 통해 조건을 만족하는지 여부를 알림을 통해 알 수 있다
 
 ```c++
-// 유저의 다리에서 떨어지기 업적을 체크하는 코드
-void Physics::updateEntiry(Entity& entity)
+// 어떤 게임 오브젝트의 상태를 업데이트 하는 Physcis 클래스의 함수
+void Physics::updateEntity(Entity& entity)
 {
   bool wasOnSurface = entity.isOnSurface();
   
@@ -29,6 +29,7 @@ void Physics::updateEntiry(Entity& entity)
   entity.accelerate(GRAVITY);
   entity.update();
 
+  // 유저의 다리에서 떨어지기 업적을 체크하는 코드
   // 리시버가 있든 없든 계속 알림을 보낸다
   if (wasOnSurface&& !entity.isOnSurface())
   {
@@ -39,6 +40,10 @@ void Physics::updateEntiry(Entity& entity)
 }
 ```
 
+* 위의 방법으로 물리엔진의 작동 코드 자체는 건드리지 않는다
+* entity를 업데이트하면서 observer가 subject의 status를 업데이트 하도록 요청한다
+  * 어떤 observer가 이를 수행할지는 Physics도 entity도 모른다
+
 ## 작동 원리
 ### 관찰자
 
@@ -47,7 +52,7 @@ class Observer
 {
   public: 
     virtual ~Observer() {};
-    virtual void onNotify(const Entiry& entity, Event event) = 0;
+    virtual void onNotify(const Entity& entity, Event event) = 0;
 }
 ```
 * 어떤 클래스든 Observer가 되면 관찰자가 된다
@@ -56,11 +61,13 @@ class Observer
 class Achievements : public Observer
 {
   public:
-    virtual void onNotify(const Entitry& entity,  Event event)
+    virtual void onNotify(const Entity& entity,  Event event)
     {
       switch (event)
       {
         case EVENT_ENTITY_FALL:
+          // 해당 객체가 플레이어인지,
+          // 플레이어가 다리위에 있는 것인지...
           if (entity.isHero() && heroIsOnBridge_)
           {
             unlock(ACHIEVEMENT_FELL_OFF_BRIDGE);
@@ -84,7 +91,7 @@ class Achievements : public Observer
 * 관찰당하는 객체가 알림 메서드를 호출
   * 알림을 기다리는 관찰자 목록을 보유
     * 하나의 관찰자에만 반응하게 된다면 복수의 시스템과 동시에 상호작용할 수 없다
-    * 후에 알림을 넣은 관찰자가 먼저 알림을 넣은 관찰자를 방새할 수도 있다
+    * 후에 알림을 넣은 관찰자가 먼저 알림을 넣은 관찰자를 방해할 수도 있다
     * 관찰자는 다른 관찰자를 신경쓰지 않는다
 
 ```c++
@@ -134,8 +141,8 @@ class Physics : public Subject
 
 ## 문제점과 해결방안
 ### 속도
-* 관찰자 패턴을 사용하는 시스템이 Queuing이나 동적할당을 하기 때문일 수 있다
-  * 성능에 민감하지 않다면 동적 디스패치를 사용해도 된다
+* 관찰자 패턴을 사용하는 시스템이 Queuing이나 동적할당을 하기 때문에 실제로 느릴 수 있다
+  * 성능에 민감하지 않다면 [동적 디스패치](https://jaykop.github.io/post/pattern/Observer-Pattern/#%EB%8F%99%EC%A0%81-%ED%95%A0%EB%8B%B9)를 사용해도 된다
 * 정적 호출보다 느리지만 가상함수를 통해 필요한 알림을 보내면 된다
 
 ### 동기

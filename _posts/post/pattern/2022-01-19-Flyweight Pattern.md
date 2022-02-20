@@ -52,7 +52,7 @@ class Tree
 ## 경량 패턴
 * 어떤 객체의 수가 너무 많아 이를 가볍게 만들고 싶을 때 사용
 * 공유 데이터를 **고유 상태 intrinsic state**나 **자유문맥 context-free**라 한다
-* 나머지 데이터를 인스턴브 별로 값이 다른 **외부 상태 extrinsic state**라 한다
+* 나머지 데이터를 인스턴스 별로 값이 다른 **외부 상태 extrinsic state**라 한다
 
 ### 두번째 예제
 * 그리드 기반의 World와 이를 구성하는 Terrain을 만들고자 한다

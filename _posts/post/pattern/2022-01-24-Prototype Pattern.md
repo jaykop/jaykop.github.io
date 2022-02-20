@@ -77,7 +77,7 @@ class Spawner
   Spawner(Monster* prototype) : prototype_(prototype) {}
   Monster* spawnerMonster() 
   {
-    return prototype_->clonse();
+    return prototype_->clone();
   }
 
   private:
@@ -143,8 +143,9 @@ Spawner* ghostSpawner = new SpawnerFor<Ghost>();
 ```
 * 탬플릿 구조를 이용해 타입 T를 생성하는 스포너는 위와 같이 디자인할 수 있다
 * **Spawner 클래스를 상위로 따로 두는 이유**
-  1. 스포너 클래스가 생성하는 몬스터 종류에 상관없이 Monster 포인터만으로 작업하는 코드에서 쓸 수 있기 때문
+  1. 생성하는 몬스터 종류에 상관없이 Monster 포인터만으로 작업하는 코드를 Spawner 클래스에서 쓸 수 있기 때문
   2. 상위 클래스인 Spawner가 없다면 몬스터를 스폰하는 코드에서 매번 탬플릿 매개변수를 추가해야 한다
+  => 무슨 말이지...?
 
 ### 일급자료형
 * C++가 아닌 자바스크립트, 파이썬, 루비 등 클래스가 전달 가능한 일급 자료형인 동적 자료형 언어에서는 이보다 더 간단하게 작업할 수 있다고 한다

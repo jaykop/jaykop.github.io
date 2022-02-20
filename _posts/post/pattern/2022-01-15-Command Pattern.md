@@ -17,6 +17,7 @@ author_profile: true
 ### 예시
 
 ```c++
+// 게임 입력 버튼을 세팅
 void InputHandler：：handlelnput() 
 {
   if (isPressed(BUTTON_X)) jump()；
@@ -105,7 +106,11 @@ Command* InputHandler::handlelnput() {
   return nullptr;
 }
 // 이외 업데이트 함수에서
+// X, Y, A, B 중 하나의 버튼을 누르면 command가 할당될 것이고,
+// 아니라면 계속 nullptr이 할당될 것이다.
 Command* command = inputHandler.handlelnput();
+
+// 할당된 command가 valid하다면, 액터를 받아 실행
 if (command) command->execute(actor);
 ```
 * 위의 코드에서 게임 내 모든 액터를 제어할 수 있다
