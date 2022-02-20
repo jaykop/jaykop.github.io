@@ -9,6 +9,11 @@ sidebar:
 author_profile: true
 ---
 
+## Binary Search
+* 이미 정렬되어 있는 데이터를 대상으로 탐색
+* 중간 값인 pivot을 기준으로 left와 right으로 나누어 탐색
+  * 값을 찾을 때까지 위의 과정을 반복
+
 ## AVL Tree
 * 왼쪽 서브 트리와 오른쪽 서브 트리의 균형 인수가 -1 <= h <= 1 인 트리
   * **균형 인수(BF/Balance Factor)**: 왼쪽 서브 트리의 높이에서 오른쪽 서브 트리의 높이를 뺀 값
