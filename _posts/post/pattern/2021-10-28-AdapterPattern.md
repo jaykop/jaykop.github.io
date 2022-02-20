@@ -3,7 +3,7 @@ title: "Adapter 패턴"
 classes: wide
 categories: 
   - post
-  - pattern
+  - Pattern
 author_profile: true
 sidebar:
   nav: "main"
