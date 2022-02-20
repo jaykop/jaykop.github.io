@@ -8,22 +8,20 @@ sidebar:
   nav: "main"
 author_profile: true
 ---
-   
-## 코루틴(Coroutine) 이란?
 
-* 서브루틴(Subroutine)
-   - C언어 등에서 일반적으로 사용하는 함수
-   - 시작할 때 진입하는 지점이 하나 존재하고, 종료되는 지점을 설정할 수 있다.
-   - 서브루틴은 시작점과 종료점이 1개인 코루틴에 포함
+### 서브루틴(Subroutine)
+- C언어 등에서 일반적으로 사용하는 함수
+- 시작할 때 진입하는 지점이 하나 존재하고, 종료되는 지점을 설정할 수 있다.
+- 서브루틴은 시작점과 종료점이 1개인 코루틴에 포함
 
-* 코루틴
-  - 서브루틴의 일반화 버전
-  - 진입하는 시점을 여러 개를 가질 수 있는 함수
-  - 함수가 실행되고 return 으로 종료되는 대신, yield 키워드로 종료 지점을 기억했다가 나중에 그 지점부터 재개
-  - 쓰레드가 아니라 **함수**
+### 코루틴
+- 서브루틴의 일반화 버전
+- 진입하는 시점을 여러 개를 가질 수 있는 함수
+- 함수가 실행되고 return 으로 종료되는 대신, yield 키워드로 종료 지점을 기억했다가 나중에 그 지점부터 재개
+- 쓰레드가 아니라 **함수**
 
-## 사용하는 이유?
-* 어떤 동작을 매 프레임 단위로 꾸준히 실행시켜야 할 때
+### 사용하는 이유?
+* **어떤 동작을 매 프레임 단위로 꾸준히 실행시켜야 할 때**
   * Update에서도 가능하지만, MonoBehaviour의 Update는 매번 호출되므로 비효율적
 * 코루틴은 실행을 일시 중지하고 Unity에 제어 권한을 반환한 후 다음 프레임에서 중단했던 위치에서 계속할 수 있는 함수
 
@@ -58,15 +56,12 @@ function ProximityCheck()
 // 아래와 같이 시간 텀을 두어 확인 가능
 IEnumerator DoCheck() 
 {
-    for(;;) 
-    {
-        ProximityCheck();
-        yield return new WaitForSeconds(.1f);
-    }
+    ProximityCheck();
+    yield return new WaitForSeconds(.1f);
 }
 ```
 
-## 스레드와의 차이?
+### 스레드와의 차이?
 
 ![post_thumbnail](/assets/images/코루틴.png)
 
@@ -76,55 +71,55 @@ IEnumerator DoCheck()
 * 코루틴은 유저가 스케줄링
 * 코루틴은 실제로 병렬 처리를 하는 것은 아니지만 스레드보다 가볍기 때문에 성능 면에서는 더 좋다
 
-## yield
+### yield
 * 코루틴이 종료되고 다시 시작할 지점을 지정하는 키워드
 * 루프 안에서 현재 상태를 기억하고, 값을 하나씩 반환
 * 특정 상황에 따라 부하를 줄일 수 있다
 
-  ```csharp
-  yield break;
-  // method를 iterator로서 사용하고 있음을 의미
-  // 코루틴을 중지할 때 사용
-  // == return;
-  // https://riptutorial.com/csharp/example/29811/the-difference-between-break-and-yield-break
+```csharp
+yield break;
+// method를 iterator로서 사용하고 있음을 의미
+// 코루틴을 중지할 때 사용
+// == return;
+// https://riptutorial.com/csharp/example/29811/the-difference-between-break-and-yield-break
 
-  yield return <expression>;
-  // yield return 문을 사용하여 각 요소를 따로따로 반환할 수 있습니다.
-  // http://davidgiard.com/CommentView,guid,ec46ef9d-9cae-4629-9cf9-e10c20d795ef.aspx
-  yield return null;
-  // 다음 프레임에 이 분기를 마무리 할 수 있도록 기다림
+yield return <expression>;
+// yield return 문을 사용하여 각 요소를 따로따로 반환할 수 있습니다.
+// http://davidgiard.com/CommentView,guid,ec46ef9d-9cae-4629-9cf9-e10c20d795ef.aspx
+yield return null;
+// 다음 프레임에 이 분기를 마무리 할 수 있도록 기다림
 
-  yield return new;
-  // == yield return null;
-  // 새로운 코루틴을 호출할 때 사용
-  ```
+yield return new;
+// == yield return null;
+// 새로운 코루틴을 호출할 때 사용
+```
 
 ## IEnumerator & IEnumerable
 
-* **IEnumerator**
-  - C#에서 컬렉션을 반복하기 위한 인터페이스
-  - yield 문을 만날 때까지 코루틴 내부에 있는 코드를 실행
+### IEnumerator
+- C#에서 컬렉션을 반복하기 위한 인터페이스
+- yield 문을 만날 때까지 코루틴 내부에 있는 코드를 실행
 
-    ```csharp
-    public interface IEnumerator
-    {
-        object Current { get; }
-        bool MoveNext();
-        void Reset();
-    }
-    ```
-* **IEnumerable**
-  - IEnumerator GetEnumerator() 함수를 구현하도록 요구하는 인터페이스
-  - foreach 키워드를 사용하기 위해서는 IEnumerable 인터페이스에서 상속되어야 함
+```csharp
+public interface IEnumerator
+{
+    object Current { get; }
+    bool MoveNext();
+    void Reset();
+}
+```
+### IEnumerable
+- IEnumerator GetEnumerator() 함수를 구현하도록 요구하는 인터페이스
+- foreach 키워드를 사용하기 위해서는 IEnumerable 인터페이스에서 상속되어야 함
 
-    ```csharp
-    public interface IEnumerable
-    {
-        IEnumerator GetEnumerator();
-    }
-    ```
+```csharp
+public interface IEnumerable
+{
+    IEnumerator GetEnumerator();
+}
+```
 
-## Invoke
+### Invoke
 * 컨트롤의 핸들을 가진 스레드에서 사용자 코드를 대신 실행
   * 컨트롤의 핸들이 있는 스레드가 아닌 다른 스레드에서 컨트롤의 데이터에 접근하게 될 경우, 크로스 스레드 오류가 발생
   * 원하는 메소드(delegate) 및 인자를 컨트롤 핸들의 스레드에서 대리 실행(Invoke) 함으로써 컨트롤의 데이터에 접근 및 수정이 가능
