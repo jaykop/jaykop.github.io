@@ -14,13 +14,24 @@ author_profile: true
 * 행동 패턴을 계획한 대로 시행하는 모델(model of plan execution)  
 
 ## 노드의 종류
-* Control Flow - 여러 개의 노드를 가지고 있는 컨테이너
-  - Selector - 노드 중 하나만 참이어도 return true
-  - Sequence - 모든 노드가 참이어야 return true
-* Decorator (condition) - 액션 노드들을 꾸며주는 노드
-  - Repeater - 해당 노드의 실행을 반복
-  - Succeeder - 항상 return true
-  - Inverter - 값의 역을 return
-* Action - Behavior tree 노드 중 리프 노드
-  - 실행 결과에 따라 success, failure, running 중 하나를 리턴
+
+### ㅍControl Flow 
+- 여러 개의 노드를 가지고 있는 컨테이너
+- Selector 
+  - 노드 중 하나만 참이어도 return true
+- Sequence 
+  - 모든 노드가 참이어야 return true
+
+### Decorator (condition)
+- 액션 노드들을 꾸며주는 노드
+- Repeater
+   - 해당 노드의 실행을 반복
+- Succeeder
+   - 항상 return true
+- Inverter
+   - 값의 역을 return
+
+### Action 
+- Behavior tree 노드 중 리프 노드
+- 실행 결과에 따라 success, failure, running 중 하나를 결과로 리턴
   - running인 경우에는 실행 중인 Action이 종료하지 않았다는 뜻
