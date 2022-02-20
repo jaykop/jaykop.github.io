@@ -11,14 +11,17 @@ author_profile: true
 
 ## 빌더 패턴(Builder Pattern)
 * 빌더 패턴은 객체 생성을 보다 유연하게 하기 위한 방법 중 하나
-* 복잡한 object의 생성을 별도로 실행한 뒤 조합
+* 복잡한 기존 생성자를 별도로 실행한 뒤 조합
   - Builder 클래스를 이용해 각 파츠를 생성 후 조합
   - 클래스는 Builder에 객체에 object 생성을 맡기고, 직접 수행하지 않음
-* **장점**
+* 한번에 모든 생성 데이터를 가질 수 없어 순차적으로 정보 수집 후 마지막에 생성자 호출을 할때 사용
+
+### 장점
   - 하나의 클래스를 내부적으로 다양하게 디자인 가능
   - 생성 코드 캡슐화
   - 객체 생성 과정을 제어 가능
-* **단점**
+  
+### 단점
   - 각 파츠마다 ConcreteBuilder를 디자인해야 함
   - 구조적으로 복잡한 dependency가 될 수 있음
 
@@ -97,13 +100,6 @@ public class Client
     }
 }
 ```
-
-## 첨언
-* Component based game engine을 디자인할 때 사용해 봄
-* 각 기본 Component와 ComponentBuilder를 만들고, Derived된 ConcreteComponent와 ConcreteBuilder를 디자인
-* Director의 역할은 GameObject가 맡았음
-* 실제로 Component 캡슐화와 Component Instance 생성을 제어하는 데 용이했음
-* 새 Component를 추가할 때마다 ConcreteBuilder를 추가해줘야했으며, 객체 생성을 제어하기 위해 friend keyword와 생성자 private을 걸어놓고 디자인해야 했음 
 
 ## 출처
 * <https://en.wikipedia.org/wiki/Builder_pattern>

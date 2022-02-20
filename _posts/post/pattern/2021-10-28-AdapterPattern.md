@@ -36,11 +36,15 @@ void Display(Object* obj, TextBox* tb)
 * 위의 방법은 obj를 사용하는 부분에 일일이 수정을 해야 함
 * 그래서 아래와 같이 수정
 
+### Object Patern
+
 ```c++
 // 기존의 라이브러리
 class Object { 
   public:
-    virtual void Draw() = 0;}
+    virtual void Draw() = 0;
+  }
+
 class Circle : public Object {
   public:
   void Draw() override { /*Draw Circle*/ }
@@ -52,9 +56,7 @@ class TextBox {
     void ViewText() {/*텍스트 상자 생성*/}
 }
 
-// 그래서 새로 만든 클래스 TextObject
-// 1. Object Patern
-// 새로운 클래스를 만들고, 거기서 필요한 객체를 생성해 사용
+// 새로 만든 클래스 TextObject
 class TextObject : public Object
 {
     // TextBox를 객체로 받아서 사용
@@ -63,9 +65,12 @@ class TextObject : public Object
     TextObject() {pObj = new TextBox;}
     void Draw() { pObj->ViewText(); }
 }
+```
+* 새로운 클래스를 만들고, 거기서 필요한 객체를 생성해 사용
 
-// 2. Class Pattern
-// 새로운 클래스를 만들고, 거기에 상속을 받아 사용
+### Class Pattern
+
+```c++
 class TextObject : public Object, private TextBox
 {
   public:
@@ -79,6 +84,7 @@ void Display(Object* obj)
   if (obj) obj->Draw();
 }
 ```
+* 새로운 클래스를 만들고, 거기에 상속을 받아 사용
 
 ## 출처
 * <https://1d1cblog.tistory.com/397>
