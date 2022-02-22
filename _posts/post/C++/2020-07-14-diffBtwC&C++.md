@@ -112,7 +112,7 @@ int main()
 {
     Test t1;
 
-    // 1. fun()을 통해 반환된 임시 객체는 값으로서 전달된다
+    // 1. fun()을 통해 반환된 임시 객체는 값으로서 전달된다 // 고유 주소가 없다
     // 2. 이 값을 copy constrcutro를 사용해 t2로 전달한다
     // 3. 이 임시 객체는 non-const references 인자로 받아들여질 수 없음
     // 4. 따라서 아래 코드는 컴파일 에러를 발생
@@ -123,6 +123,7 @@ int main()
 // 위의 코드를 작동하도록 바꾸는 방법은 2가지이다
 // sol 1
 // copy constructor 앞에 const 인자를 추가하는 것
+// 임시 객체의 값을 변환할 수 없게 됨
 Test(const Test &t) { cout << "Copy Constructor Called\n"; }
 
 // sol 2
@@ -244,3 +245,4 @@ int main() {
 * <https://geekhub.tistory.com/68>
 * <https://www.geeksforgeeks.org/structure-vs-class-in-cpp/>
 * <https://www.geeksforgeeks.org/copy-constructor-argument-const/>
+* <https://stackoverflow.com/questions/2627166/difference-between-const-reference-and-normal-parameter>
