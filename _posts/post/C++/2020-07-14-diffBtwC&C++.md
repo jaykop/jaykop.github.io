@@ -65,6 +65,8 @@ int main()
   * **인자는 항상 레퍼런스로 넘겨줘야 한다**
     * 동일한 하나의 인자를 받는 생성자를 작성할 때, &가 없으면 컴파일 에러 발생
     * copy constructor는 오브젝트가 값으로서 인자를 받을 때 호출된다. Copy constructor는 그 자체로 하나의 함수이다. 따라서 만약 값으로서 인자를 받게 된다면, 무한한 호출이 발생할 것이다. 이런 이유로, copy constructor는 항상 참조값으로 인자를 받아야 한다.
+  * 인자가 const여야 하는 이유?
+    * 
 
 ```c++
 // ex 1)
@@ -92,9 +94,6 @@ int main()
 }
 
 // ex 2)
-// fun()을 통해 반환된 임시 객체는
-// non-const references 인자로 받아들여질 수 없음
-// 따라서 아래 코드는 컴파일 에러를 발생
 class Test
 {
 public:
@@ -112,9 +111,24 @@ Test fun()
 int main()
 {
     Test t1;
+
+    // 1. fun()을 통해 반환된 임시 객체는 값으로서 전달된다
+    // 2. 이 값을 copy constrcutro를 사용해 t2로 전달한다
+    // 3. 이 임시 객체는 non-const references 인자로 받아들여질 수 없음
+    // 4. 따라서 아래 코드는 컴파일 에러를 발생
     Test t2 = fun();
     return 0;
 }
+
+// 위의 코드를 작동하도록 바꾸는 방법은 2가지이다
+// sol 1
+// copy constructor 앞에 const 인자를 추가하는 것
+Test(const Test &t) { cout << "Copy Constructor Called\n"; }
+
+// sol 2
+// copy constructor를 호출하지 않는 것
+Test t2;
+t2 = fun();
 ```
 
 * assignment operator
@@ -193,7 +207,6 @@ struct B
 int B_foo(struct B* p) { return 1; }
 int B_bar(struct B* p) { return 2; } 
 int (*b_a[2])(void*) = { (int (*)(void*))B_foo, (int (*)(void*))B_bar }; // global VMT
-
 void makeB (struct B* this) { this->p = b_a; } // ctor
 
 struct D  
