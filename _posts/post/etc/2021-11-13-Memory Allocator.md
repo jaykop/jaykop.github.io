@@ -31,7 +31,7 @@ author_profile: true
 * 할당 시, 사용자는 하나 이상의 메모리에 엑세스를 얻음
   * 메모리 블럭에 대한 포인터
   * 이 블럭은 사용 중으로 마킹
-* 반환 시, 유자가 메모리 매니저에게 직접 반환
+* 반환 시, 유저가 메모리 매니저에게 직접 반환
   * 이 블럭은 가용 가능한 것으로 다시 마킹
 
 ## Custom Memory Allocator의 요소
@@ -62,43 +62,41 @@ author_profile: true
 * 궁극적인 목표는 사용자가 메모리 관리로부터 해방하는 것
 * 프로그램 메모리 단계까지 접근할 수 있어야 하므로 구현은 쉽지 않음
 
-## Fragmentation 메모리 파편화
+## [Fragmentation 메모리 파편화](https://jaykop.github.io/post/os/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%90%EC%9C%A0%EC%9C%A8-%EB%B6%80%EC%A1%B1/#%EB%8B%A8%ED%8E%B8%ED%99%94-fragmentation)
 
 ![post_thumbnail](/assets/images/{401CB2B3-B191-4A45-8DDE-9C4E7215BB70}.png)
 
 * 메모리 관리에 있어 가장 큰 문제
 * 파편화로 인해 가용 가능한 메모리 범위를 벗어나는 경우가 많음
 
-* **Stack Allocator**
+### Stack Allocator
+![post_thumbnail](/assets/images/{1D1BA9C2-50B1-4E0E-8C04-CAADC9D1B445}.png)
 
-  ![post_thumbnail](/assets/images/{1D1BA9C2-50B1-4E0E-8C04-CAADC9D1B445}.png)
+* 파편화를 완전히 막음
+* 마지막으로 할당된 메모리를 가장 먼저 free
+  * 마지막에 할당된 메모리기 사용중이면...?
 
-  * 파편화를 완전히 막음
-  * 마지막으로 할당된 메모리를 가장 먼저 free
-    * 마지막 할당된 메모리를 사용중이면...?
+### Fixed Sized Blocks - Pools
+* 이 역시 파편화를 완전히 막음
+* 범용성에서 어긋남
+* 다양한 사이즈의 Pool을 이용할 수는 있음
+* 그러나 필요 이상 사이즈의 메모리가 할당되는 경우가 발생
 
-* **Fixed Sized Blocks - Pools**
-  * 이 역시 파편화를 완전히 막음
-  * 범용성에서 어긋남
-  * 다양한 사이즈의 Pool을 이용할 수는 있음
-  * 그러나 필요 이상 사이즈의 메모리가 할당되는 경우가 발생
+### First Fit
+![post_thumbnail](/assets/images/{BA5B9BEE-5ABE-4405-BB63-BD9DEE200820}.png)
+* 시작 지점부터 출발해 가용 가능한 첫 block을 찾으면 그냥 할당
 
-  ![post_thumbnail](/assets/images/{BA5B9BEE-5ABE-4405-BB63-BD9DEE200820}.png)
+### Next Fit
+* 마지막으로 사용한 block부터 탐색 시작
+* roving pointer를 사용해 pointer가 chunk의 끝에 이르면 처음으로 돌아옴
 
-* **First Fit**
-  * 시작 지점부터 출발해 가용 가능한 첫 block을 찾으면 그냥 할당
+### Best Fit
+* 가용 가능한 block 중 가장 작은 사이즈의 block을 사용
+* 실용적이지는 않다고 함
 
-* **Next Fit**
-  * 마지막으로 사용한 block부터 탐색 시작
-  * roving pointer를 사용해 pointer가 chunk의 끝에 이르면 처음으로 돌아옴
-
-* **Best Fit**
-  * 가용 가능한 block 중 가장 작은 사이즈의 block을 사용
-  * 실용적이지는 않다고 함
-
-* **Segregated Fit**
-  * 여러 사이즈의 Fixed Sized Blocks, 즉 Pool을 가짐
-  * 가용 가능한 최소 사이즈의 Pool을 선택
+### Segregated Fit
+* 여러 사이즈의 Fixed Sized Blocks, 즉 Pool을 가짐
+* 가용 가능한 최소 사이즈의 Pool을 선택
 
 ## Binary Buddy System
 

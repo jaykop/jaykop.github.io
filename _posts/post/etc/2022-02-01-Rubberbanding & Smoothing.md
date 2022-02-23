@@ -15,7 +15,7 @@ author_profile: true
     <a href="/assets/images/{66DBC664-F945-484D-A286-E4712E3162DF}.png"><img src="/assets/images/{66DBC664-F945-484D-A286-E4712E3162DF}.png"></a>
 </figure>
 
-* 그리드 기반에서 불필요한 중간 노드를 지우는 과정
+* **그리드 기반에서 불필요한 중간 노드를 지우는 과정**
 * 세 그리드 또는 지점 사이가 통과 가능한 공간인지를 확인
   * 통과 가능하면 중간 점은 리스트에서 제거
 
@@ -112,7 +112,10 @@ bool AStarPather::rubberbanding(
 ### 오류
 ![image](/assets/images/{3A358BB3-8D0C-4799-8E7C-3FA8728B062C}.png)  
 * 그리드 간 World Distance를 1로 잡았을 때, Rubberbanding 후의 각 점 사이의 거리가 1.5배 이상이면 Smoothing 시 오류가 발생한다
+
+![image](/assets/images/{B7E890C3-A051-4B3D-A264-5DF75D2950AF}.png)  
 * 이 경우 back points를 새로 삽입해준다
+  * 기존에 있던 point 들의 중간 지점을 몇 개 더 배치한다
 * 그 다음 스무싱을 해준다
 
 ## 출처
