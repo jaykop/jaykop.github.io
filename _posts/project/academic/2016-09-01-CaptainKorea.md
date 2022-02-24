@@ -12,7 +12,15 @@ sidebar:
 author_profile: true
 ---
 
-{% include video id="k2ooXgu3zLE" provider="youtube" %}
+<figure class="half">
+    <a href="/assets/images/CaptainKorea_tech_hires.png"><img src="/assets/images/CaptainKorea_tech_hires.png"></a>
+    <a href="/assets/images/CaptainKorea_3_hires.png"><img src="/assets/images/CaptainKorea_3_hires.png"></a>
+</figure>
+<figure class="half">
+    <a href="/assets/images/CaptainKorea_2_hires.png"><img src="/assets/images/CaptainKorea_2_hires.png"></a>
+    <a href="/assets/images/CaptainKorea_1_hires.png"><img src="/assets/images/CaptainKorea_1_hires.png"></a>
+</figure>
+<div style="text-align: center" markdown="1">
 
 ## 개요
 * 2016.09 ~ 2017.05
