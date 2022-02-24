@@ -13,12 +13,12 @@ author_profile: true
 ---
 
 <figure class="half">
-    <a href="/assets/images/CaptainKorea_tech_hires.png"><img src="/assets/images/CaptainKorea_tech_hires.png"></a>
-    <a href="/assets/images/CaptainKorea_3_hires.png"><img src="/assets/images/CaptainKorea_3_hires.png"></a>
+    <a href="/assets/images/CaptainKorea_tech_hires.jpg"><img src="/assets/images/CaptainKorea_tech_hires.jpg"></a>
+    <a href="/assets/images/CaptainKorea_3_hires.jpg"><img src="/assets/images/CaptainKorea_3_hires.jpg"></a>
 </figure>
 <figure class="half">
-    <a href="/assets/images/CaptainKorea_2_hires.png"><img src="/assets/images/CaptainKorea_2_hires.png"></a>
-    <a href="/assets/images/CaptainKorea_1_hires.png"><img src="/assets/images/CaptainKorea_1_hires.png"></a>
+    <a href="/assets/images/CaptainKorea_2_hires.jpg"><img src="/assets/images/CaptainKorea_2_hires.jpg"></a>
+    <a href="/assets/images/CaptainKorea_1_hires.jpg"><img src="/assets/images/CaptainKorea_1_hires.jpg"></a>
 </figure>
 <div style="text-align: center" markdown="1">
 
