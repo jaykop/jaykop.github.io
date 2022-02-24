@@ -20,15 +20,12 @@ author_profile: true
     <a href="/assets/images/CaptainKorea_2_hires.jpg"><img src="/assets/images/CaptainKorea_2_hires.jpg"></a>
     <a href="/assets/images/CaptainKorea_1_hires.jpg"><img src="/assets/images/CaptainKorea_1_hires.jpg"></a>
 </figure>
-<div style="text-align: center" markdown="1">
 
 ## 개요
 * 2016.09 ~ 2017.05
 * By HOW (Team of 2 programmers)
 * C++, 스크래치 엔진
 * 2D 탑다운 시점의 강력한 타격감을 제공하는 액션 잠입 게임
-
-<div style="text-align: justify" markdown="1">
 
 ## 게임 설명
 플레이어는 위기에 빠진 대한민국을 구하기 위해 적진에 침투해 다음 레벨로 나아가야 합니다.  
