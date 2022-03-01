@@ -70,6 +70,9 @@ author_profile: true
 * 이 포인터는 가상테이블의 시작주소를 가리키는 포인터이고, 각 클래스마다 하나의 고유 가상테이블이 생성
 * 고유의 가상테이블은 가상함수를 가리키는 함수 포인터 배열로 되어있다.
   * 가상 함수를 실행하려면 vptr-> vtable -> func() 를 호출하게 되는 것
+* VTable은 컴파일 타임에 생성된다
+  * 컴파일 타임에 정의가 가능하기 때문
+  * 특정 타입의 객체가 런타임에 생성된다면, vptr는 생성되면서 정적 vtable을 가리키고 있다
 
 ## Derived Class를 위해 Base Destructor에 virtual을 붙이는 이유
 ```c++
@@ -124,3 +127,4 @@ Base destructor
 
 ## 출처
 * <https://boycoding.tistory.com/235>
+* <https://stackoverflow.com/questions/3849498/when-is-vtable-in-c-created>
