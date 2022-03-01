@@ -122,6 +122,7 @@ Console.WriteLine( Pizza.PizzaFactory(Pizza.PizzaType.Seafood).GetPrice().ToStri
 * 팩토리 메서드는 다른 하위 클래스에 의해 overriding이 가능하다.
     * base class에서 가진 메서드를 subclass에서 정의한다
     - ***... the Factory Method pattern uses inheritance and relies on a subclass to handle the desired object instantiation.***  
+    
     ```csharp
     class A {
       public void doSomething() {
@@ -144,6 +145,7 @@ Console.WriteLine( Pizza.PizzaFactory(Pizza.PizzaType.Seafood).GetPrice().ToStri
 * 추상 팩토리는 여러 팩토리 메서드가 얽힌 하나의 객체다.
     * 여러 메서드를 가진 하나의 추상 팩토리를 선언하고, 이를 derive하는 실구현 메서드를 가진 새로운 팩토리를 디자인한다
     - ***... with the Abstract Factory pattern, a class delegates the responsibility of object instantiation to another object via composition ...***  
+
     ```csharp
     class A {
       private Factory factory;
