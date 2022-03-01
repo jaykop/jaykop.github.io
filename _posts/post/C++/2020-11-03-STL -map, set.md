@@ -35,14 +35,17 @@ author_profile: true
   * 최악의 경우에도 일정한 실행 시간을 보장
   * AVL은 레드 블랙 트리보다 더 엄격하게 균형이 잡혀 있기 때문에 더 많은 회전이 필요
 
+## Treversal
+
 ![post_thumbnail](/assets/images/tree.png)
-* **inorder traversal** 
+
+### inorder traversal
   * traverse left → visit → traverse right
   * A B C D E F G H I J K L M
-* **preorder traversal**
+### preorder traversal
   * visit → traverse left → traverse right
   * G D B A C E F K H J I M L
-* **postorder traversal**
+### postorder traversal
   * traverse left → traverse right → visit
   * A C B F E D I J H L M K G
 
@@ -103,15 +106,16 @@ for (auto itr = range.first; itr != range.second; ++itr) {
 * O(1) 검색을 지향
 * Linear Probing과 Chaining을 이용해 Collision을 resolve
 * overhead 발생 가능성
-* **Linear Probing**
+### Linear Probing (open addressing)
   * 해당 slot이 occupied면 다음 unoccupied slot에 저장 (방향은 중요하지 않음)
   * Open addressing 중에 하나
   * Chaining보다 더 적은 메모리를 사용
   * 모든 데이터가 하나의 slot안에 따로 저장됨
   * slot이 꽉차면 더 이상 저장할 수 없음
-* **Chaining**
+### Chaining
   * 각 슬롯이 list 구조로 되어 있음
   * 같은 key를 공유하는 value들이 한 slot 안에 list 구조로 여러 개 저장
+* 위의 방법은 모두 **mostly O(1)**이지만, 특별한 경우에 linear sequence를 통한 시간 소요가 발생할 수도 있다
 
-## 정렬되지 않은 맵 unordered_map vs. 정렬되지 않은 unordered_set
-* 
+## 출처
+* <https://stackoverflow.com/questions/4363539/how-does-hashing-have-an-o1-search-time>
