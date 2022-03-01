@@ -31,9 +31,9 @@ author_profile: true
 * 메모리 자원을 이상적으로 추상화하여 물리 기억 장치의 크기보다 더 큰 메모리를 제공
 * 활성 RAM과 디스크의 비활성 메모리로 결합
 * 가상 주소와 물리 주소로 구분되며, Memory Management Unit에 의해 가상 주소에서 물리 주소로 변환
-* Paging(페이징)
+* [Paging(페이징)](https://jaykop.github.io/post/os/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%90%EC%9C%A0%EC%9C%A8-%EB%B6%80%EC%A1%B1/#%ED%8E%98%EC%9D%B4%EC%A7%95)
   * 동일한 사이즈의 메모리 청크를 추가 및 할당
-* Segmentation(세그멘테이션)
+* [Segmentation(세그멘테이션)](https://jaykop.github.io/post/os/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%90%EC%9C%A0%EC%9C%A8-%EB%B6%80%EC%A1%B1/#%EC%84%B8%EA%B7%B8%EB%A9%98%ED%85%8C%EC%9D%B4%EC%85%98)
   * 각기 다른 사이즈의 메모리 청크를 추가 및 할당
 
 ## MMU Memory Management Unit
