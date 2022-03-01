@@ -10,10 +10,12 @@ author_profile: true
 ---
 
 ## 함수의 작동
-* **Stack segment(Call stack)**
+
+### Stack segment(Call stack)
   - 현재 실행 중인 서브루틴의 실행이 끝났을 때, 제어를 반환할 지점을 보관
-* **Stack Frame** 
-  - 스택에 할당/해제되는 데이터 덩어리
+
+### Stack Frame
+- 스택에 할당/해제되는 데이터 덩어리
 * 모든 활성함수를 추적, 함수 매개변수와 지역변수의 할당 처리
 * CPU Stack Pointer - 최상위 스택 프레임 pointing
 	1. 프로그램에 함수 호출
@@ -33,17 +35,24 @@ author_profile: true
 	- CPU는 반환 주소에서 실행을 재개
 
 ## 가상 함수의 작동
-* **일반 함수**
+
+### 일반 함수
   * 정적 바인딩(Static binding)
   * 컴파일러가 함수의 주소를 알고 있음
-* **가상 함수(Virtual Functions)**
+
+### 가상 함수(Virtual Functions)
   * 동적 바인딩(Dynamic binding)
   * 각 객체 별이 아닌, 클래스마다 vtable을 가지고 있음
     * 각 객체는 vtable의 주소값을 가리키는 포인터를 저장
   * 객체가 가진 vtable에 대한 포인터를 통해 프로그램이 가상 함수를 호출할 때 vtable로 엑세스하여 적절한 함수를 호출
-* **순수 가상 함수(Pure virtual function)**
+
+### 순수 가상 함수(Pure virtual function)
   * 순수 가상 함수를 가진 클래스는 객체 생성 불가능
   * 파생 클래스는 베이스 클래스에서 선언된 순수 가상 함수를 반드시 구현해야 함
+    * 하위 클래스에서의 method 정의를 강제함으로서 interface를 제공하는 방법
+    * **절대 사용되지 않을 dummy method를 정의할 필요 없음**
+    * **절대 사용되지 않을 dummy class의 생성을 방지**
+    * **재정의된 하위 클래스에서의 메서드들을 필수적으로 override**
 
   ```c++
   // 베이스 클래스
@@ -128,3 +137,4 @@ Base destructor
 ## 출처
 * <https://boycoding.tistory.com/235>
 * <https://stackoverflow.com/questions/3849498/when-is-vtable-in-c-created>
+* <https://stackoverflow.com/questions/39898126/why-we-need-interface-or-pure-virtual-function-in-c>
