@@ -39,7 +39,7 @@ author_profile: true
 - **innerAngle**
     - 강조되는 내부 원뿔 영역 
     - 빛의 intensity가 일정
-- outerAngle 
+- **outerAngle**
   - 점점 흐려지는 외부 원뿔 영역
   - outerAngle의 외부 빛의 intensity = 0
 - 빛 강도를 0 - 1사이로 clamp
@@ -63,7 +63,7 @@ author_profile: true
 - 빛으로부터 곧장 들어와 물체 표면에 뿌려짐
   - 물체의 표면에서 분산되어 눈으로 들어오는 빛
 - 각도에 따라 밝기가 다름
-- **I_diffuse = I_d * K_d * cosθ = I_d * K_d * (N*L)**
+- **I_diffuse = I_d * K_d * cosθ = I_d * K_d * (N*V)**
   - **I_d**: diffuse lighting의 세기
   - **K_d**: 물체 표면 반사에 대한 coefficient
   - **N**: face normal unit vector
@@ -111,7 +111,7 @@ author_profile: true
 ![post_thumbnail](/assets/images/phong2.png)
 * 퐁 쉐이딩에서 리플렉션 벡터를 이용하는 대신 하프 벡터를 이용
   * **Half Vector = Lighting Vector + Viewer Vector**
-* 더 광범위하고 평평한 표면에 대해 연산이 표율적
+* 더 광범위하고 평평한 표면에 대해 연산이 효율적
   * Reflection Vector(R)를 일일이 연산할 필요 없음
   * 광원과 viewer가 물체로부터 어느 정도 멀더라도, V와 L은 상수
   * specular 값의 왜곡을 방지
