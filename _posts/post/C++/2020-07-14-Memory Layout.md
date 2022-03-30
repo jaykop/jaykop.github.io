@@ -29,7 +29,7 @@ author_profile: true
 * CPU가 자동으로 처리
     * 처리 속도가 빠름
 
-#### Heap
+### Heap
 * 동적할당 메모리
 * 처리 속도가 느림
 

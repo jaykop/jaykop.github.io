@@ -44,6 +44,7 @@ author_profile: true
   * 동적 바인딩(Dynamic binding)
   * 각 객체 별이 아닌, 클래스마다 vtable을 가지고 있음
     * 각 객체는 vtable의 주소값을 가리키는 포인터를 저장
+    * 가상테이블은 Data Segment에 저장
   * 객체가 가진 vtable에 대한 포인터를 통해 프로그램이 가상 함수를 호출할 때 vtable로 엑세스하여 적절한 함수를 호출
 
 ### 순수 가상 함수(Pure virtual function)
