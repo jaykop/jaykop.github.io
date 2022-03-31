@@ -22,7 +22,48 @@ author_profile: true
   * 균형이 깨지는 경우를 LL LR RR RL로 나누어 회전을 통해 다시 균형을 맞춤
 * 자료 개수가 증가하면 트리의 높이가 높아지는 문제점
 
+
+## 2-3 Tree
+![post_thumbnail](/assets/images/{9AD663C0-8944-47D3-BB7F-3697C34C7384}.png)
+* 하나의 노드가 1개 혹은 2개의 키를 가진다
+* 하나의 노드는 2개 혹은 3개의 child를 가진다
+* 키는 작은 것에서 큰 것으로 정렬한다
+* 모든 leaf들은 가장 낮은, 그리고 동일한 레벨에 있다
+* 소거 혹은 삽입이 발생하면 밸런싱한다
+  * **bottom-up 방식으로 밸런싱**
+  * 아래 예시 참조
+
+### 삽입 예시 1
+![post_thumbnail](/assets/images/{31C1B0F0-ABD9-4377-A8F2-89509F219804}.png)
+![post_thumbnail](/assets/images/{5A028D4D-DCB5-4F19-9FC6-E896AD80A176}.png)
+* 새로운 원소 D를 삽입
+
+### 삽입 예시 2
+![post_thumbnail](/assets/images/{A89B143C-2951-4BF7-B463-C5AD38C0FA63}.png)
+* 새로운 원소 O을 삽입
+* 4-node를 분리하고 N이 위로 올라감
+![post_thumbnail](/assets/images/{1F2C2A10-527F-4667-B699-A7AFA4D065EA}.png)
+* 한 레벨 위로 올라간 N은 L.P와 동일 계층이 됨
+* N은 다시 한 레벨 더 위로 올라감
+![post_thumbnail](/assets/images/{59F9781E-56AA-4079-9E56-3C429CB54147}.png)
+* N이 J와 같은 레벨로 상승하면서 종료
+
+## 2-3-4 Tree
+* 2-3 Tree와 유사
+* 하나의 노드가 1~3개의 키를 가진다
+* 하나의 노드가 2~4개의 Child를 가진다
+* 모든 leaf들은 가장 낮은, 그리고 동일한 레벨에 있다
+* **top-down 방식으로 밸런싱**
+
+### 삽입 예시
+![post_thumbnail](/assets/images/194B7A574D256DC501.gif)
+* 4-node가 2-node with 2 children으로 변환한다
+  * level이 증가한다
+
 ## 레드블랙트리
+* 2-3-4 트리의 구조를 가지지만, 2개의 노드만 가지고 있다
+  * 따라서 BST이다
+  * 나머지 -3-4 영역은 Red 혹은 Black인지를 나타내는 encoded 이다
 * **성질**
   * 루트 노드와 모든 리프노드는 블랙이다
   * 레드 노드의 자식은 언제나 블랙이다
@@ -42,9 +83,11 @@ author_profile: true
 ### inorder traversal
   * traverse left → visit → traverse right
   * A B C D E F G H I J K L M
+
 ### preorder traversal
   * visit → traverse left → traverse right
   * G D B A C E F K H J I M L
+
 ### postorder traversal
   * traverse left → traverse right → visit
   * A C B F E D I J H L M K G
@@ -106,12 +149,14 @@ for (auto itr = range.first; itr != range.second; ++itr) {
 * O(1) 검색을 지향
 * Linear Probing과 Chaining을 이용해 Collision을 resolve
 * overhead 발생 가능성
+
 ### Linear Probing (open addressing)
   * 해당 slot이 occupied면 다음 unoccupied slot에 저장 (방향은 중요하지 않음)
   * Open addressing 중에 하나
   * Chaining보다 더 적은 메모리를 사용
   * 모든 데이터가 하나의 slot안에 따로 저장됨
   * slot이 꽉차면 더 이상 저장할 수 없음
+
 ### Chaining
   * 각 슬롯이 list 구조로 되어 있음
   * 같은 key를 공유하는 value들이 한 slot 안에 list 구조로 여러 개 저장
@@ -119,3 +164,4 @@ for (auto itr = range.first; itr != range.second; ++itr) {
 
 ## 출처
 * <https://stackoverflow.com/questions/4363539/how-does-hashing-have-an-o1-search-time>
+* <https://dol9.tistory.com/134>
