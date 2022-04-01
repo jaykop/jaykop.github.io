@@ -62,6 +62,40 @@ author_profile: true
     * 자주 발생하는 케이스는 아님
   * 평균적으로 벡터에 새로운 객체를 맨 뒤에 추가할 때 비용은 O(1)
 
+### push_back
+* 작돋원리
+  1. push_back 함수의 인자에 넣을 객체 A를 생성
+  2. A를 인자로 받고 push_back 함수 내에서 A를 복사해 B를 생성
+  3. B를 벡터에 추가
+  4. push_back 스코프를 벗어난 후 A를 소멸
+* 암시적인 생성자를 호출한다
+
+### emplace_back
+* 작동원리
+  1. 객체를 생성하기 위해 필요한 인자들이 emplac_back 함수 안으로 전달
+  2. 전달받은 인수로 객체를 생성
+  3. 생성한 객체를 벡터에 추가
+* 모든 유형의 생성자를 호출한다
+
+### push_back vs. emplace_back
+* 상단의 원리로 인해 일반적으로 emplace_back이 더 빠르다
+* emplace_back은 모든 유형의 생성자를 호출함으로써 런타임에서의 문제를 야기할 수 있다
+
+```c++
+// addressof 함수는 & 연산자가 오버로딩 되어있는 경우를 대비해
+// 그 객체의 실제 주소를 가져오는 역할을 한다
+std::vector<std::unique_ptr<T>> v;
+T a;
+
+// a는 포인터 형식이 아니기 때문에 삽입할 수 없음!!
+// T*와 unique_ptr<T>는 호환이 되지 않는다
+v.push_back(std::addressof(a)); 
+
+// ok, 컴파일할때는 에러가 발생하지 않음.
+// 모든 유형의 생성자를 호출해서 unique_ptr<T*> 명시적 생성자를 호출
+v.emplace_back(std::addressof(a)); 
+```
+
 ## 반복자 iterator
 * 반복자는 각 컨테이너의 멤머 변수로 정의
 * *it와 같은 표현식으로 반복자가 가리키는 컨테이너 내의 값을 확인 가능
@@ -127,3 +161,4 @@ itr + 5  // 불가능!
 
 ## 출처
 * <https://modoocode.com/223>
+* <https://openmynotepad.tistory.com/10>
