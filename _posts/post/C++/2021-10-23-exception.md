@@ -139,7 +139,9 @@ int main() {
 
 * **try** 안에서 예외가 발생할만한 코드가 실행
 * 예외가 발생하지 않으면, try 안의 코드만 실행하고 catch의 부분은 무시됨
-* 예외가 발생하면 stack의 모든 객체 소멸자들을 호출하고, **가장 가까운 catch 구문으로 이동**
+* 예외가 발생하면 stack의 모든 객체 소멸자들을 호출하고, **가장 가까운, 맞는 인자를 받는 catch 구문으로 이동**
+  * 스택 풀기 (Stack Unwiding) 발생
+  * 현재 stack 정보를 정리하고 외부의 catch 구문을 찾기 위함
 
 ```c++
 // 이 구문에서 예외 발생
@@ -159,6 +161,10 @@ catch (std::out_of_range& e) {
 
 ## Stack Unwinding
 * catch 로 점프 하면서 스택 상에서 정의된 객체들을 소멸시키는 과정
+* 스택의 항상성을 유지하기 위함
+  * 스택 호출자와 피호출자가 푸쉬 횟수와 팝 횟수를 동일하게 유지하며 호출 전과 호출 이후의 상태를 유지
+* **예외 발생 시 바로 외부의 catch 구문으로 이동한다면 스택의 항상성을 유지할 수 없음**
+  * 항상성 유지를 위해 구문을 거슬러 올라가는 스택 풀기가 발생하는 것
 
 ```c++
 #include <iostream>
@@ -353,7 +359,7 @@ try {
 
 ## noexcept - 예외를 발생시키지 않는 함수
 * 함수가 예외를 발생시키지 않는다는 것을 명시적으로 표현하는 키워드
-* 하지만 이는 함수 안에서 throw 구문이 없음을 보장하지 않는다
+* **하지만 이는 함수 안에서 throw 구문이 없음을 보장하지 않는다**
 * noexcept 처리된 함수가 예외를 발생시키면 프로그램은 비정상적으로 종료된다
   * 예외 처리 역시 정상적으로 이뤄지지 않는다
 * noexcept는 프로그래머가 컴파일러에게 주는 힌트에 지나지 않는다
@@ -363,24 +369,27 @@ try {
   * 절대로 소멸자에서 예외를 던지면 안된다
 
 ```c++
-int foo() noexcept {}
-int bar(int x) noexcept { throw 1; }
+void foo() { throw 1; }
+void bar() noexcept { throw 1; }
 
-// case 1
-// 이 코드는 경고와 함께 정상적으로 컴파일된다
-int main() { foo(); }
-
-// case 2
-// 이 코드는 실행 중 비정상적으로 종료된다
 int main() {
-  foo();
-  try {
-    bar();
-  } catch (int x) {
-    std::cout << "Error : " << x << std::endl;
-  }
+    try {
+        // case 1
+        // 이 코드는 예외를 던지고 종료된다
+        foo();
+
+        // case 2
+        // 이 코드는 비정상적으로 종료된다
+        bar();
+    }
+    catch (int x) {
+        std::cout << "Error : " << x << std::endl;
+    }
+
+    return 0;
 }
 ```
 
 ## 출처
 * <https://modoocode.com/230>
+* <https://banaba.tistory.com/42>
