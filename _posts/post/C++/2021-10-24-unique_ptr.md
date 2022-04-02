@@ -114,16 +114,17 @@ std::unique_ptr<A> pc = std::move(pa);
 
 ```c++
 // 올바르지 않은 전달 방식:
-// pa로서 선언된 유일한 소유권의 의미가
-// 함수 인자 ptr을 통해서도 행사가 가능해짐으로써
-// 단순한 Wrapper로 전락함
+// unique_ptr& 인자로 받으면서 
+// 유일한 소유권의 의미가 함수 인자 ptr을 통해서도 행사가 가능해짐
+// => 단순한 Wrapper
 void do_something(std::unique_ptr<A>& ptr) 
 { 
   ptr->do_sth(3); 
 }
 
 // 올바른 전달 방식:
-// 주솟값을 전달
+// 실제 객체의 주솟값을 전달
+// 함수 내부에서 객체의 주소를 통해 직접 접근할 수 있는 권한 획득
 void do_something(A* ptr) 
 { 
   ptr->do_sth(3); 
@@ -192,6 +193,9 @@ int main() {
   vec.emplace_back(new A());
 }
 ```
+* 위와 같은 경우는 컨테이너의 인덱싱을 통한 접근으로만 사용할 목적이어야 한다
+* unique_ptr을 사용한 객체에 대한 소유권은 단 하나이기 때문에, 컨테이너에 넣기 전 외부에서 생성한 pa로는 더 이상 접근할 수 없다
+* 만약 컨테이너 인덱싱으로도, 외부에서 생성한 객체로도 모두 주소값에 접근하고 싶다면 unique_ptr을 사용하면 안된다
 
 ## 출처
 * <https://modoocode.com/229>
