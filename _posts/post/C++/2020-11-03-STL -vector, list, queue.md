@@ -63,7 +63,7 @@ author_profile: true
   * 평균적으로 벡터에 새로운 객체를 맨 뒤에 추가할 때 비용은 O(1)
 
 ### push_back
-* 작돋원리
+* 작동원리
   1. push_back 함수의 인자에 넣을 객체 A를 생성
   2. A를 인자로 받고 push_back 함수 내에서 A를 복사해 B를 생성
   3. B를 벡터에 추가
@@ -76,10 +76,14 @@ author_profile: true
   2. 전달받은 인수로 객체를 생성
   3. 생성한 객체를 벡터에 추가
 * 모든 유형의 생성자를 호출한다
+  * [emplace_back이 전달받은 인자들을 제대로 전달해주어야 한다](https://jaykop.github.io/post/c++/perfectforwarding/#%EC%99%84%EB%B2%BD%ED%95%9C-%EC%A0%84%EB%8B%AC-perfect-forwarding)
 
 ### push_back vs. emplace_back
 * 상단의 원리로 인해 일반적으로 emplace_back이 더 빠르다
+  * **컴파일러 최적화로 push_back도 불필요한 복사-이동을 하지 않는다**
+  * emplace_back 을 사용했을 때와 동일한 어셈블리를 생성한다
 * emplace_back은 모든 유형의 생성자를 호출함으로써 런타임에서의 문제를 야기할 수 있다
+  * 따라서 요즘은 push_back을 호출하는 게 더 낫다
 
 ```c++
 // addressof 함수는 & 연산자가 오버로딩 되어있는 경우를 대비해
