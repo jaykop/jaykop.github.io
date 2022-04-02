@@ -11,6 +11,7 @@ author_profile: true
 
 ## shared_ptr
 * 여러 개의 스마트 포인터가 하나의 객체를 같이 소유해야하는 상황
+* 하나의 자원을 몇개의 포인터가 가리키는지 추적하는 포인터
 * **control block**을 할당하여 복사를 허용
   * 각 shared_ptr 객체에 저장되는 것이 아니라 실제 객체를 가리키는 control block을 할당
   * 객체를 가리키는 모든 스마트 포인터들이 소멸되어야만 객체를 파괴
@@ -75,7 +76,7 @@ std::shared_ptr<A> p1 = std::make_shared<A>();
 ```
 
 ## shared_ptr 생성 시 주의할 점
-* shared_ptr 를 주소값을 통해서 생성하는 것을 지양
+* shared_ptr 를 주소값을 통해서 생성하는 것을 **지양**
 
 ```c++
 int main() {
@@ -87,8 +88,8 @@ int main() {
   std::shared_ptr<A> pa1(a);
   std::shared_ptr<A> pa2(a);
 
-  std::cout << pa1.use_count() << std::endl;
-  std::cout << pa2.use_count() << std::endl;
+  std::cout << pa1.use_count() << std::endl; // 1
+  std::cout << pa2.use_count() << std::endl; // 1
 
   // 메모리가 해제될 때 소멸자를 2번 호출함으로써
   // 에러가 발생한다
@@ -97,6 +98,7 @@ int main() {
 
 * shared_ptr을 주소값을 통해서 생성해야하는 경우
   * 반드시 해당 객체의 shared_ptr를 먼저 정의
+  * 객체를 enable_shared_from_this로부터 상속
   * **shared_from_this**는 control block을 확인할 뿐, 생성하지 않음
 
 ```c++
