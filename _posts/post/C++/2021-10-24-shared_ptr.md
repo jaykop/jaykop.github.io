@@ -98,7 +98,7 @@ int main() {
 
 * shared_ptr을 주소값을 통해서 생성해야하는 경우
   * 반드시 해당 객체의 shared_ptr를 먼저 정의
-  * 객체를 enable_shared_from_this로부터 상속
+  * enable_shared_from_this로부터 상속
   * **shared_from_this**는 control block을 확인할 뿐, 생성하지 않음
 
 ```c++
