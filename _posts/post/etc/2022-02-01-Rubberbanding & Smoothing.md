@@ -25,6 +25,7 @@ bool AStarPather::rubberbanding(
     const GridPos& second,
     const GridPos& third)
 {
+    // 세 점이 이루는 전 영역을 대상
     int left = std::min(first.row, std::min(second.row, third.row)),
         right = std::max(first.row, std::max(second.row, third.row)),
         top = std::max(first.col, std::max(second.col, third.col)),
@@ -33,7 +34,7 @@ bool AStarPather::rubberbanding(
     for (int i = left; i <= right; i++) {
         for (int j = bot; j <= top; j++) {
 
-            // if any of them is wall inside the area,
+            // 해당 영역이 이동가능한지 확인
             GridPos p{i, j};
             if (terrain->is_valid_grid_position(p)
                 && terrain->is_wall(p))

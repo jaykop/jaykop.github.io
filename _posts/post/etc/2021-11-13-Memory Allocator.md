@@ -37,8 +37,10 @@ author_profile: true
 ## Custom Memory Allocator의 요소
 1. 사용 난이드
   * 포인터보다는 핸들
-  * Garbage Collection과 Memory Coalescing
   * 프론트 엔드 유저들에게도 용이한 복잡도
+  * Garbage Collection과 Memory Coalescing
+    * **Garbage Collection**: 프로그램이 동적으로 할당했던 메모리 영역 중에서 필요없게 된 영역을 해제
+    * **Memory Coalescing**: 단편화로 인해 분산된 메모리공간들을 인접해 있는 것끼리 통합시켜 큰 메모리 공간으로 합치는 기법
 2. 퍼포먼스
   * 속도와 일관성
   * 메모리 할당/반환의 규칙화
@@ -74,13 +76,15 @@ author_profile: true
 
 * 파편화를 완전히 막음
 * 마지막으로 할당된 메모리를 가장 먼저 free
-  * 마지막에 할당된 메모리기 사용중이면...?
+  * 마지막에 할당된 메모리가 사용중이면...?
 
 ### Fixed Sized Blocks - Pools
 * 이 역시 파편화를 완전히 막음
 * 범용성에서 어긋남
 * 다양한 사이즈의 Pool을 이용할 수는 있음
+  * [Segregated Fit](https://jaykop.github.io/post/etc/Memory-Allocator/#segregated-fit)
 * 그러나 필요 이상 사이즈의 메모리가 할당되는 경우가 발생
+  * [내부 단편화](https://jaykop.github.io/post/os/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%90%EC%9C%A0%EC%9C%A8-%EB%B6%80%EC%A1%B1/#%EB%82%B4%EB%B6%80-%EB%8B%A8%ED%8E%B8%ED%99%94-internal-fragmentation)
 
 ### First Fit
 ![post_thumbnail](/assets/images/{BA5B9BEE-5ABE-4405-BB63-BD9DEE200820}.png)
