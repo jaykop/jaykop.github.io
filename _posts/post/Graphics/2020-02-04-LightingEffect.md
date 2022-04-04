@@ -61,7 +61,6 @@ author_profile: true
 
 ![post_thumbnail](/assets/images/diffuse.png)
 - 빛으로부터 곧장 들어와 물체 표면에 뿌려짐
-  - 물체의 표면에서 분산되어 눈으로 들어오는 빛
 - 각도에 따라 밝기가 다름
 - **I_diffuse = I_d * K_d * cosθ = I_d * K_d * (N*V)**
   - **I_d**: diffuse lighting의 세기
@@ -90,7 +89,7 @@ author_profile: true
   - **R**: reflection unit vector
   - **V**: 물체 표면에서 viweer 방향으로의 unit vector
   - **ns**: 표면 질감에 따라 반사되는 광량이나 범위를 조절하는 index
-* R = 2N - L = 2(N*L) * |N| - L
+* R = 2N - L = 2(N*L) * abs(N) - L
 
 ### Emissive
 ![post_thumbnail](/assets/images/emissive.png)

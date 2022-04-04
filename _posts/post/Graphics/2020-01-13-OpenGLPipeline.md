@@ -53,7 +53,8 @@ author_profile: true
   * Shader Stage 중 유일한 필수 단계
 
 3. **Tessellation(optional)**
-  * 테셀레이션 과정을 통해 메쉬 트라이앵글을 처리
+  * 일정한 형태의 도형들로 평면을 빈틈없이 채우는 것
+  * 메쉬 트라이앵글로 테셀레이션
 
 4. **Geometry shader(optional)** 
   * 추가 연산을 통해 최종 버텍스의 수를 유지하거나 증가 시킴
