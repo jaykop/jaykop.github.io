@@ -54,7 +54,8 @@ author_profile: true
 
 3. **Tessellation(optional)**
   * 일정한 형태의 도형들로 평면을 빈틈없이 채우는 것
-  * 메쉬 트라이앵글로 테셀레이션
+  * 더 작고 단순한 여러 개의 프리미티브로 분할하는 작업
+    * 메쉬 트라이앵글로 테셀레이션
 
 4. **Geometry shader(optional)** 
   * 추가 연산을 통해 최종 버텍스의 수를 유지하거나 증가 시킴
