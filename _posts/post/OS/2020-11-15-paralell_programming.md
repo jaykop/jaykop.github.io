@@ -29,6 +29,7 @@ author_profile: true
 * **Atomic**: Interrupt 되지 않는 operation
 
 ## Mutex
+* 동시 프로그래밍에서 여러 스레드가 공유 불가능한 자원에 동시에 접근하는 것을 막는 것
 * Mutex의 성질
   
   |성질|내용|
