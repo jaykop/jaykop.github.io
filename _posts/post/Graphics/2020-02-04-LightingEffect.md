@@ -62,7 +62,7 @@ author_profile: true
 ![post_thumbnail](/assets/images/diffuse.png)
 - 빛으로부터 곧장 들어와 물체 표면에 뿌려짐
 - 각도에 따라 밝기가 다름
-- **I_diffuse = I_d * K_d * cosθ = I_d * K_d * (N*V)**
+- **I_diffuse = I_d * K_d * cosθ = I_d * K_d * (N*L)**
   - **I_d**: diffuse lighting의 세기
   - **K_d**: 물체 표면 반사에 대한 coefficient
   - **N**: face normal unit vector
@@ -83,7 +83,7 @@ author_profile: true
   - diffuse가 0이되면 specular 역시 0
 
 ![post_thumbnail](/assets/images/spec_vectors.png)    
-- **I_specular = I_s * K_s * (R*L)^ns**
+- **I_specular = I_s * K_s * (R*V)^ns**
   - **I_s**: specular lighting의 세기
   - **K_s**: 물체 표면 반사에 대한 coefficient
   - **R**: reflection unit vector
