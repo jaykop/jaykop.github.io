@@ -65,7 +65,7 @@ author_profile: true
   * 삼각형, 선, 점 등의 도형들을 정렬 
 
 6. **Vertex Post-processing**
-  * 클리핑 
+  * 클리핑 clipping
     * 오브젝트 및 메쉬 중 버릴 것과 다음 스테이지로 넘어갈 것을 정하는 단계
 
 7. **Rasterization**
@@ -78,3 +78,25 @@ author_profile: true
 
 9. **Per-sample Operation**
     * scissor, stencil, depth 등의 테스트를 실행
+
+### stencil test
+* 프라그먼트의 stencil 값을 확인
+* test에 실패하면 해당 프라그먼트는 culled
+
+### scissor test
+* 화면을 기준으로 특정 범위(직사각형) 바깥은 버리는 것
+
+## culling과 clipping의 차이
+
+### culling
+* Face culling - 보이지 않는 숨겨진 면을 제거하는 것 
+* Vertex-based culling - primitive 전체를 제거하는 것
+
+### clipping
+* viewing volume의 내부 또는 외부의 object를 솎아내는 것
+* cull할지 render할지 고르는 과정
+
+## 출처
+* <https://www.khronos.org/opengl/wiki/Stencil_Test>
+* <https://www.khronos.org/opengl/wiki/Scissor_Test>
+* <http://www.differencebetween.net/technology/software-technology/difference-between-clipping-and-culling/>
