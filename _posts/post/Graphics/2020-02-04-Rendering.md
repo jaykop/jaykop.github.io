@@ -11,6 +11,7 @@ author_profile: true
 
 ## 포워드 렌더링(Forward Rendering)
 ![post_thumbnail](/assets/images/forward-v2.png)
+* 가장 보편적이고 일반적인 렌더링 방법
 * 픽셀 당 쉐이딩과 라이팅 연산 값을 추가하는 방식
 * 각 fragment shader에서 연산
   * 빛의 개수 만큼 함
@@ -25,5 +26,5 @@ author_profile: true
 * 투명도 처리, 안티 얼라이징 불가능
 
 ## 출처
-* <https://m.blog.naver.com/PostView.nhn?blogId=shakey7&logNo=221435517430&proxyReferer=https:%2F%2Fwww.google.com%2F>  
+* <https://m.blog.naver.com/blue9954/220296252565>  
 * <https://gamedevelopment.tutsplus.com/articles/forward-rendering-vs-deferred-rendering--gamedev-12342>
