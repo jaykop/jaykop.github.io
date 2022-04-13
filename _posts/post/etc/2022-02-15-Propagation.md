@@ -1,5 +1,5 @@
 ---
-title: "Propagation"
+title: "Terrain Analysis & Propagation"
 classes: wide
 categories: 
   - post
@@ -35,6 +35,38 @@ author_profile: true
   1. multiplied
   2. mean
   3. geometric mean
+
+## Propagation
+![image](/assets/images/{E945C464-D0F6-4844-BCF5-30B523268A2F}.png)  
+1. Influence Layer와 Temp Layer 2개의 Layer 세팅
+2. Decay 후의 값을 Temp Layer에 저장
+3. Temp Layer의 값을 Influence Layer에 다시 복사
+
+### Decay Factor 
+* 얼마나 빠르게 distance에 따라 decay가 전파되는지
+* 얼마나 빠르게 influence가 사라지는지
+* **decay factor가 높을수록 influence는 빠르게 낮아진다**
+
+### Growing Factor 
+![image](/assets/images/{7284492B-4DE8-48BA-9E05-6BDA145C4EB2}.png)  
+* influence value를 업데이트 하면서 기존 값과 새 값 중 어느 값에 더 편중할지
+
+### How to propagate?
+![image](/assets/images/{2E88141D-105C-4CD2-8A2C-0859B3A39B4A}.png)  
+* decay factor와 growing factor 세팅
+* 현재 노드 (Red)에 대해 이웃 노드들 (Right, Bottom, Right-Bottom)에 대해 Decay formula로 influence value 연산
+* 최대값 확인 (Right-Bottom = 0.75)
+
+![image](/assets/images/{9B5099CE-E6EE-4E7D-B462-579B4CA97F8B}.png)  
+* 보간 공식에 따라 값 연산
+* 해당 값을 TempLayer에 저장
+
+![image](/assets/images/{9E963912-5A69-4CEA-BACA-441F962A3CBE}.png)  
+* 최종 연산한 값들이 저장된 TempLayer의 값을 Original Layer에 복사
+
+### Why using double bufferubg?
+![image](/assets/images/{0A530AEB-3A3E-4632-B75B-8944D9B20E55}.png)  
+* TempLayer가 필요한 이유는 하나의 Layer에서 Influence 값을 연산하면서 후순위로 연산되는 값들이 앞에 이미 연산된 값들에 영향을 받아 오류가 발생하기 때문
 
 ## 출처
 * <https://drehzr.tistory.com/249>
