@@ -11,8 +11,8 @@ author_profile: true
    
 ## 리플렉션(Reflaction)
 * 프로그램 실행 도중 객체 정보를 조사
-* 다른 모듈에 선언된 인스턴스를 생성
-* 기존 개체에서 형식을 가져오고 해당하는 메서드를 호출 또는 해당 필드와 속성에 접근할 수 있는 기능을 제공
+* 형식의 이름을 통해 인스턴스를 생성하고 그 인스턴스의 메서드를 호출할 수도 있다
+* 필드와 속성에 접근할 수 있는 기능을 제공
 
 |형식|메서드|설명|
 |:---:|:---::---:|
@@ -91,6 +91,18 @@ namespace ConsoleApplication43 {
   } 
 }
 ```
+
+### 리플렉션을 사용하는 이유?
+* 리플렉션은 어셈블리, 타입, 그 멤버를 읽어낼 수 있다
+* 런타임에서 unknown object나 assembily를 구분해낸다는 것은 강력한 기능임에 틀림없다
+
+### 리플렉션 사용 예시
+1. 
+  - 어떤 앱이 구동하기 위해서 외부 configuration 파일을 로드하고 그를 기반으로 작동을 시작한다
+  - 앱은 특정 api나 인터페이스를 사용하기로 확정되기 전까지, 굳이 작동하는 데 필요한 클래스를 미리 알고 있을 필요가 없다
+
+2. 런타임에 클래스나 코드를 생성할 수 있다
+3. IDE 같은 코드를 검사하는 프로그램에서 리플렉션 기능은 필수이다
 
 ## 메타데이터란?
 * Data에 대한 구조화된 Data
@@ -210,3 +222,6 @@ class TestAuthorAttribute
 * <https://docs.microsoft.com/ko-kr/dotnet/api/system.attribute?view=net-5.0>
 * <https://docs.microsoft.com/ko-kr/dotnet/standard/attributes/writing-custom-attributes>
 * <https://treeroad.tistory.com/entry/메타데이터란>
+* <https://nomad-programmer.tistory.com/201>
+* <https://stackoverflow.com/questions/1458256/why-is-the-use-of-reflection-in-net-recommended>
+* <https://stackoverflow.com/questions/723328/c-can-someone-explain-the-practicalities-of-reflection>
