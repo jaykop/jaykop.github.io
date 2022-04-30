@@ -3,7 +3,7 @@ title: "Memory Allocator"
 classes: wide
 categories: 
   - post
-  - etc
+  - C++
 author_profile: true
 sidebar:
   nav: "main"

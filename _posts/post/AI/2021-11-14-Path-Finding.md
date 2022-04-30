@@ -3,7 +3,7 @@ title: "Path-Finding"
 classes: wide
 categories: 
   - post
-  - etc
+  - A.I.
 author_profile: true
 sidebar:
   nav: "main"

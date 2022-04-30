@@ -3,7 +3,7 @@ title: "행동트리(Behavior Tree)"
 classes: wide
 categories: 
   - post
-  - etc
+  - A.I.
 sidebar:
   nav: "main"
 author_profile: true

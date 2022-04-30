@@ -3,7 +3,7 @@ title: "메모리 대역폭(Memory Bandwidth)"
 classes: wide
 categories: 
   - post
-  - etc
+  - etc.
 sidebar:
   nav: "main"
 author_profile: true

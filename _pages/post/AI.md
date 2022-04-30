@@ -1,8 +1,8 @@
 ---
-title:  "etc."
+title:  "A.I."
 classes: wide
 layout: category
-taxonomy: etc.
+taxonomy: A.I.
 author_profile: true
 sidebar:
   nav: "main"

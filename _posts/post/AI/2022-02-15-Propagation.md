@@ -3,7 +3,7 @@ title: "Terrain Analysis & Propagation"
 classes: wide
 categories: 
   - post
-  - etc
+  - A.I.
 sidebar:
   nav: "main"
 author_profile: true

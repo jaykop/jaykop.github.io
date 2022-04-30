@@ -3,7 +3,7 @@ title: "Flash Memory"
 classes: wide
 categories: 
   - post
-  - etc
+  - etc.
 author_profile: true
 sidebar:
   nav: "main"

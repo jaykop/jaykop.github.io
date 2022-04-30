@@ -3,7 +3,7 @@ title: "Rubberbanding & Smoothing"
 classes: wide
 categories: 
   - post
-  - etc
+  - A.I.
 sidebar:
   nav: "main"
 author_profile: true

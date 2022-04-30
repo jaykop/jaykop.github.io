@@ -3,7 +3,7 @@ title: "Stack Overflow"
 classes: wide
 categories: 
   - post
-  - etc
+  - C++
 sidebar:
   nav: "main"
 author_profile: true
