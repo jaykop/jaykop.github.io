@@ -28,12 +28,6 @@ author_profile: true
 * NavtiveContainer를 사용하면 Job을 통해 사본으로 작업하는 대신 주 스레드와 공유 된 데이터에 접근
 * 기본 제공되는 타입은 NativeArray<T>
 
-## 유니티의 Entity Component System
-* NativeList - List<T> 와 유사
-* NativeHashMap - Dictinonary<K, T>와 유사
-* NativeMultiHashMap - Dictinonary<K, T>와 유사하지만 동일한 Key를 등록할 수 있음
-* NativeQueue - Queue<T>와 유사합니다. (FIFO 선입선출 구조)
-
 ## 출처
 * <https://redforce01.tistory.com/239>
 * <https://redforce01.tistory.com/240?category=721608>
