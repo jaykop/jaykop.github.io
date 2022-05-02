@@ -1,5 +1,5 @@
 ---
-title: "Actor, Pawn, Character"
+title: "Unreal Framework"
 classes: wide
 categories: 
   - post
@@ -36,14 +36,16 @@ author_profile: true
 * 접두사 A를 가진 클래스는 월드에 스폰할 수 있다
 * 접두사 U를 가진 클래스는 스폰할 수 없는 컴포넌트로서 Actor에 포함되어야 한다
 
-## Actor
+## 주요 클래스
+
+### Actor
 * Actor란 언리엘 엔진의 레벨에서 배치할 수 있는 게임 오브젝트
 * 레벨에 배치할 수 있는 모든 오브젝트
 * AActor
   * Actor
 * Component를 추가해 액터를 디자인할 수 있다
 
-## Pawn
+### Pawn
 * 플레이어 혹은 A.I.에 의해 제어되는 액터
 * Pawn을 생성하면 APawn 클래스로부터 상속되고, APawn은 Actor의 Base Class인 AActor로부터 상속된다.
   * AActor
@@ -51,13 +53,23 @@ author_profile: true
     * APawn
       * Pawn
 
-## Chatacter
+### Chatacter
 * 플레이어 컨트롤에 의해 제어되는 Pawn
+* 스켈레탈 메시를 포함한 휴머노이드 형, 캡슐 콜리전, CharacterMovementComponennt 등을 포함
 * AActor
     * Actor
     * APawn
       * Pawn
       * Character
+
+### Controller
+* Player Controller
+  * 플레이어의 입력값을 Pawn으로 전달
+* AI Controller
+
+### Game Mode
+* 게임의 규칙들을 정의
+* 게임 전반에 걸친 데이터를 저장
 
 ## 출처
 * <https://orcacode.tistory.com/entry/%EC%96%B8%EB%A6%AC%EC%96%BC-%EC%97%94-Actor%EC%99%80-Pawn%EA%B3%BC-Character%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90>
