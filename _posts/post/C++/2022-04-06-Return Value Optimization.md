@@ -10,8 +10,8 @@ author_profile: true
 ---
 
 ## 임시 값 할당 인자
-* C++ 에서는 const reference와 rvalue reference, 그리고 값으로서만 임시값을 허용한다
-* 이는 non-const reference 인자를 받는 함수가 인자를 수정하고서 다시 그 인자가 caller로 돌아가는 것을 허용한다는 뜻
+* C++ 에서는 임시값을 const reference와 rvalue reference, 그리고 값으로서의 함수 인자로 받도록 허용한다
+* non-const reference 인자를 받는 함수는 함수 실행 중 인자를 수정하고서 변경된 상태로 다시 caller로 돌아가는 것을 허용한다
 
 ```c++
 vector<double> emptyvec()

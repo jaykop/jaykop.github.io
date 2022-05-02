@@ -22,7 +22,7 @@ author_profile: true
 |물리|Raycast<br>Rigid Body|Line Tracing/Shape Trace<br>Collision/Physics|
 
 ### Unity Component System
-![post_thumbnail](/assets/images/{8F8A3F52-0B85-4DFE-BEA8-4E51E94D0D8B}.png)
+![post_thumbnail](/assets/images/{107C035B-1B4D-4646-883B-4D2F363FF60E}.png)
 * Unity에서의 GameObject는 Component의 집합이다
 * Empty GameObject가 Transform Component를 가진 채로 존재하며, 사용자는 여기에 Component를 추가 및 제거하며 직접 디자인할 수 있다
 * 사용자 정의의 코드는 Monobehavior에서 상속하여 커스텀 Component로서 GameObject에 추가된다
