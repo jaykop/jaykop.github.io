@@ -84,6 +84,11 @@ int main() {
   * 일반적인 포인터가 아닌, 객체로서의 포인터를 정의
     * auto_ptr을 보완하는 새로운 스마트 포인터
 
+### raw pointer over than smart pointer
+* 소유권 개념이 없는 모든 경우
+* legacy 코드를 고려해야 하는 경우
+* 
+
 ## unique_ptr
 * 객체에 대한 유일한 소유권을 보장
   * **복사 금지**
@@ -196,8 +201,109 @@ int main() {
 * 위와 같은 경우는 컨테이너의 인덱싱을 통한 접근으로만 사용할 목적이어야 한다
 * unique_ptr을 사용한 객체에 대한 소유권은 단 하나이기 때문에, 컨테이너에 넣기 전 외부에서 생성한 pa로는 더 이상 접근할 수 없다
 * 만약 컨테이너 인덱싱으로도, 외부에서 생성한 객체로도 모두 주소값에 접근하고 싶다면 unique_ptr을 사용하면 안된다
+  
+## uniqure_ptr 을 리턴하는 함수
+* uniqure_ptr은 복사 혹은 대입이 불가능
+  
+```c++
+std::unique_ptr<int> func()
+{
+  std::unique_ptr<int> ptr(new int [10]);
+  return ptr;  
+}
+```
+* 그러나 위와 같은 함수를 만들 수 있다
+* **함수가 반환하는 값은 rvalue이기 때문**
+  * move contructor 호출
+* 따라서 위의 함수는 실제로 아래 함수처럼 작동한다
+  
+```c++
+std::unique_ptr<int> func()
+{
+  std::unique_ptr<int> ptr(new int [10]);
+  return std::move(ptr);  // 이동생성자 unique_ptr(unique_ptr&&) 호출
+}
+```
+  
+* 그러나 위의 방법은 실제 반환하는 값의 타입과 함수의 리턴 타입이 다른 경우에 사용하는 걸 권장한다
+* move를 사용하지 않으면 컴파일러가 move contructor를 호출하지 않고 RVO 최적화를 실행할 수 있다.
 
+```c++
+std::unique_ptr<Base> func()
+{
+  std::unique_ptr<Derived> ptr(new int [10]);
+  return std::move(ptr);  
+}
+```
+  
+## 멤버 변수로서의 unique_ptr
+
+```c++
+class A {
+private:
+   std::unique_ptr<MyType> mt;
+public:
+   void initStuff() {
+      mt = StaticFuncSomewhereElese::generateMyType();
+   } 
+};
+
+std::unique_ptr<MyType> StaticFuncSomewhereElese::generateMyType() {
+    auto temp = std::make_unique<MyType>(…);
+    // `make_unique` is C++14 (although trivially implementable in C++11).
+    // Here's an alternative without `make_unique`:
+    // std::unique_ptr<MyType> temp(new MyType(…));
+
+    //do stuff to temp (read file or something...)
+    return temp;
+}
+```
+  
+* 멤버 변수 unique_ptr은 최대한 빠르게 할당해주는 것이 좋다
+
+```c++
+class Square
+{
+public:
+    ...
+
+    // 소유권을 가져오지 않기 위해 raw pointer로 반환
+    const Piece* getPiece() const;
+
+    std::unique_ptr<Piece> setPiece(std::unique_ptr<Piece> piece);
+
+    ...
+
+protected:
+    std::unique_ptr<Piece> piece;
+    ...
+};
+  
+const Piece* Square::getPiece() const
+{
+    return piece.get();
+}
+
+std::unique_ptr<Piece> Square::setPiece(std::unique_ptr<Piece> piece)
+{
+    // 기존에 가지고 있던 포인터를 old에 할당
+    std::unique_ptr<Piece> old = std::move(this->piece);
+  
+    // 받은 인자를 move를 통해 멤버 변수로 이동
+    this->piece = std::move(piece);
+  
+    // 사용하던 포인터를 반환 (삭제 혹은 사용하지 않도록 하기 위함)
+    return std::move(old);
+}
+```
+  
 ## 출처
 * <https://modoocode.com/229>
 * <https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EB%88%84%EC%88%98>
 * <https://banaba.tistory.com/42>
+* <https://2pound2pound.tistory.com/82>
+* <https://stackoverflow.com/questions/9827183/why-am-i-allowed-to-copy-unique-ptr?noredirect=1&lq=1>
+* <https://stackoverflow.com/questions/42595473/correct-usage-of-unique-ptr-in-class-member>
+* <https://stackoverflow.com/questions/54543496/how-to-pass-a-unique-ptr-to-set-the-member-variable-of-my-object>
+* <https://stackoverflow.com/questions/6675651/when-should-i-use-raw-pointers-over-smart-pointers/6676183#6676183>
+* <https://stackoverflow.com/questions/8706192/which-kind-of-pointer-do-i-use-when>
