@@ -21,7 +21,7 @@ author_profile: true
 * Extenal linkage
   * 다른 모듈에서도 접근이 가능하다
 
-### namepsace에서의 static
+### namespace에서의 static
 
 ```c++
 static const int sci = 0; // sci is explicitly static
@@ -47,7 +47,7 @@ public static const string CONST_NAME = "blah";
   * 그럼에도 불구하고, const에 static 키워드를 추가할 수는 없다
 
 ### C++과의 차이점?
-* static은 read/write 가능하며 메모리에 할당할 저장 공간이 필요하고 런타임에 반드시 초기화되어야 한다
+* static은 read/write 가능하며 메모리에 할당할 저장 공간이 필요하고 런타임에 초기화되어야 한다
   * 해당 static 변수에 접근하기 전까지 정적 생성자는 호출하지 않는다
   * static 변수가 저장되는 공간은 Heap이다
 * const는 값 변경이 불가능하고 (대개) 컴파일 타임에 초기화된다
