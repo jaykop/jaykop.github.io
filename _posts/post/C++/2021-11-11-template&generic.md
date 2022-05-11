@@ -1,5 +1,5 @@
 ---
-title: "Template & Generic"
+title: "Template vs. Generic"
 classes: wide
 categories: 
   - post
