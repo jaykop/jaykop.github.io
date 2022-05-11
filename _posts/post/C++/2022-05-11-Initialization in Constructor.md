@@ -1,5 +1,5 @@
 ---
-title: "Initialization vs. Assignment"
+title: "Initialization in Constructor"
 classes: wide
 categories: 
   - post
