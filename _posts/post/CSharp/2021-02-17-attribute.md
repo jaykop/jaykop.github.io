@@ -1,5 +1,5 @@
 ---
-title: "Reflaction & Attribute"
+title: "Reflection & Attribute"
 classes: wide
 categories: 
   - post
@@ -9,7 +9,7 @@ sidebar:
 author_profile: true
 ---
    
-## 리플렉션(Reflaction)
+## 리플렉션(Reflection)
 * 프로그램 실행 도중 객체 정보를 조사
 * 형식의 이름을 통해 인스턴스를 생성하고 그 인스턴스의 메서드를 호출할 수도 있다
 * 필드와 속성에 접근할 수 있는 기능을 제공
