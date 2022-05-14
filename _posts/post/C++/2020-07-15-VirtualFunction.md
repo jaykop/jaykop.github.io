@@ -57,23 +57,27 @@ author_profile: true
 
   ```c++
   // 베이스 클래스
-  class A {
+  class Shape {
     public:
       // 베이스 클래스의 순수 가상 함수
-    	virtual void function(void) = 0; 
+    	virtual float area(void) = 0; 
   };
 
   // 파생 클래스
-  class B: public A {
+  class Circle: public Shape {
     public:
       // 아래와 같은 형식으로 필히 구현되어야 함
-      void function(void) override {  };
-      virtual void function(void) {  };
+      float area(void) override { ... };
+      virtual float area(void) { ... };
   };
 
   // 베이스 클래스의 객체 생성은 불가
-  A a; 
+  Shape shape; 
   ```
+  * 위의 경우에서 Circle의 area 메서드가 순수 가상 함수가 아니라면 필히 구현되어야 한다
+    * 실제로 사용되지 않는 함수지만 호출되는 경우를 대비해 exception을 던지거나, 0 혹은 NaN을 반환하는 등의 처리가 필요하다
+  * 순수 가상함수를 사용하면 위와 같은 처리를 할 필요 없이 호출 자체를 막을 수 있다.
+    * 동시에 자식 클래스들에게는 필수적인 메서드 정의를 강제할 수 있다.
 
 ## Virtual Table이란?
 * 클래스 안에 **가상함수가 포함되어 있을 시**, 객체를 생성할 때 가상함수를 가리키는 포인터가 생성
