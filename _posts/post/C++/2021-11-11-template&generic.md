@@ -14,7 +14,7 @@ author_profile: true
 * C++ 은 컴파일이 1번 일어나고, C# 제네릭은 컴파일이 2번 일어난다.
   * C++ 템플릿은 사용하지 않으면 컴파일하지 않는다. 
   * 하지만, C# 제네릭은 사용하지 않더라도 그에 관련된 정보를 저장하기 위한 메타데이터가 생성된다.
-* 제네릭은 비형식 탬플릿 매개변수를 허용하지 않는다
+* 제네릭은 [비형식 탬플릿 매개변수](https://jaykop.github.io/post/c++/template-class/#%EB%B9%84%ED%98%95%EC%8B%9D-%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98)를 허용하지 않는다
 * 제네릭은 [명시적 특수화](https://jaykop.github.io/post/c++/template-class/#%EB%AA%85%EC%8B%9C%EC%A0%81-%ED%8A%B9%EC%88%98%ED%99%94)를 지원하지 않는다
 * 제네릭은 [부분적 특수화](https://jaykop.github.io/post/c++/template-class/#%ED%83%AC%ED%94%8C%EB%A6%BF-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EB%B6%80%EB%B6%84-%ED%8A%B9%EC%88%98%ED%99%94)를 지원하지 않는다
 

@@ -87,7 +87,6 @@ int main() {
 ### raw pointer over than smart pointer
 * 소유권 개념이 없는 모든 경우
 * legacy 코드를 고려해야 하는 경우
-* 
 
 ## unique_ptr
 * 객체에 대한 유일한 소유권을 보장
