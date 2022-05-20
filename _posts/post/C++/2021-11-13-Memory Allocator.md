@@ -76,7 +76,6 @@ author_profile: true
 
 * 파편화를 완전히 막음
 * 마지막으로 할당된 메모리를 가장 먼저 free
-  * 마지막에 할당된 메모리가 사용중이면...?
 
 ### Fixed Sized Blocks - Pools
 * 이 역시 파편화를 완전히 막음
