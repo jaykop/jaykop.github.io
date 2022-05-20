@@ -37,10 +37,10 @@ grade(midterm, final, emptyvec());
 ![post_thumbnail](/assets/images/{0ACF247A-A4B3-4F0A-8000-058AEE943938}.png)
 * 함수 실행을 위해 stack frame 2가 생성되었다
 * 함수의 local variable과 이를 이용한 최종 return 값을 할당할 메모리가 추가적으로 잡힌다
-* RVO가 작동하지 않으면, 이 최종 return 값을 stack framw 1의 return value로 복사한다
+* RVO가 작동하지 않으면, 이 최종 return 값을 stack frame 1의 return value로 복사한다
 
 ![post_thumbnail](/assets/images/{8994A648-641F-4433-ACD4-D0FAAF4DDF01}.png)
-* 그러나 RVO가 작동한다면, 반환할 값을 처음부터 stack framw 1에 위치한 return value 메모리에 할당한다
+* 그러나 RVO가 작동한다면, 반환할 값을 처음부터 stack frame 1에 위치한 return value 메모리에 할당한다
 
 ### RVO이 작동하지 않는 경우
 
