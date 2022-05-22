@@ -103,6 +103,8 @@ author_profile: true
 
 ### Phong shading
 * 라이팅 이펙트를 픽셀 단위로 연산
+* 리플렉션 벡터를 이용
+  * R = 2*{(N*L)*Norm(N)} - N
 
 ### Blinn shading
 
