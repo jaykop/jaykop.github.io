@@ -25,6 +25,11 @@ author_profile: true
 * 다수 라이팅 이펙트를 구현하는 데 용이
 * 투명도 처리, 안티 얼라이징 불가능
 
+## 렌더타겟이란? Render Target
+* 렌더링하고자 하는 최종적인 목적지 / 타겟
+  * 텍스쳐일수도 있고, 버퍼일수도 있다
+
 ## 출처
 * <https://m.blog.naver.com/blue9954/220296252565>  
 * <https://gamedevelopment.tutsplus.com/articles/forward-rendering-vs-deferred-rendering--gamedev-12342>
+* <https://stackoverflow.com/questions/27186038/what-is-a-render-target-in-opengl>
