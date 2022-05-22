@@ -48,12 +48,7 @@ bool AStarPather::rubberbanding(
 ```
 
 ## Smoothing
-* 경로에서 각 웨이포인트들의 중간 중간을 확인하면서 가능한 경우 불필요한 웨이포인트를 제거하는 것
-
-### Track vs. Route vs. Waypoint
-* **Track** - 현재까지 온 경로를 묘사하는 트랙포인트의 순차적 목록
-* **Route** - 도착지까지 이어지는 루트포인트들의 순차적 목록
-* **Waypoint** - 경유지 혹은 목적지
+* Waypoint들을 추가하여 에이전트가 각 지점을 경유하면서 자연스러운 곡선을 그리며 이동하도록 하는 Post-processing
 
 ### 곡선
 ![image](/assets/images/curve_formula.png)  
