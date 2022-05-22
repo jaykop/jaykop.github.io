@@ -37,47 +37,48 @@ author_profile: true
 ## 가상 함수의 작동
 
 ### 일반 함수
-  * 정적 바인딩(Static binding)
-  * 컴파일러가 함수의 주소를 알고 있음
+* 정적 바인딩(Static binding)
+* 컴파일러가 함수의 주소를 알고 있음
+  * 메모리 레이아웃 중 Code Segment(Text Segment)
 
 ### 가상 함수(Virtual Functions)
-  * 동적 바인딩(Dynamic binding)
-  * 각 객체 별이 아닌, 클래스마다 vtable을 가지고 있음
-    * 각 객체는 vtable의 주소값을 가리키는 포인터를 저장
-    * 가상테이블은 Data Segment에 저장
-  * 객체가 가진 vtable에 대한 포인터를 통해 프로그램이 가상 함수를 호출할 때 vtable로 엑세스하여 적절한 함수를 호출
+* 동적 바인딩(Dynamic binding)
+* 각 객체 별이 아닌, 클래스마다 vtable을 가지고 있음
+  * 각 객체는 vtable의 주소값을 가리키는 포인터를 저장
+  * 가상테이블은 Data Segment에 저장
+* 객체가 가진 vtable에 대한 포인터를 통해 프로그램이 가상 함수를 호출할 때 vtable로 엑세스하여 적절한 함수를 호출
 
 ### 순수 가상 함수(Pure virtual function)
-  * 순수 가상 함수를 가진 클래스는 객체 생성 불가능
-  * 파생 클래스는 베이스 클래스에서 선언된 순수 가상 함수를 반드시 구현해야 함
-    * 하위 클래스에서의 method 정의를 강제함으로서 interface를 제공하는 방법
-    * **절대 사용되지 않을 dummy method를 정의할 필요 없음**
-    * **절대 사용되지 않을 dummy class의 생성을 방지**
-    * **재정의된 하위 클래스에서의 메서드들을 필수적으로 override**
+* 순수 가상 함수를 가진 클래스는 객체 생성 불가능
+* 파생 클래스는 베이스 클래스에서 선언된 순수 가상 함수를 반드시 구현해야 함
+  * 하위 클래스에서의 method 정의를 강제함으로서 interface를 제공하는 방법
+  * **절대 사용되지 않을 dummy method를 정의할 필요 없음**
+  * **절대 사용되지 않을 dummy class의 생성을 방지**
+  * **재정의된 하위 클래스에서의 메서드들을 필수적으로 override**
 
-  ```c++
-  // 베이스 클래스
-  class Shape {
-    public:
-      // 베이스 클래스의 순수 가상 함수
-    	virtual float area(void) = 0; 
-  };
+```c++
+// 베이스 클래스
+class Shape {
+  public:
+    // 베이스 클래스의 순수 가상 함수
+    virtual float area(void) = 0; 
+};
 
-  // 파생 클래스
-  class Circle: public Shape {
-    public:
-      // 아래와 같은 형식으로 필히 구현되어야 함
-      float area(void) override { ... };
-      virtual float area(void) { ... };
-  };
+// 파생 클래스
+class Circle: public Shape {
+  public:
+    // 아래와 같은 형식으로 필히 구현되어야 함
+    float area(void) override { ... };
+    virtual float area(void) { ... };
+};
 
-  // 베이스 클래스의 객체 생성은 불가
-  Shape shape; 
-  ```
-  * 위의 경우에서 Circle의 area 메서드가 순수 가상 함수가 아니라면 필히 구현되어야 한다
-    * 실제로 사용되지 않는 함수지만 호출되는 경우를 대비해 exception을 던지거나, 0 혹은 NaN을 반환하는 등의 처리가 필요하다
-  * 순수 가상함수를 사용하면 위와 같은 처리를 할 필요 없이 호출 자체를 막을 수 있다.
-    * 동시에 자식 클래스들에게는 필수적인 메서드 정의를 강제할 수 있다.
+// 베이스 클래스의 객체 생성은 불가
+Shape shape; 
+```
+* 위의 경우에서 Circle의 area 메서드가 순수 가상 함수가 아니라면 필히 구현되어야 한다
+  * 실제로 사용되지 않는 함수지만 호출되는 경우를 대비해 exception을 던지거나, 0 혹은 NaN을 반환하는 등의 처리가 필요하다
+* 순수 가상함수를 사용하면 위와 같은 처리를 할 필요 없이 호출 자체를 막을 수 있다.
+  * 동시에 자식 클래스들에게는 필수적인 메서드 정의를 강제할 수 있다.
 
 ## Virtual Table이란?
 * 클래스 안에 **가상함수가 포함되어 있을 시**, 객체를 생성할 때 가상함수를 가리키는 포인터가 생성
