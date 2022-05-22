@@ -80,10 +80,10 @@ author_profile: true
 
 ### push_back vs. emplace_back
 * 상단의 원리로 인해 일반적으로 emplace_back이 더 빠르다
-  * **컴파일러 최적화로 push_back도 불필요한 복사-이동을 하지 않는다**
+  * 컴파일러 최적화로 push_back도 불필요한 복사-이동을 하지 않는다
   * emplace_back 을 사용했을 때와 동일한 어셈블리를 생성한다
 * emplace_back은 모든 유형의 생성자를 호출함으로써 런타임에서의 문제를 야기할 수 있다
-  * 따라서 요즘은 push_back을 호출하는 게 더 낫다
+  * **따라서 push_back을 호출하는 게 더 낫다**
 
 ```c++
 // addressof 함수는 & 연산자가 오버로딩 되어있는 경우를 대비해
