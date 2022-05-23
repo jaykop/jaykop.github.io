@@ -41,15 +41,17 @@ if (picnic) {
     - 하위 클래스가 생성되는 시점에 모터도 어떤 타입이 선언될 지 결정됨.
     - 모터 타입이 히든으로 제공된다는 전제로 탈 것 팩토리를 이용해 하위 클래스를 선언하는 것이 가능
 * 여러 개의 생성자가 존재하더라도, 코드 가독성을 보장
-      ```csharp
-      // 아래 2개 보다는
-      Vehicle(make:string, motor:number);
-      Vehicle(make:string, owner:string, license:number, purchased:date);
 
-      // 이 2개가 더 이해하기 쉬움
-      Vehicle.CreateOwnership(make:string, owner:string, license:number, purchased: date);
-      Vehicle.Create(make:string, motor:number);
-      ```
+    ```csharp
+    // 아래 2개 보다는
+    Vehicle(make:string, motor:number);
+    Vehicle(make:string, owner:string, license:number, purchased:date);
+
+    // 이 2개가 더 이해하기 쉬움
+    Vehicle.CreateOwnership(make:string, owner:string, license:number, purchased: date);
+    Vehicle.Create(make:string, motor:number);
+    ```
+
 * 상위 클래스의 접근을 차단하고 바로 하부 클래스의 객체화를 하도록 디자인 
     - 탈것 클래스에 대한 생성자 접근을 외부로부터 차단
     - 오직 하위클래스에 대한 접근만을 허용하여 팩토리 메서드를 통해 생성되도록 허용
