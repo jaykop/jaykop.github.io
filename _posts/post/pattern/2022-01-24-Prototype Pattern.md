@@ -135,17 +135,32 @@ template <class T>
 class SpawnerFor : public Spawner
 {
   public:
-  virtual Monster* spawnMonster() { return new T(); }
+  Monster* spawnMonster() override { return new T(); }
 };
 
 // ghost를 스폰하는 스포너 생성
 Spawner* ghostSpawner = new SpawnerFor<Ghost>();
+Monster* instance = ghostSpawner->spawnMonster();
 ```
 * 탬플릿 구조를 이용해 타입 T를 생성하는 스포너는 위와 같이 디자인할 수 있다
 * **Spawner 클래스를 상위로 따로 두는 이유**
   1. 생성하는 몬스터 종류에 상관없이 Monster 포인터만으로 작업하는 코드를 Spawner 클래스에서 쓸 수 있기 때문
-  2. 상위 클래스인 Spawner가 없다면 몬스터를 스폰하는 코드에서 매번 탬플릿 매개변수를 추가해야 한다
-  => 무슨 말이지...?
+  2. 상위 클래스인 Spawner가 없이 구현하면 매번 탬플릿 매개변수를 추가해야 한다
+  
+  ```c++
+  class SpawnerFor 
+  {
+    public:
+    
+    template <class T>
+    T* spawnMonster() { return new T(); }
+  };
+
+  // ghost를 스폰하는 스포너 생성
+  Spawner* ghostSpawner = new SpawnerFor<Ghost>();
+  // 매개변수 Ghost 필수
+  Monster* instance = ghostSpawner->spawnMonster<>();
+  ```
 
 ### 일급자료형
 * C++가 아닌 자바스크립트, 파이썬, 루비 등 클래스가 전달 가능한 일급 자료형인 동적 자료형 언어에서는 이보다 더 간단하게 작업할 수 있다고 한다
