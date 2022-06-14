@@ -200,7 +200,11 @@ Car car = new MyVehicle();
 |접근 지정자는 public(변경 불가)| |함수 접근 지정자 설정 가능|  
 | |상대적으로 abstract가 더 빠르게 작동| |  
 
+* interface를 사용하는 데 JMP 명령어가 하나 더 사용된다고 한다
+  * 유의미한 차이라고 하기에는 어려울 것 같다
+
 ## 출처
 * <https://holjjack.tistory.com/41>
 * <https://nomad-programmer.tistory.com/170>
 * <https://www.tutorialsteacher.com/csharp/csharp-interface>
+* <https://stackoverflow.com/questions/51229106/interface-vs-abstract-performance-c-sharp>
