@@ -1,5 +1,5 @@
 ---
-title: "SpriteRenderer vs. UI Image"
+title: "Truth About Value Type"
 classes: wide
 categories: 
   - post
