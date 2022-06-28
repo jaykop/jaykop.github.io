@@ -11,7 +11,7 @@ author_profile: true
 
 ## Update의 비용
 
-![image](/assets/images/table11.png)
+![image](/assets/images/updateFunction.png)
 
 * Monobehaviour이 Enable한 상태하면 매 프레임마다 호출하는 함수
 * gameobject가 많아질수록 이 함수의 호출도 많아진다
