@@ -9,7 +9,7 @@ sidebar:
 author_profile: true
 ---
 
-## Update function
+## Update의 비용
 
 ![image](/assets/images/table11.png)
 
