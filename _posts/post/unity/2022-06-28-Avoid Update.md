@@ -1,5 +1,5 @@
 ---
-title: "Update의 비용"
+title: "Update Function"
 classes: wide
 categories: 
   - post
