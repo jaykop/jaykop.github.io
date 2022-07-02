@@ -9,6 +9,11 @@ sidebar:
 author_profile: true
 ---
    
+## 리플렉션의 개념
+* 일반적으로 클래스를 통해 객체를 생성
+  * 사용자(프로그래머)는 클래스의 필드와 메서드를 알고 있고, 사용하는 데 불편함이 없다
+
+
 ## 리플렉션(Reflection)
 * 프로그램 실행 도중 객체 정보를 조사
 * 형식의 이름을 통해 인스턴스를 생성하고 그 인스턴스의 메서드를 호출할 수도 있다
@@ -160,20 +165,20 @@ public class Author : System.Attribute
   
 // Class with the Author attribute.  
 [Author("P. Ackerman")]  
-public class FirstClass  
+public class FirstClass : Author
 {  
     // ...  
 }  
   
 // Class without the Author attribute.  
-public class SecondClass  
+public class SecondClass : Author
 {  
     // ...  
 }  
   
 // Class with multiple Author attributes.  
 [Author("P. Ackerman"), Author("R. Koch", version = 2.0)]  
-public class ThirdClass  
+public class ThirdClass : Author 
 {  
     // ...  
 }  
@@ -225,3 +230,4 @@ class TestAuthorAttribute
 * <https://nomad-programmer.tistory.com/201>
 * <https://stackoverflow.com/questions/1458256/why-is-the-use-of-reflection-in-net-recommended>
 * <https://stackoverflow.com/questions/723328/c-can-someone-explain-the-practicalities-of-reflection>
+* <https://futurists.tistory.com/44>
