@@ -49,6 +49,28 @@ private IEnumerator UpdateCoroutine()
 * 아무것도 하지 않는 Update를 호출하는 것만으로도 비용은 발생한다
   * 사용하지 않는 업데이트 함수는 반드시 제거할 것
 
+### Update를 선언하지 않으면 작동하지 않는가?
+* Update 함수가 선언되어 있지 않으면 호출되지 않는다
+  * 선언되어 있으면 비어있는 함수라도 호출된다
+* Mono 혹은 IL2CPP가 MonoBehaviour에 접근해 파악하고 그 정보를 캐싱한다
+  * 이 MonoBehaviour의 메서드는 알맞은 호출 리스트에 들어가게 되고, Unity는 이 리스트를 iterate한다
+
+## Update 함수가 호출되는 순서 (IL2CPP)
+![image](/assets/images/table5.png)
+
+1. 유니티가 모든 업데이트할 모든 Behaviour를 iterate한다
+  * iterate 도중 후위의 Behaviour가 삭제되는 게 아니라는 가정하에
+2. 유니티가 호출한 메서드를 validate한다
+  * 이 유효성 검사는 gameObject가 active되어 있고, 초기화되었으며, Started 함수가 불린 데 한해서 시행된다
+3. 네이티브로에서 Managed쪽 함수를 호출하기 위해 ScriptingInvocationNoArgs와 ScriptingArguments객체가 생성되고 메서드를 Invoke하기 IL2CPP VM을 정렬한다
+4. 인수 체크 IL2CPP VM이 Runtime:Invoke를 호출한다
+  * 메서드 자체가 있는지 확인하고
+  * method signature를 위해 생성된 RuntimeInvoker를 call
+  
+### method signature
+* 함수 이름과 param list
+* 함수의 declaration 부분
+
 ## Update 함수 사용은 반드시 지양해야 하는가?
 * 상황에 알맞게 사용하는 것이 중요하지, 사용하지 않는다고 능사는 아니다
   * Input 키의 Up/Down을 확인하는 것과 같은 것은 문제가 되지 않는다
@@ -61,3 +83,4 @@ private IEnumerator UpdateCoroutine()
 * <https://blog.unity.com/technology/1k-update-calls>
 * <https://velog.io/@leehs27/UpdateCallsCost>
 * <https://bradkeys.com/2017/01/30/Avoiding-Unity-Update-Loops/>
+* <https://www.thoughtco.com/method-signature-2034235>
