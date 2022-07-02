@@ -230,4 +230,4 @@ class TestAuthorAttribute
 * <https://nomad-programmer.tistory.com/201>
 * <https://stackoverflow.com/questions/1458256/why-is-the-use-of-reflection-in-net-recommended>
 * <https://stackoverflow.com/questions/723328/c-can-someone-explain-the-practicalities-of-reflection>
-* <https://futurists.tistory.com/44>
+* <https://you-rang.tistory.com/270>
