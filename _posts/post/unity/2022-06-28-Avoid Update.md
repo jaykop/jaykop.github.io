@@ -77,6 +77,17 @@ private IEnumerator UpdateCoroutine()
   * 하지만 ***매 프레임 호출되어야 하는지 의문을 가질 필요***는 있다
 * GetComponent나 GameObject.Find 함수를 매 프레임 사용하는 것이 퍼포먼스에 더 치명적이다
 
+## new in Update
+* 새로운 class를 매 프레임 객체 생성하는 것은 퍼포먼스에 엄청난 영향을 미친다
+  * 매번 새로운 객체가 heap에 쌓이게 될 것이다
+  * Garbage Collector가 메모리를 회수할 때까지 기다려야 하고, GB가 바쁘게 일하도록 만든다
+  * 이는 스레드가 멈추도록 하는 문제를 발생시킨다
+
+### value type은?
+* 대표적으로 Vector는 value type이므로, new 를 사용해 객체를 생성하면 stack에 할당된다
+  * 객체 생성 및 파괴 소요가 적다
+* 재사용 가능한 buffer를 둬도 상관없다
+
 ## 출처
 * <https://thegamedev.guru/unity-ui/sprite-vs-image/>
 * <https://www.reddit.com/r/Unity3D/comments/4mh51a/how_to_avoid_using_update/>
@@ -84,3 +95,6 @@ private IEnumerator UpdateCoroutine()
 * <https://velog.io/@leehs27/UpdateCallsCost>
 * <https://bradkeys.com/2017/01/30/Avoiding-Unity-Update-Loops/>
 * <https://www.thoughtco.com/method-signature-2034235>
+* <https://gamedev.stackexchange.com/questions/138574/is-it-wrong-to-be-creating-new-objects-in-update>
+* <https://www.reddit.com/r/Unity3D/comments/2b5rtp/should_i_create_reusable_vector2vector3_objects/>
+* <https://forum.unity.com/threads/vector3-and-other-structs-optimization-of-operators.477338/>
