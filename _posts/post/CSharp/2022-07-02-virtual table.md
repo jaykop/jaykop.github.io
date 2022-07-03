@@ -21,6 +21,12 @@ author_profile: true
   * 메서드 테이블은 virtual method를 호출하는 데에 필수이다
   * 빠르고 간단한 참조를 위해, managed heap의 모든 객체는 type object pointer라는 것을 가지고 있고, 이를 통해 타입 오브젝트로의 직접 엑세스할 수 있다
 
+### Type Object Pointer
+* Sytem.Type의 object는 object 그 자체로 Type의 객체(instance)이다
+* Type Object Pointer도 object의 멤버로 있다
+  * 이 포인터는 Type Object 스스로를 가리키고 있다
+* <https://docs.microsoft.com/en-us/dotnet/api/system.type?view=net-6.0>
+
 ### 다형성과 가상 메서드 Polymorphism and virtual methods
 * C# 프로그램의 함수 호출은 가상으로 실행된다
 
@@ -129,3 +135,4 @@ static string GetString(int arg)
 * <https://www.csharpstudy.com/DevNote/Article/28>
 * <https://www.levibotelho.com/development/how-method-calling-works/>
 * <https://www.techopedia.com/definition/27305/managed-heap>
+* <https://stackoverflow.com/questions/21852355/c-sharp-type-object-pointer>
