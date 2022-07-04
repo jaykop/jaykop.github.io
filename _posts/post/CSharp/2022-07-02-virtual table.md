@@ -10,6 +10,72 @@ sidebar:
 author_profile: true
 ---
 
+## Virtual Table의 구조
+* C#에서 모든 클래스는 System.Object 클래스에서 상속되므로 VTable을 갖는다
+  * 기본적으로 ToString, Equals, GetHashCode, Finalize 메서드를 VTable에 갖는다
+* Base클래스가 가상 메서드가 없다면 이외의 메서드들은 VTable Slot에 추가되지 않는다
+
+```csharp
+class A
+{
+    public virtual void BaseMeth1() { }
+    public virtual void BaseMeth2() { }
+}
+class B : A
+{
+    public void DerivedMeth1() { }
+    public void DerivedMeth2() { }
+}
+```
+
+![image](/assets/images/derived-vtable.png)
+
+* 위 상속 클래스 A, B의 메서드 테이블
+
+
+## 
+
+```csharp
+class A
+{
+    public virtual void Run1() 
+    {
+        Console.WriteLine("A.Run1");
+    }
+    public virtual void Run2() { }
+}
+class B : A
+{
+    public override void Run1() 
+    {
+        Console.WriteLine("B.Run1");
+    }        
+    public void OtherRun() {}
+}
+
+// 케이스-A
+A a = new A();
+a.Run1(); 
+
+// 케이스-B
+A x = new B();
+x.Run1();  
+```
+
+![image](/assets/images/VTable-view-range.png)
+* 상속 계층에 따라 메서드 테이블이 다르게 구성된다
+
+![image](/assets/images/derived-vtable-baseonly.png)
+* Base Class인 A의 메서드 테이블 구성
+
+![image](/assets/images/derived-vtable-overriding.png)
+* Derived Class인 B의 메서드 테이블 구성
+* Object class의 메서드, A의 메서드, B의 메서드 순서로 VTable이 구성되어 있을 거라 예상됐지만, B.Run1이 A 메서드 자리에 들어와 있고, A.Run1이 보이지 않는다
+  * override 되었기 때문이다
+* 파생 클래스의 VTable에 있는 base class의 가상 메서드 슬롯을 override된 메서드 포인터로 대체한다
+  * 추가적인 메서드 슬롯을 만들지 않는다
+  
+
 ## 메서드 호출 방식
 * C# 컴파일러와 CLR에 의해 공등으로 실행된다
 
@@ -22,7 +88,7 @@ author_profile: true
   * 빠르고 간단한 참조를 위해, managed heap의 모든 객체는 type object pointer라는 것을 가지고 있고, 이를 통해 타입 오브젝트로의 직접 엑세스할 수 있다
 
 ### Type Object Pointer
-* Sytem.Type의 object는 object 그 자체로 Type의 객체(instance)이다
+* System.Type의 object는 object 그 자체로 Type의 객체(instance)이다
 * Type Object Pointer도 object의 멤버로 있다
   * 이 포인터는 Type Object 스스로를 가리키고 있다
 * <https://docs.microsoft.com/en-us/dotnet/api/system.type?view=net-6.0>
@@ -56,13 +122,12 @@ string GetString(object arg)
 ![image](/assets/images/vtable.png)
 
 * 만약 ToString을 지원하지 않는 object가 인자로 들어왔다면?
-  * CLR은 상속 계층을 확인하기 시작한다
+  * CLR은 상속 계층을 확인하며 해당 메서드를 가진 class를 찾는다
   * 이는 타입 오브젝트가 그 베이스 클래스의 타입에 대한 참조를 가지고 있기 때문에 가능하다
   * 상속 체인은 모든 .NET 프로그램에서 모든 타입에 대해 생성되고, 그 뿌리에는 System.Object가 있다
 
 ### Value types
-* 상기한 방식은 약점이 하나 있다
-* 타입 오브젝트에 지나치게 의존적이고, type object pointer에 대해서도 그렇다
+* 상기한 방식은 타입 오브젝트와 type object pointer에 대해 지나치게 의존적이라는 약점이 있다 
 * 값 타입의 메서드를 호출하는 데 managed heap이 없고, 그래서 type object pointer가 없는 타입이라면?
 
 ```csharp
@@ -117,7 +182,8 @@ static string GetString(int arg)
   * object 타입의 인자를 int 타입을 받는 함수에 넣을 수는 없다
 * int32가 값 타입이므로, int32의 하위 타입이 이 함수에 인자로 들어갈 일이 없다
 
-## Managed Heap
+## Managed Heap vs. Unmanaged Heap
+### Managed Heap
 * 프로세스가 런타임에 생성하는 주소 공간을 처리하는 구조
 * 이 주소공간은 OS에 의해 특정 방식으로 처리될 때, Managed Heap이라 불린다
 * .Net 프레임 워크에서 자동 메모리 관리 프로세스의 일부로 이 힙 모델을 사용한다
