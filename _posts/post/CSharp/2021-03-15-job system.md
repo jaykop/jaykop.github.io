@@ -20,7 +20,7 @@ author_profile: true
 * 일반적으로 컨텍스트 변경을 방지하기 위해 코어당 하나의 워커 스레드가 있으나 사용할 코어 예약도 가능
 * 잡 대기열에 순서대로 잡을 배치하여 실행
 
-```CSharp
+```csharp
 public class RotationSpeedSystem : JobComponentSystem
 {
     [BurstCompile]
