@@ -38,7 +38,7 @@ static int si = 5;        // si is explicitly static
 
 ## static const in C#
 
-```CSharp
+```csharp
 public static const string CONST_NAME = "blah";
 ```
 
