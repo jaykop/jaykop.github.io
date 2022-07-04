@@ -13,7 +13,6 @@ author_profile: true
 ## in 키워드
 * in 매개변수로 전달되는 변수는 메서드로 전달되기 전 반드시 초기화
 * 인수가 참조로 전달되지만, 수정되지 않음
-* C++에서의 const Type&과 유사
 * **오버로딩 규칙**
   ```csharp
   class InOverloads
