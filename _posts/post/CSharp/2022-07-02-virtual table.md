@@ -1,5 +1,5 @@
 ---
-title: "Virtual Table"
+title: "Method & Virtual Table"
 classes: wide
 categories: 
   - post
@@ -33,7 +33,7 @@ class B : A
 * 위 상속 클래스 A, B의 메서드 테이블
 
 
-## 
+## Method Overriding
 
 ```csharp
 class A
@@ -75,6 +75,59 @@ x.Run1();
 * 파생 클래스의 VTable에 있는 base class의 가상 메서드 슬롯을 override된 메서드 포인터로 대체한다
   * 추가적인 메서드 슬롯을 만들지 않는다
   
+
+## Method Hiding
+
+```csharp
+class A
+{
+    public virtual void Run1()
+    {
+        Console.WriteLine("A.Run1");
+    }
+    public virtual void Run2() 
+    {
+        Console.WriteLine("A.Run2");
+    }
+}
+class B : A
+{
+    public override void Run1()
+    {
+        Console.WriteLine("B.Run1");
+    }
+    public new void Run2()
+    {
+        Console.WriteLine("B.Run2");
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        //케이스-A
+        A a = new B();        
+        a.Run2();  // 베이스의 Run2 실행
+
+        //케이스-B
+        B b = (B) a;
+        b.Run2(); // 파생클래스 Run2 실행
+    }
+}
+```
+
+* 위의 예시에서는 파생 클래스 B가 A의 가상 메서드인 Run2를 무시하고 새로운 Run2를 정의 및 구현했다
+  * 이 경우 파생 클래스인 B는 Base 클래스인 A의 Run2를 사용할 수 없다
+
+![image](/assets/images/method-hiding.png)
+
+* IL 상으로는 메서드 테이블에는 A의 Run2가 목록에 있지만 override 되지 않은 B의 Run2도 동일한 이름으로 생성되었다
+* 다시 위의 예시에서, 케이스-A는 A 타입으로 할당된 객체 B를 생성한다
+  * 타입 A로 정의된 객체 a가 사용할 수 있는 메서드 테이블은 A의 메서드 테이블이다
+  * System.Object의 테이블과 A.Run1, A.Run2 메서드가 있다
+* 케이스-B는 a를 다시 B타입으로 변환했다
+  * 이 경우 타입 B로 변환된 객체 b의 메서드 테이블은 B의 메서드 테이블이다
+  * System.Object, A, B의 메서드 테이블을 사용할 수 있으나, A의 Run2 메서드는 숨김처리된다
 
 ## 메서드 호출 방식
 * C# 컴파일러와 CLR에 의해 공등으로 실행된다
