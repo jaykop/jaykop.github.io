@@ -14,6 +14,8 @@ author_profile: true
 * C#에서 모든 클래스는 System.Object 클래스에서 상속되므로 VTable을 갖는다
   * 기본적으로 ToString, Equals, GetHashCode, Finalize 메서드를 VTable에 갖는다
 * Base클래스가 가상 메서드가 없다면 이외의 메서드들은 VTable Slot에 추가되지 않는다
+* Vritual table의 위치?
+  * 객체 레퍼런스가 가리키는 Heap에서 Type Handle이 Method table을 가리킨다
 
 ```csharp
 class A
@@ -245,10 +247,6 @@ static string GetString(int arg)
 ### Unmanaged Heap
 * Managed Heap의 반대 개념
 * 개발자들이 직접 할당 및 관리하는 주소 공간
-
-## Vritual table의 위치
-
-* 객체 레퍼런스가 가리키는 Heap에서 Type Handle이 Method table을 가리킨다
 
 ## 출처
 * <https://www.csharpstudy.com/DevNote/Article/28>
