@@ -203,8 +203,23 @@ Car car = new MyVehicle();
 * interface를 사용하는 데 JMP 명령어가 하나 더 사용된다고 한다
   * 유의미한 차이라고 하기에는 어려울 것 같다
 
+## When to use?
+### Abtstract
+* ***class A는 class B이다***
+  * 오브젝트 타입의 특성을 정의한다
+  * 이 오브젝트가 무엇인지 정의한다
+* 좋은 Abtstract는 절대적 코드의 양이 적고 그 재사용성을 증대시킨다
+  * state와 functionality가 공유되기 때문
+
+### Interface
+* ***class A는 F할 수 있다***
+  * F는 메서드
+* 특정 메서드의 존재를 보장한다
+
 ## 출처
 * <https://holjjack.tistory.com/41>
 * <https://nomad-programmer.tistory.com/170>
 * <https://www.tutorialsteacher.com/csharp/csharp-interface>
 * <https://stackoverflow.com/questions/51229106/interface-vs-abstract-performance-c-sharp>
+* <http://www.devfields.com/abstract-classes-and-interfaces/>
+* <https://stackoverflow.com/questions/479142/when-to-use-an-interface-instead-of-an-abstract-class-and-vice-versa>
