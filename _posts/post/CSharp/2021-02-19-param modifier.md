@@ -187,7 +187,7 @@ transform.posiiton = new Vector3(10f, 0f, 0f); // 바뀜
 * 위와 같은 일이 많았다
 * 우선, transform.position은 gettor, 즉 read-only다
   * 아무리 값을 변경하려고 해도 그 copy에 값을 할당하고 있을 뿐이다.
-  * 직접 접근하고 싶다면, position[0], position[1], position[2]로 접근할 수 있다
+  * ~~직접 접근하고 싶다면, position[0], position[1], position[2]로 접근할 수 있다~~안 되던데???
 * 그럼 transform.position의 Set은?
   * 역시 gettor가 불려왔기 때문
 * 그럼 다른 방법은?

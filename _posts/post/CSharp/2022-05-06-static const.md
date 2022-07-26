@@ -51,7 +51,11 @@ public static const string CONST_NAME = "blah";
   * 해당 static 변수에 접근하기 전까지 정적 생성자는 호출하지 않는다
   * static 변수가 저장되는 공간은 Heap이다
 * const는 값 변경이 불가능하고 (대개) 컴파일 타임에 초기화된다
-  * 컴파일 타임에 곧장 생성 코드에 임베드 되며, 런타임에 이를 위한 변수가 필요하지 않다
+
+### 그래서 const 변수가 Heap에 생성되나?
+* 컴파일 타임에 곧장 생성 코드에 임베드 되며, 런타임에 이를 위한 변수가 필요하지 않다
+  * https://stackoverflow.com/questions/54105028/where-does-the-memory-is-allocated-for-static-constant-and-readonly-fields
+  * **static 으로 분류되나, Heap에 저장되지는 않는 것 같다**
 
 ## 출처   
 * <https://quick-adviser.com/are-static-variables-initialized-at-compile-time/>

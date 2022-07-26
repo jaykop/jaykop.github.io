@@ -56,9 +56,23 @@ class B
 }
 ```
 
+### 직렬화, 역직렬화, 파싱
+
+![post_thumbnail](/assets/images/다운로드 (11).png)
+
+* 직렬화 
+  * 데이터의 문자열화
+* 역직렬화
+  * 문자열 -> 객체 데이터 화
+  * JSON 데이터 -> 객체 데이터 화 
+* 파싱
+  * 특정 타입의 객체가 아닌 JSON 데이터를 읽어내기 위한 전용 데이터로 읽어내기 위한 오브젝트
+  * JObject, JArray 등과 같은 타입의 라이브러리 제공 오브젝트
+
 ## 출처
 * <https://docs.microsoft.com/ko-kr/dotnet/framework/interop/blittable-and-non-blittable-types>
 * <https://hwanine.github.io/network/Marshalling/>
 * <https://scvtwo.tistory.com/14>
 * <https://m.blog.naver.com/gmldbsdl6/80195745104>
 * <https://www.partech.nl/en/publications/2021/03/managed-and-unmanaged-code---key-differences#>
+* <https://wookoa.tistory.com/94>
