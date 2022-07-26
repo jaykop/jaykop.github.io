@@ -29,17 +29,27 @@ author_profile: true
 ## Garbage Collection의 원리
 
 ### GC Root란?
-* 현재 실행 중인 스레드의 지역 변수
-* 정적 변수
-* CPU에 레지스터에 등록된 오브젝트 등
+
+![image](/assets/images/다운로드 (8).png)
+
+* 오브젝트로의 참조 즉, 메모리 주소
+  * 현재 실행 중인 스레드의 지역 변수
+  * 정적 변수
+  * CPU에 레지스터에 등록된 오브젝트 등
+* **GC Root는 Object가 아닌, Object로의 참조 혹은 그 여부다**
+  * 아무것도 연결되지 않은, 즉 참조가 없는 Object는 Garbage로 수집된다
 
 ### GC Root 목록
+
+![image](/assets/images/다운로드 (9).png)
+![image](/assets/images/다운로드 (10).png)
+
 * GC는 Root 목록을 생성하고 순회한다
   * 이 목록은 상시 접근 가능한 메모리 주소로 이루어져 있다
   * 프로세스에 의해 생성된 Object들의 참조를 보유한다
   * Object의 참조가 있다면 이 Object는 alive한 상태로 마킹된다
-* 각 GC Root는 하나의 Object가 아닌, Object로의 참조 혹은 그 여부다
-  * 아무것도 연결되지 않은, 즉 참조가 없는 Object는 Garbage로 수집된다
+  * 아무 참조도 없다면 Garbage로 판단한다
+* 루트 순회 이후 빈 공간에 인접 객체를 이동해 fragmentation을 방지한다
 
 ### Object Graph
 * 위의 참조에 근거해서 .Net은 그래프를 생성한다
