@@ -52,7 +52,7 @@ author_profile: true
 
 * 위의 설명만 보면 sprite renderer가 geometry 정보가 더 많으므로 rendering cost가 더 높을 것으로 보인다
 * 하지만 **vertex operation이 fragment operation 보다 cost가 더 낮고, mobile과 semi-transparent material에서 특히 그 차이가 크다면?**
-* Unity를 비록한 대부분의 엔진에서 semi-transparent(반투명) materials는 back-to-front 순서로 render된다
+* Unity를 비롯한 대부분의 엔진에서 semi-transparent(반투명) materials는 back-to-front 순서로 render된다
   * 카메라로부터 먼 object부터 순서대로 그려져오는 것
   * opaque(불투명) material들은 카메라로부터 가까운 순서부터, 즉 위와 반대로 rendering 하면서 culling을 한다
 * Pixel shader는 screen에 보이는 모든 sprite의 pixel 단위 하나하나마다 실행될 것이며, 이는 거대한 sprite를 그릴 때도 마찬가지다

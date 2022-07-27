@@ -80,7 +80,7 @@ private IEnumerator UpdateCoroutine()
 ## new in Update
 * 새로운 class를 매 프레임 객체 생성하는 것은 퍼포먼스에 엄청난 영향을 미친다
   * 매번 새로운 객체가 heap에 쌓이게 될 것이다
-  * Garbage Collector가 메모리를 회수할 때까지 기다려야 하고, GB가 바쁘게 일하도록 만든다
+  * Garbage Collector가 메모리를 회수할 때까지 기다려야 하고, GC가 바쁘게 일하도록 만든다
   * 이는 스레드가 멈추도록 하는 문제를 발생시킨다
 
 ### value type은?

@@ -96,6 +96,14 @@ author_profile: true
 * viewing volume의 내부 또는 외부의 object를 솎아내는 것
 * cull할지 render할지 고르는 과정
 
+## 좌표계
+
+![post_thumbnail](/assets/images/99CEE93D5C3DCA3815.png)
+
+* Z 값의 방향에 따라 왼손 / 오른손으로 분류
+* OpenGL은 오른손 좌표계
+* DirectX는 왼손 좌표계
+
 ## 출처
 * <https://www.khronos.org/opengl/wiki/Stencil_Test>
 * <https://www.khronos.org/opengl/wiki/Scissor_Test>
