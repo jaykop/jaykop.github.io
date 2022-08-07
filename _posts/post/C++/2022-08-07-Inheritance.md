@@ -117,6 +117,9 @@ int main()
   * 역시 유지된다
 
 ## 결론
+
+![post_thumbnail](/assets/images/W6CJ3.jpg)
+
 * 외부에서 접근 시 public -> protected -> private 순서로 접근 제어자가 제한된다
 * 그러나 내부에서의 접근은 유지된다
 
