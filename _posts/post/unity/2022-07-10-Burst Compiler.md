@@ -21,14 +21,14 @@ author_profile: true
 * SIMD 기능 사용
 * 프론트 엔드와 백엔드로 구분
 
-#### SIMD Single Instruction Multiple Data 
+### SIMD Single Instruction Multiple Data 
 * 하나의 명령어로 여러 개의 데이터를 한번에 처리
   * Vertorization
 * 일반적으로는 SISD 
   * Single Instruction Single Data
 * 한번에 실행할 수 있는 대역폭이 정해져 있음
 
-#### 프론트엔드
+### 프론트엔드
 
 ![image](/assets/images/다운로드 (1).jfif)
 
@@ -37,7 +37,7 @@ author_profile: true
   * IL이라고 생각하면 될 듯?
 * Clang 클랭을 이용
 
-#### 백엔드
+### 백엔드
 * 앱을 컴퓨터 코드로 변환
 * 생성된 IR을 LLVM 컴파일러를 통해 타겟에 맞는 기계어로 변환
   * x86, ARM 등
