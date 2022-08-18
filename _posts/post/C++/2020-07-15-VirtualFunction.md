@@ -142,7 +142,74 @@ Derived destructor
 Base destructor
 ```
 
+### override와 virtual 키워드는 필수인가?
+* Derived 클래스에서 Base의 메서드를 override하기 위해 반드시 virtual이나 override 키워드를 사용할 필요는 없다
+  * Base 클래스의 메서드가 virtual 키워드를 포함하면 Derived의 메서드는 자동으로 override 된다
+* 하지만 정석은
+  * virtual 키워드는 Base 클래스의 메서드 선언용
+  * override 키워드는 Derived 클래스의 오버라이드용
+
+```c++
+struct Base { virtual void foo() {} };
+struct Derived: Base { void foo() override {} };
+```
+
+### virtual 키워드 사용
+
+```c++
+// case 1
+class Base
+{
+public:
+    void func()
+    {
+        std::cout << "Base Func\n";
+    }
+};
+
+class Derived : public Base
+{
+public:
+    void func()
+    {
+        std::cout << "Derived Func\n";
+    }
+};
+
+//...
+// Output: Base Func
+// Base 클래스의 메서드에 virtual 키워드 없음
+Base* b1 = new Derived;
+b1->func(); 
+
+// case 2
+class Base
+{
+public:
+    virtual void func()
+    {
+        std::cout << "Base Func\n";
+    }
+};
+
+class Derived : public Base
+{
+public:
+    void func()
+    {
+        std::cout << "Derived Func\n";
+    }
+};
+
+//...
+// Output: Derived Func
+// Base 클래스의 메서드에 virtual 키워드 있음
+Base* b1 = new Derived;
+b1->func(); 
+```
+
 ## 출처
 * <https://boycoding.tistory.com/235>
 * <https://stackoverflow.com/questions/3849498/when-is-vtable-in-c-created>
 * <https://stackoverflow.com/questions/39898126/why-we-need-interface-or-pure-virtual-function-in-c>
+* <https://stackoverflow.com/questions/39932391/should-i-use-virtual-override-or-both-keywords>
