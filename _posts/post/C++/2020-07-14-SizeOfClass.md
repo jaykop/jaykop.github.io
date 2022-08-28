@@ -50,13 +50,65 @@ class A
 	void function(); 
 } 
 
-// 8+8 = 16(64bit) bytes: 
+// size of class A: 8(64bit) bytes: 
+// size of class B: 8(64bit) bytes: 
+// size of class C: 8+8 = 16(64bit) bytes: 
 // size of pointers(to vtable)
 class A
 {
-	virtual void function1();
-	virtual void function2();
-} 
+public:
+    virtual void foo()
+    {
+        cout << "class A foo\n";
+    }
+
+    virtual void bar()
+    {
+        cout << "class A bar\n";
+    }
+};
+
+class B
+{
+public:
+    virtual void foo()
+    {
+        cout << "class B foo\n";
+    }
+
+    virtual void bar()
+    {
+        cout << "class B bar\n";
+    }
+};
+
+class C : public A, public B
+{
+    void foo() override
+    {
+        cout << "class C foo\n";
+    }
+
+    void bar() override
+    {
+        cout << "class C bar\n";
+    }
+};
+
+// what if this?
+// size of class C: 8+8+8 = 24(64bit) bytes: 
+class C : virtual public A, virtual public B
+{
+    void foo() override
+    {
+        cout << "class C foo\n";
+    }
+
+    void bar() override
+    {
+        cout << "class C bar\n";
+    }
+};
 
 // 8+8 = 16 bytes: 
 // size of pointers(to vtable)
