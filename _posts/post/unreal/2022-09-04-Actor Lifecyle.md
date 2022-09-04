@@ -90,5 +90,5 @@ author_profile: true
 
 ## 출처
 * <https://docs.unrealengine.com/4.27/ko/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Actors/ActorLifecycle/>
-* <>https://woo-dev.tistory.com/267
+* <https://woo-dev.tistory.com/267>
 * <https://narakit.tistory.com/185>
