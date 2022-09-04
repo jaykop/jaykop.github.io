@@ -52,6 +52,7 @@ author_profile: true
     * Actor
     * APawn
       * Pawn
+* 컨트롤러가 붙은 액터
 
 ### Chatacter
 * 플레이어 컨트롤에 의해 제어되는 Pawn
@@ -61,12 +62,14 @@ author_profile: true
     * APawn
       * Pawn
       * Character
+* 애니메이션(일반적으로 Skeletal Mesh)이 붙은 Pawn
 
 ### Controller
 * Player Controller
   * 플레이어의 입력값을 Pawn으로 전달
 * AI Controller
 * 캐릭터의 Movement를 Wrapping해서 컨트롤하기 쉽도록 해주는 컴포넌트
+* Controller 컴포넌트가 붙을 수 있으면 Pawn이다
 
 ### Game Mode
 * 게임의 규칙들을 정의
