@@ -1,5 +1,5 @@
 ---
-title: "Unreal Object"
+title: "Actor Lifecyle"
 classes: wide
 categories: 
   - post
