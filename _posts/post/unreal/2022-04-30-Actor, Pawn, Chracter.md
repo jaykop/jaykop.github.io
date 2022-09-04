@@ -66,6 +66,7 @@ author_profile: true
 * Player Controller
   * 플레이어의 입력값을 Pawn으로 전달
 * AI Controller
+* 캐릭터의 Movement를 Wrapping해서 컨트롤하기 쉽도록 해주는 컴포넌트
 
 ### Game Mode
 * 게임의 규칙들을 정의
