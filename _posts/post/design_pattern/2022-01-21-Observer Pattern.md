@@ -3,7 +3,7 @@ title: "Observer Pattern"
 classes: wide
 categories: 
   - post
-  - Pattern
+  - design_pattern
 sidebar:
   nav: "main"
 author_profile: true

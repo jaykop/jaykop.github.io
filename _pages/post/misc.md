@@ -1,8 +1,8 @@
 ---
-title:  "etc."
+title:  "Misc"
 classes: wide
 layout: category
-taxonomy: etc.
+taxonomy: misc
 author_profile: true
 sidebar:
   nav: "main"

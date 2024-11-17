@@ -3,7 +3,7 @@ title: "컴포넌트 베이스 구조"
 classes: wide
 categories: 
   - post
-  - etc.
+  - misc
 sidebar:
   nav: "main"
 author_profile: true

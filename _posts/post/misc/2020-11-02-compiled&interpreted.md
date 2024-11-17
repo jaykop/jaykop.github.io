@@ -3,7 +3,7 @@ title: "Compiled & Interpreted"
 classes: wide
 categories: 
   - post
-  - etc.
+  - misc
 sidebar:
   nav: "main"
 author_profile: true
