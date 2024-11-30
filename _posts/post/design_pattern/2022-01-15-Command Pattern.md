@@ -125,5 +125,5 @@ Command* command = inputHandler.handlelnput();
 if (command) command->execute(actor);
 ```
 * 위의 코드에서 게임 내 모든 액터를 제어할 수 있다
-* AI 코드에서 액터를 Command로 제어하는 것이 가능하다
+  * AI 코드에서 액터를 Command로 제어하는 것이 가능하다
 * 이외에도 상태 변수를 추가하여 redo / undo 명령을 디자인할 수도 있다
