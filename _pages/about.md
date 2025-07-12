@@ -7,7 +7,7 @@ toc: true
   
 ---
 <div style="text-align:center">
-    <a href="/assets/images/face.png"><img src="/assets/images/face.jpg"></a>
+    <a href="/assets/profile/face.png"><img src="/assets/profile/face.jpg"></a>
 </div>
 ---
 <!-- <div style="text-align: justify"> 
