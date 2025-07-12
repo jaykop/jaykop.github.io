@@ -108,36 +108,36 @@ analytics:
 # Site Author
 author:
   name             : "Juyong Jeong"
-  avatar           : "assets/images/avatar.jpg"
+  avatar           : "assets/profile/avatar.jpg"
   bio              : "💻Game Client Programmer"
-  location         : "Gangnam, South Korea"
+  location         : "🏢Seongnam, South Korea"
   #email            : ""
   links:
     - label: "Email"
       icon: "fab fa-fw fa-google"
-      url: mailto:jaykop.jy@gmail.com
+      url: mailto:jeykop14@gmail.com
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/jaykop/"
     #- label: "Facebook"
     #  icon: "fab fa-fw fa-facebook-square"
     #  url: "https://www.facebook.com/jaykop.jy/"
-    #- label: "LinkedIn"
-    #  icon: "fab fa-fw fa-linkedin"
-    #  url: "https://www.linkedin.com/in/juyong-jeong/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/juyong-jeong-89521922a/"
 
 # Site Footer
 footer:
   links:
-    #- label: "LinkedIn"
-    #  icon: "fab fa-fw fa-linkedin"
-    #  url: "https://www.linkedin.com/in/juyong-jeong/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/juyong-jeong/"
     #- label: "Facebook"
     #  icon: "fab fa-fw fa-facebook-square"
     #  url: "https://www.facebook.com/jaykop.jy/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jaykop/"
+      url: "https://www.linkedin.com/in/juyong-jeong-89521922a/"
 
 
 # Reading Files

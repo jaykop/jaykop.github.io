@@ -27,13 +27,24 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
     - ***공학사, 공과대학 게임모바일공학전공***
 
 ## Technical Skills
-* 프로그래밍 언어
-    - ***C++, C#***
-* Tools/API
-    - ***Visual Studio, OpenGL, Git, Unity Engine***
+* Programming Language
+    - ***C++***
+    - ***C#***
+    - ***GDScript***
+* Engine
+    - ***Unreal Engine 5***
+    - ***Unity***
+    - ***Godot 4.x***
+* Version Control
+    - ***Git***
+    - ***Perforce***
 
 ## Career
-### SundayToz (2021.02 ~ Current)
+### OCEAN DRIVE Studio (2022.08 ~ Present)
+* ***AA Project Client Programmer***
+    * C++ UE5 엔진 사용하여 3D 백뷰 액션 게임 개발
+
+### SundayToz (2021.02 ~ 2022.08)
 * ***DisneyPop Client Programmer***
     * C# Unity 엔진 사용하여 국내/아시아/북미 3개 브랜치 개발
     * 인게임 레벨 에디터에 신규 컨텐츠 적용 및 유지보수
@@ -49,10 +60,11 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
 
 ## Resume
 [Github](#https://github.com/jaykop/){: .btn .btn--dark}
-[이력서 다운로드](https://jaykop.github.io/download/JuyongJeong_Resume.pdf){: .btn .btn--success}
-[포트폴리오 다운로드](https://jaykop.github.io/download/JuyongJeong_Portfolio.pdf){: .btn .btn--success}
-<!-- [Facebook](#https://www.facebook.com/jaykop.jy/){: .btn .btn--facebook}
-[LinkedIn](#https://www.linkedin.com/in/juyong-jeong/){: .btn .btn--linkedin} -->
+[Resume_KR](https://jaykop.github.io/download/JuyongJeong_Resume_kr.pdf){: .btn .btn--success}
+[Resume_EN](https://jaykop.github.io/download/JuyongJeong_Resume_en.pdf){: .btn .btn--success}
+[Portfolio](https://jaykop.github.io/download/JuyongJeong_Portfolio.pdf){: .btn .btn--success}
+<!-- [Facebook](#https://www.facebook.com/jaykop.jy/){: .btn .btn--facebook}-->
+[LinkedIn](#https://www.linkedin.com/in/juyong-jeong/){: .btn .btn--linkedin}
 
 ## Contact
 * **e-mail:** jeykop14@gmail.com  
