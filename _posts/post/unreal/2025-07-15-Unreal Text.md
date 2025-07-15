@@ -11,6 +11,7 @@ author_profile: true
    
 ## FName
 * 텍스트에 대소문자 구분을 하지 않는다
+
 ```c++
 FName MyActor = FName(FString("MyActor"));
 FName myActor = FName(FString("myActor"));
