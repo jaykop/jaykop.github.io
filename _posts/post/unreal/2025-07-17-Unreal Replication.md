@@ -110,3 +110,226 @@ ENetMode UWorld::GetNetMode() const;
 bReplicates = true;
 ```
 * 이 Actor에 대해 업데이트가 필요하다고 간주되면, 서버와 클라이언트는 이 Actor Channel을 열고 해당 Actor에 대한 정보를 교환한다
+
+## Actor Replication
+
+![post_thumbnail](/assets/images/Replication/ActorReplication.png)
+
+* Actor가 Replication 될 때, 아래 3요소가 동기화 된다
+
+### Lifetime
+* 서버가 Replicated Actor를 생성 또는 파괴하면, 클라이언트에서도 자체 사본을 생성 또는 파괴한다
+
+### Property Replication
+* Actor의 Property 중 Replicated 속성을 가지고 있으면 이 값의 업데이트는 서버에서 클라이언트로 전파된다
+
+### Remote Procedure Call
+* 함수가 Multicast RPC라면, 서버가 해당 함수를 처리할 때 클라이언트에서도 해당 함수를 호출해야 한다고 전한다
+* Server RPC 또는 Client RPC로 단일 클라이언트와 서버 간의 통신을 할 수도 있다
+
+### Ownership
+* 각 Actor는 다른 Actor를 Owner로 설정할 수 있다
+    * 보통은 Actor 생성 시에 정의된다
+    * SetOwner 함수로 Runtime에 변경도 가능하다
+
+* NetConnection은 PlayerController를 나타내며, Player가 게임에 정상적으로 로그인하면 NetConnection은 PlayerController와 연결된다
+* 서버 관점에서, 이 NetConnection은 PlayerController를 **소유**하는 것이며, 즉 PlayerController가 소유한 Actor까지 소유한다
+    * 즉, PlayerController가 소유하는 모든 Actor는 NetConnection이 소유하는 것이다
+    * 이로써 서버가 클라이언트에 연결된 Actor를 판별할 수 있다
+
+### Relevancy
+
+```c++
+// 모든 클라이언트에 대해서 서버는 항상 Actor의 변경점을 전파한다
+bAlwaysRelevant = true;
+```
+
+* 어떤 Replicated 된 Actor의 변경점을 다른 클라이언트에 전파하는지 여부
+    * 몇몇 Actor는 모든 클라이언트에 대해 Relevant 할 수도 있다
+    * PlayerController와 같은 Actor는 자신을 소유한 Client에 대해서만 Relevant 하다
+* 이 Relevancy는 Actor의 Owner를 inherit하도록 세팅할 수도 있다
+
+```c++
+// 특정 거리 이내의 Actor에 대해서만 업데이트하도록 세팅할 수도 있다
+NetCullDistanceSquared = FMath::Sqaure(3000.f);
+
+// 요 함수를 override 해서 조건을 커스터마이즈할 수 있다
+bool AActor::IsNetRelevantFor(...)
+{
+    // ...
+}
+```
+
+![post_thumbnail](/assets/images/Replication/ActorReplication_2.png)
+
+* 그외에도 NetUpdateFrequency 및 NetPriority 등으로 업데이트 주기와 우선 순위를 할당할 수 있다
+    * NetPriority 에서 후순위로 할당된 경우, Transfer Byte 용량이 넘어서면 업데이트 전파가 안될 수 있다
+    * Skip 처리된 Actor와 플레이어에 가까운 Actor들은 높은 우선순위 보정을 받기 때문에 결국은 모두 업데이트가 되긴 한다
+* 그러나 위와 같은 설정은 즉시 클라이언트로의 업데이트를 보장하지 않는다
+
+## RPC in Detail
+
+```c++
+UFUNCTION(Client)
+void Client_DoSomething();
+
+UFUNCTION(Server)
+void Server_DoSomething();
+
+UFUNCTION(Multicast)
+void Multicast_DoSomething();
+```
+
+### Client RPC
+
+![post_thumbnail](/assets/images/Replication/RPC_1.png)
+
+* 서버에서 Client RPC를 호출하면, 함수의 실제 구현부는 해당 함수를 호출한 Actor의 OwningClient 쪽에서만 실행된다
+
+### Server RPC
+
+![post_thumbnail](/assets/images/Replication/RPC_2.png)
+
+* 클라이언트에서 Server RPC를 호출하면, 함수의 실제 구현부는 Server에서만 실행된다
+* 서버가 클라이언트로부터 데이터를 수집하는 방법
+
+### Multicast RPC
+
+![post_thumbnail](/assets/images/Replication/RPC_3.png)
+
+* 서버에서 Multicast RPC를 호출하면, 서버 그리고 서버와 연결된 모든 클라이언트에서 실행된다
+
+![post_thumbnail](/assets/images/Replication/RPC_4.png)
+
+* 이 경우에는 Relevancy 세팅에 의해 호출 여부가 결정된다
+
+### Reliable / Unreliable
+
+```c++
+UFUNCTION(Server, Reliable)
+void Server_DoSomething();
+
+UFUNCTION(Server, Unreliable)
+void Server_DoSomething();
+```
+
+* Reliable: RPC 전파와 그 순서를 보장한다
+    * 과용할 경우 보틀넥 현상 혹은 패킷 자체가 loss 될 수 있다
+* Unreliable: RPC 전파를 보장하지 않는다
+
+### WithValidation
+
+```c++
+// Server_DoSomething2가 Server RPC라 가정하자
+
+// 이 함수는 Client 사이드에서 실행한다
+void ASomeActor::DoSomething1()
+{
+    // ...
+    Server_DoSomething2();)
+}
+
+// 이 함수는 Server 사이드에서 실행한다
+void ASomeActor::Server_DoSomething2_Implementation()
+{
+    // ...
+}
+
+// UFUNCTION(..., WithValidation)
+bool ASomeActor::Server_DoSomething3_Validation()
+{
+    // 이 Server RPC가 fail을 반환하면, client는 그 즉시 게임에서 퇴장당한다
+    return bCheated == false;
+}
+```
+
+## Replicated Property in Detail
+
+```c++
+UFUNCTIONN(ReplicatedUsing=OnRep_OnUpdate)
+int32 Property;
+
+// Property 값이 업데이트 될때마다 Client 사이드에서 호출한다
+UFUNCTION()
+void OnRep_OnUpdate();
+
+// Blueprint에서는 서버에서의 갑 변경 시 서버사이드에서도 호출하지만, C++ 구현 시에는 직접 호출해줘야 한다
+{
+    //...
+    if (HasAuthority())
+    {
+        Property = 32;
+        OnRep_OnUpdate();
+    }
+}
+```
+
+## Authority
+
+```c++
+enum ENetRole
+{
+    ROLE_None,
+    ROLE_SimulatedProxy,
+    ROLE_AutonomousProxy,
+    ROLE_Authority
+}
+
+//
+{
+    // 이 GameInstance가 NM_Standalone 이거나
+    // NM_DedicatedServer 혹은 NM_ListenServer 이거나
+    // NM_Client이고 이 Actor가 이 Client에서 스폰되었거나 (이 Client에만 존재하거나)
+    if (HasAuthority())
+    {
+        // 업데이트 가능
+    }
+    // 이 GameInstance가 NM_Client 이거나
+    // 이 Actor가 Server에서 스폰되었거나
+    else
+    {
+    
+    }
+}
+```
+
+### ROLE_None
+* 네트워크 상에서 아무런 의미 있는 역할도 하지 않는다
+
+### ROLE_SimulatedProxy
+* 서버로부터 복제된 데이터를 수신해 자신의 상태를 업데이트한다
+* 제어권은 서버에 있고, 현재 GameInstance(Client)에서는 모방해 보여주는 역할
+
+```c++
+HasAuthority() == false
+IsLocallyControlled() == false
+```
+
+### ROLE_AutonomousProxy 
+* 로컬 플레이어가 직접 조종한다
+    * 자신의 입력을 서버에 보내고, 서버에서 받은 데이터로 업데이트 한다
+* 제어권 자체는 여전히 서버에 있지만, 서버에 요청을 보내거나 Local Predict로 서버에 요청 전송 및 응답 전에 움직임을 처리하기도 한다
+    * 후에 서버로부터 받은 데이터로 보정도 한다
+
+```c++
+HasAuthority() == false
+IsLocallyControlled() == true
+```
+
+### ROLE_Authority  
+* 모든 상태 변경의 최종적인 결정 권한을 가지고 있으며, 다른 클라이언트들에게 이 액터의 상태를 전파하는 역할
+
+```c++
+HasAuthority() == true
+
+// 1. 서버가 Dedicdated이고 Player가 접속하지 않은 경우
+IsLocallyControlled() == false
+
+// 2. 서버가 Listen이고 서버 사이드의 플레이어가 해당 액터를 조종하는 경우
+IsLocallyControlled() == true
+```
+
+![post_thumbnail](/assets/images/Replication/Authority_1.png)
+
+## 출처
+* https://www.youtube.com/watch?v=JOJP0CvpB8w
