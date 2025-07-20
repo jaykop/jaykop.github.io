@@ -146,12 +146,12 @@ Base destructor
 * Derived 클래스에서 Base의 메서드를 override하기 위해 반드시 virtual이나 override 키워드를 사용할 필요는 없다
   * Base 클래스의 메서드가 virtual 키워드를 포함하면 Derived의 메서드는 자동으로 override 된다
 * 하지만 정석은
-  * virtual 키워드는 Base 클래스의 메서드 선언용
-  * override 키워드는 Derived 클래스의 오버라이드용
+  * virtual 키워드는 Base 클래스의 메서드에
+  * virtual + override 키워드 모두 Derived 클래스 메서드에
 
 ```c++
 struct Base { virtual void foo() {} };
-struct Derived: Base { void foo() override {} };
+struct Derived: Base { virtual void foo() override {} };
 ```
 
 ### virtual 키워드 사용
