@@ -329,7 +329,41 @@ IsLocallyControlled() == false
 IsLocallyControlled() == true
 ```
 
+### RemoveRole / LocalRole
+
+![post_thumbnail](/assets/images/Replication/Role.png)
+
+### IsLocallyControlled
+
+```c++
+bool AController::IsLocalController() const
+{
+	const ENetMode NetMode = GetNetMode();
+
+	if (NetMode == NM_Standalone)
+	{
+		// Not networked.
+		return true;
+	}
+	
+	if (NetMode == NM_Client && GetLocalRole() == ROLE_AutonomousProxy)
+	{
+		// Networked client in control.
+		return true;
+	}
+
+	if (GetRemoteRole() != ROLE_AutonomousProxy && GetLocalRole() == ROLE_Authority)
+	{
+		// Local authority in control.
+		return true;
+	}
+
+	return false;
+}
+```
+
 ![post_thumbnail](/assets/images/Replication/Authority_1.png)
 
 ## 출처
 * https://www.youtube.com/watch?v=JOJP0CvpB8w
+* https://dev.epicgames.com/documentation/en-us/unreal-engine/actor-role-and-remote-role-in-unreal-engine
