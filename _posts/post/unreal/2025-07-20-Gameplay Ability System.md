@@ -191,3 +191,4 @@ void UPAAbilitySystemComponent::RemoveGameplayCueLocal(const FGameplayTag Gamepl
 * https://www.youtube.com/watch?v=tc542u36JR0&t=296s
 * https://velog.io/@dltmdrl1244/UE5-Gameplay-Ability-SystemGAS
 * https://kkadalg.tistory.com/37
+* https://github.com/tranek/GASDocumentation?tab=readme-ov-file#concepts-gc-local
