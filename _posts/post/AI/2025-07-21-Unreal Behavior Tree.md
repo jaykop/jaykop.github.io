@@ -15,10 +15,11 @@ author_profile: true
 * **Blackboard 값 확인 및 업데이트 목적으로 사용**
 
 ### Default Focus
-* 
+* Controller의 focus를 Target으로 받는다
+	* 아마 Actor 혹은 Location 모두 받을 수 있을 듯...?
 
 ### Run EQS
-* 
+* EQS도 써본 적이 없지만 AI가 환경 상태를 인지해서 행동을 결정하는 데 사용되는 것 같다
 
 ### Custom Service
 * **블루프린트 서비스는 C++ 서비스에 비해 퍼포먼스가 떨어진다고 한다**
@@ -66,6 +67,15 @@ void UBTService::OnCeaseRelevant(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 
 ## Behavior Tree Decorator
 
+### OnBecomeRelevant
+* 평가를 진행할 때 호출
+	* Service, Decorator 등에서 실행
+* OnCeaseRelevant로 마감 처리
+
+### OnNodeActivation
+* 노드가 싫제로 실행될 때 호출
+	* 주로 TaskNode에서 실행
+* OnNodeDeactivation로 마감 처리
 
 ## 출처
 * https://dev.epicgames.com/documentation/ko-kr/unreal-engine/unreal-engine-behavior-tree-node-reference-services
