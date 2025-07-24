@@ -145,7 +145,7 @@ PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data);
   * Instance -> BaseValue
   * Duration / Infinite -> CurrentValue
 
-![post_thumbnail](/assets/images/Replication/ge.png)
+![post_thumbnail](/assets/images/GAS/ge.png)
 
 ## Gameplay Cue
 * FX 효과들의 Wrapper 역할
