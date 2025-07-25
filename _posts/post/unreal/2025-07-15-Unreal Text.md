@@ -85,5 +85,5 @@ FString TestString = FString(TEXT("TestString"));
     * UTF_16
 
 ## 출처
-* https://moonbug4.tistory.com/156
-* https://velog.io/@dnjswns98/UE5-C-FName-FText-FString
+* <https://moonbug4.tistory.com/156>
+* <https://velog.io/@dnjswns98/UE5-C-FName-FText-FString>

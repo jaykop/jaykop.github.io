@@ -365,5 +365,5 @@ bool AController::IsLocalController() const
 ![post_thumbnail](/assets/images/Replication/Authority_1.png)
 
 ## 출처
-* https://www.youtube.com/watch?v=JOJP0CvpB8w
-* https://dev.epicgames.com/documentation/en-us/unreal-engine/actor-role-and-remote-role-in-unreal-engine
+* <https://www.youtube.com/watch?v=JOJP0CvpB8w>
+* <https://dev.epicgames.com/documentation/en-us/unreal-engine/actor-role-and-remote-role-in-unreal-engine>

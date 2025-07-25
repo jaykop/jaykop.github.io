@@ -73,10 +73,9 @@ void UBTService::OnCeaseRelevant(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 * OnCeaseRelevant로 마감 처리
 
 ### OnNodeActivation
-* 노드가 싫제로 실행될 때 호출
+* 노드가 실제로 실행될 때 호출
 	* 주로 TaskNode에서 실행
 * OnNodeDeactivation로 마감 처리
 
 ## 출처
-* https://dev.epicgames.com/documentation/ko-kr/unreal-engine/unreal-engine-behavior-tree-node-reference-services
-* 
+* <https://dev.epicgames.com/documentation/ko-kr/unreal-engine/unreal-engine-behavior-tree-node-reference-services>

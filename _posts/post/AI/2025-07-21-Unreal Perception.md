@@ -63,5 +63,4 @@ AIMODULE_API void UnregisterFromPerceptionSystem();
 * 이 Component를 사용한다면, 아마 위의 함수를 사용할 목적으로 class를 override해서 사용하지 않을까 싶다
 
 ## 출처
-* https://econo-my.tistory.com/39
-* 
+* <https://econo-my.tistory.com/39>
