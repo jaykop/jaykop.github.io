@@ -1,5 +1,5 @@
 ---
-title: "Unity Build"
+title: "bool 대신 uint var:1을 쓰는 이유"
 classes: wide
 categories: 
   - post
