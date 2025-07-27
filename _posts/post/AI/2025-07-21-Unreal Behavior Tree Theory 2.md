@@ -1,5 +1,5 @@
 ---
-title: "Unreal Behavior Tree"
+title: "Unreal Behavior Tree 2"
 classes: wide
 categories: 
   - post
@@ -66,6 +66,17 @@ void UBTService::OnCeaseRelevant(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 	* 적어도 난 그랬다...
 
 ## Behavior Tree Decorator
+
+### Observer aborts
+* None - 아무것도 중단하지 않는다
+* Self - 자신과 Child 노드, Subtree를 모두 중단한다
+* Low Priority - 이 노드의 오른쪽 (동일 Level이면서 후순위 노드)의 노드를 중단한다
+* Both - Self, Low Priority에 해당하는 것들을 중단한다
+
+### Notify Observer
+* Decorator가 Blackboard의 값을 기반으로 이하 노드로 진입할지 여부를 결정하는 조건의 형태
+* On Result Change는 동일한 값으로의 변경을 감지하지 않는다
+* On Value Change는 동일한 값으로의 변경도 감지한다
 
 ### OnBecomeRelevant
 * 평가를 진행할 때 호출
