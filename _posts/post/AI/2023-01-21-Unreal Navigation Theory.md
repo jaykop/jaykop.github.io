@@ -1,5 +1,5 @@
 ---
-title: "Navigation Theory"
+title: "Unreal Navigation Theory"
 classes: wide
 categories: 
   - post

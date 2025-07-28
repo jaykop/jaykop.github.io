@@ -23,6 +23,13 @@ author_profile: true
   * Gameplay Cue
 * 위 요소들의 Replication 및 Local Prediction
 
+### GAS를 사용하는 이유
+* 멀티플레이 게임 개발 시, 동기화 이슈를 커버할 수 있다
+* 버프 / 디버프, 캐릭터들의 attribute 관리, 상태 관리 등 게임 피쳐 기능
+* 캐릭터의 행동 단위로 적절
+* 컴포넌트가 주렁주렁일때보단 DA로 관리 가능
+* 언리얼 공식 지원 플러그인
+
 ## Gameplay Ability System Component (ASC)
 * 액터가 GAS Framework와 연동하기 위해서 반드시 attach 하고 있어야 하는 Component
 
@@ -110,6 +117,13 @@ void AGDHeroCharacter::OnRep_PlayerState()
   * Minimal 
     * 멀티플레이어, AI에 의해 컨트롤되는 액터에서 사용
     * 이펙트는 복제되지 않고 태그와 큐는 모두에게 복제
+
+  |Net Execution Policy|설명|
+  |:---:|:---|
+  |Local Only|GameplayAbility는 소유한 클라이언트에서만 실행됩니다. 로컬에서만 시각적 효과를 변경하는 Ability에 유용할 수 있습니다. 싱글 플레이어 게임에서는 Server Only를 사용해야 합니다.|
+  |Local Predicted|Local Predicted GameplayAbility는 먼저 소유한 클라이언트에서 활성화되고, 그 후 서버에서 실행됩니다. 서버는 클라이언트가 예측한 내용을 수정합니다. 예측에 대한 자세한 내용은 Prediction을 참조해주세요.|
+  |Server Only|GameplayAbility는 오직 서버에서만 실행됩니다. Passive GameplayAbility는 보통 Server Only입니다. 싱글 플레이어 게임에서는 이 방식을 사용해야 합니다.|
+  |Server Initiated|Server Initiated GameplayAbility는 먼저 서버에서 활성화되고, 그 후 소유한 클라이언트에서 실행됩니다. 개인적으로는 이 방법은 많이 사용하지 않았습니다.|
 
 ## Gameplay Tag
 * GameplayTagManager에 등록되며, 계층구조를 가진다

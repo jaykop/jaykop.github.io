@@ -1,5 +1,5 @@
 ---
-title: "AI Perception Theory"
+title: "Unreal Perception 1"
 classes: wide
 categories: 
   - post

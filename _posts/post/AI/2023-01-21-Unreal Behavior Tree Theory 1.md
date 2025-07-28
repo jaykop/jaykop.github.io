@@ -1,5 +1,5 @@
 ---
-title: "Behavior Tree Theory"
+title: "Unreal Behavior Tree 1"
 classes: wide
 categories: 
   - post
