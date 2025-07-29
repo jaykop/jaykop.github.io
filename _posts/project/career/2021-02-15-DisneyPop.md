@@ -15,7 +15,7 @@ author_profile: true
 {% include video id="aMtTLao6Uzs" provider="youtube" %}
 
 ## 개요
-* 2021.02 ~ Current
+* 2021.02 ~ 2022.08
 * C#, Unity Engine
 
 ## 게임 설명
