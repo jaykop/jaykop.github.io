@@ -1,5 +1,5 @@
 ---
-title: "IsValid, check, verify"
+title: "check, verify, ensure"
 classes: wide
 categories: 
   - post
