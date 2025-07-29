@@ -6,13 +6,11 @@ categories:
   - project
   - career
 header:
-  # teaser: "assets/images/xxxxxxx.png"
+  teaser: "assets/images/default_image.jpg"
 sidebar:
   nav: "main"
 author_profile: true
 ---
-
-![Projects_thumbnail](/assets/images/default_image.jpg)
 
 ## 개요
 * 2022.08 ~ 2025.06
