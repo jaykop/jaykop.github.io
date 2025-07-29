@@ -19,12 +19,6 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
 다년 간의 팀 프로젝트 경험으로 효율적인 협업과 프로젝트의 주기를 이해하며
 게임 개발을 공부하며 CS 전반에 걸친 지식을 갖고 있다고 자부합니다!
 </div> -->
-  
-## Education
-* DigiPen Institute of Technology (2018.09 ~ 2020.04)
-    - ***BS in Computer Science in Real-Time Interactive Simulation***
-* 계명대학교 (2012.03 ~ 2020.08)
-    - ***공학사, 공과대학 게임모바일공학전공***
 
 ## Technical Skills
 * Programming Language
@@ -40,8 +34,8 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
     - ***Perforce***
 
 ## Career
-### OCEAN DRIVE Studio (2022.08 ~ Present)
-* ***AA Project Client Programmer***
+### OCEAN DRIVE Studio (2022.08 ~ 2025.06)
+* ***Project AA Client Programmer***
     * C++ UE5 엔진 사용하여 3D 백뷰 액션 게임 개발
 
 ### SundayToz (2021.02 ~ 2022.08)
@@ -57,6 +51,12 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
     * 게임 프로젝트 강의 수강 학생들에게 스크래치 엔진 개발하여 제공
     * C++, SDL, Box2D 라이브러리 이용하여 그래픽스, 사운드, 피직스 등 컴포넌트 시스템 구현
     * 학생들 피드백 수렴하여 버그 픽스 및 새 기능 추가 등 유지 보수
+ 
+## Education
+* DigiPen Institute of Technology (2018.09 ~ 2020.04)
+    - ***BS in Computer Science in Real-Time Interactive Simulation***
+* 계명대학교 (2012.03 ~ 2020.08)
+    - ***공학사, 공과대학 게임모바일공학전공***
 
 ## Resume
 [Github](#https://github.com/jaykop/){: .btn .btn--dark}
