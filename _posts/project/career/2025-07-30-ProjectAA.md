@@ -12,6 +12,8 @@ sidebar:
 author_profile: true
 ---
 
+![Projects_thumbnail](/assets/images/default_image.jpg)
+
 ## 개요
 * 2022.08 ~ 2025.06
 * C++, Unreal Engine 5
