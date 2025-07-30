@@ -59,12 +59,12 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
     - ***공학사, 공과대학 게임모바일공학전공***
 
 ## Resume
-[Github](#https://github.com/jaykop/){: .btn .btn--dark}
+[Github](https://github.com/jaykop/){: .btn .btn--dark}
 [Resume_KR](https://jaykop.github.io/download/JuyongJeong_Resume_kr.pdf){: .btn .btn--success}
 [Resume_EN](https://jaykop.github.io/download/JuyongJeong_Resume_en.pdf){: .btn .btn--success}
 [Portfolio](https://jaykop.github.io/download/JuyongJeong_Portfolio.pdf){: .btn .btn--success}
 <!-- [Facebook](#https://www.facebook.com/jaykop.jy/){: .btn .btn--facebook}-->
-[LinkedIn](#https://www.linkedin.com/in/juyong-jeong/){: .btn .btn--linkedin}
+[LinkedIn](https://www.linkedin.com/in/juyong-jeong/){: .btn .btn--linkedin}
 
 ## Contact
 * **e-mail:** jeykop14@gmail.com  
