@@ -64,7 +64,7 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
 [Resume_EN](https://jaykop.github.io/download/JuyongJeong_Resume_en.pdf){: .btn .btn--success}
 [Portfolio](https://jaykop.github.io/download/JuyongJeong_Portfolio.pdf){: .btn .btn--success}
 <!-- [Facebook](#https://www.facebook.com/jaykop.jy/){: .btn .btn--facebook}-->
-[LinkedIn](https://www.linkedin.com/in/juyong-jeong/){: .btn .btn--linkedin}
+[LinkedIn](https://www.linkedin.com/in/juyong-jeong-89521922a/){: .btn .btn--linkedin}
 
 ## Contact
 * **e-mail:** jeykop14@gmail.com  
