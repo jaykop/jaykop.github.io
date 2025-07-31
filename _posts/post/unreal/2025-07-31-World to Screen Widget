@@ -1,0 +1,55 @@
+---
+title: "World to Screen Widget"
+classes: wide
+categories: 
+  - post
+  - Unreal
+sidebar:
+  nav: "main"
+author_profile: true
+---
+
+## Widget은 어디에 붙여야 하나
+* 어떤 Widget은 Screen 상에서 World 위치를 투영해 표기하는 게 더 낫다
+  * 게임에서 한 번에 단 하나의 상호작용만 가능하도록 표기한다면, 상호작용 Widget은 Screen에 상시 존재하고 필요할 때마다 노출하는 것이 낫다
+  * 락온 UI라든가, 원거리 무기류 장착 시 Haircorss 등도 이에 해당한다고 볼 수 있다
+* 어떤 Widget은 World 상에 Actor에 직접 붙이는 게 더 나은 경우도 있다
+  * 게임에서 여러 개의 상호작용 가능한 UI를 모두 보여준다든가
+  * 광역 공격 시 적 캐릭터들의 잔여 HP UI라든가
+  * 물론 동적으로 여러 개의 Widget을 생성해 Screen에서 위치를 투영하고 노출하는 방법도 있다
+    * 이 경우는 둘 중 어느 방법이 더 나은지 퍼포먼스적으로 비교해보지는 못했지만, 작업 편의성은 확실히 World Actor에 붙이는 게 더 낫다
+
+## WidgetComponent 자체에 있는 World / Screen 옵션은?
+* 
+
+## UpdateWidgetPosition 함수
+
+```c++
+// ..
+if (const APlayerController* PlayerController = GetOwningPlayer())
+{
+  // WorldPosition을 Screen r기준으로 Projection
+  // 이 때 기준은 전체 화면 기준
+  FVector2D TargetScreenPosition;
+  PlayerController->ProjectWorldLocationToScreen(WorldLocation, TargetScreenPosition, true);
+
+  if (UCanvasPanelSlot* IndicatorSlot = Cast<UCanvasPanelSlot>(IndicatorOverlay->Slot))
+  {
+    // TargetScreenPosition이 전체화면(ViewportSize) 기준으로 연산된 것이기 때문에,
+    // Canvase Size가 달라지면 Widget의 위치가 달라질 수 있다
+    int32 SizeX, SizeY;
+    PlayerController->GetViewportSize(SizeX, SizeY);
+    const FVector2D ViewportSize(SizeX, SizeY);
+    const FVector2D CanvasSize = GetCachedGeometry().GetLocalSize();
+
+    // 그래서 ViewportSize로 나눈 뒤 CanvasSize를 곱해서 위치를 재조정해준다
+    const FVector2D PositionOnCanvas = TargetScreenPosition / ViewportSize * CanvasSize;
+
+    IndicatorSlot->SetPosition(PositionOnCanvas + ScreenOffset);
+  }
+}
+```
+
+* 위의 함수를 Widget의 Tick에서 매번 호출해준다 
+* IndicatorSlot은 IndicatorOverlay라는 위젯이 부모 UCanvasPanel 내에서 어떻게 배치될지에 대한 정보를 담고 있는 객체
+  * IndicatorOverlay 자체의 Position을 직접 설정하는 것이 아니라, IndicatorOverlay를 감싸고 있는 UCanvasPanel에 접근하고 그를 기준으로 자식 위젯(IndicatorOverlay)의 위치를 변경하는 것
