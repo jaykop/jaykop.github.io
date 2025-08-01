@@ -19,8 +19,6 @@ author_profile: true
   * 물론 동적으로 여러 개의 Widget을 생성해 Screen에서 위치를 투영하고 노출하는 방법도 있다
     * 이 경우는 둘 중 어느 방법이 더 나은지 퍼포먼스적으로 비교해보지는 못했지만, 작업 편의성은 확실히 World Actor에 붙이는 게 더 낫다
 
-## WidgetComponent 자체에 있는 World / Screen 옵션은?
-* 
 
 ## UpdateWidgetPosition 함수
 
