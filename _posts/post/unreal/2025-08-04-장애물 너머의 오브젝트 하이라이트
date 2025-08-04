@@ -1,0 +1,21 @@
+---
+title: "장애물 너머의 오브젝트 하이라이트"
+classes: wide
+categories: 
+  - post
+  - Unreal
+sidebar:
+  nav: "main"
+author_profile: true
+---
+
+## Custom Depth Pass
+* Custom Stencil을 사용하지 않는 Actor들에 대해, Depth를 비교해 해당 Actor보다 하이라이트할 대상이 더 뒤에 있으면 Stencil 값을 체크해 Actor 표면에 그려서 Highlight 효과를 부여하는 방식으로 적용
+
+### 이미 Stencil 값을 가진 다른 Object에 가려진 경우라면...?
+* 같은 Render Target를 사용하므로 Draw 순서대로 Stencil 값이 덮어씌워져 버린다
+* BitMask를 사용
+
+### Foliage 제외
+
+### 아군 플레이어 하이라이트 조건
