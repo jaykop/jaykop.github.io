@@ -57,3 +57,19 @@ bool HideActor(FCameraOccludedActor& OccludedActor)
 이 Map을, 매 Tick 카메라를 가렸다고 판단하는 액터 목록과 비교하고, Opcaity 값 또는 기타 상태 관리가 필요한 플래그를 업데이트 해준다
 
 Mesh 투명도를 조정하는 쪽에 부하가 큰 것으로 알고 있는데, 레벨 디자인 차원에서 어떤 오브젝트가 추명화될 것이고 어떤 오브젝트가 카메라 Boom 길이를 자르는 방식으로 처리할 것인지 등 기획도 보강하면 더 퍼포먼스를 기대할 수 있을 것 같다
+
+### Trobuleshooting
+* Opacity 조절 시 그림자도 같이 사라져버리는 이슈가 있다.
+  * Material -> Cast Shadow as Masked 토글을 체크하고 LightingMode를 Surface Transparency Wolume으로 변경하니 해결되었다
+* Mesh가 겹치는 부분 등으로 인해 일부가 투명화 되지 않는 현상도 있었다
+  * Backface Culling으로 보이지 않아도 되는 면의 Surface는 가리는 방법으로 해결했다
+
+## Dithering
+단순히 Opacity를 낮추는 것이 아닌, Material을 듬성듬성 오비지 않게 처리하는 방법도 시도했다
+그런데 이 때는 디더링 처리된 오브젝트 너머로 움직이는 액터가 있을 때, 고스팅 즉 잔상을 남기는 현상이 발생했다
+
+안티얼라이징 세팅을 TAA/TSR -> FXAA로 변경하지 훨씬 찾아들었다
+하지만 프로젝트가 Nanite 및 Lumen을 사용하므로, 이에 최적화된 TSR을 사용하는 것이 맞다는 결론에 따라 안티얼라이징 세팅은 변경하지 못했다
+Opacity Mask Clip Value를 조절하면 일부 잦아들긴 하지만, 해결할 수준은 아니었다
+
+
