@@ -10,15 +10,6 @@ toc: true
     <a href="/assets/profile/face.png"><img src="/assets/profile/face.jpg"></a>
 </div>
 ---
-<!-- <div style="text-align: justify"> 
-안녕하세요!  <br>
-DigiPen Institute of Technology를 졸업하고 Real-Time Interactive Simulation을 전공했습니다.  <br>
-C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경험도 있습니다.
-대학교 팀 프로젝트에서 주로 맡은 역할은 엔진 프로그래머, 게임플레이 프로그래머였고
-이따금 그래픽스 프로그래머 포지션을 담당해 OpenGL과 GLSL을 사용한 경험도 있습니다.<br>
-다년 간의 팀 프로젝트 경험으로 효율적인 협업과 프로젝트의 주기를 이해하며
-게임 개발을 공부하며 CS 전반에 걸친 지식을 갖고 있다고 자부합니다!
-</div> -->
 
 ## Technical Skills
 * Programming Language
@@ -36,7 +27,13 @@ C++를 주로 사용하며, Python, Unity Engine에서 쓰이는 C# 사용 경�
 ## Career
 ### OCEAN DRIVE Studio (2022.08 ~ 2025.06)
 * ***Project AA Client Programmer***
-    * C++ UE5 엔진 사용하여 3D 백뷰 액션 게임 개발
+    * 언리얼 엔진 5와 게임플레이 어빌리티 시스템(GAS)을 기반으로 스킬, 콤보, 가드 등 전투 시스템 설계 및 개발 
+    * Behaviour Tree와 AI Perception 활용하여 몬스터의 전투 패턴 시스템 구현 
+    * 3인칭 액션 카메라 및 상황별 카메라 시스템 개발 및 락온, 장애물 투명화 처리 기능 구현 
+    * Advanced Locomotion System 플러그인 기반의 로코모션, IK, 시선 처리, 페이셜 등 캐릭터 애니메이션 개발 
+    * 위젯 프로젝션 방식의 3D 월드 상호작용 UI 및 전투 HUD 등 주요 UI/UX 기능 개발 
+    * 멀티플레이 환경을 위한 게임플레이 기능 리플리케이션 처리 
+    * 크래시, 버그, 성능 저하 등 다수의 기술적 문제 해결을 통한 프로젝트 안정성 기여 
 
 ### SundayToz (2021.02 ~ 2022.08)
 * ***DisneyPop Client Programmer***
