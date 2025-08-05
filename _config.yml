@@ -130,14 +130,14 @@ author:
     #  url: "https://www.facebook.com/jaykop.jy/"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/juyong-jeong/"
+      url: "https://www.linkedin.com/in/juyong-jeong-89521922a"
 
 # Site Footer
 footer:
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/juyong-jeong/"
+      url: "https://www.linkedin.com/in/juyong-jeong-89521922a"
     #- label: "Facebook"
     #  icon: "fab fa-fw fa-facebook-square"
     #  url: "https://www.facebook.com/jaykop.jy/"
