@@ -40,6 +40,7 @@ SearchSettings.Set(SEARCH_MINSLOTSAVAILABLE, 0, EOnlineComparisonOp::GreaterThan
 
 Slot이 없어 참가할 수 없는 세션도 검색되어 나온 결과를 보니 SEARCH_MINSLOTSAVAILABLE의 의도 자체는 참가할 수 있는 인원(슬롯)의 최소값이 맞기는 한 거 같은데...
 엔진 버그인지 뭔지 알수가 없었다
+Unreal Forum을 좀 더 찾아보니 답변 중에 이와 관련된 내용이 있긴 했다
 
 ## Session Join 안되는 현상
 
