@@ -25,7 +25,7 @@ toc: true
     - ***Perforce***
 
 ## Career
-### OCEAN DRIVE Studio (2022.08 ~ 2025.06)
+### OCEAN DRIVE Studio (2022.08 ~ Present)
 * ***Project AA Client Programmer***
     * 언리얼 엔진 5와 게임플레이 어빌리티 시스템(GAS)을 기반으로 스킬, 콤보, 가드 등 전투 시스템 설계 및 개발 
     * Behaviour Tree와 AI Perception 활용하여 몬스터의 전투 패턴 시스템 구현 
