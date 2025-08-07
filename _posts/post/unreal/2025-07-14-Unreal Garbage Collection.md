@@ -11,7 +11,7 @@ author_profile: true
    
 ## Garbage Collection
 
-![post_thumbnail](/assets/images/Reflection_GC/Rootset.png)
+![post_thumbnail](/assets/images/Reflection_GC/RootSet.png)
 
 * 언리얼은 사용자가 아닌 엔진에서 Heap 메모리를 관리하는 기능을 제공한다
 * UPROPERTY 매크로로 선언된 UObject 객체들이 대상이다
@@ -19,10 +19,10 @@ author_profile: true
 * GC Tick을 돌면서 아래 순서로 작동한다
 
 ### 개요
-* Ureanl은 모든 UObject의 참조 개수를 카운팅한다
+* 모든 UObject의 참조 개수를 카운팅한다
   * 참조 그래프를 만들어, 어떤 UObject가 사용되고 있는지 아닌지를 참조 여부로 판단한다
   * class A가 멤버 변수로 class B를 가리키는 포인터를 가지고 있는 것과 같은~
-* 그래프의 Root는 Root 레벨에 해당하는 UObject의 집합이며, 이후 참조되는 UObject들은 여기에 추가한다
+* Root Set이란 Root 레벨에 해당하는 UObject의 집합이며, 이후 참조되는 UObject들은 여기에 추가한다
 
 ![post_thumbnail](/assets/images/GC/GC1.png)
 
