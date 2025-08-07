@@ -11,12 +11,12 @@ author_profile: true
 ---
    
 ## 멀티플레이어 게임
-* 멀티플레이어 게임 동일한 게임이 여러 인스턴스에서 동시에 실행되어야 한다.
+* 멀티플레이어 게임에서는 동일한 게임이 여러 인스턴스에서 동시에 실행되어야 한다.
     * 공유된 세계에 대해 일관된, 동일한 그림을 그려내야 한다
 
 ![post_thumbnail](/assets/images/Replication/Replication_1.png)
 
-* Server는 각 Game Instance에 대해 Authority()를 가진다
+* Server는 각 Game Instance에 대해 Authority를 가진다
 * Server에서 무언가 변경되면 해당 변경 사항은 각 Game Instance에 전파되는데, 이 프로세스가 바로 **Replication(복제)**이다
 
 ### Replication
@@ -29,6 +29,31 @@ author_profile: true
 ```c++
 // World가 가지는 속성
 ENetMode UWorld::GetNetMode() const;
+
+// EngineBaseTypes.h
+/**
+ * The network mode the game is currently running.
+ * @see https://docs.unrealengine.com/latest/INT/Gameplay/Networking/Overview/
+ */
+enum ENetMode
+{
+	/** Standalone: a game without networking, with one or more local players. Still considered a server because it has all server functionality. */
+	NM_Standalone,
+
+	/** Dedicated server: server with no local players. */
+	NM_DedicatedServer,
+
+	/** Listen server: a server that also has a local player who is hosting the game, available to other players on the network. */
+	NM_ListenServer,
+
+	/**
+	 * Network client: client connected to a remote server.
+	 * Note that every mode less than this value is a kind of server, so checking NetMode < NM_Client is always some variety of server.
+	 */
+	NM_Client,
+
+	NM_MAX,
+};
 ```
 
 ![post_thumbnail](/assets/images/Replication/Replication_2.png)
@@ -144,9 +169,9 @@ bReplicates = true;
 bAlwaysRelevant = true;
 ```
 
-* 어떤 Replicated 된 Actor의 변경점을 다른 클라이언트에 전파하는지 여부
-    * 몇몇 Actor는 모든 클라이언트에 대해 Relevant 할 수도 있다
-    * PlayerController와 같은 Actor는 자신을 소유한 Client에 대해서만 Relevant 하다
+* Replicated 된 Actor의 변경점을 다른 클라이언트에 전파할지 여부
+    * 모든 클라이언트에 대해 Relevant 할 수도 있다
+    * PlayerController처럼, 자신을 소유한 Client에 대해서만 Relevant 할 수도 있다
 * 이 Relevancy는 Actor의 Owner를 inherit하도록 세팅할 수도 있다
 
 ```c++
@@ -198,6 +223,7 @@ void Multicast_DoSomething();
 ![post_thumbnail](/assets/images/Replication/RPC_3.png)
 
 * 서버에서 Multicast RPC를 호출하면, 서버 그리고 서버와 연결된 모든 클라이언트에서 실행된다
+* 만약 클라이언트에서 호출한 게 클라이언트와 서버 양 쪽 모두에 동기화되어야 한다면, 클라이언트에서 Server RPC를 호출해 서버로 하여금 Multicast RPC를 호출하게 하면 되겠다다
 
 ![post_thumbnail](/assets/images/Replication/RPC_4.png)
 
@@ -338,27 +364,27 @@ IsLocallyControlled() == true
 ```c++
 bool AController::IsLocalController() const
 {
-	const ENetMode NetMode = GetNetMode();
+  const ENetMode NetMode = GetNetMode();
 
-	if (NetMode == NM_Standalone)
-	{
-		// Not networked.
-		return true;
-	}
+  if (NetMode == NM_Standalone)
+  {
+    // Not networked.
+    return true;
+  }
 	
-	if (NetMode == NM_Client && GetLocalRole() == ROLE_AutonomousProxy)
-	{
-		// Networked client in control.
-		return true;
-	}
+  if (NetMode == NM_Client && GetLocalRole() == ROLE_AutonomousProxy)
+  {
+    // Networked client in control.
+    return true;
+  }
 
-	if (GetRemoteRole() != ROLE_AutonomousProxy && GetLocalRole() == ROLE_Authority)
-	{
-		// Local authority in control.
-		return true;
-	}
+  if (GetRemoteRole() != ROLE_AutonomousProxy && GetLocalRole() == ROLE_Authority)
+  {
+    // Local authority in control.
+    return true;
+  }
 
-	return false;
+  return false;
 }
 ```
 
