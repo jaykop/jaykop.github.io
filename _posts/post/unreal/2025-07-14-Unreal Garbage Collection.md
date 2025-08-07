@@ -79,10 +79,8 @@ author_profile: true
 * UObject에서 파생하지 않은 오브젝트는?
   * TWeakObjectPtr과 FWeakObjectPtr을 사용한다
   * scalar type들은 관련 X
-* TArray는 유일하게 UObject*를 담을 수 있는 컨테이너
-  * 따라서 TArray는 UPROPERTY 매크로를 붙여주는 것을 권장한다
-  * Reference 혹은 Pointer가 destroy 된다면, 이들을 validate할 방법이 없다
-  * null check를 해도 null 초기화가 된 것이 아니라 쓰레기 값을 가지고 있어, 정상적으로 check되지도 않는다
+* UObjec*를 담는 멤버 구조체에 대해서 UPROPERTY 매크로를 사용해야 한다
+  * TArray만 UPROPERTY 매크로를 지원한다는 글들이 더러 있는데, 최근 UE 버전은 TMap이나 다른 컨테이너들도 지원하는 것 같다
 
 ### TWeakObjectPtr
 * UPROPERTY는 멤버 변수를 소유하는 객체가 강한 참조를 통해 GC되지 않도록 하지만, 이는 퍼포먼스적으로 불리한 경우를 야기하기도 한다
@@ -94,6 +92,5 @@ author_profile: true
 ## 출처
 * <https://algorfati.tistory.com/75>
 * <https://hyo-ue4study.tistory.com/272>
-* <https://husk321.tistory.com/392>
 * <https://forums.unrealengine.com/t/knowledge-base-garbage-collector-internals/501800>
 * <https://forums.unrealengine.com/t/gc-messing-up-tarray-without-uproperty/320560/3>
