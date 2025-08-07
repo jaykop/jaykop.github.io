@@ -37,31 +37,31 @@ author_profile: true
 
 ### 작동 순서
 1. GC 사이클 시작 (초기화)
-  * GC가 실행될 준비를 하면서, 이전에 Reachable로 마킹된 모든 UObject들의 Reachable 플래그를 해제
-  * **모든 UObject는 잠정적으로 Unreachable 상태**
+* GC가 실행될 준비를 하면서, 이전에 Reachable로 마킹된 모든 UObject들의 Reachable 플래그를 해제
+* **모든 UObject는 잠정적으로 Unreachable 상태**
 
 2. Root Set 마킹 
-  * Root Set은 여러 개의 Root로 이루어진 컨테이너
-  * GC의 "출발점"인 Root Set에 등록된 모든 UObject들을 Reachable 상태로 마킹
+* Root Set은 여러 개의 Root로 이루어진 컨테이너
+* GC의 "출발점"인 Root Set에 등록된 모든 UObject들을 Reachable 상태로 마킹
 
 3. 참조 그래프 순회 및 Reachable 전파
-  * Reachable로 마킹된 객체들(Root Set 포함)로부터 시작하여, 모든 UPROPERTY로 명시된 UObject* 참조를 재귀적으로 순회
-    * 모든 Root Object를 돌면서 UPROPERTY를 Recursive Search
-  * 이 참조를 통해 새롭게 발견되는 모든 UObject 인스턴스들도 Reachable 상태로 마킹
-    * 이 과정에서 Pending Kill이 아닌 UObject들은 Unreachable Mark를 지워준다
-    * 즉, 지우지 않을 Object로 분류한다
-  * 이 단계가 끝나면, Root Set으로부터 UPROPERTY 체인을 통해 도달 가능한 모든 객체들이 Reachable로 마킹
+* Reachable로 마킹된 객체들(Root Set 포함)로부터 시작하여, 모든 UPROPERTY로 명시된 UObject* 참조를 재귀적으로 순회
+  * 모든 Root Object를 돌면서 UPROPERTY를 Recursive Search
+* 이 참조를 통해 새롭게 발견되는 모든 UObject 인스턴스들도 Reachable 상태로 마킹
+  * 이 과정에서 Pending Kill이 아닌 UObject들은 Unreachable Mark를 지워준다
+  * 즉, 지우지 않을 Object로 분류한다
+* 이 단계가 끝나면, Root Set으로부터 UPROPERTY 체인을 통해 도달 가능한 모든 객체들이 Reachable로 마킹
 
 4. Unreachable 객체 식별
-  * 이제 GC가 관리하는 모든 UObject 인스턴스들을 한 번 순회하면서, 아직 Reachable로 마킹되지 않은 객체들을 식별
-  * 이들이 바로 "더 이상 참조되지 않아" Unreachable로 분류된 객체들
+* 이제 GC가 관리하는 모든 UObject 인스턴스들을 한 번 순회하면서, 아직 Reachable로 마킹되지 않은 객체들을 식별
+* 이들이 바로 "더 이상 참조되지 않아" Unreachable로 분류된 객체들
 
 5. 메모리 해제
-  * GC는 최종적으로 Unreachable로 판단된 모든 UObject들의 소멸자를 호출하고, 해당 메모리를 해제
+* GC는 최종적으로 Unreachable로 판단된 모든 UObject들의 소멸자를 호출하고, 해당 메모리를 해제
 
 6. Shrink Hash Table
-  * Object Type을 Key로 해서 UObject들을 저장하는 Hash Table이 있다
-  * 이 Hash Table을 압축한다
+* Object Type을 Key로 해서 UObject들을 저장하는 Hash Table이 있다
+* 이 Hash Table을 압축한다
 
 ### UObject들이 참조가 끊기는 순간
 * 명시적으로 nullptr가 대입되거나 컨테이너로부터 제거된 객체들
