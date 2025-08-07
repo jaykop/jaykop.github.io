@@ -3,7 +3,7 @@ title: "Terrain Analysis & Propagation"
 classes: wide
 categories: 
   - post
-  - A.I.
+  - game_ai
 sidebar:
   nav: "main"
 author_profile: true

@@ -4,12 +4,12 @@ main:
   - title: "Post"
     url: /_pages/post/
     children:
-      - title: "A.I."
-        url: /_pages/post/AI
       - title: "C++"
         url: /_pages/post/C++
       - title: "C#"
         url: /_pages/post/CSharp
+      - title: "Game A.I."
+        url: /_pages/post/game_ai
       - title: "Graphics"
         url: /_pages/post/graphics
       - title: "Math"

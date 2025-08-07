@@ -3,7 +3,7 @@ title: "Rubberbanding & Smoothing"
 classes: wide
 categories: 
   - post
-  - A.I.
+  - game_ai
 sidebar:
   nav: "main"
 author_profile: true

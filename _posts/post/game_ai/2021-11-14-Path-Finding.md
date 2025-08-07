@@ -3,7 +3,7 @@ title: "Path-Finding"
 classes: wide
 categories: 
   - post
-  - A.I.
+  - game_ai
 author_profile: true
 sidebar:
   nav: "main"

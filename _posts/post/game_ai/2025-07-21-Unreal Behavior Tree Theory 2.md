@@ -4,7 +4,7 @@ classes: wide
 categories: 
   - post
   - Unreal
-  - A.I.
+  - game_ai
 sidebar:
   nav: "main"
 author_profile: true
