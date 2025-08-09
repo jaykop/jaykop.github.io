@@ -281,12 +281,12 @@ void OnRep_OnUpdate();
 
 // Blueprint에서는 서버에서의 갑 변경 시 서버사이드에서도 호출하지만, C++ 구현 시에는 직접 호출해줘야 한다
 {
-    //...
-    if (HasAuthority())
-    {
-        Property = 32;
-        OnRep_OnUpdate();
-    }
+  //...
+  if (HasAuthority())
+  {
+    Property = 32;
+    OnRep_OnUpdate();
+  }
 }
 ```
 
@@ -295,27 +295,27 @@ void OnRep_OnUpdate();
 ```c++
 enum ENetRole
 {
-    ROLE_None,
-    ROLE_SimulatedProxy,
-    ROLE_AutonomousProxy,
-    ROLE_Authority
+  ROLE_None,
+  ROLE_SimulatedProxy,
+  ROLE_AutonomousProxy,
+  ROLE_Authority
 }
 
 //
 {
-    // 이 GameInstance가 NM_Standalone 이거나
-    // NM_DedicatedServer 혹은 NM_ListenServer 이거나
-    // NM_Client이고 이 Actor가 이 Client에서 스폰되었거나 (이 Client에만 존재하거나)
-    if (HasAuthority())
-    {
-        // 업데이트 가능
-    }
-    // 이 GameInstance가 NM_Client 이거나
-    // 이 Actor가 Server에서 스폰되었거나
-    else
-    {
-    
-    }
+  // 이 GameInstance가 NM_Standalone 이거나
+  // NM_DedicatedServer 혹은 NM_ListenServer 이거나
+  // NM_Client이고 이 Actor가 이 Client에서 스폰되었거나 (이 Client에만 존재하거나)
+  if (HasAuthority())
+  {
+      // 업데이트 가능
+  }
+  // 이 GameInstance가 NM_Client 이거나
+  // 이 Actor가 Server에서 스폰되었거나
+  else
+  {
+  
+  }
 }
 ```
 

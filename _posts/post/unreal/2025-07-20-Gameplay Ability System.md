@@ -43,64 +43,64 @@ author_profile: true
 // 1. ASC가 Pawn에 부착된 경우
 void APACharacterBase::PossessedBy(AController * NewController)
 {
-	Super::PossessedBy(NewController);
+  Super::PossessedBy(NewController);
 
-	if (AbilitySystemComponent)
-	{
-		AbilitySystemComponent->InitAbilityActorInfo(this, this);
-	}
+  if (AbilitySystemComponent)
+  {
+    AbilitySystemComponent->InitAbilityActorInfo(this, this);
+  }
 
-	// ASC MixedMode replication requires that the ASC Owner's Owner be the Controller.
-	SetOwner(NewController);
+  // ASC MixedMode replication requires that the ASC Owner's Owner be the Controller.
+  SetOwner(NewController);
 }
 
 void APAPlayerControllerBase::AcknowledgePossession(APawn* P)
 {
-	Super::AcknowledgePossession(P);
+  Super::AcknowledgePossession(P);
 
-	APACharacterBase* CharacterBase = Cast<APACharacterBase>(P);
-	if (CharacterBase)
-	{
-		CharacterBase->GetAbilitySystemComponent()->InitAbilityActorInfo(CharacterBase, CharacterBase);
-	}
+  APACharacterBase* CharacterBase = Cast<APACharacterBase>(P);
+  if (CharacterBase)
+  {
+    CharacterBase->GetAbilitySystemComponent()->InitAbilityActorInfo(CharacterBase, CharacterBase);
+  }
 
-	//...
+  //...
 }
 
 // 2. ASC가 PlayerState에 부착된 경우
 // Server only
 void AGDHeroCharacter::PossessedBy(AController * NewController)
 {
-	Super::PossessedBy(NewController);
+  Super::PossessedBy(NewController);
 
-	AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
-	if (PS)
-	{
-		// Set the ASC on the Server. Clients do this in OnRep_PlayerState()
-		AbilitySystemComponent = Cast<UGDAbilitySystemComponent>(PS->GetAbilitySystemComponent());
+  AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
+  if (PS)
+  {
+    // Set the ASC on the Server. Clients do this in OnRep_PlayerState()
+    AbilitySystemComponent = Cast<UGDAbilitySystemComponent>(PS->GetAbilitySystemComponent());
 
-		// AI won't have PlayerControllers so we can init again here just to be sure. No harm in initing twice for heroes that have PlayerControllers.
-		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
-	}
-	
-	//...
+    // AI won't have PlayerControllers so we can init again here just to be sure. No harm in initing twice for heroes that have PlayerControllers.
+    PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+  }
+  
+  //...
 }
 // Client only
 void AGDHeroCharacter::OnRep_PlayerState()
 {
-	Super::OnRep_PlayerState();
+  Super::OnRep_PlayerState();
 
-	AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
-	if (PS)
-	{
-		// Set the ASC for clients. Server does this in PossessedBy.
-		AbilitySystemComponent = Cast<UGDAbilitySystemComponent>(PS->GetAbilitySystemComponent());
+  AGDPlayerState* PS = GetPlayerState<AGDPlayerState>();
+  if (PS)
+  {
+    // Set the ASC for clients. Server does this in PossessedBy.
+    AbilitySystemComponent = Cast<UGDAbilitySystemComponent>(PS->GetAbilitySystemComponent());
 
-		// Init ASC Actor Info for clients. Server will init its ASC when it possesses a new Actor.
-		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
-	}
+    // Init ASC Actor Info for clients. Server will init its ASC when it possesses a new Actor.
+    AbilitySystemComponent->InitAbilityActorInfo(PS, this);
+  }
 
-	// ...
+  // ...
 }
 ```
 
@@ -182,20 +182,20 @@ void RemoveGameplayCueLocal(const FGameplayTag GameplayCueTag, const FGameplayCu
 
 void UPAAbilitySystemComponent::ExecuteGameplayCueLocal(const FGameplayTag GameplayCueTag, const FGameplayCueParameters & GameplayCueParameters)
 {
-	UAbilitySystemGlobals::Get().GetGameplayCueManager()->HandleGameplayCue(GetOwner(), GameplayCueTag, EGameplayCueEvent::Type::Executed, 
+  UAbilitySystemGlobals::Get().GetGameplayCueManager()->HandleGameplayCue(GetOwner(), GameplayCueTag, EGameplayCueEvent::Type::Executed, 
     
     GameplayCueParameters);
 }
 
 void UPAAbilitySystemComponent::AddGameplayCueLocal(const FGameplayTag GameplayCueTag, const FGameplayCueParameters & GameplayCueParameters)
 {
-	UAbilitySystemGlobals::Get().GetGameplayCueManager()->HandleGameplayCue(GetOwner(), GameplayCueTag, EGameplayCueEvent::Type::OnActive, GameplayCueParameters);
-	UAbilitySystemGlobals::Get().GetGameplayCueManager()->HandleGameplayCue(GetOwner(), GameplayCueTag, EGameplayCueEvent::Type::WhileActive, GameplayCueParameters);
+  UAbilitySystemGlobals::Get().GetGameplayCueManager()->HandleGameplayCue(GetOwner(), GameplayCueTag, EGameplayCueEvent::Type::OnActive, GameplayCueParameters);
+  UAbilitySystemGlobals::Get().GetGameplayCueManager()->HandleGameplayCue(GetOwner(), GameplayCueTag, EGameplayCueEvent::Type::WhileActive, GameplayCueParameters);
 }
 
 void UPAAbilitySystemComponent::RemoveGameplayCueLocal(const FGameplayTag GameplayCueTag, const FGameplayCueParameters & GameplayCueParameters)
 {
-	UAbilitySystemGlobals::Get().GetGameplayCueManager()->HandleGameplayCue(GetOwner(), GameplayCueTag, EGameplayCueEvent::Type::Removed, GameplayCueParameters);
+  UAbilitySystemGlobals::Get().GetGameplayCueManager()->HandleGameplayCue(GetOwner(), GameplayCueTag, EGameplayCueEvent::Type::Removed, GameplayCueParameters);
 }
 ```
 
