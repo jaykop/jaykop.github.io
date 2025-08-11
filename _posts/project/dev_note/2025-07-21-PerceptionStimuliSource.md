@@ -27,25 +27,25 @@ author_profile: true
 ```c++
 void UAIPerceptionSystem::StartPlay()
 {
-	for (UAISense* Sense : Senses)
-	{
-		if (Sense != nullptr && Sense->ShouldAutoRegisterAllPawnsAsSources())
-		{
-			FAISenseID SenseID = Sense->GetSenseID();
-			RegisterAllPawnsAsSourcesForSense(SenseID);
-		}
-	}
+  for (UAISense* Sense : Senses)
+  {
+    if (Sense != nullptr && Sense->ShouldAutoRegisterAllPawnsAsSources())
+    {
+      FAISenseID SenseID = Sense->GetSenseID();
+      RegisterAllPawnsAsSourcesForSense(SenseID);
+    }
+  }
 
   //...
 }
 
 void UAIPerceptionSystem::RegisterAllPawnsAsSourcesForSense(FAISenseID SenseID)
 {
-	UWorld* World = GetWorld();
-	for (TActorIterator<APawn> PawnIt(World); PawnIt; ++PawnIt)
-	{
-		RegisterSource(SenseID, **PawnIt);
-	}
+  UWorld* World = GetWorld();
+  for (TActorIterator<APawn> PawnIt(World); PawnIt; ++PawnIt)
+  {
+    RegisterSource(SenseID, **PawnIt);
+  }
 }
 ```
 
@@ -68,14 +68,14 @@ const UActorManagerSubsystem* ActorManager = GetWorld()->GetSubsystem<UActorMana
 const TArray<ACharacter*>& AICharacters = ActorManager->GetAllAICharacters();
 for (auto& AICharacter : AICharacters)
 {
-	AAIController* AIController = Cast<AAIController>(AICharacter->GetController());
-	check(AIController);
-	UCustomAIPerceptionComponent* PerceptionComponent = Cast<UCustomAIPerceptionComponent>(AIController->GetAIPerceptionComponent());
-	check(PerceptionComponent);
-	if (PerceptionComponent->GetTargetActor() == GetOwner())
-	{
-		PerceptionComponent->ForceReleaseTarget();
-	}
+  AAIController* AIController = Cast<AAIController>(AICharacter->GetController());
+  check(AIController);
+  UCustomAIPerceptionComponent* PerceptionComponent = Cast<UCustomAIPerceptionComponent>(AIController->GetAIPerceptionComponent());
+  check(PerceptionComponent);
+  if (PerceptionComponent->GetTargetActor() == GetOwner())
+  {
+    PerceptionComponent->ForceReleaseTarget();
+  }
 }
 
 // Stimuli 리스트에서 제외
@@ -94,7 +94,7 @@ void UCustomAIPerceptionComponent::ForceReleaseTarget()
 ```
 
 * 다만, 이미 인지하고 있는 AI들은 UnregisterFromPerceptionSystem를 호출한다고 하더라도 Target을 유지한다
-	* 그래서 현재 인지중인 Target을 명시적으로 해제해줘야 한다
+  * 그래서 현재 인지중인 Target을 명시적으로 해제해줘야 한다
 
 ## 출처
 * <https://econo-my.tistory.com/39>
