@@ -1,15 +1,28 @@
 main:
   - title: "About"
     url: /_pages/about/
+  - title: "Project"
+    url: /_pages/project/
+    children:
+      - title: "Career"
+        url: /_pages/project/career
+      - title: "Dev Note"
+        url: /_pages/project/dev_note
+      - title: "Side Project"
+        url: /_pages/project/side_project
+      - title: "Academic"
+        url: /_pages/project/academic
   - title: "Post"
     url: /_pages/post/
     children:
+      - title: "Unreal"
+        url: /_pages/post/unreal
       - title: "C++"
         url: /_pages/post/C++
-      - title: "C#"
-        url: /_pages/post/CSharp
       - title: "Game A.I."
         url: /_pages/post/game_ai
+      - title: "Design Pattern"
+        url: /_pages/post/design_pattern
       - title: "Graphics"
         url: /_pages/post/graphics
       - title: "Math"
@@ -18,21 +31,10 @@ main:
         url: /_pages/post/network
       - title: "OS"
         url: /_pages/post/os
-      - title: "Design Pattern"
-        url: /_pages/post/design_pattern
+      - title: "C#"
+        url: /_pages/post/CSharp
       - title: "Unity"
         url: /_pages/post/unity
-      - title: "Unreal"
-        url: /_pages/post/unreal
       - title: "Misc"
         url: /_pages/post/misc
-  - title: "Project"
-    url: /_pages/project/
-    children:
-      - title: "Academic"
-        url: /_pages/project/academic
-      - title: "Career"
-        url: /_pages/project/career
-      - title: "Side Project"
-        url: /_pages/project/side_project
 
