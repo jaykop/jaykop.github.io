@@ -3,6 +3,10 @@ title:  "About Me"
 layout: single
 classes: wide
 toc: true
+classes: wide
+author_profile: true
+sidebar:
+  nav: "main"
 ---
   
 <!---
