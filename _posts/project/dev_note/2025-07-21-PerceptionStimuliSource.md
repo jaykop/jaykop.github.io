@@ -3,7 +3,7 @@ title: "Perception Stimuli Source"
 classes: wide
 categories: 
   - dev_note
-	- project
+  - project
 sidebar:
   nav: "main"
 author_profile: true
