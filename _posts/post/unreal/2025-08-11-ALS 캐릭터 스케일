@@ -1,0 +1,146 @@
+---
+title: "ALS 캐릭터 스케일"
+classes: wide
+categories: 
+  - post
+  - Unreal
+sidebar:
+  nav: "main"
+author_profile: true
+---
+
+## 문제 요약
+* ALS 캐릭터 액터의 Scale을 늘렸을 때, 캐릭터의 로코모션 애니메이션의 PlayRate가 보정되지 않는 현상
+  * 발이 미끄러지는 현상 발생
+
+## PlayRate 연산 로직
+### CalculateStandingPlayRate
+* ALS는 캐릭터 스케일에 따라 애니메이션의 PlayRate를 조정한다
+
+```c++
+float UALSCharacterAnimInstance::GetAnimCurveClamped(const FName& Name, float Bias, float ClampMin, float ClampMax) const
+{
+  return FMath::Clamp(GetCurveValue(Name) + Bias, ClampMin, ClampMax);
+}
+
+// ...
+
+float UALSCharacterAnimInstance::CalculateStandingPlayRate() const
+{
+	// Calculate the Play Rate by dividing the Character's speed by the Animated Speed for each gait.
+	// The lerps are determined by the "W_Gait" anim curve that exists on every locomotion cycle so
+	// that the play rate is always in sync with the currently blended animation.
+	// The value is also divided by the Stride Blend and the mesh scale so that the play rate increases as the stride or scale gets smaller
+  const float LerpedSpeed = FMath::Lerp(CharacterInformation.Speed / Config.AnimatedWalkSpeed,
+	                                      CharacterInformation.Speed / Config.AnimatedRunSpeed,
+	                                      GetAnimCurveClamped(NAME_W_Gait, -1.0f, 0.0f, 1.0f));
+
+  const float SprintAffectedSpeed = FMath::Lerp(LerpedSpeed, CharacterInformation.Speed / Config.AnimatedSprintSpeed,
+	                                              GetAnimCurveClamped(NAME_W_Gait, -2.0f, 0.0f, 1.0f));
+
+  const float ComponentScaleZ = GetOwningComponent()->GetComponentScale().Z;
+
+  return FMath::Clamp((SprintAffectedSpeed / Grounded.StrideBlend) / ComponentScaleZ, 0.0f, 3.0f);
+}
+```
+
+* **LerpedSpeed**
+  * W_Gait는 각 애니메이션에서 고정값으로 할당한다
+  * GetAnimCurveClamped함수에서 Bias가 -1로 할당되어 있다.
+  * Gait가 Walk(1)이면 CharacterInformation.Speed / Config.AnimatedWalkSpeed 가 LerpedSpeed에 할당된다
+  * Gait가 Run(2) 또는 Sprint(3)이면 CharacterInformation.Speed / Config.AnimatedRunSpeed 가 LerpedSpeed에 할당된다
+* **SprintAffectedSpeed**
+  * Bias가 -2로 할당되어 있다
+  * Gait가 Sprint(3)라면 CharacterInformation.Speed / Config.AnimatedSprintSpeed가 SprintAffectedSpeed에 할당된다
+  * 그 외의 경우에는 LerpedSpeed가 SprintAffectedSpeed에 할당된다
+  * 즉, SprintAffectedSpeed는 캐릭터 실제 속도에 기반한 애니메이션의 PlayRate 수치이다.
+* 마지막으로 최종 값 반환 시, SprintAffectedSpeed는 Grounded.StrideBlend로 나누고, 다시 ComponentScaleZ로 나눈다
+  * 스케일만 커졌다고 가정했을 때, 기존 이동 거리를 같은 시간 안에 이동하므로 애니메이션의 PlayRate는 기존보다 더 느려진다
+  * **즉, 캐릭터 Scale가 PlayRate가 반비례하다**
+
+### CalculateStrideBlend
+
+![post_thumbnail](/assets/images/ALS/StrideBlend_1.png)
+
+* StrideBlend는 ALS Character의 Walk와 Run으로 이루어진 BlendSpace에서 두 Gait 애니메이션 사이의 보폭을 결정하는 변수로 작동한다
+* (N) Locomotion Cycles State 안에 Walk / Run을 위해 할당된 BlendSpace에서 확인 가능
+
+```c++
+float UALSCharacterAnimInstance::CalculateStrideBlend() const
+{
+  // Calculate the Stride Blend. This value is used within the blendspaces to scale the stride (distance feet travel)
+  // so that the character can walk or run at different movement speeds.
+  // It also allows the walk or run gait animations to blend independently while still matching the animation speed to
+  // the movement speed, preventing the character from needing to play a half walk+half run blend.
+  // The curves are used to map the stride amount to the speed for maximum control.
+  const float CurveTime = CharacterInformation.Speed / GetOwningComponent()->GetComponentScale().Z;
+  const float ClampedGait = GetAnimCurveClamped(NAME_W_Gait, -1.0, 0.0f, 1.0f);
+  const float LerpedStrideBlend =
+    FMath::Lerp(StrideBlend_N_Walk->GetFloatValue(CurveTime), StrideBlend_N_Run->GetFloatValue(CurveTime), ClampedGait);
+  
+  return FMath::Lerp(LerpedStrideBlend, StrideBlend_C_Walk->GetFloatValue(CharacterInformation.Speed), GetCurveValue(NAME_BasePose_CLF));
+}
+```
+
+* **CurveTime**
+  * 캐릭터 스케일에 기반한 CurveTime을 구한다
+  * 이 CurveTime은 특정 데이터 에셋에 접근에 Value을 가져오는 Key의 역할이다
+* **ClampedGait**
+  * Gait 값이 고정이므로 Lerp Alpha는 Walk인 경우 0, Run인 경우 1이다
+* **LerpedStrideBlend**
+  * 커브 에셋 StrideBlend_N_Walk 혹은 StrideBlend_N_Run에서 CurveTime에 대응하는 값을 가져온다
+  * 위의 두 에셋은 0 ~ 1 사이로 정의된 커브 데이터이다
+  * StrideBlend_N_Walk는 멈춤과 Walk 사이의 보폭을 0 ~ 1 사이의 값으로 반환한다
+  * StrideBlend_N_Run는 Walk와 Run 사이의 보폭을 0 ~ 1 사이의 값으로 반환한다
+* 마지막으로 최종 값 반환 시, 프로젝트 기획 상 Crouch 상태는 고려하지 않는다
+  * 즉, 항상 LerpedStrideBlend가 반환된다
+
+```c++
+return FMath::Clamp((SprintAffectedSpeed / Grounded.StrideBlend) / ComponentScaleZ, 0.0f, 3.0f);
+```
+
+* 보폭이 짧아진다면, 동일한 속도로 이동하기 위해 애니메이션의 PlayRate는 기존보다 더 빨라진다
+  * **즉, StrideBlend도 PlayRate와 반비례하다**
+
+## 해결 방안
+### Curve Time
+
+```c++
+const float CurveTime = CharacterInformation.Speed / GetOwningComponent()->GetComponentScale().Z;
+```
+
+* CalculateStandingPlayRate에서 CurveTime을 구하는 식은 위와 같다
+
+```c++
+const float LerpedStrideBlend =
+    FMath::Lerp(StrideBlend_N_Walk->GetFloatValue(CurveTime), StrideBlend_N_Run->GetFloatValue(CurveTime), ClampedGait);
+```
+
+* 그리고 CurveTime으로 각 커브에서 대응하는 최종 값을 가져온다
+* 즉, 캐릭터 스케일이 클수록 CurveTime의 값이 작아지므로 StrideBlend 커브에셋에서 가져오는 값도 작아진다
+
+```c++
+return FMath::Clamp((SprintAffectedSpeed / Grounded.StrideBlend) / ComponentScaleZ, 0.0f, 3.0f);
+```
+
+* 이는 최종 연산되는 StrideBlend의 값을 작게 만들고, PlayRate를 더 빠르게 만든다
+* 커브 에셋을 수정하지 않으면, 캐릭터 스케일이 저킬수록 PlayRate가 빨라지므로 발이 미끄러지는 현상이 발생
+* 이를 보정하지 위해, 커브 에셋의 값을 수정한다
+
+### 커브 에셋 수정
+
+![post_thumbnail](/assets/images/ALS/StrideBlend_2.png)
+
+* 이를 테면 캐릭터의 스케일을 10배 키웠고, 위 그래프와 같이 StrideBlend_N_Run 에셋의 Y축 1에 대응하는 X축 값이 기존 600이라면,
+
+![post_thumbnail](/assets/images/ALS/StrideBlend_3.png)
+
+* 위 그래프처럼 Y축 1에 대응하는 X축 값을 60으로 조정해준다
+  * StrideBlend_N_Walk도 마찬가지다
+
+* 단순히 발이 미끄러지는 현상에 대응하기 위해서는 ALSConfig의 StrideBlend 커브 에셋을 모두 Y축 1에 대응하는 값을 (기존 값) * (1 / 스케일 값)으로 조장해야 한다
+* 발이 미끄러지는 현상을 막을 수는 있지만 보간의 영역에 가깝다
+  * 스케일이 커지는 만큼 PlayRate은 느려질 것이고 
+  * 스케일이 작아진다면 PlayRate 더 빨라질 것
+* 궁극적으로 애니메이터와 기획자가 의도한 애니메이션이 스케일을 조정한 이후에도 유지되는지 검토가 필요
+  * 수정한 스케일에 맞는 새로운 애니메이션이 작업되는 것이 더 자연스러울 것이다.
