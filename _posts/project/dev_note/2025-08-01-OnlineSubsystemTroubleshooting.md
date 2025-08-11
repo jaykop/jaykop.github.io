@@ -1,5 +1,5 @@
 ---
-title: "OnlineSubsystem Troubleshooting"
+title: "OnlineSubsystem 세션 탐색 및 접속 이슈"
 classes: wide
 categories: 
   - dev_note
