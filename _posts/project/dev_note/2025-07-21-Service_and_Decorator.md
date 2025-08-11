@@ -1,10 +1,9 @@
 ---
-title: "Unreal Behavior Tree 2"
+title: "Service & Decorator"
 classes: wide
 categories: 
-  - post
-  - Unreal
-  - game_ai
+  - dev_note
+	- project
 sidebar:
   nav: "main"
 author_profile: true

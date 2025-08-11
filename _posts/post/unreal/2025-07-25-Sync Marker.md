@@ -2,7 +2,8 @@
 title: "Sync Marker"
 classes: wide
 categories: 
-  - dev_note
+  - post
+  - Unreal
 sidebar:
   nav: "main"
 author_profile: true

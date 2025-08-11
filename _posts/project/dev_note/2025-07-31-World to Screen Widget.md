@@ -3,6 +3,7 @@ title: "World to Screen Widget"
 classes: wide
 categories: 
   - dev_note
+  - project
 sidebar:
   nav: "main"
 author_profile: true

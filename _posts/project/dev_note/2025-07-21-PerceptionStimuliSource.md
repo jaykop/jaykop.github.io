@@ -1,10 +1,9 @@
 ---
-title: "Unreal Perception 2"
+title: "Perception Stimuli Source"
 classes: wide
 categories: 
-  - post
-  - Unreal
-  - game_ai
+  - dev_note
+	- project
 sidebar:
   nav: "main"
 author_profile: true

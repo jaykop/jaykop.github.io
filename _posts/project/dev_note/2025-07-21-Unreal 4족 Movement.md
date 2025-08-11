@@ -3,6 +3,7 @@ title: "Unreal 4족 Movement"
 classes: wide
 categories: 
 	- dev_note
+	- project
 sidebar:
   nav: "main"
 author_profile: true
