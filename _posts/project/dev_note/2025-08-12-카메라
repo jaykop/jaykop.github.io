@@ -20,7 +20,55 @@ author_profile: true
   * Modify Curve 노드를 이용해 각 변수들의 값이 Target을 향해 Interpolocation 된다
 
 ### CameraComponent 없어도 되는 거였나
-* 
+
+```c++
+void APlayerCameraManager::UpdateViewTarget(FTViewTarget& OutVT, float DeltaTime)
+{
+	// ...
+	else
+	{
+		UpdateViewTargetInternal(OutVT, DeltaTime);
+	}
+	// ...
+}
+
+void APlayerCameraManager::UpdateViewTargetInternal(FTViewTarget& OutVT, float DeltaTime)
+{
+	if (OutVT.Target)
+	{
+		// ...
+
+		else
+		{
+			OutVT.Target->CalcCamera(DeltaTime, OutVT.POV);
+		}
+	}
+}
+
+void AActor::CalcCamera(float DeltaTime, FMinimalViewInfo& OutResult)
+{
+	if (bFindCameraComponentWhenViewTarget)
+	{
+	  // ...
+		for (UCameraComponent* CameraComponent : Cameras)
+		{
+			if (CameraComponent->IsActive())
+			{
+				CameraComponent->GetCameraView(DeltaTime, OutResult);
+				return;
+			}
+		}
+	}
+
+	// ...
+}
+```
+
+* CameraComponent가 실제로 카메라에 영향을 미치려면 APlayerCameraManager의 UpdateViewTarget 함수를 통해 CalcCamera에서 OutResult의 값을 변경해주는 플로우로 진행해야 된다
+* 그러나 ALSPlayerCamera에서 UpdateViewTargetInternal 함수를 호출하지 않고 있다
+	* PlayerController는 당연히 CameraManager 클래스로 ALSPlayerCamera를 상속한 CustomPlayerCamera를 쓰는 중
+* FTViewTarget는 CameraComponent의 존재 여부와 상관없이 APlayerCameraManager에 의해 관리 및 프로세싱 되고 있다
+	* 카메라 로직을 PlayerCameraManager 안에서만 관리하고 싶었나 보다...
 
 ## 카메라 기획
 * 카메라 구도 기획 단계에서 몇몇 조건이 필요했다
@@ -395,6 +443,3 @@ void UCameraViewDataAsset::PostEditChangeProperty(FPropertyChangedEvent& Propert
   * 메서드와 변수를 직접 접근하고 노출하다보니 코드간의 의존성이 높아졌다
 	* GmaeplayMessage Plugin을 카메라 시스템 구현 후 적용했다
 	* 우선순위가 낮아 카메라 시스템에 GmaeplayMessage를 적용하지 못했지만, 도입했다면 더 깔끔하게 만들 수 있었을 것 같다
-
-## GameplayCamera를 적용한다면
-* 
