@@ -24,10 +24,16 @@ author_profile: true
  <figcaption style="text-align: center;">Nearest Interpolation</figcaption>
 </div>
 
+<br>
+<br>
+
 <div style="text-align:center;">
  <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_2.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
  <figcaption style="text-align: center;">Bilinear Interpolation</figcaption>
 </div>
+
+<br>
+<br>
 
 <div style="text-align:center;">
  <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_3.png" width="25%" alt="post_thumbnail" style="display: inline-block;">
