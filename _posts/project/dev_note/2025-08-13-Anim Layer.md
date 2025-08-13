@@ -9,17 +9,15 @@ sidebar:
 author_profile: true
 ---
 
-## ALSCharacter의 AnimBP
-
-### Linked Anim Layer
+## Linked Anim Layer
 * 하나의 AnimBP에서 캐릭터가 필요한 모든 상태 관리를 할 수도 있다
   * 하지만 동일한 상태에 대해 다른 애니메이션, 다른 로직이 필요하다면?
   * 캐릭터가 그냥 달리는 애니메이션과, 무기를 들고 달리는 애니메이션이 달라야 한다면?
   * State Machine 구조는 동일한데 애니메이션만 다르다
 
-* **Anim Layer Interface**
-  * Anim BP에서 애니메이션을 오버라이드 할 수 있는 기능
-  * Base AnimBP는 State Machine과 애니메이션 플로우 등 주요 구조를 유지하고, 실제 애니메이션 출력 등 세부 로직은 Link된 AnimLayer에서 실행하게 할 수 있다
+### Anim Layer Interface
+* Anim BP에서 애니메이션을 오버라이드 할 수 있는 기능
+* Base AnimBP는 State Machine과 애니메이션 플로우 등 주요 구조를 유지하고, 실제 애니메이션 출력 등 세부 로직은 Link된 AnimLayer에서 실행하게 할 수 있다
 * 사용하려면 Base AnimBP와 오버라이드하는 AnimLayer 모두 이 ALI를 추가해야 한다
 
 ### 무기 교체 시 애니메이션 교체 플로우
