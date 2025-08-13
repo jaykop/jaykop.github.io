@@ -169,16 +169,16 @@ author_profile: true
 ## 기타
 
 ### FSR은 AI 미사용
-* [AMD 임원진, 'AI(인공지능)' 기반 '인게임 업스케일링(FidelityFX Super Resolution)'을 진행 중인 힌트를 공개 > 하드웨어 뉴스 | 퀘이사존 QUASARZONE](https://quasarzone.com/bbs/qn_hardware/views/1619606)
+* [AMD 임원진, 'AI(인공지능)' 기반 '인게임 업스케일링(FidelityFX Super Resolution)'을 진행 중인 힌트를 공개 > 하드웨어 뉴스](https://quasarzone.com/bbs/qn_hardware/views/1619606)
 
 ### Xe는 Frame Generation 미지원
-* [XeSS를 위한 Intel 프레임 생성 기술이 곧 출시될 수 있습니다: 게임 FPS를 향상하기 위한 프레임 추정 기능을 갖춘 ExtraSS > 뉴스/신제품 | 쿨엔조이 (coolenjoy.net)](https://coolenjoy.net/bbs/38/5170391)
+* [XeSS를 위한 Intel 프레임 생성 기술이 곧 출시될 수 있습니다: 게임 FPS를 향상하기 위한 프레임 추정 기능을 갖춘 ExtraSS > 뉴스/신제품](https://coolenjoy.net/bbs/38/5170391)
 
 ### DLSS / FSR / XeSS 지원 게임 목록
 * [List of games that support high-fidelity upscaling - PCGamingWiki PCGW - bugs, fixes, crashes, mods, guides and improvements for every PC game](https://www.pcgamingwiki.com/wiki/List_of_games_that_support_high-fidelity_upscaling)
 
 ### DLSS / FSR / XeSS 비교 (스타필드)
-* [Starfield: FSR 3 vs DLSS 3 vs XeSS Comparison Review | TechPowerUp](https://www.techpowerup.com/review/starfield-xess-1-2-vs-dlss-3-vs-fsr-3-comparison/)
+* [Starfield: FSR 3 vs DLSS 3 vs XeSS Comparison Review](https://www.techpowerup.com/review/starfield-xess-1-2-vs-dlss-3-vs-fsr-3-comparison/)
 
 ### Apple의 MetalFX
 * [MetalFX - 나무위키 (namu.wiki)](https://namu.wiki/w/MetalFX)
@@ -187,6 +187,6 @@ author_profile: true
 * [FSR 3 edge of screen artifacts - Development / Rendering - Epic Developer Community Forums (unrealengine.com)](https://forums.unrealengine.com/t/fsr-3-edge-of-screen-artifacts/1527174/3)
 
 ### 각 플러그인 다운로드 링크
-* DLSS - [Download and Get Started | NVIDIA Developer](https://developer.nvidia.com/rtx/dlss/get-started)
+* DLSS - [Download and Get Started](https://developer.nvidia.com/rtx/dlss/get-started)
 * FSR - [AMD FidelityFX Super Resolution 3 Unreal Engine plugin guide - AMD GPUOpen](https://gpuopen.com/learn/ue-fsr3/)
 * XeSS - [Releases · GameTechDev/XeSSUnrealPlugin (github.com)](https://github.com/GameTechDev/XeSSUnrealPlugin)
