@@ -107,7 +107,7 @@ author_profile: true
 ### 일반적으로, 최소 50 fps 이상 나오는 상태에서 효과적으로 작동
 * AMD FSR은 60 fps 이상을 권장
   * [AMD FidelityFX™ Super Resolution 3 (FSR 3) - AMD GPUOpen](https://gpuopen.com/fidelityfx-super-resolution-3/#:~:text=Minimum%20frame%20rate,prominent%20at%20lower%20frame%20rates.)
-* [DLSS 3.0 및 FSR 3.0은 장단점을 잘 알고서 사용해야 합니다. > 그래픽카드 | 쿨엔조이 (coolenjoy.net)](https://coolenjoy.net/bbs/28/4813758)
+* [DLSS 3.0 및 FSR 3.0은 장단점을 잘 알고서 사용해야 합니다. > 그래픽카드 (coolenjoy.net)](https://coolenjoy.net/bbs/28/4813758)
 
 ### 낮은 프레임 사이에서 보간된 프레임은 부자연스럽게 보이고, 지연 시간이 더 커진다
 * 프레임 사이의 시간이 길수록, 연산의 복잡도가 상승한다
@@ -123,13 +123,13 @@ author_profile: true
 * RTX 시리즈에서만 지원
 * 게임 화면 수 천만 장을 DNN으로 학습시킨 알고리즘 사용
 * RTX 그래픽카드의 텐서 코어를 사용해 저해상도의 이미지를 알고리즘으로 추론하여 목표 해상도로 업스케일링하는 방식
-  * DLSS 업스케일링 프리셋 - [NVIDIA DLSS Updates for Super Resolution and Unreal Engine | NVIDIA Technical Blog](https://developer.nvidia.com/blog/nvidia-dlss-updates-for-super-resolution-and-unreal-engine/)
+  * DLSS 업스케일링 프리셋 - [NVIDIA DLSS Updates for Super Resolution and Unreal Engine](https://developer.nvidia.com/blog/nvidia-dlss-updates-for-super-resolution-and-unreal-engine/)
 * DLSS 3.0부터 프레임 제너레이션(FG) 기술 및 인풋 랙 보정 기술인 Reflex 기능 포함
 * FG는 RTX 40번대만 지원
   * 40번대에 탑재된 Optical Flow 가속기 연산 필수적
-  * [RTX 40 뭐가 좋아졌지? Ada GPU 아키텍처 살펴보기 > 기획기사 | 퀘이사존 QUASARZONE](https://quasarzone.com/bbs/qc_plan/views/30380#p5)
+  * [RTX 40 뭐가 좋아졌지? Ada GPU 아키텍처 살펴보기 > 기획기사](https://quasarzone.com/bbs/qc_plan/views/30380#p5)
 * 나머지 두 기술은 RTX GPU에서 지원
-  * [DLSS - Download and Get Started | NVIDIA Developer](https://developer.nvidia.com/rtx/dlss/get-started)
+  * [DLSS - Download and Get Started](https://developer.nvidia.com/rtx/dlss/get-started)
 
 ## FSR (Fidelity Super Resolution)
 
@@ -157,7 +157,7 @@ author_profile: true
 * FSR보다 더 뛰어나고 DLSS와 견줄만하다는 평가
   * DLSS처럼 선행 학습된 AI를 이용한 업스케일러
 * Shader Model 6.4 이상을 지원하고 DP4a 명령어를 사용하는 GPU를 권장
-  * Will Intel® XeSS Work with Graphics Cards from Other Vendors?
+  * [Will Intel® XeSS Work with Graphics Cards from Other Vendors?](https://www.intel.com/content/www/us/en/support/articles/000090041/graphics/intel-arc-dedicated-graphics-family.html)
   * 자회사 제품은 XMX 명령어 사용
 
 ## 기타
