@@ -160,7 +160,7 @@ void UCustomTargetingComponent::SoftTarget_Init(bool bUseTopPriorityPolicy)
 * 감지된 모든 CapculeComponent를 모두 순회한 뒤, 가장 가까운 지점을 최종 타겟으로 확정한다
 
 ### 일정 거리 내로 더 다가오지 못하게 막기
-* 우리 프로젝트는 [Abl]()이라는 플러그인을 사용해 캐릭터의 액션 단위를 정의했다
+* 우리 프로젝트는 [Abl](https://www.fab.com/listings/2e9a2754-183c-4d62-a12b-0ea013f50017)이라는 플러그인을 사용해 캐릭터의 액션 단위를 정의했다
 * 캐릭터의 액션 하나를 실행하기 위해 애니메이션 실행, 위치 보정, GE 적용 등을 AblTask 또는 AblAction 이라는 단위로 실행했다
 * 아래는 그 중 AblAction에 해당하는, 타겟으로 삼은 Actor와의 거리를 유지하기 위한 로직의 일부이다
 
