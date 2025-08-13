@@ -20,18 +20,18 @@ author_profile: true
 * 모든 프레임을 독립적으로 처리
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_1.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
- <figcaption>Nearest Interpolation</figcaption>
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_1.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
+ <figcaption style="text-align: center;">Nearest Interpolation</figcaption>
 </div>
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_2.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
- <figcaption>Bilinear Interpolation</figcaption>
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_2.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
+ <figcaption style="text-align: center;">Bilinear Interpolation</figcaption>
 </div>
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_3.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
- <figcaption>12 * 2/3 + 9 * 1/3 = 11</figcaption>
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_3.png" width="25%" alt="post_thumbnail" style="display: inline-block;">
+ <figcaption style="text-align: center;">12 * 2/3 + 9 * 1/3 = 11</figcaption>
 </div>
 
 * 다른 방법들 - Lanczos, 쌍곡선, …
@@ -44,7 +44,7 @@ author_profile: true
 **FSR 예시**
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_4.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_4.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 * 지난 프레임 히스토리 수집
@@ -53,7 +53,7 @@ author_profile: true
     * 업스케일링에 필요한 샘플 다양화
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_5.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_5.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 * 여러 프레임에 걸쳐서 픽셀 기여도(Contribution/Weight) 수집
@@ -63,7 +63,7 @@ author_profile: true
   * [Lanczos algorithm - Wikipedia](https://en.wikipedia.org/wiki/Lanczos_algorithm)
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_6.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_6.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 * 업스케일링된 프레임에 모션 벡터 적용
@@ -87,11 +87,11 @@ author_profile: true
 즉, 프레임을 2배 가까이 늘리는 기술
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_8.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_8.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_9.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_9.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 ### 광학 흐름 방정식
@@ -116,7 +116,7 @@ author_profile: true
 ## DLSS (Deep Learning Super Sampling)
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_10.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_10.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 * NVIDIA 개발
@@ -134,7 +134,7 @@ author_profile: true
 ## FSR (Fidelity Super Resolution)
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_11.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_11.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 * AMD 개발
@@ -150,7 +150,7 @@ author_profile: true
 ## XeSS (Xe Super Sampling)
 
 <div style="text-align:center;">
- <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_12.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/Upscaling_FrameGeneration/Upscaling_FrameGeneration_12.png" width="100%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 * Intel 개발
