@@ -27,7 +27,7 @@ author_profile: true
 4. -
 5. All rights reserved / All pictures cannot be copied without permission
 
-> [!NOTE]  
+> [NOTE]  
 > 대한민국 저작권법 제2절 10조 - 저작권은 저작물을 창작한 순간부터 발생하며, 어떤한 절차나 형식의 이행을 필요로 하지 아니한다.  
 > 즉. 모든 저작물은 저작권 표시가 없더라도 저작권법의 보호를 받는다
 
