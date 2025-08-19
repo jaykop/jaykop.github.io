@@ -1,5 +1,5 @@
 ---
-title: "카메라 데이터 모듈화"
+title: "Common UI와 Dualsense Input 아이콘 적용"
 classes: wide
 categories: 
   - dev_note
@@ -9,4 +9,162 @@ sidebar:
 author_profile: true
 ---
 
-![post_thumbnail](/assets/images/ALS/ALS_StrideBlend_1.png)
+## Common UI
+
+### 사용하는 이유?
+
+* **콘솔 별 UI Element**
+  * 이 플러그인을 사용한 가장 큰 이유
+  * 멀티 플랫폼을 지원할 때, 같은 Input에 대해 다른 UI 아이콘을 표시하기 용이
+* **멀티 레이어 메뉴 탐색**
+  * 여러 Widget이 화면에 노출돼있는 경우, 어떤 Widget만 Active한 상태인지 우선순위에 의해 구분 가능
+* **적합한 Widget으로 돌아가기**
+  * 특정 Widget에서의 상호작용 후 죵료 시, 다시 돌아갈 곳을 찾기에 용이
+
+### 인풋 이미지 불러오기
+
+```c++
+UCLASS(BlueprintType, Blueprintable)
+class COMMONUI_API UCommonActionWidget: public UWidget
+{
+	GENERATED_UCLASS_BODY()
+
+public:
+
+	/// ...
+	
+	UFUNCTION(BlueprintCallable, Category = CommonActionWidget)
+	virtual FSlateBrush GetIcon() const;
+
+  // ...
+}
+```
+
+* UCommonActionWidget을 사용하면 GetIcon 함수로 Key에 대응하는 Input 이미지를 불러온다
+
+[]
+
+* UCommonInputBaseControllerData 클래스로 데이터 에셋을 만들고, 여기서 Input Device에 따른 키 및 이미지 데이터를 제공한다
+
+### 기존 방식의 한계
+* UCommonInputBaseControllerData가 제공하는 Key 매핑은 한계가 있다
+  * 조합 키를 지원하지 않는다
+  * Hold / Release 등 인풋 트리깅 방식에 따라 구분하는 것을 지원하지 않는다
+* 심지어 Key의 Hold 및 Release 등 트리깅 방식은 InputAction이 아닌 IMC에서 정의된다
+
+```c++
+USTRUCT(Blueprintable)
+struct FCustomKeyTrigger
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere)
+	FKey Key;
+	
+  // Hold 트리거가 포함되어 있는지 여부
+	UPROPERTY(EditAnywhere)
+	bool bIsHold = false;
+
+  // Release 트리거가 포함되어 있는지 여부
+	UPROPERTY(EditAnywhere)
+	bool bIsRelease = false;
+
+  // 조합 키가 있는지 여부
+	TArray<FCustomKeyTrigger> ChordedActions;
+
+	// ...
+};
+
+USTRUCT(Blueprintable)
+struct FCustomCommonInputKeySetBrushConfiguration
+{
+	GENERATED_BODY()
+
+public:
+	FCustomCommonInputKeySetBrushConfiguration();
+
+	const FSlateBrush& GetInputBrush() const { return KeyBrush; }
+
+public:
+	UPROPERTY(EditAnywhere, Category = "Key Brush Configuration", Meta = (TitleProperty = "KeyName"))
+	TArray<FCustomKeyTrigger> Keys;
+
+	UPROPERTY(EditAnywhere, Category = "Key Brush Configuration")
+	FSlateBrush KeyBrush;
+};
+
+// ...
+
+UCLASS()
+class AACLIENT_API UCustomCommonInputBaseControllerData : public UCommonInputBaseControllerData
+{
+	GENERATED_BODY()
+
+  // ...
+
+  bool TryGetInputBrushByTrigger(FSlateBrush& OutBrush, const struct FCustomKeyTrigger& KeyTrigger) const;
+	bool TryGetInputBrushByTrigger(FSlateBrush& OutBrush, const TArray<FCustomKeyTrigger>& KeyTriggers) const;
+
+  // ...
+
+public:
+	UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Key"))
+	TArray<FCommonInputKeyBrushConfiguration> HoldInputBrushDataMap;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Key"))
+	TArray<FCommonInputKeyBrushConfiguration> ReleaseInputBrushDataMap;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Keys"))
+	TArray<FCustomCommonInputKeySetBrushConfiguration> InputBrushKeySetMap;
+	
+};
+
+// ...
+
+bool UAACommonInputBaseControllerData::TryGetInputBrushByTrigger(FSlateBrush& OutBrush, const struct FCustomKeyTrigger& KeyTrigger) const
+{
+	if (KeyTrigger.bIsHold)
+	{
+		const FCommonInputKeyBrushConfiguration* DisplayConfig = HoldInputBrushDataMap.FindByPredicate([&KeyTrigger](const FCommonInputKeyBrushConfiguration& KeyBrushPair) -> bool
+		{
+			return KeyBrushPair.Key == KeyTrigger.Key;
+		});
+
+		if (DisplayConfig)
+		{
+			OutBrush = DisplayConfig->GetInputBrush();
+			return true;
+		}
+	}
+	else if (KeyTrigger.bIsRelease)
+	{
+		const FCommonInputKeyBrushConfiguration* DisplayConfig = ReleaseInputBrushDataMap.FindByPredicate([&KeyTrigger](const FCommonInputKeyBrushConfiguration& KeyBrushPair) -> bool
+		{
+			return KeyBrushPair.Key == KeyTrigger.Key;
+		});
+
+		if (DisplayConfig)
+		{
+			OutBrush = DisplayConfig->GetInputBrush();
+			return true;
+		}
+	}
+
+  // ...
+}
+```
+
+* Hold 및 Release 트리깅을 체크하고 이에 맞는 이미지를 반환하는 함수를 추가한다
+
+
+## DualSense 인풋
+* **그냥 하면 안된다**
+* Wired가 필수이며, DualSense를 인식시키는 PlugIn도 필요하다
+  * 상기한 Plugin이라 함은 비공식, 그러니까 ***어쩌면 안전하지 않은 플러그인***일 수도 있겠다
+  * Wireless는 PS의 공식 플러그인을 지원받아야 한다는데, 이를 사용할 기회는 없었다...
+
+### 자잘한 버그
+* DualSense를 지원하는 다른 게임을 실행하다 우리 프로젝트를 실행하면 이상한 타이밍에서 진동이 온다는 리포트가 있었다
+* 적절한 타이밍에서 AvtiveInput의 리스트가 Refresh 되지 앟으면, UI가 표시되어야 할 자리에 아무 이미지도 나타나지 않는다
+* 
