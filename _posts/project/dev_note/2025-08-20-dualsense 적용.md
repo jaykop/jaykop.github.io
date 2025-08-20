@@ -27,14 +27,14 @@ author_profile: true
 UCLASS(BlueprintType, Blueprintable)
 class COMMONUI_API UCommonActionWidget: public UWidget
 {
-	GENERATED_UCLASS_BODY()
+  GENERATED_UCLASS_BODY()
 
 public:
 
-	/// ...
-	
-	UFUNCTION(BlueprintCallable, Category = CommonActionWidget)
-	virtual FSlateBrush GetIcon() const;
+  /// ...
+  
+  UFUNCTION(BlueprintCallable, Category = CommonActionWidget)
+  virtual FSlateBrush GetIcon() const;
 
   // ...
 }
@@ -42,7 +42,7 @@ public:
 
 * UCommonActionWidget을 사용하면 GetIcon 함수로 Key에 대응하는 Input 이미지를 불러온다
 
-[]
+![post_thumbnail](/assets/images/CommonUI/CommonUI_1.png)
 
 * UCommonInputBaseControllerData 클래스로 데이터 에셋을 만들고, 여기서 Input Device에 따른 키 및 이미지 데이터를 제공한다
 
@@ -56,42 +56,42 @@ public:
 USTRUCT(Blueprintable)
 struct FCustomKeyTrigger
 {
-	GENERATED_BODY()
+  GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere)
-	FKey Key;
-	
+  UPROPERTY(EditAnywhere)
+  FKey Key;
+  
   // Hold 트리거가 포함되어 있는지 여부
-	UPROPERTY(EditAnywhere)
-	bool bIsHold = false;
+  UPROPERTY(EditAnywhere)
+  bool bIsHold = false;
 
   // Release 트리거가 포함되어 있는지 여부
-	UPROPERTY(EditAnywhere)
-	bool bIsRelease = false;
+  UPROPERTY(EditAnywhere)
+  bool bIsRelease = false;
 
   // 조합 키가 있는지 여부
-	TArray<FCustomKeyTrigger> ChordedActions;
+  TArray<FCustomKeyTrigger> ChordedActions;
 
-	// ...
+  // ...
 };
 
 USTRUCT(Blueprintable)
 struct FCustomCommonInputKeySetBrushConfiguration
 {
-	GENERATED_BODY()
+  GENERATED_BODY()
 
 public:
-	FCustomCommonInputKeySetBrushConfiguration();
+  FCustomCommonInputKeySetBrushConfiguration();
 
-	const FSlateBrush& GetInputBrush() const { return KeyBrush; }
+  const FSlateBrush& GetInputBrush() const { return KeyBrush; }
 
 public:
-	UPROPERTY(EditAnywhere, Category = "Key Brush Configuration", Meta = (TitleProperty = "KeyName"))
-	TArray<FCustomKeyTrigger> Keys;
+  UPROPERTY(EditAnywhere, Category = "Key Brush Configuration", Meta = (TitleProperty = "KeyName"))
+  TArray<FCustomKeyTrigger> Keys;
 
-	UPROPERTY(EditAnywhere, Category = "Key Brush Configuration")
-	FSlateBrush KeyBrush;
+  UPROPERTY(EditAnywhere, Category = "Key Brush Configuration")
+  FSlateBrush KeyBrush;
 };
 
 // ...
@@ -99,57 +99,57 @@ public:
 UCLASS()
 class AACLIENT_API UCustomCommonInputBaseControllerData : public UCommonInputBaseControllerData
 {
-	GENERATED_BODY()
+  GENERATED_BODY()
 
   // ...
 
   bool TryGetInputBrushByTrigger(FSlateBrush& OutBrush, const struct FCustomKeyTrigger& KeyTrigger) const;
-	bool TryGetInputBrushByTrigger(FSlateBrush& OutBrush, const TArray<FCustomKeyTrigger>& KeyTriggers) const;
+  bool TryGetInputBrushByTrigger(FSlateBrush& OutBrush, const TArray<FCustomKeyTrigger>& KeyTriggers) const;
 
   // ...
 
 public:
-	UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Key"))
-	TArray<FCommonInputKeyBrushConfiguration> HoldInputBrushDataMap;
+  UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Key"))
+  TArray<FCommonInputKeyBrushConfiguration> HoldInputBrushDataMap;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Key"))
-	TArray<FCommonInputKeyBrushConfiguration> ReleaseInputBrushDataMap;
-	
-	UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Keys"))
-	TArray<FCustomCommonInputKeySetBrushConfiguration> InputBrushKeySetMap;
-	
+  UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Key"))
+  TArray<FCommonInputKeyBrushConfiguration> ReleaseInputBrushDataMap;
+  
+  UPROPERTY(EditDefaultsOnly, Category = "Display", Meta = (TitleProperty = "Keys"))
+  TArray<FCustomCommonInputKeySetBrushConfiguration> InputBrushKeySetMap;
+  
 };
 
 // ...
 
 bool UAACommonInputBaseControllerData::TryGetInputBrushByTrigger(FSlateBrush& OutBrush, const struct FCustomKeyTrigger& KeyTrigger) const
 {
-	if (KeyTrigger.bIsHold)
-	{
-		const FCommonInputKeyBrushConfiguration* DisplayConfig = HoldInputBrushDataMap.FindByPredicate([&KeyTrigger](const FCommonInputKeyBrushConfiguration& KeyBrushPair) -> bool
-		{
-			return KeyBrushPair.Key == KeyTrigger.Key;
-		});
+  if (KeyTrigger.bIsHold)
+  {
+    const FCommonInputKeyBrushConfiguration* DisplayConfig = HoldInputBrushDataMap.FindByPredicate([&KeyTrigger](const FCommonInputKeyBrushConfiguration& KeyBrushPair) -> bool
+    {
+      return KeyBrushPair.Key == KeyTrigger.Key;
+    });
 
-		if (DisplayConfig)
-		{
-			OutBrush = DisplayConfig->GetInputBrush();
-			return true;
-		}
-	}
-	else if (KeyTrigger.bIsRelease)
-	{
-		const FCommonInputKeyBrushConfiguration* DisplayConfig = ReleaseInputBrushDataMap.FindByPredicate([&KeyTrigger](const FCommonInputKeyBrushConfiguration& KeyBrushPair) -> bool
-		{
-			return KeyBrushPair.Key == KeyTrigger.Key;
-		});
+    if (DisplayConfig)
+    {
+      OutBrush = DisplayConfig->GetInputBrush();
+      return true;
+    }
+  }
+  else if (KeyTrigger.bIsRelease)
+  {
+    const FCommonInputKeyBrushConfiguration* DisplayConfig = ReleaseInputBrushDataMap.FindByPredicate([&KeyTrigger](const FCommonInputKeyBrushConfiguration& KeyBrushPair) -> bool
+    {
+      return KeyBrushPair.Key == KeyTrigger.Key;
+    });
 
-		if (DisplayConfig)
-		{
-			OutBrush = DisplayConfig->GetInputBrush();
-			return true;
-		}
-	}
+    if (DisplayConfig)
+    {
+      OutBrush = DisplayConfig->GetInputBrush();
+      return true;
+    }
+  }
 
   // ...
 }
@@ -217,13 +217,15 @@ TArray<FCustomKeyTrigger> GetKeyTriggers(const ULocalPlayer* LocalPlayer, ECommo
 * 하지만 DualSense는, 상기한 것처럼 무언가 더 필요하다...
   * 그걸 해주는 게 DualSense 플러그인들이다
 
-[]
+![post_thumbnail](/assets/images/CommonUI/CommonUI_2.png)
 
 * Wired가 필수이며, DualSense를 인식시키는 PlugIn도 필요하다
   * 상기한 Plugin이라 함은 비공식, 그러니까 ***어쩌면 안전하지 않은 플러그인***일 수도 있겠다
   * Wireless는 PS의 공식 플러그인을 지원받아야 한다는데, 이를 사용할 기회는 없었다...
-* 를 사용했는데, 나중에 기회가 된다면 를 적용해보고 싶다
-  * 아무 세팅도 적용하지 않고 Steam Input으로 
+    * Windows DualShock 플러그인이라고 한다
+    * PS 개발자로 등록 후 LibScrePad.dll을 받아야 듀얼쇼크 및 듀얼센스 기능을 활성화할 수 있다고 한다
+* GitHub에 게시된 비공식 플러그인을 사용했는데, 나중에 기회가 된다면 RawInput을 적용해보고 싶다
+  * 아무 세팅도 적용하지 않고 Steam Input으로 돌리면 작동은 될까? 싶기도 하다
 
 ### 자잘한 버그 및 Troubleshooting
 * DualSense를 Wired 상태로 연결하면, RecentUsedInputDevice가 계속 업데이트되는 현상이 발생했다
@@ -240,18 +242,18 @@ class ENHANCEDINPUT_API UEnhancedPlayerInput : public UPlayerInput
 protected:
 
   /** This player's version of the Action Mappings */
-	const TArray<FEnhancedActionKeyMapping>& GetEnhancedActionMappings() const { return EnhancedActionMappings; }
+  const TArray<FEnhancedActionKeyMapping>& GetEnhancedActionMappings() const { return EnhancedActionMappings; }
 }
 
 // ...
 
 class UCustomEnhancedPlayerInput : public UEnhancedPlayerInput
 {
-	GENERATED_BODY()
-	
+  GENERATED_BODY()
+  
 public:
-	const TArray<FEnhancedActionKeyMapping>& GetEnhancedActionMappingSet() const
-	{
+  const TArray<FEnhancedActionKeyMapping>& GetEnhancedActionMappingSet() const
+  {
     return GetEnhancedActionMappings();
   }
 };
