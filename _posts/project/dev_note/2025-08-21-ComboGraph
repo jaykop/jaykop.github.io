@@ -18,7 +18,7 @@ author_profile: true
 
 ## Combo Graph
 
-![post_thumbnail](/assets/images/ComboGraph/ComboGraph_2.png)
+![post_thumbnail](/assets/images/ComboGraph/ComboGraph_1.png)
 
 * [GenericGraph](https://github.com/jinyuliao/GenericGraph) 플러그인을 사용해 그래프를 만들기로 했다
 * 크게 에디터 에셋 형태의 클래스와, 코드에서 처리할 데이터 형태의 클래스로 구분한다
@@ -127,7 +127,7 @@ bool UComboAsset::ComboTriggered(const TArray<FGameplayTag>& TriggerTags)
   * 이하 내용에서는 특정 인풋을 조건으로 하는 경우를 설명한다
   * 그리고 이 인풋들은 특정 태그와 매칭된다
 
-![post_thumbnail](/assets/images/ComboGraph/ComboGraph_2.png)
+![post_thumbnail](/assets/images/ComboGraph/ComboGraph_3.png)
 
 * (태그 <-> 인풋) -> Abl 실행으로 이어지는 구조다
   * 이는 최초 인풋 -> Abl로 이어지는 경우
@@ -190,7 +190,7 @@ void UComboComponent::OnInputActionTriggered(const UInputAction* InputAction)
 * 어떤 액션을 실행 중에 특정 인풋을 조건으로 다른 액션으로 분기를 해야 하는 상황이다
 * 이 경우, AblTask를 사용해 어떤 TriggerTag를 조건으로 할지 세팅하고 이 Tag에 대응하는 Input이 들어오면 분기하도록 한다
 
-![post_thumbnail](/assets/images/ComboGraph/ComboGraph_2.png)
+![post_thumbnail](/assets/images/ComboGraph/ComboGraph_4.png)
 
 ```c++
 void UAblTask_ComboTriggerSection::OnTaskTick(const TWeakObjectPtr<const UAblAbilityContext>& Context, float deltaTime) const
