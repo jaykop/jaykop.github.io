@@ -17,6 +17,9 @@ author_profile: true
   * 캐릭터의 무기 종류에 따라 카테고리를 나누고, 이 무기를 사용하는 액션들을 모아 기본 액션 또는 콤보 조합을 관리할 수 있는 새로운 에셋이 필요했다
 
 ## Combo Graph
+
+![post_thumbnail](/assets/images/ComboGraph/ComboGraph_2.png)
+
 * [GenericGraph](https://github.com/jinyuliao/GenericGraph) 플러그인을 사용해 그래프를 만들기로 했다
 * 크게 에디터 에셋 형태의 클래스와, 코드에서 처리할 데이터 형태의 클래스로 구분한다
 
@@ -67,8 +70,198 @@ void UComboComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 	SetComponentTickEnabled(false);
 }
 
+void UComboComponent::UpdateComboGraph()
+{
+	if(ensure(ComboAsset) == false)
+	{
+		return;
+	}
+	
+	bool bSelected = ComboAsset->ComboTriggered(PendingComboTriggerTags);
+
+	// ...
+}
+
+// ...
+
+bool UComboAsset::ComboTriggered(const TArray<FGameplayTag>& TriggerTags)
+{
+	// CurrentEdges가 우선순위에 의해 정렬되었으므로, loop 돌면서 체크한다
+	for(UComboEdge* Edge : CurrentEdges)
+	{
+		for (const auto& TriggerTag : TriggerTags)
+		{
+			UComboNodeData* ComboNodeData = Cast<UComboNodeData>(Edge->DestNode->ComboNodeData);
+
+			// ...
+		
+			// 일단은 Exact 사용
+			if(Edge->TriggerTagContainer.HasTagExact(TriggerTag))
+			{
+        // Edge에 세팅된 조건을 확인하고, 조건이 맞으면 SelecNode 함수를 통해 Abl을 실행한다
+				if(Edge->DoesSatisfyCondition())
+				{
+					if(SelectNode(Edge->DestNode))
+					{
+						return true;
+					}
+				}
+			}
+		}
+	}
+
+	return false;
+}
+
 ```
 
 * 메시지를 받아 Combo Graph를 실행시켜야 하는 순간이 되면, Tick을 한 프레임 실행시킨다
   * Tick 함수에서 ComboGraph가 한 번 업데이트, 즉 실행되고 나면 Tick은 다시 멈춘다
   * 그래서인지, ComboGraph 실행을 꼭 Tick 함수를 쓸 필요가 있나?는 잘 모르겠다
+
+### 콤보를 트리깅하는 방법
+
+![post_thumbnail](/assets/images/ComboGraph/ComboGraph_2.png)
+
+* ComboGraph 상에서 분기 조건은 여러 개를 세팅할 수 있다
+  * 이하 내용에서는 특정 인풋을 조건으로 하는 경우를 설명한다
+  * 그리고 이 인풋들은 특정 태그와 매칭된다
+
+![post_thumbnail](/assets/images/ComboGraph/ComboGraph_2.png)
+
+* (태그 <-> 인풋) -> Abl 실행으로 이어지는 구조다
+  * 이는 최초 인풋 -> Abl로 이어지는 경우
+  * 그리고 Abl 실행 중 다른 Abl로 분기되는 경우로 2가지이다
+
+1. 인풋 -> 최초 Abl 실행
+
+```c++
+void UComboComponent::BindInputAction_Internal(UAAComboAsset* InComboAsset)
+{
+	if(!IsValid(InComboAsset))
+	{
+		return;
+	}
+
+	// ...
+  // ComboAsset을 참조해 EntryNode에 연결된 Edge를 참조해 Trigger Tag를 모두 탐색한다
+  // 해당 태그에 대응하는 InputAction들을 InputComponent를 통해 BindAction 한다
+	
+	if(UEnhancedInputComponent* InputComponent = FL::GetActorComponent<UEnhancedInputComponent>(GetOwner(), true))
+	{
+		for(const UInputAction* InputAction : EntryNodeInputActions)
+		{
+			const FEnhancedInputActionEventBinding& TriggerBinding = InputComponent->BindAction(InputAction, ETriggerEvent::Triggered, this, &ThisClass::OnInputActionTriggered, InputAction);
+			InputBindingHandles.Add(TriggerBinding.GetHandle());
+		}
+	}
+}
+
+// ...
+
+void UComboComponent::OnInputActionTriggered(const UInputAction* InputAction)
+{
+	// 콤보 플레이 중이면 InputAction은 무시한다.
+	if(!IsValid(ComboAsset) || ComboAsset->IsComboPlaying())
+	{
+		return;
+	}
+	
+	// Input으로 들어오는 전이는 Root에서만 유효하므로 바로 노드 셀렉트를 진행한다.
+	const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+	check(IsValid(DataCollection->ComboTriggerMappingContext));
+
+	const FGameplayTag* TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_InputAction.Find(InputAction);
+	if(TriggerTag)
+	{
+		TArray<FGameplayTag> TriggerTags { *TriggerTag };
+		ComboAsset->ComboTriggered(TriggerTags);
+
+		// ...
+	}
+}
+```
+
+* 아무런 Abl을 실행하지 않고 있던 상황에서, 인풋에 대응하는 Abl을 실행해야하는 상황이다
+* UComboComponent에서 InputAction과 함께 바인딩된 함수에서 ComboAsset을 실행한다
+  * **즉, InputComponent에 의해 실행된다**
+
+2. Abl 실행 중 -> 다른 Abl로 전환
+* 어떤 액션을 실행 중에 특정 인풋을 조건으로 다른 액션으로 분기를 해야 하는 상황이다
+* 이 경우, AblTask를 사용해 어떤 TriggerTag를 조건으로 할지 세팅하고 이 Tag에 대응하는 Input이 들어오면 분기하도록 한다
+
+![post_thumbnail](/assets/images/ComboGraph/ComboGraph_2.png)
+
+```c++
+void UAblTask_ComboTriggerSection::OnTaskTick(const TWeakObjectPtr<const UAblAbilityContext>& Context, float deltaTime) const
+{
+	if(!Context.IsValid())
+	{
+		return;
+	}
+
+	UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = CastChecked<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this));
+
+	if(!bTriggerEventOnTaskEnd && !ScratchPad->TriggeredTriggerMappingTags.IsEmpty())
+	{
+		FGM_Abl_ComboTriggered Message;
+		Message.TriggerTags = ScratchPad->TriggeredTriggerMappingTags;
+		FL::ActorMessage::Publish(Context->GetSelfActor(), Message);
+
+		ScratchPad->TriggeredTriggerMappingTags.Empty();
+	}
+}
+
+// ...
+
+void UAblTask_ComboTriggerSection::AddMappingContextTag(const TWeakObjectPtr<const UAblAbilityContext>& Context, const UInputAction* InputAction, bool bNegate) const
+{
+	if(Context.IsValid())
+	{
+		const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+		check(IsValid(DataCollection->ComboTriggerMappingContext));
+
+		FGameplayTag* TriggerTag = nullptr;
+
+		if(bNegate)
+		{
+			TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_NegateInputAction.Find(InputAction);
+		}
+		else
+		{
+			TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_InputAction.Find(InputAction);
+		}
+
+		if(TriggerTag)
+		{
+			if(UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = Cast<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this)))
+			{
+				ScratchPad->TriggeredTriggerMappingTags.AddUnique(*TriggerTag);
+			}
+		}
+	}
+}
+
+void UAblTask_ComboTriggerSection::AddMappingContextTag(const TWeakObjectPtr<const UAblAbilityContext>& Context, FGameplayTag Tag) const
+{
+	if(Context.IsValid())
+	{
+		const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+		check(IsValid(DataCollection->ComboTriggerMappingContext));
+
+		const FGameplayTag* TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_GameplayTag.Find(Tag);
+		if(TriggerTag)
+		{
+			if(UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = Cast<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this)))
+			{
+				ScratchPad->TriggeredTriggerMappingTags.AddUnique(*TriggerTag);
+			}
+		}
+	}
+}
+```
+
+* AddMappingContextTag를 통해 InputAction에 대응하는 TriggerTag를 등록한다
+  * 이 함수 자체는 UAblTask_ComboTriggerSection를 상속한 AblTask의 Tick에서 호출된다
+* OnTaskTick에서 Task의 길이 동안 해당 Tag에 대응하는 Input이 입력되었는지 확인한다
+
