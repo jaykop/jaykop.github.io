@@ -55,62 +55,62 @@ author_profile: true
 ```c++
 void UComboComponent::OnAblComboTriggered(AActor* Channel, const FGM_Abl_ComboTriggered& Message)
 {
-	// ...
-	SetComponentTickEnabled(true);
+  // ...
+  SetComponentTickEnabled(true);
 }
 
 // ...
 
 void UComboComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-		
-	UpdateComboGraph();
-	
-	SetComponentTickEnabled(false);
+  Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+    
+  UpdateComboGraph();
+  
+  SetComponentTickEnabled(false);
 }
 
 void UComboComponent::UpdateComboGraph()
 {
-	if(ensure(ComboAsset) == false)
-	{
-		return;
-	}
-	
-	bool bSelected = ComboAsset->ComboTriggered(PendingComboTriggerTags);
+  if(ensure(ComboAsset) == false)
+  {
+    return;
+  }
+  
+  bool bSelected = ComboAsset->ComboTriggered(PendingComboTriggerTags);
 
-	// ...
+  // ...
 }
 
 // ...
 
 bool UComboAsset::ComboTriggered(const TArray<FGameplayTag>& TriggerTags)
 {
-	// CurrentEdges가 우선순위에 의해 정렬되었으므로, loop 돌면서 체크한다
-	for(UComboEdge* Edge : CurrentEdges)
-	{
-		for (const auto& TriggerTag : TriggerTags)
-		{
-			UComboNodeData* ComboNodeData = Cast<UComboNodeData>(Edge->DestNode->ComboNodeData);
+  // CurrentEdges가 우선순위에 의해 정렬되었으므로, loop 돌면서 체크한다
+  for(UComboEdge* Edge : CurrentEdges)
+  {
+    for (const auto& TriggerTag : TriggerTags)
+    {
+      UComboNodeData* ComboNodeData = Cast<UComboNodeData>(Edge->DestNode->ComboNodeData);
 
-			// ...
-		
-			// 일단은 Exact 사용
-			if(Edge->TriggerTagContainer.HasTagExact(TriggerTag))
-			{
+      // ...
+    
+      // 일단은 Exact 사용
+      if(Edge->TriggerTagContainer.HasTagExact(TriggerTag))
+      {
         // Edge에 세팅된 조건을 확인하고, 조건이 맞으면 SelecNode 함수를 통해 Abl을 실행한다
-				if(Edge->DoesSatisfyCondition())
-				{
-					if(SelectNode(Edge->DestNode))
-					{
-						return true;
-					}
-				}
-			}
-		}
-	}
+        if(Edge->DoesSatisfyCondition())
+        {
+          if(SelectNode(Edge->DestNode))
+          {
+            return true;
+          }
+        }
+      }
+    }
+  }
 
-	return false;
+  return false;
 }
 
 ```
@@ -136,49 +136,49 @@ bool UComboAsset::ComboTriggered(const TArray<FGameplayTag>& TriggerTags)
 1. 인풋 -> 최초 Abl 실행
 
 ```c++
-void UComboComponent::BindInputAction_Internal(UAAComboAsset* InComboAsset)
+void UComboComponent::BindInputAction_Internal(UComboAsset* InComboAsset)
 {
-	if(!IsValid(InComboAsset))
-	{
-		return;
-	}
+  if(!IsValid(InComboAsset))
+  {
+    return;
+  }
 
-	// ...
+  // ...
   // ComboAsset을 참조해 EntryNode에 연결된 Edge를 참조해 Trigger Tag를 모두 탐색한다
   // 해당 태그에 대응하는 InputAction들을 InputComponent를 통해 BindAction 한다
-	
-	if(UEnhancedInputComponent* InputComponent = FL::GetActorComponent<UEnhancedInputComponent>(GetOwner(), true))
-	{
-		for(const UInputAction* InputAction : EntryNodeInputActions)
-		{
-			const FEnhancedInputActionEventBinding& TriggerBinding = InputComponent->BindAction(InputAction, ETriggerEvent::Triggered, this, &ThisClass::OnInputActionTriggered, InputAction);
-			InputBindingHandles.Add(TriggerBinding.GetHandle());
-		}
-	}
+  
+  if(UEnhancedInputComponent* InputComponent = FL::GetActorComponent<UEnhancedInputComponent>(GetOwner(), true))
+  {
+    for(const UInputAction* InputAction : EntryNodeInputActions)
+    {
+      const FEnhancedInputActionEventBinding& TriggerBinding = InputComponent->BindAction(InputAction, ETriggerEvent::Triggered, this, &ThisClass::OnInputActionTriggered, InputAction);
+      InputBindingHandles.Add(TriggerBinding.GetHandle());
+    }
+  }
 }
 
 // ...
 
 void UComboComponent::OnInputActionTriggered(const UInputAction* InputAction)
 {
-	// 콤보 플레이 중이면 InputAction은 무시한다.
-	if(!IsValid(ComboAsset) || ComboAsset->IsComboPlaying())
-	{
-		return;
-	}
-	
-	// Input으로 들어오는 전이는 Root에서만 유효하므로 바로 노드 셀렉트를 진행한다.
-	const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
-	check(IsValid(DataCollection->ComboTriggerMappingContext));
+  // 콤보 플레이 중이면 InputAction은 무시한다.
+  if(!IsValid(ComboAsset) || ComboAsset->IsComboPlaying())
+  {
+    return;
+  }
+  
+  // Input으로 들어오는 전이는 Root에서만 유효하므로 바로 노드 셀렉트를 진행한다.
+  const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+  check(IsValid(DataCollection->ComboTriggerMappingContext));
 
-	const FGameplayTag* TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_InputAction.Find(InputAction);
-	if(TriggerTag)
-	{
-		TArray<FGameplayTag> TriggerTags { *TriggerTag };
-		ComboAsset->ComboTriggered(TriggerTags);
+  const FGameplayTag* TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_InputAction.Find(InputAction);
+  if(TriggerTag)
+  {
+    TArray<FGameplayTag> TriggerTags { *TriggerTag };
+    ComboAsset->ComboTriggered(TriggerTags);
 
-		// ...
-	}
+    // ...
+  }
 }
 ```
 
@@ -195,69 +195,69 @@ void UComboComponent::OnInputActionTriggered(const UInputAction* InputAction)
 ```c++
 void UAblTask_ComboTriggerSection::OnTaskTick(const TWeakObjectPtr<const UAblAbilityContext>& Context, float deltaTime) const
 {
-	if(!Context.IsValid())
-	{
-		return;
-	}
+  if(!Context.IsValid())
+  {
+    return;
+  }
 
-	UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = CastChecked<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this));
+  UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = CastChecked<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this));
 
-	if(!bTriggerEventOnTaskEnd && !ScratchPad->TriggeredTriggerMappingTags.IsEmpty())
-	{
-		FGM_Abl_ComboTriggered Message;
-		Message.TriggerTags = ScratchPad->TriggeredTriggerMappingTags;
-		FL::ActorMessage::Publish(Context->GetSelfActor(), Message);
+  if(!bTriggerEventOnTaskEnd && !ScratchPad->TriggeredTriggerMappingTags.IsEmpty())
+  {
+    FGM_Abl_ComboTriggered Message;
+    Message.TriggerTags = ScratchPad->TriggeredTriggerMappingTags;
+    FL::ActorMessage::Publish(Context->GetSelfActor(), Message);
 
-		ScratchPad->TriggeredTriggerMappingTags.Empty();
-	}
+    ScratchPad->TriggeredTriggerMappingTags.Empty();
+  }
 }
 
 // ...
 
 void UAblTask_ComboTriggerSection::AddMappingContextTag(const TWeakObjectPtr<const UAblAbilityContext>& Context, const UInputAction* InputAction, bool bNegate) const
 {
-	if(Context.IsValid())
-	{
-		const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
-		check(IsValid(DataCollection->ComboTriggerMappingContext));
+  if(Context.IsValid())
+  {
+    const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+    check(IsValid(DataCollection->ComboTriggerMappingContext));
 
-		FGameplayTag* TriggerTag = nullptr;
+    FGameplayTag* TriggerTag = nullptr;
 
-		if(bNegate)
-		{
-			TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_NegateInputAction.Find(InputAction);
-		}
-		else
-		{
-			TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_InputAction.Find(InputAction);
-		}
+    if(bNegate)
+    {
+      TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_NegateInputAction.Find(InputAction);
+    }
+    else
+    {
+      TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_InputAction.Find(InputAction);
+    }
 
-		if(TriggerTag)
-		{
-			if(UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = Cast<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this)))
-			{
-				ScratchPad->TriggeredTriggerMappingTags.AddUnique(*TriggerTag);
-			}
-		}
-	}
+    if(TriggerTag)
+    {
+      if(UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = Cast<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this)))
+      {
+        ScratchPad->TriggeredTriggerMappingTags.AddUnique(*TriggerTag);
+      }
+    }
+  }
 }
 
 void UAblTask_ComboTriggerSection::AddMappingContextTag(const TWeakObjectPtr<const UAblAbilityContext>& Context, FGameplayTag Tag) const
 {
-	if(Context.IsValid())
-	{
-		const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
-		check(IsValid(DataCollection->ComboTriggerMappingContext));
+  if(Context.IsValid())
+  {
+    const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+    check(IsValid(DataCollection->ComboTriggerMappingContext));
 
-		const FGameplayTag* TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_GameplayTag.Find(Tag);
-		if(TriggerTag)
-		{
-			if(UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = Cast<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this)))
-			{
-				ScratchPad->TriggeredTriggerMappingTags.AddUnique(*TriggerTag);
-			}
-		}
-	}
+    const FGameplayTag* TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_GameplayTag.Find(Tag);
+    if(TriggerTag)
+    {
+      if(UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = Cast<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this)))
+      {
+        ScratchPad->TriggeredTriggerMappingTags.AddUnique(*TriggerTag);
+      }
+    }
+  }
 }
 ```
 
