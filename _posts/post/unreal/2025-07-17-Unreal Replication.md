@@ -37,22 +37,22 @@ ENetMode UWorld::GetNetMode() const;
  */
 enum ENetMode
 {
-    /** Standalone: a game without networking, with one or more local players. Still considered a server because it has all server functionality. */
-    NM_Standalone,
+  /** Standalone: a game without networking, with one or more local players. Still considered a server because it has all server functionality. */
+  NM_Standalone,
 
-    /** Dedicated server: server with no local players. */
-    NM_DedicatedServer,
+  /** Dedicated server: server with no local players. */
+  NM_DedicatedServer,
 
-    /** Listen server: a server that also has a local player who is hosting the game, available to other players on the network. */
-    NM_ListenServer,
+  /** Listen server: a server that also has a local player who is hosting the game, available to other players on the network. */
+  NM_ListenServer,
 
-    /**
-     * Network client: client connected to a remote server.
-     * Note that every mode less than this value is a kind of server, so checking NetMode < NM_Client is always some variety of server.
-     */
-    NM_Client,
+  /**
+   * Network client: client connected to a remote server.
+   * Note that every mode less than this value is a kind of server, so checking NetMode < NM_Client is always some variety of server.
+   */
+  NM_Client,
 
-    NM_MAX,
+  NM_MAX,
 };
 ```
 
@@ -181,7 +181,7 @@ NetCullDistanceSquared = FMath::Sqaure(3000.f);
 // 요 함수를 override 해서 조건을 커스터마이즈할 수 있다
 bool AActor::IsNetRelevantFor(...)
 {
-    // ...
+  // ...
 }
 ```
 
@@ -251,21 +251,21 @@ void Server_DoSomething();
 // 이 함수는 Client 사이드에서 실행한다
 void ASomeActor::DoSomething1()
 {
-    // ...
-    Server_DoSomething2();)
+  // ...
+  Server_DoSomething2();)
 }
 
 // 이 함수는 Server 사이드에서 실행한다
 void ASomeActor::Server_DoSomething2_Implementation()
 {
-    // ...
+  // ...
 }
 
 // UFUNCTION(..., WithValidation)
 bool ASomeActor::Server_DoSomething3_Validation()
 {
-    // 이 Server RPC가 fail을 반환하면, client는 그 즉시 게임에서 퇴장당한다
-    return bCheated == false;
+  // 이 Server RPC가 fail을 반환하면, client는 그 즉시 게임에서 퇴장당한다
+  return bCheated == false;
 }
 ```
 
@@ -314,7 +314,7 @@ enum ENetRole
   // 이 Actor가 Server에서 스폰되었거나
   else
   {
-  
+    // ...
   }
 }
 ```
