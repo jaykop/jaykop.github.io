@@ -29,8 +29,8 @@ UCLASS(Blueprinatble, BlueprintType)
 class TUTOPROJECT_API UTestUClass : public UObject
 {
   // UHT에서 자동으로 constructor 를 declaration & define
-	GENERATED_BODY()
-	
+  GENERATED_BODY()
+  
 };
 ```
 * **Blueprinatble**
