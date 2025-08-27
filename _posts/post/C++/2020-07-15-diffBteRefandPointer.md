@@ -55,17 +55,17 @@ void func(int &a, int &b); // Arguments are stored in stack frame memory
 	- & a[]: arrays of references
 	- &*a: pointers to references
 
-  ```c++  
-  // 임의의 두 변수가 선언되어(연속된 메모리에 배치되어 있지 않은)
-  // 이 변수를 레퍼런스의 배열로 선언하는 것은 불가능
-  int a, b; // Random location in stack
-  int& arr[2] = {a , b}; // Illegal: Impossible to reference the non-adjacent variables
+```c++  
+// 임의의 두 변수가 선언되어(연속된 메모리에 배치되어 있지 않은)
+// 이 변수를 레퍼런스의 배열로 선언하는 것은 불가능
+int a, b; // Random location in stack
+int& arr[2] = {a , b}; // Illegal: Impossible to reference the non-adjacent variables
 
-  // 연속된 메모리에 선언된 변수들을
-  // 배열로서 레퍼런스로 선언하는 것은 가능
-  int arr[3] = {1, 2, 3}; // adjacent memory locations
-  int (&ref)[3] = arr; // Legal: Variables are adjacent
-  ```
+// 연속된 메모리에 선언된 변수들을
+// 배열로서 레퍼런스로 선언하는 것은 가능
+int arr[3] = {1, 2, 3}; // adjacent memory locations
+int (&ref)[3] = arr; // Legal: Variables are adjacent
+```
 
 ## 출처
 * <https://modoocode.com/141>

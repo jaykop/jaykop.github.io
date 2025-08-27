@@ -20,13 +20,13 @@ class A{};
 
 // 1 byte
 class A{
-	char a;
+    char a;
 } 
 
 // 4+4+4 = 12 bytes: a000 bbbb c000
 // 0 = padding
 class A{
-	char a; // 1
+    char a; // 1
   int b; // 4
   char c; // 1
 }; 
@@ -47,7 +47,7 @@ class A
 // Methods don’t affect the size of the class
 class A
 {
-	void function(); 
+    void function(); 
 } 
 
 // size of class A: 8(64bit) bytes: 
@@ -114,8 +114,8 @@ class C : virtual public A, virtual public B
 // size of pointers(to vtable)
 class B: public A
 {
-	void function1();
-	void function2();
+    void function1();
+    void function2();
 } 
 ```
 

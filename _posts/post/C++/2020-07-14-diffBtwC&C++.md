@@ -227,22 +227,24 @@ int D_bar(struct D* p) { return 4; }
 int (*d_a[2])(void*) = { (int (*)(void*))D_foo, (int (*)(void*))D_bar };
 void makeD (struct D* this) { this->p = d_a; } // ctor
 
-int call( void* p_obj, int i ) {
+int call( void* p_obj, int i ) 
+{
     return ((struct B*)p_obj)->p[i]( p_obj );
     //            1     0      2 3    4
-
 }
 
-int main() {
-    struct B* p = (struct B*)malloc( sizeof( struct B ) );
-    makeB(p);
-    printf("%i\n", call( p, 0 ) );
-    free ( p );
+int main() 
+{
+  struct B* p = (struct B*)malloc( sizeof( struct B ) );
+  makeB(p);
+  printf("%i\n", call( p, 0 ) );
+  free ( p );
 
-    struct D* p2 = (struct D*)malloc( sizeof(  struct D ) );
-    makeD(p2);
-    printf("%i\n", call( p2, 1 ) );
-    free ( p2 );
+  struct D* p2 = (struct D*)malloc( sizeof(  struct D ) );
+  makeD(p2);
+  printf("%i\n", call( p2, 1 ) );
+  free ( p2 );
+}
 ```
 
 ## 출처
