@@ -1,0 +1,29 @@
+---
+title: "체크 포인트"
+classes: wide
+categories: 
+  - dev_note
+  - project
+sidebar:
+  nav: "main"
+author_profile: true
+---
+
+![post_thumbnail](/assets/images/ALS/ALS_StrideBlend_1.png)
+
+## 세이브 포인트
+* **캠프**라는 이름의 체크 포인트를 정의했다
+* 던전 안에는 여러 캠프가 존재하며, 던전 진입 시 마지막으로 활성화 및 상호작용한 체크포인트의 위치로 스폰되어야 했다
+  * 멀티 상황에서 최대 4개의 스폰 포인트가 있고, 스폰 시 특정 애니메이션을 출력해야 했다
+
+## 진입 시 Spawn Point
+
+### 
+
+### 멀티 코옵 시 4개의 플레이어 Spawn Point
+
+### Spawn 시 특정 애니메이션 출력
+
+### 활성화와 활성화 이후 상호작용
+
+### 텔레포트 시 카메라 이슈
