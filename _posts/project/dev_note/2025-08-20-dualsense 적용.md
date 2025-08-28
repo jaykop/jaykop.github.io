@@ -198,7 +198,7 @@ TArray<FCustomKeyTrigger> GetKeyTriggers(const ULocalPlayer* LocalPlayer, ECommo
 * GetKeyTriggers 함수 안에서 구분해야할 트리거를 위와 같이 구분했다
 * 그리고 반환 결과에 Hold인지, Release인지, 조합 키가 필요한 지 등의 정보를 추가했다
 
-```C++
+```c++
   TArray<FCustomKeyTrigger> KeyTriggers = GetKeyTriggers(LocalPlayer, InputType, InputAction);
   KeyTriggers.Sort([](const FCustomKeyTrigger& A, const FCustomKeyTrigger& B)
   {
