@@ -216,18 +216,21 @@ void Multicast_DoSomething();
 ![post_thumbnail](/assets/images/Replication/RPC_2.png)
 
 * 클라이언트에서 Server RPC를 호출하면, 함수의 실제 구현부는 Server에서만 실행된다
-* 서버가 클라이언트로부터 데이터를 수집하는 방법
+    * 서버가 클라이언트로부터 데이터를 수집하는 방법
 
 ### Multicast RPC
 
 ![post_thumbnail](/assets/images/Replication/RPC_3.png)
 
 * 서버에서 Multicast RPC를 호출하면, 서버 그리고 서버와 연결된 모든 클라이언트에서 실행된다
-* 만약 클라이언트에서 호출한 게 클라이언트와 서버 양 쪽 모두에 동기화되어야 한다면, 클라이언트에서 Server RPC를 호출해 서버로 하여금 Multicast RPC를 호출하게 하면 되겠다다
+    * 만약 클라이언트에서 Invoke한 변경점이 클라이언트와 서버 양 쪽 모두에 동기화되어야 한다면...
+        1. 클라이언트에서 Server RPC를 호출해 서버 트리거
+        2. 서버에서 Multicast RPC를 호출해 클라이언트로 전파
 
 ![post_thumbnail](/assets/images/Replication/RPC_4.png)
 
 * 이 경우에는 Relevancy 세팅에 의해 호출 여부가 결정된다
+    * 서버에서 발생한 SomwPawn의 변경점이 P0으로는 전파되고, P1으로는 전파되지 않는다
 
 ### Reliable / Unreliable
 
@@ -239,9 +242,12 @@ UFUNCTION(Server, Unreliable)
 void Server_DoSomething();
 ```
 
-* Reliable: RPC 전파와 그 순서를 보장한다
+* Reliable
+    * RPC 전파와 그 순서를 보장한다
     * 과용할 경우 보틀넥 현상 혹은 패킷 자체가 loss 될 수 있다
-* Unreliable: RPC 전파를 보장하지 않는다
+* Unreliable
+    * RPC 전파를 보장하지 않는다
+    * 이건 아무래도 좋다는 의미인지 용처를 잘 모르겠다
 
 ### WithValidation
 
@@ -252,7 +258,7 @@ void Server_DoSomething();
 void ASomeActor::DoSomething1()
 {
   // ...
-  Server_DoSomething2();)
+  Server_DoSomething2();
 }
 
 // 이 함수는 Server 사이드에서 실행한다
@@ -268,6 +274,9 @@ bool ASomeActor::Server_DoSomething3_Validation()
   return bCheated == false;
 }
 ```
+
+* 멀티 상황에서 로직 결과값을 보장하기 위한 방법 중 하나로 보인다
+* 단순히 Client를 쫓아내는 것이 답인가?는 잘 모르겠다
 
 ## Replicated Property in Detail
 
@@ -355,9 +364,18 @@ IsLocallyControlled() == false
 IsLocallyControlled() == true
 ```
 
-### RemoveRole / LocalRole
+### LocalRole . RemoveRole
 
 ![post_thumbnail](/assets/images/Replication/Role.png)
+
+* Local Role
+    * 현재 GameInstance에서 해당 Actor의 역할
+* Remove Role
+    * 반대 사이드(Client <-> Server)의 관점에서 해당 Actor의 역할
+    * 위의 표에서 1번째 케이스를 예시로 들면...
+        1. 서버 관점에서
+        2. Local Role이 Authority일 때,
+        3. (Client 사이드에선) AutomonousProxy 역할이다
 
 ### IsLocallyControlled
 
