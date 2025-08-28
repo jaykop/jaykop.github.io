@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jaykop.github.io/sitemap.xml
