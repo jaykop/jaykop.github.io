@@ -30,7 +30,7 @@ Git, Perforce
 * **Project MZ Client Programmer** (2025.07 ~ Present)
 
 
-* **Project AA Client Programmer** (2022.08 ~ 2025.06)
+* **Project AA Client Programmer** (2022.08 ~ 2025.07)
     * 언리얼 엔진 5와 게임플레이 어빌리티 시스템(GAS)을 기반으로 스킬, 콤보, 가드 등 전투 시스템 설계 및 개발 
     * Behaviour Tree와 AI Perception 활용하여 몬스터의 전투 패턴 시스템 구현 
     * 3인칭 액션 카메라 및 상황별 카메라 시스템 개발 및 락온, 장애물 투명화 처리 기능 구현 
