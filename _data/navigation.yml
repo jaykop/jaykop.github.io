@@ -8,6 +8,8 @@ main:
         url: /_pages/project/career
       - title: "Dev Note"
         url: /_pages/project/dev_note
+          - title: "Project AA"
+          url: /_pages/project/dev_note/ProjecAA
       - title: "Side Project"
         url: /_pages/project/side_project
       - title: "Academic"
