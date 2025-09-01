@@ -4,10 +4,10 @@ main:
   - title: "Project"
     url: /_pages/project/
     children:
-      - title: "Oceandrive Studio - Project AA"
+      - title: "Project AA"
         url: /_pages/project/project_aa
-      - title: "SundayToz - Disney Pop Town"
-        url: /_pages/project/disney_pop_town
+      - title: "Disney Pop Town"
+        url: /_pages/project/disney_pop
       - title: "Academic"
         url: /_pages/project/academic
       - title: "Side Project"
