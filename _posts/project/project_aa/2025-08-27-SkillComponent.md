@@ -61,37 +61,37 @@ struct FSkillData
 UCLASS(meta=(DisplayName="Skill"))
 class AACLIENT_API USkillJournal : public UJournalContainerEntry
 {
-	GENERATED_BODY()
-	
+  GENERATED_BODY()
+  
 public:
 
   //...
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	int32 ID;
+  UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+  int32 ID;
 
-	// 활성화되어 있어야 할 Skill Node ID, 없으면 세팅 안 하면 됨...
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<int32> ActivatePrerequisiteIDs;
-	
-	UPROPERTY(EditAnywhere)
-	FText DisplayName;
+  // 활성화되어 있어야 할 Skill Node ID, 없으면 세팅 안 하면 됨...
+  UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+  TArray<int32> ActivatePrerequisiteIDs;
+  
+  UPROPERTY(EditAnywhere)
+  FText DisplayName;
 
-	UPROPERTY(EditDefaultsOnly, meta=(categories="Skill"))
-	FGameplayTagContainer SkillTraits;
-	
-	// ...
-	
-	// 스킬 실행 시 실행할 Able
-	// Active Skill
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<class UAblAbility> SkillAbl;
-	
-	// 스킬 장착 시 실행할 GA
-	// Passive Skill
-	UPROPERTY(EditAnywhere)
-	TArray<TSubclassOf<class UGameplayAbility>> SkillGA;
-	
+  UPROPERTY(EditDefaultsOnly, meta=(categories="Skill"))
+  FGameplayTagContainer SkillTraits;
+  
+  // ...
+  
+  // 스킬 실행 시 실행할 Able
+  // Active Skill
+  UPROPERTY(EditAnywhere)
+  TSubclassOf<class UAblAbility> SkillAbl;
+  
+  // 스킬 장착 시 실행할 GA
+  // Passive Skill
+  UPROPERTY(EditAnywhere)
+  TArray<TSubclassOf<class UGameplayAbility>> SkillGA;
+  
 };
 ```
 
