@@ -121,9 +121,9 @@ void AGDHeroCharacter::OnRep_PlayerState()
   |Net Execution Policy|설명|
   |:---:|:---|
   |Local Only|GameplayAbility는 소유한 클라이언트에서만 실행됩니다. 로컬에서만 시각적 효과를 변경하는 Ability에 유용할 수 있습니다. 싱글 플레이어 게임에서는 Server Only를 사용해야 합니다.|
-  |Local Predicted|Local Predicted GameplayAbility는 먼저 소유한 클라이언트에서 활성화되고, 그 후 서버에서 실행됩니다. 서버는 클라이언트가 예측한 내용을 수정합니다. 예측에 대한 자세한 내용은 Prediction을 참조해주세요.|
+  |Local Predicted|Local Predicted GameplayAbility는 먼저 소유한 클라이언트에서 활성화되고, 그 후 서버에서 실행됩니다. 서버는 클라이언트가 예측한 내용을 수정합니다.|
   |Server Only|GameplayAbility는 오직 서버에서만 실행됩니다. Passive GameplayAbility는 보통 Server Only입니다. 싱글 플레이어 게임에서는 이 방식을 사용해야 합니다.|
-  |Server Initiated|Server Initiated GameplayAbility는 먼저 서버에서 활성화되고, 그 후 소유한 클라이언트에서 실행됩니다. 개인적으로는 이 방법은 많이 사용하지 않았습니다.|
+  |Server Initiated|Server Initiated GameplayAbility는 먼저 서버에서 활성화되고, 그 후 소유한 클라이언트에서 실행됩니다.|
 
 ## Gameplay Tag
 * GameplayTagManager에 등록되며, 계층구조를 가진다
