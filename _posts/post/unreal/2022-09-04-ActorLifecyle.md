@@ -10,6 +10,7 @@ author_profile: true
 ---
 
 ## 기본적인 Actor의 라이프 사이클
+
 ### PreInitializeComponents
 * 컴포넌트 초기화 이전 
 ### InitializeComponents

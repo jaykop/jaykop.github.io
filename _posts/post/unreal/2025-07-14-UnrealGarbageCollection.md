@@ -16,7 +16,6 @@ author_profile: true
 * 언리얼은 사용자가 아닌 엔진에서 Heap 메모리를 관리하는 기능을 제공한다
 * UPROPERTY 매크로로 선언된 UObject 객체들이 대상이다
   * int32, float 등의 타입은 해당하지 않는다
-* GC Tick을 돌면서 아래 순서로 작동한다
 
 ### 개요
 * 모든 UObject의 참조 개수를 카운팅한다
@@ -42,12 +41,12 @@ author_profile: true
 
 2. Root Set 마킹 
 * Root Set은 여러 개의 Root로 이루어진 컨테이너
-* GC의 "출발점"인 Root Set에 등록된 모든 UObject들을 Reachable 상태로 마킹
+* GC의 "출발점"인 **Root Set에 등록된 모든 UObject들을 Reachable 상태로 마킹**
 
 3. 참조 그래프 순회 및 Reachable 전파
 * Reachable로 마킹된 객체들(Root Set 포함)로부터 시작하여, 모든 UPROPERTY로 명시된 UObject* 참조를 재귀적으로 순회
   * 모든 Root Object를 돌면서 UPROPERTY를 Recursive Search
-* 이 참조를 통해 새롭게 발견되는 모든 UObject 인스턴스들도 Reachable 상태로 마킹
+* **이 참조를 통해 새롭게 발견되는 모든 UObject 인스턴스들도 Reachable 상태로 마킹**
   * 이 과정에서 Pending Kill이 아닌 UObject들은 Unreachable Mark를 지워준다
   * 즉, 지우지 않을 Object로 분류한다
 * 이 단계가 끝나면, Root Set으로부터 UPROPERTY 체인을 통해 도달 가능한 모든 객체들이 Reachable로 마킹
@@ -73,21 +72,21 @@ author_profile: true
 * 생명 주기를 함께 하는 멤버 변수는 UPROPERTY로 선언
 * 멤버 변수 포인터는 항상 UObject 혹은 거기에 딸린 멤버 변수로 한정한다
 
-### GC 주의점
-* UObject에서 파생한 Raw Pointer 멤버 변수는 항상 UPROPERTY 키워드를 추가한다
-  * GC 대상으로 분류 목적
-* UObject에서 파생하지 않은 오브젝트는?
-  * TWeakObjectPtr과 FWeakObjectPtr을 사용한다
-  * scalar type들은 관련 X
-* UObjec*를 담는 멤버 구조체에 대해서 UPROPERTY 매크로를 사용해야 한다
-  * TArray만 UPROPERTY 매크로를 지원한다는 글들이 더러 있는데, 최근 UE 버전은 TMap이나 다른 컨테이너들도 지원하는 것 같다
+> [!NOTE] GC 주의점  
+> * UObject에서 파생한 Raw Pointer 멤버 변수는 항상 UPROPERTY 키워드를 추가한다
+>   * GC 대상으로 분류 목적
+> * UObject에서 파생하지 않은 오브젝트는?
+>   * TWeakObjectPtr과 FWeakObjectPtr을 사용한다
+>   * scalar type들은 관련 X
+> * UObjec*를 담는 멤버 구조체에 대해서 UPROPERTY 매크로를 사용해야 한다
+>   * TArray만 UPROPERTY 매크로를 지원한다는 글들이 더러 있는데, 최근 UE 버전은 TMap이나 다른 컨테이너들도 지원하는 것 같다
 
 ### TWeakObjectPtr
 * UPROPERTY는 멤버 변수를 소유하는 객체가 강한 참조를 통해 GC되지 않도록 하지만, 이는 퍼포먼스적으로 불리한 경우를 야기하기도 한다
   * 객체 A가 객체 B를 강한 참조로 붙잡고 있고 객체 B가 명시적으는 Destroy 되었다고 하자
   * 객체 A가 사라지지 않는 한, 객체 B가 차지하는 실질적 메모리는 해제되지 않는다
   * 즉 GC의 퍼포먼스를 저하시킨다
-* Root Set에 포함되지 않아 비록 GC 대상으로 분류되지는 않지만, 적어도 Destroy 시 nullptr로 초기화되며 IsValid로 정상적인 결과를 반환한다
+* TWeakObjectPtr를 사용하면 Root Set에 포함되지 않아 비록 GC 대상으로 분류되지는 않지만, 적어도 Destroy 시 nullptr로 초기화되며 IsValid로 정상적인 결과를 반환한다
 
 ## 출처
 * <https://algorfati.tistory.com/75>

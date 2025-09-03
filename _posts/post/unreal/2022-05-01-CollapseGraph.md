@@ -55,13 +55,6 @@ author_profile: true
 * 함수는 C++로 접근이 가능하나, 매크로는 블루프린트에서만 가능하다
 * 매크로의 풀네임은 **블루프린트 매크로**이다
 
-## 리플리케이션이란?
-* 호스트 컴퓨터가 가진 데이터를 다른 컴퓨터로 복사하는 것
-* 구체적인 내용은 추후에 보강하는 것으로...
-
-### 변수 리플리케이션
-### 함수 호출 리플리케이션
-
 ## 출처
 * <https://docs.unrealengine.com/4.26/ko/ProgrammingAndScripting/Blueprints/BP_HowTo/CollapsingGraphs/>
 * <https://hbpz.tistory.com/3>

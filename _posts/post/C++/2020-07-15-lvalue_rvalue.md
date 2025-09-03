@@ -39,7 +39,7 @@ int main() {
 
 > [!NOTE]  
 > C++ 17 부터 일부 경우에 대해서 (예를 들어서 함수 내부에서 객체를 만들어서 return 할 경우) 반드시 복사 생략을 해야되는 것으로 바뀌었다고 한다.  
-> https://en.cppreference.com/w/cpp/language/copy_elision
+> <https://en.cppreference.com/w/cpp/language/copy_elision>
 
 ## Value Category
 * **정체를 알 수 있는가**
