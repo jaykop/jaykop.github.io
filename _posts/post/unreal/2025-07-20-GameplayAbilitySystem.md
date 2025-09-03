@@ -156,7 +156,7 @@ PostGameplayEffectExecute(const FGameplayEffectModCallbackData & Data);
 ## Gameplay Effect
 * Attribute의 수치 변경 혹은 Tag 적용 등 가능
 * Duration Policy에 따라 적용되는 Value가 다르다
-  * Instance -> BaseValue
+  * Instant-> BaseValue
   * Duration / Infinite -> CurrentValue
 
 ![post_thumbnail](/assets/images/GAS/ge.png)
