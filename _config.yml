@@ -321,3 +321,9 @@ defaults:
       comments: false
       share: false
       related: false
+
+  # search issue
+  - scope:
+      path: "assets/js/lunr"
+    values:
+      layout: none
