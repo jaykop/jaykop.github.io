@@ -10,7 +10,7 @@ author_profile: true
 ---
 
 ## 선형 변환과 행렬
-* **[선형 변환](https://jaykop.github.io/post/math/Linear-Algebra/#%EC%84%A0%ED%98%95%EB%B3%80%ED%99%98-linear-transformation)**이란
+* **[선형 변환](https://jaykop.github.io/post/math/LinearAlgebra/#%EC%84%A0%ED%98%95%EB%B3%80%ED%99%98-linear-transformation)**이란
     * 하나의 벡터 공간을 다른 벡터 공간으로 변환하는 함수
     * 선형 변환을 정의하는 두 특성이 변환 후에도 벡터 공간의 조건을 그대로 만족하기 때문
 

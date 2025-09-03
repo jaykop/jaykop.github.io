@@ -10,7 +10,7 @@ author_profile: true
 ---
 
 ### 관찰자 패턴의 사례
-* [MVC 패턴](https://jaykop.github.io/post/etc/MVC/#mvc-%ED%8C%A8%ED%84%B4)
+* [MVC 패턴](https://jaykop.github.io/post/design_pattern/MVC/#mvc-%ED%8C%A8%ED%84%B4)
 * C#의 event
 * java의 라이브러리
 
@@ -137,7 +137,7 @@ class Subject
 ### 속도
 * 관찰자 패턴을 사용하는 시스템이 Queuing이나 동적할당을 하기 때문에 실제로 느릴 수 있다
   * **솔직히 여느 게임이라면 속도 문제는 제기될 일이 없다**
-  * 성능에 민감하지 않다면 [동적 디스패치](https://jaykop.github.io/post/pattern/Observer-Pattern/#%EB%8F%99%EC%A0%81-%ED%95%A0%EB%8B%B9)를 사용해도 된다
+  * 성능에 민감하지 않다면 [동적 디스패치](https://jaykop.github.io/post/design_pattern/ObserverPattern/#%EB%8F%99%EC%A0%81-%ED%95%A0%EB%8B%B9)를 사용해도 된다
 * 정적 호출보다 느리지만 가상함수를 통해 필요한 알림을 보내면 된다
 
 ### 동기적

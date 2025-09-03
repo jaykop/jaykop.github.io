@@ -9,7 +9,7 @@ sidebar:
 author_profile: true
 ---
    
-## [Managed vs. Unmanaged Code](https://jaykop.github.io/post/etc/compiled&interpreted/)
+## [Managed vs. Unmanaged Code](https://jaykop.github.io/post/misc/compiled_interpreted/)
 * Unmanaged code란 컴퓨터 구조, 프로세서에 특화되어 그에 의존하는 코드
   * C#에서는 unsafe 키워드를 이용하는 코드
   * 프로그래머에 의해 직접 관리

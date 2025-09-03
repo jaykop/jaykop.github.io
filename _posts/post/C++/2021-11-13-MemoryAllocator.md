@@ -64,7 +64,7 @@ author_profile: true
 * 궁극적인 목표는 사용자가 메모리 관리로부터 해방하는 것
 * 프로그램 메모리 단계까지 접근할 수 있어야 하므로 구현은 쉽지 않음
 
-## [Fragmentation 메모리 파편화](https://jaykop.github.io/post/os/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%90%EC%9C%A0%EC%9C%A8-%EB%B6%80%EC%A1%B1/#%EB%8B%A8%ED%8E%B8%ED%99%94-fragmentation)
+## [Fragmentation 메모리 파편화](https://jaykop.github.io/post/os/Memory/#%EB%8B%A8%ED%8E%B8%ED%99%94-fragmentation)
 
 ![post_thumbnail](/assets/images/{401CB2B3-B191-4A45-8DDE-9C4E7215BB70}.png)
 
@@ -81,9 +81,9 @@ author_profile: true
 * 이 역시 파편화를 완전히 막음
 * 범용성에서 어긋남
 * 다양한 사이즈의 Pool을 이용할 수는 있음
-  * [Segregated Fit](https://jaykop.github.io/post/etc/Memory-Allocator/#segregated-fit)
+  * [Segregated Fit](https://jaykop.github.io/post/c++/MemoryAllocator/#segregated-fit)
 * 그러나 필요 이상 사이즈의 메모리가 할당되는 경우가 발생
-  * [내부 단편화](https://jaykop.github.io/post/os/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%90%EC%9C%A0%EC%9C%A8-%EB%B6%80%EC%A1%B1/#%EB%82%B4%EB%B6%80-%EB%8B%A8%ED%8E%B8%ED%99%94-internal-fragmentation)
+  * [내부 단편화](https://jaykop.github.io/post/os/Memory/#%EB%82%B4%EB%B6%80-%EB%8B%A8%ED%8E%B8%ED%99%94-internal-fragmentation)
 
 ### First Fit
 ![post_thumbnail](/assets/images/{BA5B9BEE-5ABE-4405-BB63-BD9DEE200820}.png)
