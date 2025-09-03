@@ -25,7 +25,7 @@ author_profile: true
 
 ![image](/assets/images/{54A6B864-4A15-49E3-A7EF-65E7E8061EF6}.png)
 * 선형 변환 T를 적용한 벡터 v는 위와 같이 표현한다
-    * **[선형 변환의 특징](http://localhost:4000/post/math/Linear-Algebra/#%EB%B2%A1%ED%84%B0-%EA%B3%B5%EA%B0%84%EA%B3%BC-%EC%84%A0%ED%98%95%EA%B3%B5%EA%B0%84%EC%9D%98-%EA%B4%80%EA%B3%84)**을 적용한 것이다
+    * **[선형 변환의 특징](https://jaykop.github.io/post/math/LinearAlgebra/#%EB%B2%A1%ED%84%B0-%EA%B3%B5%EA%B0%84%EA%B3%BC-%EC%84%A0%ED%98%95%EA%B3%B5%EA%B0%84%EC%9D%98-%EA%B4%80%EA%B3%84)**을 적용한 것이다
 * 선형 변환을 수행할 때,
     1. 기저 벡터들을 먼저 선형 변환한다
         * v_n -> T(v_n)
