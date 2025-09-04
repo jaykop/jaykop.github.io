@@ -73,13 +73,13 @@ author_profile: true
 * 멤버 변수 포인터는 항상 UObject 혹은 거기에 딸린 멤버 변수로 한정한다
 
 > [!NOTE] GC 주의점  
-> * UObject에서 파생한 Raw Pointer 멤버 변수는 항상 UPROPERTY 키워드를 추가한다
->   * GC 대상으로 분류 목적
-> * UObject에서 파생하지 않은 오브젝트는?
->   * TWeakObjectPtr과 FWeakObjectPtr을 사용한다
->   * scalar type들은 관련 X
-> * UObjec*를 담는 멤버 구조체에 대해서 UPROPERTY 매크로를 사용해야 한다
->   * TArray만 UPROPERTY 매크로를 지원한다는 글들이 더러 있는데, 최근 UE 버전은 TMap이나 다른 컨테이너들도 지원하는 것 같다
+> * **UObject에서 파생한 Raw Pointer 멤버 변수는 항상 UPROPERTY 키워드를 추가한다**
+>     * GC 대상으로 분류 목적
+> * **UObject에서 파생하지 않은 오브젝트는?**
+>     * TWeakObjectPtr과 FWeakObjectPtr을 사용한다
+>     * scalar type들은 관련 X
+> * **UObjec*를 담는 멤버 구조체에 대해서 UPROPERTY 매크로를 사용해야 한다**
+>     * TArray만 UPROPERTY 매크로를 지원한다는 글들이 더러 있는데, 최근 UE 버전은 TMap이나 다른 컨테이너들도 지원하는 것 같다
 
 ### TWeakObjectPtr
 * UPROPERTY는 멤버 변수를 소유하는 객체가 강한 참조를 통해 GC되지 않도록 하지만, 이는 퍼포먼스적으로 불리한 경우를 야기하기도 한다
