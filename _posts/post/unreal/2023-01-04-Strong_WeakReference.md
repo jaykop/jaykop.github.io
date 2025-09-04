@@ -138,6 +138,36 @@ void APlayerCharacter::CheckReferenceStatus()
 }
 ```
 
+## When to use
+
+### Hard Reference
+* 생명주기 관리 
+  * 멤버 변수 uojbect와의 관계가 부모 자식 관계로서, 부모에게 Ownership을 부여하고 생명주기를 동일하게 가져가야 할 때
+* 항시 메모리에 로드되어 있어야 할 때
+
+### Soft Reference
+* 지연 로딩이 필요한 경우
+  * 게임의 진행을 막지 않으면서 로딩해도 되는 경우
+* [순환 참조](https://jaykop.github.io/post/c++/weak_ptr/#%EC%84%9C%EB%A1%9C-%EC%B0%B8%EC%A1%B0%ED%95%98%EB%8A%94-shared_ptr) 방지
+
+```c++
+UCLASS()
+class APlayerController : public AController
+{
+  // 플레이어가 현재 상호작용하는 오브젝트 (없을 수도 있음)
+  UPROPERTY()
+  TWeakObjectPtr<class AInteractableActor> CurrentInteractTarget;
+  
+  // 현재 장착한 무기 (맨손일 수도 있음)
+  UPROPERTY()
+  TWeakObjectPtr<class AWeapon> CurrentWeapon;
+};
+```
+
+* 옵셔널한 참조 
+  * 있어도 그만, 없어도 그만인 참조
+
+
 ## 출처
 * <https://docs.unrealengine.com/4.26/ko/ProgrammingAndScripting/ProgrammingWithCPP/Assets/ReferencingAssets/>
 * <https://hyo-ue4study.tistory.com/435>
