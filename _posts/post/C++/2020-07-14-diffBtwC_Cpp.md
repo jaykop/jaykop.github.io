@@ -10,42 +10,43 @@ author_profile: true
 ---
 
 ## C의 malloc과 C++ new의 차이
-* **malloc**
-  * malloc은 함수(function)
-  * 할당할 메모리의 사이즈를 매개변수로 받음size as input
-  * header file을 포함시켜야 함
-  * 실 사용할 타입으로 casting 필요
-      * 메모리 청크만 heap에서 받아 옴
-  * 자동으로 constructor를 호출하지 않음
 
-* **new**
-  * new는 연산자(operator)
-  * C++ 빌트인 키워드이기 때문에 별도로 헤더파일 필요 없음
-  * 실 사용할 타입으로 바로 메모리 할당 받아올 수 있음
-      * 자동으로 constructor를 호출
+### malloc
+* malloc은 함수(function)
+* 할당할 메모리의 사이즈를 매개변수로 받음(size as input)
+* header file을 포함시켜야 함
+* 실 사용할 타입으로 casting 필요
+    * 메모리 청크만 heap에서 받아 옴
+* 자동으로 constructor를 호출하지 않음
+
+### new
+* new는 연산자(operator)
+* C++ 빌트인 키워드이기 때문에 별도로 헤더파일 필요 없음
+* 실 사용할 타입으로 바로 메모리 할당 받아올 수 있음
+    * 자동으로 constructor를 호출
 
 ## class와 struct
-* **class**
-  * 기본적으로 다 프라이빗
-  * class는 object 역할 (관습적인 차이)
-* **struct**
-  * 기본적으로 다 퍼블릭
-  * struct는 데이터의 묶음 (관습적인 차이)
-  * **C에서의 struct는….**
-    * 안에 함수를 직접 만들 수 없음
-      * function pointer를 할당하여 사용
-    * 다형성,  상속성이 없음
-    * constructor, destructor가 없음
+
+### class
+* 기본적으로 private
+* class는 object 역할 (관습적인 차이)
+
+### struct
+* 기본적으로 다 public
+* struct는 데이터의 묶음 (관습적인 차이)
+* **C에서의 struct는….**
+  * 안에 함수를 직접 만들 수 없음
+    * function pointer를 할당하여 사용
+  * 다형성,  상속성이 없음
+  * constructor, destructor가 없음
 
 ```c++
-// 클래스에서 스트럭트 파생 가능
+// 클래스에서 struct 파생 가능
 class Base {
 public:
     int x;
 };
  
- // 이 경우
- // struct Derived : public Base {}
 struct Derived : Base { }; 
  
 int main()
