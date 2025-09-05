@@ -10,7 +10,8 @@ author_profile: true
 ---
 
 ## enum과 enum class의 차이
-* 값 중복 에러 여부
+
+### 값 중복 에러 여부
 
 ```c++
 // enum
@@ -29,7 +30,7 @@ people p = white; // 에러
 people p = people::white; // 가능
 ```
 
-* implicit 정수 치환 가능 여부
+### implicit 정수 치환 가능 여부
 
 ```c++
 // enum
@@ -41,7 +42,7 @@ for (int i = 0; i < shaderType ::end; ++i)
 }
 ```
 
-* 기타
+### 기타
 
 ```c++
 // enum의 값 범위를 아래와 같이 정의 가능
