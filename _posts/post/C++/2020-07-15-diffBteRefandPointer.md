@@ -32,22 +32,40 @@ pa = &b;      // b로 재지정 가능
 ```
 
 ## Reference는 메모리에 존재할 수도, 하지 않을 수도 있음
-```c++
-// 이미 존재하는 변수의 다른 이름
-int a = 10;
-int &ra = a; // Not exist in memory space
 
-// 클래스 안에서 메모리를 차지
+### 1. 이미 존재하는 변수의 다른 이름
+
+```c++
+void func()
+{
+  int a = 10;
+  int &ra = a; // Not exist in memory space
+}
+```
+
+* 컴파일러의 최적화에 의해 &ra가 실제로 메모리를 차지할 수도 있고, 차지하지 않을 수도 있다고 한다
+
+
+### 2. 함수의 매개 변수
+
+```c++
+void func(int &a, int &b); // Arguments are stored in stack frame memory 
+```
+
+* 스택 프레임에서 메모리를 차지한다
+
+### 3. 클래스 멤버 변수
+
+```c++
 class A
 {
 public:
 	int a;
 	int& b = a;
 }; // sizeof(A) = 4+4 = 8; // Takes memory
-
-// 스택 프레임에서 매개변수로 메모리를 차지
-void func(int &a, int &b); // Arguments are stored in stack frame memory 
 ```
+
+* 클래스 멤버 변수로서의 레퍼런스는 반드시 메모리를 차지한다
 
 ## 레퍼런스의 배열(Array of references)? 
 * **아래 식들은 모두 불가능 illegal**

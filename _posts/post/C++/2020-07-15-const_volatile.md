@@ -14,12 +14,16 @@ author_profile: true
 * 메서드에서 클래스의 멤버 변수를 변경할 수 없다
 
 ## const 표현식
+
+### 1) read-only integer 
 ```c++
-// 1) read-only integer
 const int a; 
 int const a; 
+```
 
-// 2) pointer to const integer
+### 2) pointer to const integer 
+
+```c++
 int main() {
   int a;
   int b;
@@ -39,8 +43,11 @@ int main() {
   pa = &b;  
   return 0;
 }
+```
 
-// 3) const pointer to integer
+### 3) const pointer to integer
+
+```c++
 int main() {
   int a;
   int b;
@@ -58,8 +65,11 @@ int main() {
 
   return 0;
 }
+```
 
-// 4) const pointer to const integer
+### 4) const pointer to const integer
+
+```c++
 int main() {
   int a;
   int b;
@@ -249,7 +259,7 @@ int main() {
 ```
 
 ## 리터럴 타입
-* 컴파일러가 컴파일 타임에 정의할 수 있는 타입
+* **컴파일러가 컴파일 타임에 정의할 수 있는 타입**
 * 아래 타입들은 constexpr 로 선언 또는 constexpr 함수 내부에서 사용 가능
   1. void 형
   2. 스칼라 타입

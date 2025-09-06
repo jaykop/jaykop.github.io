@@ -1,5 +1,5 @@
 ---
-title: "Inheritance"
+title: "class 상속 시 접근 제어자"
 classes: wide
 categories: 
   - post
@@ -47,6 +47,8 @@ int main()
     b.x = 10;     // x is public
     // b.y = 15;  y is protected, not accessible
     // b.z = 20;  z is private,   not accessible
+
+    return 0;
 }
 ```
 
@@ -77,6 +79,8 @@ int main()
     // c.x = 10; x is protected,  not accessible
     // c.y = 15; y is protected,  not accessible
     // c.z = 20; z is private,    not accessible
+
+    return 0;
 }
 ```
 
@@ -107,6 +111,8 @@ int main()
     // d.x = 10; x is private, not accessible
     // d.y = 15; y is private, not accessible
     // d.z = 20; z is private, not accessible
+
+    return 0;
 }
 ```
 
@@ -121,7 +127,7 @@ int main()
 ![post_thumbnail](/assets/images/W6CJ3.jpg)
 
 * 외부에서 접근 시 public -> protected -> private 순서로 접근 제어자가 제한된다
-* 그러나 내부에서의 접근은 유지된다
+* 그러나 **내부에서의 접근은 유지된다**
 
 ## 출처
 * <https://stackoverflow.com/questions/860339/what-is-the-difference-between-public-private-and-protected-inheritance-in-c>

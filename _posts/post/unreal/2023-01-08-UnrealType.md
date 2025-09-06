@@ -17,7 +17,8 @@ author_profile: true
 * 결과 코드를 C++ 컴파일러가 컴파일한다
 
 ### UCLASS
-```C++
+
+```c++
 #pragma once
 
 #include "CoreMinimal.h"
@@ -33,13 +34,15 @@ class TUTOPROJECT_API UTestUClass : public UObject
   
 };
 ```
+
 * **Blueprinatble**
   * 이 Class를 상속해서 새로운 Blueprint를 생성할 수 있다
 * **BlueprintType**
   * 이 Class를 Blueprinte의 멤버 변수 설정할 수 있다
 
 ### USTRUCT
-```C++
+
+```c++
 USTRUCT(BlueprintType)
 struct FStructExample
 {
@@ -57,8 +60,10 @@ public:
 };
 ```
 
-## 게임에서 UObject, Actor xkdlqdml 객체를 순회하는 방법
+## 게임에서 UObject, Actor 타입의 객체를 순회하는 방법
+
 ### Actor 순회
+
 ```c++
 // 특정 타입의 Actor를 순회할 때
 for (TActorIterator<AActor> ActorIt(GetWorld()); ActorIt; ++ActorIt)
