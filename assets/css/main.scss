@@ -23,6 +23,17 @@
   a + a {
     opacity: 0.5;
   }
+
+  /* 여기에 추가 */
+  a {
+    color: #6441a5 !important;         /* 원하는 색상으로 변경 */
+    text-decoration: none !important;    /* 밑줄 제거 */
+    
+    &:hover {
+      color: #8e44ad !important;       /* 호버 시 색상 */
+      text-decoration: none !important;  /* 호버 시에도 밑줄 없음 */
+    }
+  }
 }
 
 .archive__item-excerpt {
