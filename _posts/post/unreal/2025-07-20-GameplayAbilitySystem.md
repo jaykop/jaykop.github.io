@@ -33,11 +33,11 @@ author_profile: true
 ## Gameplay Ability System Component (ASC)
 * 액터가 GAS Framework와 연동하기 위해서 반드시 attach 하고 있어야 하는 Component
 
-### OwnerActor vs. Avatar Actor
+### OwnerActor vs. AvatarActor
 * OwnerActor는 실제로 ASC가 attach 된 owner actor
 * AvatarActor는 ASC의 물리적인 Representation
 * 이 둘은 같은 액터를 가리킬 수도, 다른 액터를 가리킬 수도 있다
-  * 플레이어의 경우 OwnerActor가 PlayerState인 경우가 있을 수 있다고 한다
+  * 플레이어의 경우 OwnerActor가 PlayerState인 경우가 있다고 한다
 
 ```c++
 // 1. ASC가 Pawn에 부착된 경우
@@ -141,7 +141,7 @@ FGameplayTag::RequestGameplayTag(FName("Your.GameplayTag.Name"))
   * Current Value는 Effect가 적용된 용도로 사용하는 현재 수치
 
 ### Attribute Set
-* 하나의 ASC는 여러 개의 Attribute Set을 가질 수 있따
+* 하나의 ASC는 여러 개의 Attribute Set을 가질 수 있다
   * 굉장히 낮은 오버헤드로 부담없이 사용 가능
   * **다만 같은 종류의 Attribute Set을 여러 개 넣는 것은 불가능**
 

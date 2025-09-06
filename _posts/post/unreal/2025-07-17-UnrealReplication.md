@@ -105,6 +105,17 @@ enum ENetMode
 * ServerOnly 콘솔 어플리케이션이다
     * Viewport도 Local Player도 없다
 
+### Listen Server vs. Dedicated Server
+
+||Listen Server|Dedicated Server|
+|:---:|:---|:---|
+|게임 규모와 플레이어 수|소규모 게임 (보통 2-8명), 친구들과의 캐주얼한 게임에 적합|대규모 게임 (수십 명 이상), MMO나 배틀로얄 같은 경쟁적 게임에 필요|
+|성능과 안정성|호스트 플레이어의 하드웨어와 네트워크에 의존하므로 성능이 불안정할 수 있음|전용 서버 하드웨어로 일관된 성능 보장, 높은 틱레이트 유지 가능|
+|공정성과 보안|호스트가 유리한 위치에 있고 (낮은 핑), 치팅에 더 취약|모든 플레이어가 동등한 조건, 서버 측 검증으로 보안 강화|
+|개발 복잡성과 비용|구현이 간단하고 서버 운영 비용이 없음|복잡한 서버 로직, 인프라 구축 및 운영 비용 발생|
+|게임 지속성|호스트가 나가면 게임이 종료되거나 마이그레이션 필요|플레이어 출입과 관계없이 게임 세션 유지|
+|장르별 적합성|협동 게임, 파티 게임, 캐주얼 멀티플레이어|FPS, MOBA, MMO, 배틀로얄, 경쟁적 게임|
+
 ## Unreal Replication System
 * 멀티플레이 게임을 실행하면 Background에서는 Replication System이 작동해 Sync를 맞춘다
 * 각 GameInstance의 World를 구성하고, Replication System은 World에서 일어나는 일에 대해 검토 후 동시 실행을 처리한다
@@ -157,7 +168,8 @@ bReplicates = true;
     * 보통은 Actor 생성 시에 정의된다
     * SetOwner 함수로 Runtime에 변경도 가능하다
 
-* NetConnection은 PlayerController를 나타내며, Player가 게임에 정상적으로 로그인하면 NetConnection은 PlayerController와 연결된다
+* Player가 게임에 정상적으로 로그인하면 NetConnection은 PlayerController와 연결된다
+  * 즉, NetConnection은 PlayerController를 나타낸다
 * 서버 관점에서, 이 NetConnection은 PlayerController를 **소유**하는 것이며, 즉 PlayerController가 소유한 Actor까지 소유한다
     * 즉, PlayerController가 소유하는 모든 Actor는 NetConnection이 소유하는 것이다
     * 이로써 서버가 클라이언트에 연결된 Actor를 판별할 수 있다
@@ -223,9 +235,10 @@ void Multicast_DoSomething();
 ![post_thumbnail](/assets/images/Replication/RPC_3.png)
 
 * 서버에서 Multicast RPC를 호출하면, 서버 그리고 서버와 연결된 모든 클라이언트에서 실행된다
-    * 만약 클라이언트에서 Invoke한 변경점이 클라이언트와 서버 양 쪽 모두에 동기화되어야 한다면...
-        1. 클라이언트에서 Server RPC를 호출해 서버 트리거
-        2. 서버에서 Multicast RPC를 호출해 클라이언트로 전파
+
+> [!NOTE] 만약 클라이언트에서 Invoke한 변경점이 서버와 클라이언트 모두에 동기화되어야 한다면?  
+> 1. 클라이언트에서 Server RPC를 호출해 서버 트리거  
+> 2. 서버에서 Multicast RPC를 호출해 클라이언트로 전파  
 
 ![post_thumbnail](/assets/images/Replication/RPC_4.png)
 
@@ -247,7 +260,10 @@ void Server_DoSomething();
     * 과용할 경우 보틀넥 현상 혹은 패킷 자체가 loss 될 수 있다
 * Unreliable
     * RPC 전파를 보장하지 않는다
-    * 이건 아무래도 좋다는 의미인지 용처를 잘 모르겠다
+
+> [!NOTE] Unreliable을 쓰는 경우?
+> * 연속적이고 빈번한 상태 업데이트  
+> * **최신 값만 의미있고, 과거 값은 오히려 해로운 경우**  
 
 ### WithValidation
 
@@ -405,6 +421,8 @@ bool AController::IsLocalController() const
   return false;
 }
 ```
+
+* 싱글 플레이 중이거나, Automonous 클라이언트이거나, 서버에서 호스트인 경우
 
 ![post_thumbnail](/assets/images/Replication/Authority_1.png)
 
