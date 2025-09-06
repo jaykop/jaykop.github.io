@@ -13,7 +13,7 @@ author_profile: true
 
 ```c++
 // PlayerCharacter.h
-#include "Engine/StaticMesh.h"  // 헤더에서 직접 include
+#include "Engine/StaticMesh.h" 
 #include "Components/StaticMeshComponent.h"
 
 UCLASS()
@@ -26,7 +26,7 @@ public:
   UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
   UStaticMesh* WeaponMesh;
   
-  // Hard Reference - 컴포넌트
+  // Hard Reference - 생명 주기를 함께 가져가는 컴포넌트
   UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
   UStaticMeshComponent* WeaponMeshComponent;
 };

@@ -82,11 +82,13 @@ author_profile: true
 >     * TArray만 UPROPERTY 매크로를 지원한다는 글들이 더러 있는데, 최근 UE 버전은 TMap이나 다른 컨테이너들도 지원하는 것 같다
 
 ### TWeakObjectPtr
-* UPROPERTY는 멤버 변수를 소유하는 객체가 강한 참조를 통해 GC되지 않도록 하지만, 이는 퍼포먼스적으로 불리한 경우를 야기하기도 한다
-  * 객체 A가 객체 B를 강한 참조로 붙잡고 있고 객체 B가 명시적으는 Destroy 되었다고 하자
+* UPROPERTY는 강한 참조를 통해 GC되지 않게 하지만, 때로는 퍼포먼스적으로 불리하다
+  * 객체 A가 객체 B를 강한 참조로 붙잡고 있고 객체 B를 사용하지 않는다고 하자
   * 객체 A가 사라지지 않는 한, 객체 B가 차지하는 실질적 메모리는 해제되지 않는다
-  * 즉 GC의 퍼포먼스를 저하시킨다
-* TWeakObjectPtr를 사용하면 Root Set에 포함되지 않아 비록 GC 대상으로 분류되지는 않지만, 적어도 Destroy 시 nullptr로 초기화되며 IsValid로 정상적인 결과를 반환한다
+  * 이는 불필요한 메모리 사용과 GC 퍼포먼스를 저하시킨다
+* TWeakObjectPtr를 사용하면 약한 참조를 통해 객체를 참조하되 GC를 방해하지 않는다
+  * 참조된 객체가 다른 곳에서 사용되지 않으면 정상적으로 GC 대상이 된다
+  * GC 발생 시 자동으로 nullptr로 초기화되어 IsValid로 정상적인 결과를 반환한다
 
 ## 출처
 * <https://algorfati.tistory.com/75>

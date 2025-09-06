@@ -67,8 +67,7 @@ FText testText2 = LOCTEXT("D", "E");
 * 사용할때마다 일일이 Namespace를 지정하지 않고, 위와 같이 사용할 수도 있다.
 
 ### Namespace 정의는 어떻게 하는가?
-* 이건 좀 더 공부해봐야 할듯...
-* ()[https://openmynotepad.tistory.com/133]
+* [이건 좀 더 공부해봐야 할듯...](https://openmynotepad.tistory.com/133)
 
 ## FString
 * C++에서의 std::string과 유사한 가변 문자열
@@ -79,10 +78,9 @@ FText testText2 = LOCTEXT("D", "E");
 FString TestString = FString(TEXT("TestString"));
 ```
 
-### TEXT 매크로의 역할
-* PC, 콘솔, 모바일 등에서 기본 문자 인코딩 방식이 다를 수 있다
-* 이를 하나의 인코딩 방식으로 변환해주는 역할
-    * UTF_16
+> ![NOTE] TEXT 매크로의 역할  
+> * PC, 콘솔, 모바일 등에서 기본 문자 인코딩 방식이 다를 수 있다  
+> * 이를 하나의 인코딩 방식(UTF_16)으로 변환해주는 역할  
 
 ## 출처
 * <https://moonbug4.tistory.com/156>
