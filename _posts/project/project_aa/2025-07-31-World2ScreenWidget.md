@@ -10,9 +10,9 @@ author_profile: true
 ---
 
 ## Widget은 어디에 붙여야 하나
-* 어떤 Widget은 Screen 상에서 World 위치를 투영해 표기하는 게 더 낫다
-  * 게임에서 한 번에 단 하나의 상호작용만 가능하도록 표기한다면, 상호작용 Widget은 Screen에 상시 존재하고 필요할 때마다 노출하는 것이 낫다
-  * 락온 UI라든가, 원거리 무기류 장착 시 Haircorss 등도 이에 해당한다고 볼 수 있다
+* 어떤 Widget은 World 위치를 투영해 Screen 상에 표기하는 게 더 낫다
+  * 게임에서 한 번에 단 하나의 상호작용만 가능하고 고정된 위치에 표기한다면, 상호작용 Widget은 Screen에 상시 존재하고 필요할 때마다 노출하는 것이 낫다
+  * 락온 UI라든가, 원거리 무기류 장착 시 Haircross 등도 이에 해당한다고 볼 수 있다
 * 어떤 Widget은 World 상에 Actor에 직접 붙이는 게 더 나은 경우도 있다
   * 게임에서 여러 개의 상호작용 가능한 UI를 모두 보여준다든가
   * 광역 공격 시 적 캐릭터들의 잔여 HP UI라든가
@@ -26,7 +26,7 @@ author_profile: true
 // ..
 if (const APlayerController* PlayerController = GetOwningPlayer())
 {
-  // WorldPosition을 Screen r기준으로 Projection
+  // WorldPosition을 Screen 기준으로 Projection
   // 이 때 기준은 전체 화면 기준
   FVector2D TargetScreenPosition;
   PlayerController->ProjectWorldLocationToScreen(WorldLocation, TargetScreenPosition, true);
@@ -49,5 +49,7 @@ if (const APlayerController* PlayerController = GetOwningPlayer())
 ```
 
 * 위의 함수를 Widget의 Tick에서 매번 호출해준다 
-* IndicatorSlot은 IndicatorOverlay라는 위젯이 부모 UCanvasPanel 내에서 어떻게 배치될지에 대한 정보를 담고 있는 객체
-  * IndicatorOverlay 자체의 Position을 직접 설정하는 것이 아니라, IndicatorOverlay를 감싸고 있는 UCanvasPanel에 접근하고 그를 기준으로 자식 위젯(IndicatorOverlay)의 위치를 변경하는 것
+
+> [!NOTE] IndicatorSlot  
+> * IndicatorOverlay라는 위젯이 부모 UCanvasPanel 내에서 어떻게 배치될지에 대한 정보를 담고 있는 객체  
+> * IndicatorOverlay 자체의 Position을 직접 설정하는 것이 아니라, IndicatorOverlay를 감싸고 있는 UCanvasPanel에 접근하고 그를 기준으로 자식 위젯(IndicatorOverlay)의 위치를 변경하는 것  

@@ -16,7 +16,6 @@ author_profile: true
 * 이런 경우 캐릭터의 행동이 어떻게 관리되는지에 따라 제어하는 방법이 다를 수 있다
   * 단순히 boolean 토글을 체크해서 막을 수도 있다
   * Gameplay Ability인 경우에는 Gameplay Tag로 제어할 수도 있다
-    * 행동 제어 조건을 boolean이 아닌 Gameplay Tag로 할 수도 있다
 
 ### Input Mapping Context
 * 플레이어 캐릭터를 조작하기 위해 매핑된 키의 집합
@@ -52,6 +51,6 @@ void RemoveInputMappingContext(const UObject* WorldContext, class UInputMappingC
 }
 ```
 
-### 주의할 점
-* CommonInput을 통해 Input의 KeyGuide 아이콘 UI를 표기하는 경우, Activated된 Input Key들만 보여준다
-* 이 때 표기해야 할 Input Key가 활성화된 IMC 중에 없다면, 해당 KeyGuide 아이콘 UI는 노출되지 않는다
+> [!NOTE] 주의할 점  
+> * CommonInput을 통해 Input의 KeyGuide 아이콘 UI를 표기하는 경우, Activated된 Input Key들만 보여준다  
+> * 이 때 표기해야 할 Input Key가 활성화된 IMC 중에 없다면, 해당 KeyGuide 아이콘 UI는 노출되지 않는다  

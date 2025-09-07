@@ -15,11 +15,14 @@ author_profile: true
 
 ### Nanite의 Opacity?
 * 일반적인 경우, 캐릭터의 Pivot과 카메라 중점 사이 공간을 체크해 HitResult가 있으면 그 오브젝트들의 Opacity 값을 낮추는 알고리즘으로 작동할 것이다
-* 작성일 기준 GameplayCamera Plugin에서도 그 알고리즘은 유사하다 
-  * Ray거 어나러 Sphere로 체크하고, 모든 Object가 아닌 카메라에 가장 가까운 1개 Object만 투명화한다는 차이가 있다
 * 이런 로직을 적용하려고 했는데, 레벨에 배치된 StaticMesh가 전부 Nanite를 사용하면 문제가 있다
-  * Nanite는 작성일 기준으로 Translucent 모드를 지원하지 않는다. 즉, 투명도를 변경하는 기능을 지원하지 않는다
+  * **Nanite는 작성일 기준으로 Translucent 모드를 지원하지 않는다.** 
+    * 즉, 투명도를 변경하는 기능을 지원하지 않는다
   * Material Mode를 Translucen로 세팅하면 기본 텍스쳐가 표시되어 버린다
+
+> [!NOTE]
+> * 작성일 기준 GameplayCamera Plugin에서도 카메라 장애물 감지 알고리즘은 유사하다  
+> * Ray거 어나러 Sphere로 체크하고, 모든 Object가 아닌 카메라에 가장 가까운 1개 Object만 투명화한다는 차이가 있다  
 
 ### Nanite Override Material
 * Material Instance 에디터에서 bDisallowNanite 토글 세팅을 조정하면, 자동으로 Material을 Override할 것을 기대했다
@@ -73,6 +76,6 @@ bool HideActor(FCameraOccludedActor& OccludedActor)
   * 그런데 이 때는 디더링 처리된 오브젝트 너머로 움직이는 액터가 있을 때, 고스팅 즉 잔상을 남기는 현상이 발생했다
 * 안티얼라이징 세팅을 TAA/TSR -> FXAA로 변경하지 훨씬 찾아들었다
   * 하지만 프로젝트가 Nanite 및 Lumen을 사용하므로, 이에 최적화된 TSR을 사용하는 것이 맞다는 결론에 따라 안티얼라이징 세팅은 변경하지 못했다
-* Opacity Mask Clip Value를 조절하면 일부 잦아들긴 하지만, 해결할 수준은 아니었다
+* Opacity Mask Clip Value를 조절하면 일부 잦아들긴 하지만, 해결 수준은 아니었다
 
 

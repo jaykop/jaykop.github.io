@@ -46,14 +46,14 @@ author_profile: true
 
 ## 해결 방법
 * **추가 커스텀 뎁스 버퍼 사용**
-  * 커스텀 렌더 패스 추가로 엔진 수정이 불가피
+* 커스텀 렌더 패스 추가로 엔진 수정이 불가피
 * **GBuffer에 마스크값 기록**
-  * 캐릭터 Material에서 GBuffer를 기록하는 MP 중 남는 채널을 활용해 PC/Monster를 구분하여 값을 기록
-  * PP Material에서 이 값 기반으로 누가 앞에 있는지 판단 가능
-  1. PC의 CustomDepth 여부 판단
-    * PC의 CustomDepth의 값이 있다면, 무언가가 가리고 있다는 의미
-  2. G Buffer의 값 확인
-    * 몬스터의 값이라면, 몬스터에 가려진 것
+* 캐릭터 Material에서 GBuffer를 기록하는 MP 중 남는 채널을 활용해 PC/Monster를 구분하여 값을 기록
+* PP Material에서 이 값 기반으로 누가 앞에 있는지 판단 가능
+  1. PC의 CustomDepth 여부 판단 
+    - PC의 CustomDepth의 값이 있다면, 무언가가 가리고 있다는 의미
+  2. G Buffer의 값 확인 
+    - 몬스터의 값이라면, 몬스터에 가려진 것
   3. 위 두 조건이 만족할 시, 아웃라이너 로직 실행
   
 ## G Buffer란?
@@ -62,7 +62,7 @@ author_profile: true
   * Geometry Pass에서 여러 정보를 각 렌더 타겟에 저장
     * 표면 정보 텍스처 세트'가 바로 G-Buffer
   * 이렇게 저장한 정보로 Lighting Pass에서 광원 계산 수행
-* 즉, 표면 재질을 구성하는 정보 버퍼
+* **즉, 표면 재질을 구성하는 정보 버퍼**
 
 # 출처
 * <https://eastroot1590.tistory.com/entry/UE4-Advenced-%EB%B2%BD-%EB%92%A4%EC%97%90%EC%9E%88%EB%8A%94-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%EA%B7%B8%EB%A6%AC%EA%B8%B0-feat-Custom-Depth>

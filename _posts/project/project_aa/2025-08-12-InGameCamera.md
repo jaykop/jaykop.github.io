@@ -444,5 +444,5 @@ void UCameraViewDataAsset::PostEditChangeProperty(FPropertyChangedEvent& Propert
   * Blend는 AnimGraph든 Transition을 통해서 하고
 * 메시지 시스템으로 카메라 데이터 적용 및 해제
   * 메서드와 변수를 직접 접근하고 노출하다보니 코드간의 의존성이 높아졌다
-  * GmaeplayMessage Plugin을 카메라 시스템 구현 후 적용했다
+  * GameplayMessage Plugin을 카메라 시스템 구현 후 적용했다
   * 우선순위가 낮아 카메라 시스템에 GmaeplayMessage를 적용하지 못했지만, 도입했다면 더 깔끔하게 만들 수 있었을 것 같다
