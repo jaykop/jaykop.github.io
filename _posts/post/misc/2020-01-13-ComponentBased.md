@@ -1,5 +1,5 @@
 ---
-title: "컴포넌트 베이스 구조"
+title: "[Misc] 컴포넌트 베이스 구조"
 classes: wide
 categories: 
   - post

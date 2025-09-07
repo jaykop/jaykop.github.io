@@ -1,5 +1,5 @@
 ---
-title: "SpriteRenderer vs. UI Image"
+title: "[Unity] SpriteRenderer vs. UI Image"
 classes: wide
 categories: 
   - post

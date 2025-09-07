@@ -1,5 +1,5 @@
 ---
-title: "Blittable & Unblittable"
+title: "[C#] Blittable과 Unblittable"
 classes: wide
 categories: 
   - post

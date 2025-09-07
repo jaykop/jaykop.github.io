@@ -1,5 +1,5 @@
 ---
-title: "플레이어 캐릭터의 사망과 부활 처리"
+title: "[DevNote] 플레이어 캐릭터의 사망과 부활 처리"
 classes: wide
 categories: 
   - project

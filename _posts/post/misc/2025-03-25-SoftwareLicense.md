@@ -1,5 +1,5 @@
 ---
-title: "Software License"
+title: "[Misc] Software License"
 classes: wide
 categories: 
   - post

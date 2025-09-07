@@ -1,5 +1,5 @@
 ---
-title: "OnlineSubsystem 세션 탐색 및 접속 이슈"
+title: "[DevNote] OnlineSubsystem 세션 탐색 및 접속 Troubleshooting"
 classes: wide
 categories: 
   - project

@@ -1,5 +1,5 @@
 ---
-title: "Linear Algebra"
+title: "[Math] Linear Algebra"
 classes: wide
 categories: 
   - post

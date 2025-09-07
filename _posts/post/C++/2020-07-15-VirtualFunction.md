@@ -1,5 +1,5 @@
 ---
-title: "Virtual Function"
+title: "[C++] Virtual Function"
 classes: wide
 categories: 
   - post

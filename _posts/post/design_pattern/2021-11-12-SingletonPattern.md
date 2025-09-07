@@ -1,5 +1,5 @@
 ---
-title: "Singleton 패턴"
+title: "[Design Pattern] Singleton 패턴"
 classes: wide
 categories: 
   - post

@@ -1,5 +1,5 @@
 ---
-title: "Method & Virtual Table"
+title: "[C#] Method와 Virtual Table"
 classes: wide
 categories: 
   - post

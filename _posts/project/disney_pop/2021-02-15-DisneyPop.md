@@ -1,5 +1,5 @@
 ---
-title: "Disney POP TOWN"
+title: "[Project] Disney POP TOWN"
 excerpt: "미키마우스, 곰돌이 푸, 알라딘 등 디즈니 캐릭터와 함께 하는 3매치 퍼즐 게임"
 classes: wide
 categories: 

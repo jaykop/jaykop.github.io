@@ -1,5 +1,5 @@
 ---
-title: "Auto Property"
+title: "[C#] Auto Property"
 classes: wide
 categories: 
   - post

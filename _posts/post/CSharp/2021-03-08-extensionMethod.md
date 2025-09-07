@@ -1,5 +1,5 @@
 ---
-title: "Extension Method"
+title: "[C#] Extension Method"
 classes: wide
 categories: 
   - post

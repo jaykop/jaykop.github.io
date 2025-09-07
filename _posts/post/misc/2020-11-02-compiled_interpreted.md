@@ -1,5 +1,5 @@
 ---
-title: "Compiled & Interpreted"
+title: "[Misc] Compiled & Interpreted"
 classes: wide
 categories: 
   - post

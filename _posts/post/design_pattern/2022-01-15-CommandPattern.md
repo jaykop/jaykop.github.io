@@ -1,5 +1,5 @@
 ---
-title: "Command Pattern"
+title: "[Design Pattern] Command Pattern"
 classes: wide
 categories: 
   - post

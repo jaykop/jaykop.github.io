@@ -1,5 +1,5 @@
 ---
-title: "멀티 상황에서의 AI 수치 밸런싱"
+title: "[DevNote] 멀티 상황에서의 AI 수치 밸런싱"
 classes: wide
 categories: 
   - project

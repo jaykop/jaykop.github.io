@@ -1,5 +1,5 @@
 ---
-title: "Truth About Value Type"
+title: "[C#] Value Type에 대해"
 classes: wide
 categories: 
   - post

@@ -1,5 +1,5 @@
 ---
-title: "직렬화 Serialization"
+title: "[Misc] 직렬화 Serialization"
 classes: wide
 categories: 
   - post

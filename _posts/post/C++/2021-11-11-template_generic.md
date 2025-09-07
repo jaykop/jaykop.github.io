@@ -1,5 +1,5 @@
 ---
-title: "Template vs. Generic"
+title: "[C++/C#] Template vs. Generic"
 classes: wide
 categories: 
   - post

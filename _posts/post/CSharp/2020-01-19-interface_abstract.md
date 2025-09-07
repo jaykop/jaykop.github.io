@@ -1,5 +1,5 @@
 ---
-title: "interface vs. abstract"
+title: "[C#] interface vs. abstract"
 classes: wide
 categories: 
   - post

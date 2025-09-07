@@ -1,5 +1,5 @@
 ---
-title: "Service & Decorator 커스터마이즈"
+title: "[DevNote] Service와 Decorator 커스터마이즈"
 classes: wide
 categories: 
   - project

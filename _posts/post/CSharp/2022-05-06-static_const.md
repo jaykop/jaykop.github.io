@@ -1,5 +1,5 @@
 ---
-title: "static과 const"
+title: "[C++/C#] static과 const"
 classes: wide
 categories: 
   - post

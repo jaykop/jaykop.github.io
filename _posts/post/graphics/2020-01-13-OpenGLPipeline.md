@@ -1,5 +1,5 @@
 ---
-title: "OpenGL 파이프라인"
+title: "[3D Graphcis] OpenGL 파이프라인"
 classes: wide
 categories: 
   - post

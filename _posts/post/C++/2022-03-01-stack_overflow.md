@@ -1,5 +1,5 @@
 ---
-title: "Stack Overflow"
+title: "[C++] Stack Overflow"
 classes: wide
 categories: 
   - post

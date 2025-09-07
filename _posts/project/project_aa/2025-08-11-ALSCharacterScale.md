@@ -1,5 +1,5 @@
 ---
-title: "ALS 캐릭터 스케일링에 따른 PlayRate 조절"
+title: "[DevNote] ALS 캐릭터 스케일링에 따른 PlayRate 조절"
 classes: wide
 categories: 
   - project

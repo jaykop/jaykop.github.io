@@ -1,5 +1,5 @@
 ---
-title: "Reference와 Pointer의 차이"
+title: "[C++] Reference와 Pointer의 차이"
 classes: wide
 categories: 
   - post

@@ -1,5 +1,5 @@
 ---
-title: "exception"
+title: "[C++] exception"
 classes: wide
 categories: 
   - post

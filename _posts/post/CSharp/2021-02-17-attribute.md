@@ -1,5 +1,5 @@
 ---
-title: "Reflection & Attribute"
+title: "[C#] Reflection과 Attribute"
 classes: wide
 categories: 
   - post

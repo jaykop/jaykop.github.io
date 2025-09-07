@@ -1,5 +1,5 @@
 ---
-title: "Cookie & Session"
+title: "[Networkd] Cookie와 Session"
 classes: wide
 categories: 
   - post

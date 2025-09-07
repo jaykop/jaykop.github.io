@@ -1,5 +1,5 @@
 ---
-title: "ContainsKey & TryGetValue"
+title: "[C#] ContainsKey와 TryGetValue"
 classes: wide
 categories: 
   - post

@@ -1,5 +1,5 @@
 ---
-title: "Linear Transformation (1)"
+title: "[Math] Linear Transformation (1)"
 classes: wide
 categories: 
   - post

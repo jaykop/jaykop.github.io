@@ -1,5 +1,5 @@
 ---
-title: "Struct vs. Class"
+title: "[C#] Struct와 Class"
 classes: wide
 categories: 
   - post

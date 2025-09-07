@@ -1,5 +1,5 @@
 ---
-title: "Captain Korea"
+title: "[Project] Captain Korea"
 excerpt: "2D 탑다운 시점의 강력한 타격감을 제공하는 액션 잠입 게임"
 classes: wide
 categories: 

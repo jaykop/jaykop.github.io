@@ -1,5 +1,5 @@
 ---
-title: "카메라를 가리는 장애물 투명화"
+title: "[DevNote] 카메라를 가리는 장애물 투명화"
 classes: wide
 categories: 
   - project

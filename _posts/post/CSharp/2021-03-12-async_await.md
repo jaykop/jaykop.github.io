@@ -1,5 +1,5 @@
 ---
-title: "async와 await 키워드"
+title: "[C#] async와 await"
 classes: wide
 categories: 
   - post

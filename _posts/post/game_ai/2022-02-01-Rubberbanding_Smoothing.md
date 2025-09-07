@@ -1,5 +1,5 @@
 ---
-title: "Rubberbanding & Smoothing"
+title: "[Game A.I.] Rubberbanding과 Smoothing"
 classes: wide
 categories: 
   - post

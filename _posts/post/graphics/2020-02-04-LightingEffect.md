@@ -1,5 +1,5 @@
 ---
-title: "Lighting Effect"
+title: "[3D Graphcis] Lighting Effect"
 classes: wide
 categories: 
   - post

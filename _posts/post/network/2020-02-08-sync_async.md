@@ -1,5 +1,5 @@
 ---
-title: "동기/비동기 & 블록/논블록"
+title: "[Networkd] 동기/비동기, 블록/논블록"
 classes: wide
 categories: 
   - post

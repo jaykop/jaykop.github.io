@@ -1,5 +1,5 @@
 ---
-title: "BlueprintPure와 const"
+title: "[Unreal] BlueprintPure와 const"
 classes: wide
 categories: 
   - post

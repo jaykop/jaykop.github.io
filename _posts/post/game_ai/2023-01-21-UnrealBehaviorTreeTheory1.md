@@ -1,5 +1,5 @@
 ---
-title: "Unreal Behavior Tree 1"
+title: "[Unreal] Behavior Tree"
 classes: wide
 categories: 
   - post

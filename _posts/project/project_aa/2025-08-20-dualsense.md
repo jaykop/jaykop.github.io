@@ -1,5 +1,5 @@
 ---
-title: "Common UI와 Dualsense Input 아이콘 적용"
+title: "[DevNote] Common UI와 Dualsense Input 아이콘 적용"
 classes: wide
 categories: 
   - project

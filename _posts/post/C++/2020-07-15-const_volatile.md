@@ -1,5 +1,5 @@
 ---
-title: "const & volatile 키워드"
+title: "[C++] const과 volatile"
 classes: wide
 categories: 
   - post

@@ -1,5 +1,5 @@
 ---
-title: "Paralell Programming"
+title: "[OS] Paralell Programming"
 classes: wide
 categories: 
   - post

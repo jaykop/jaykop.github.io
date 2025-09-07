@@ -1,5 +1,5 @@
 ---
-title: "메모리 대역폭(Memory Bandwidth)"
+title: "[Misc] 메모리 대역폭(Memory Bandwidth)"
 classes: wide
 categories: 
   - post

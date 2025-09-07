@@ -1,5 +1,5 @@
 ---
-title: "Template"
+title: "[C++] Template"
 classes: wide
 categories: 
   - post

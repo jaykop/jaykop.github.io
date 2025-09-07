@@ -1,5 +1,5 @@
 ---
-title: "Garbage Collector"
+title: "[C#] Garbage Collector"
 classes: wide
 categories: 
   - post

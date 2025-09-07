@@ -1,5 +1,5 @@
 ---
-title: "장애물 너머의 오브젝트 하이라이트"
+title: "[DevNote] 장애물 너머의 오브젝트 하이라이트"
 classes: wide
 categories: 
   - project

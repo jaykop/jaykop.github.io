@@ -1,5 +1,5 @@
 ---
-title: "Texture 사이즈"
+title: "[3D Graphcis] Texture 사이즈"
 classes: wide
 categories: 
   - post

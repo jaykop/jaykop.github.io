@@ -1,5 +1,5 @@
 ---
-title: "Character Skill"
+title: "[DevNote] Character Skill"
 classes: wide
 categories: 
   - project

@@ -1,5 +1,5 @@
 ---
-title: "CAS Algorithm & ABA problem"
+title: "[OS] CAS Algorithm과 ABA problem"
 classes: wide
 categories: 
   - post

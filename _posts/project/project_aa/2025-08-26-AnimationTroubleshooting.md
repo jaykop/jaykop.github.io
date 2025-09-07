@@ -1,5 +1,5 @@
 ---
-title: "Animation 최적화 Troubleshooting"
+title: "[DevNote] Animation 최적화 Troubleshooting"
 classes: wide
 categories: 
   - project

@@ -1,5 +1,5 @@
 ---
-title: "Memory Allocator"
+title: "[C++] Memory Allocator"
 classes: wide
 categories: 
   - post

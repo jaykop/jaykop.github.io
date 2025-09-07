@@ -1,5 +1,5 @@
 ---
-title: "Memory Layout"
+title: "[C++] Memory Layout"
 classes: wide
 categories: 
   - post

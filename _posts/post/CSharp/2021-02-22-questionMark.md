@@ -1,5 +1,5 @@
 ---
-title: "Nullable and Tenary"
+title: "[C#] Nullable와 Tenary"
 classes: wide
 categories: 
   - post

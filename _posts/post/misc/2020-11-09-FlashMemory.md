@@ -1,5 +1,5 @@
 ---
-title: "Flash Memory"
+title: "[Misc] Flash Memory"
 classes: wide
 categories: 
   - post

@@ -1,5 +1,5 @@
 ---
-title: "Affine Space"
+title: "[Math] Affine Space"
 classes: wide
 categories: 
   - post

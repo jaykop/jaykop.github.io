@@ -1,5 +1,5 @@
 ---
-title: "Path-Finding"
+title: "[Game A.I.] Path-Finding"
 classes: wide
 categories: 
   - post

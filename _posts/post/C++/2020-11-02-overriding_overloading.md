@@ -1,5 +1,5 @@
 ---
-title: "Overriding & Overloading"
+title: "[C++] Overriding과 Overloading"
 classes: wide
 categories: 
   - post

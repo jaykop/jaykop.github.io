@@ -1,5 +1,5 @@
 ---
-title: "Player 행동 제어"
+title: "[DevNote] Player 행동 제어"
 classes: wide
 categories: 
   - project

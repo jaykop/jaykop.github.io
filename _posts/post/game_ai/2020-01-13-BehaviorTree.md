@@ -1,5 +1,5 @@
 ---
-title: "행동트리(Behavior Tree)"
+title: "[Game A.I.] 행동트리(Behavior Tree)"
 classes: wide
 categories: 
   - post

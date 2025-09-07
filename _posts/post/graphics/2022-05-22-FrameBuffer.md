@@ -1,5 +1,5 @@
 ---
-title: "Framebuffers"
+title: "[3D Graphcis] Framebuffers"
 classes: wide
 categories: 
   - post

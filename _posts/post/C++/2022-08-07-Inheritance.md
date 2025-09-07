@@ -1,5 +1,5 @@
 ---
-title: "class 상속 시 접근 제어자"
+title: "[C++] class 상속 시 접근 제어자"
 classes: wide
 categories: 
   - post

@@ -1,5 +1,5 @@
 ---
-title: "Image Compressing"
+title: "[Unity] Image Compressing"
 classes: wide
 categories: 
   - post

@@ -1,5 +1,5 @@
 ---
-title: "일급 함수와 일급 객체"
+title: "[Misc] 일급 함수와 일급 객체"
 classes: wide
 categories: 
   - post

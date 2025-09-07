@@ -1,5 +1,5 @@
 ---
-title: "enum과 enum class"
+title: "[C++] enum과 enum class"
 classes: wide
 categories: 
   - post

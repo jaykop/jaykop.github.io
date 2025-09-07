@@ -1,5 +1,5 @@
 ---
-title: "Anim Layer로 캐릭터 상태별 Locomotion 관리"
+title: "[DevNote] Anim Layer로 캐릭터 상태별 Locomotion 관리"
 classes: wide
 categories: 
   - project

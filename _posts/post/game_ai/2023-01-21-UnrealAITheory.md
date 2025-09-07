@@ -1,5 +1,5 @@
 ---
-title: "Unreal AI Theory"
+title: "[Unreal] AI Theory"
 classes: wide
 categories: 
   - post

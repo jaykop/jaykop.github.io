@@ -1,5 +1,5 @@
 ---
-title: "Class Scheduler"
+title: "[Project] Class Scheduler"
 excerpt: "DigiPen 학생들이 학기 수강 계획을 세울 수 있도록 도와주는 웹 어플리케이션"
 classes: wide
 categories: 

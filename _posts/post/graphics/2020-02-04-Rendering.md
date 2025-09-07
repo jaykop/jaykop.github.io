@@ -1,5 +1,5 @@
 ---
-title: "Forward Rendering & Deferred Rendering"
+title: "[3D Graphcis] Forward Rendering vs. Deferred Rendering"
 classes: wide
 categories: 
   - post

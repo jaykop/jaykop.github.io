@@ -1,5 +1,5 @@
 ---
-title: "Prototype Pattern"
+title: "[Design Pattern] Prototype Pattern"
 classes: wide
 categories: 
   - post

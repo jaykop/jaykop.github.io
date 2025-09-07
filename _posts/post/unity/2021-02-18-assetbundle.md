@@ -1,5 +1,5 @@
 ---
-title: "AssetBundle"
+title: "[Unity] AssetBundle"
 classes: wide
 categories: 
   - post

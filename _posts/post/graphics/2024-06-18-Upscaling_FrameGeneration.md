@@ -1,5 +1,5 @@
 ---
-title: "Upscaling & Frame Generation"
+title: "[3D Graphcis] Upscaling과 Frame Generation"
 classes: wide
 categories: 
   - post

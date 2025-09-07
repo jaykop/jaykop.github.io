@@ -1,5 +1,5 @@
 ---
-title: "Initialization in Constructor"
+title: "[C++] Initialization in Constructor"
 classes: wide
 categories: 
   - post

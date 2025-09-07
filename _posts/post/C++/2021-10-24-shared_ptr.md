@@ -1,5 +1,5 @@
 ---
-title: "스마트 포인터 - shared_ptr"
+title: "[C++] 스마트 포인터 - shared_ptr"
 classes: wide
 categories: 
   - post

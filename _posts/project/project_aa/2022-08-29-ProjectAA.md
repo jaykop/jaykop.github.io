@@ -1,5 +1,5 @@
 ---
-title: "Project AA"
+title: "[Project] Project AA"
 excerpt: "웹소설 IP를 차용한 백뷰 3D 액션 게임 프로젝트"
 classes: wide
 categories: 

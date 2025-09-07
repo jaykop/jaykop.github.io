@@ -1,5 +1,5 @@
 ---
-title: "Class의 사이즈"
+title: "[C++] Class의 사이즈"
 classes: wide
 categories: 
   - post

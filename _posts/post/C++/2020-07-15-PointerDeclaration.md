@@ -1,5 +1,5 @@
 ---
-title: "포인터 선언"
+title: "[C++] 포인터 선언"
 classes: wide
 categories: 
   - post

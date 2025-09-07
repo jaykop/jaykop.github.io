@@ -1,5 +1,5 @@
 ---
-title: "Terrain Analysis & Propagation"
+title: "[Game A.I.] Terrain Analysis와 Propagation"
 classes: wide
 categories: 
   - post

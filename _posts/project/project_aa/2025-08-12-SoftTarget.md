@@ -1,5 +1,5 @@
 ---
-title: "SoftTarget 기능"
+title: "[DevNote] SoftTarget 기능"
 classes: wide
 categories: 
   - project

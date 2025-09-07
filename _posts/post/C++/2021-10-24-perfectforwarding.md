@@ -1,5 +1,5 @@
 ---
-title: "perfect forwarding"
+title: "[C++] perfect forwarding"
 classes: wide
 categories: 
   - post

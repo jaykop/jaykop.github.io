@@ -1,5 +1,5 @@
 ---
-title: "Unreal 주요 Type"
+title: "[Unreal] 주요 Type"
 classes: wide
 categories: 
   - post

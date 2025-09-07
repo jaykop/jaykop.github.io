@@ -1,5 +1,5 @@
 ---
-title: "Multiple Inheritance"
+title: "[C++] Multiple Inheritance"
 classes: wide
 categories: 
   - post

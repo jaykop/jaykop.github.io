@@ -1,5 +1,5 @@
 ---
-title: "STL - Vector, List, Queue"
+title: "[C++] STL - Vector, List, Queue"
 classes: wide
 categories: 
   - post

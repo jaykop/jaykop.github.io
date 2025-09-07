@@ -1,5 +1,5 @@
 ---
-title: "Abstract Data Type"
+title: "[C#] Abstract Data Type"
 classes: wide
 categories: 
   - post

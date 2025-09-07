@@ -1,5 +1,5 @@
 ---
-title: "Observer Pattern"
+title: "[Design Pattern] Observer Pattern"
 classes: wide
 categories: 
   - post

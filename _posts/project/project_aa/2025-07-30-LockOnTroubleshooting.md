@@ -1,5 +1,5 @@
 ---
-title: "카메라 락온 시 타겟 과한 추적"
+title: "[DevNote] 카메라 락온 시 타겟 과한 추적 Troubleshooting"
 classes: wide
 categories: 
   - project
