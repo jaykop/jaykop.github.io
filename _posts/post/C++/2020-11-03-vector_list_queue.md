@@ -79,26 +79,24 @@ author_profile: true
   * [emplace_back이 전달받은 인자들을 제대로 전달해주어야 한다](https://jaykop.github.io/post/c++/perfectforwarding/#%EC%99%84%EB%B2%BD%ED%95%9C-%EC%A0%84%EB%8B%AC-perfect-forwarding)
 
 ### push_back vs. emplace_back
-* 상단의 원리로 인해 일반적으로 emplace_back이 더 빠르다
-  * 컴파일러 최적화로 push_back도 불필요한 복사-이동을 하지 않는다
-  * emplace_back 을 사용했을 때와 동일한 어셈블리를 생성한다
-* emplace_back은 모든 유형의 생성자를 호출함으로써 런타임에서의 문제를 야기할 수 있다
-  * **따라서 push_back을 호출하는 게 더 낫다**
+* 상단의 원리로 인해 일반적으로 emplace_back이 더 빠르다고 생각할 수 있다
+  * 하지만, 컴파일러 최적화로 push_back도 불필요한 복사-이동을 하지 않는다
+  * 즉, push_back이든 emplace_back이든 동일한 어셈블리를 생성한다
 
 ```c++
-// addressof 함수는 & 연산자가 오버로딩 되어있는 경우를 대비해
-// 그 객체의 실제 주소를 가져오는 역할을 한다
-std::vector<std::unique_ptr<T>> v;
-T a;
+// 20000 을 std::vector<int> 로 변환할 수 없기에 컴파일 에러를 발생시킨다
+std::vector<std::vector<int>> vec;
+vec.push_back(2000000);
 
-// a는 포인터 형식이 아니기 때문에 삽입할 수 없음!!
-// T*와 unique_ptr<T>는 호환이 되지 않는다
-v.push_back(std::addressof(a)); 
-
-// ok, 컴파일할때는 에러가 발생하지 않음.
-// 모든 유형의 생성자를 호출해서 unique_ptr<T*> 명시적 생성자를 호출
-v.emplace_back(std::addressof(a)); 
+// 그러나 이 코드는 그냥 작동한다
+// 암묵적으로 std::vector<int>(2000000) 을 만들어서 넣어버린다
+std::vector<std::vector<int>> vec;
+vec.emplace_back(2000000);
 ```
+
+* emplace_back은 모든 유형의 생성자를 호출함으로써, 어떤 생성자가 호출되었는지 명확하지 않다
+  * 이는 런타임에서까지 문제를 야기할 수 있다
+  * **따라서 push_back을 호출하는 게 더 낫다**
 
 ## 반복자 iterator
 * 반복자는 각 컨테이너의 멤머 변수로 정의
