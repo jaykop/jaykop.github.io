@@ -134,7 +134,7 @@ bool UComboAsset::ComboTriggered(const TArray<FGameplayTag>& TriggerTags)
   * 이는 최초 인풋 -> Abl로 이어지는 경우
   * 그리고 Abl 실행 중 다른 Abl로 분기되는 경우로 2가지이다
 
-1. 인풋 -> 최초 Abl 실행
+* **인풋 -> 최초 Abl 실행하는 경우**
 
 ```c++
 void UComboComponent::BindInputAction_Internal(UComboAsset* InComboAsset)
@@ -187,7 +187,7 @@ void UComboComponent::OnInputActionTriggered(const UInputAction* InputAction)
 * UComboComponent에서 InputAction과 함께 바인딩된 함수에서 ComboAsset을 실행한다
   * **즉, InputComponent에 의해 실행된다**
 
-2. Abl 실행 중 -> 다른 Abl로 전환
+* **Abl 실행 중 -> 다른 Abl로 전환하는 경우**
 * 어떤 액션을 실행 중에 특정 인풋을 조건으로 다른 액션으로 분기를 해야 하는 상황이다
 * 이 경우, AblTask를 사용해 어떤 TriggerTag를 조건으로 할지 세팅하고 이 Tag에 대응하는 Input이 들어오면 분기하도록 한다
 
