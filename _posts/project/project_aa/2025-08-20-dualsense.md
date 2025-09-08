@@ -232,7 +232,7 @@ TArray<FCustomKeyTrigger> GetKeyTriggers(const ULocalPlayer* LocalPlayer, ECommo
   * 처음에는 플러그인 이슈인줄 알았는데, 다른 출시된 게임에서도 동일한 증상을 확인했다
 * DualSense를 지원하는 다른 게임을 실행하다 우리 프로젝트를 실행하면 이상한 타이밍에서 진동이 온다는 리포트가 있었다
   * 이건 다른 출시한 게임끼리에서도 발생한다니 이것 역시 DualSense 자체의 이슈인 듯
-* 적절한 타이밍에서 AvtiveInput의 리스트가 Refresh 되지 앟으면, UI가 표시되어야 할 자리에 아무 이미지도 나타나지 않는다
+* 적절한 타이밍에서 ActiveInput의 리스트가 Refresh 되지 앟으면, UI가 표시되어야 할 자리에 아무 이미지도 나타나지 않는다
 
 ```c++
 class ENHANCEDINPUT_API UEnhancedPlayerInput : public UPlayerInput
