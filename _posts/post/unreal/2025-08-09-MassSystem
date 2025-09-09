@@ -16,6 +16,59 @@ author_profile: true
 ### Processor
 
 ```c++
+void UMassEntitySettings::BuildProcessorList()
+{
+	ProcessorCDOs.Reset();
+	for (FMassProcessingPhaseConfig& PhaseConfig : ProcessingPhasesConfig)
+	{
+		PhaseConfig.ProcessorCDOs.Reset();
+	}
+
+	TArray<UClass*> SubClassess;
+	GetDerivedClasses(UMassProcessor::StaticClass(), SubClassess);
+
+	for (int i = SubClassess.Num() - 1; i >= 0; --i)
+	{
+		if (SubClassess[i]->HasAnyClassFlags(CLASS_Abstract))
+		{
+			continue;
+		}
+
+		UMassProcessor* ProcessorCDO = GetMutableDefault<UMassProcessor>(SubClassess[i]);
+		// we explicitly restrict adding UMassCompositeProcessor. If needed by specific project a derived class can be added
+		if (ProcessorCDO && SubClassess[i] != UMassCompositeProcessor::StaticClass()
+#if WITH_EDITOR
+			&& ProcessorCDO->ShouldShowUpInSettings()
+#endif // WITH_EDITOR
+		)
+		{
+			ProcessorCDOs.Add(ProcessorCDO);
+			if (ProcessorCDO->ShouldAutoAddToGlobalList())
+			{
+				ProcessingPhasesConfig[int(ProcessorCDO->GetProcessingPhase())].ProcessorCDOs.Add(ProcessorCDO);
+			}
+		}
+	}
+
+	ProcessorCDOs.Sort([](UMassProcessor& LHS, UMassProcessor& RHS) {
+		return LHS.GetName().Compare(RHS.GetName()) < 0;
+	});
+}
+
+void FMassPhaseProcessorConfigurationHelper::Configure(TArrayView<UMassProcessor* const> DynamicProcessors
+	, EProcessorExecutionFlags InWorldExecutionFlags, const TSharedPtr<FMassEntityManager>& EntityManager
+	, FMassProcessorDependencySolver::FResult* OutOptionalResult)
+{
+	FMassRuntimePipeline TmpPipeline(InWorldExecutionFlags);
+	TmpPipeline.CreateFromArray(PhaseConfig.ProcessorCDOs, ProcessorOuter);
+
+  // ...
+}
+```
+
+* Processor 클래스를 생성하면 CDO를 수집해서 리스트에 넣고, 이 리스트를 순회하며 Processor 객체를 만들어 사용한다
+
+```c++
  UCLASS()
 class UGroundCheckProcessor : public UMassProcessor
 {
