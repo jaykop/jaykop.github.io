@@ -1,0 +1,18 @@
+---
+title: "[Unreal] StateTree"
+classes: wide
+categories: 
+  - post
+  - Unreal
+sidebar:
+  nav: "main"
+author_profile: true
+---
+
+## StateTree
+
+![post_thumbnail](/assets/images/StateTree/StateTree_1.png)
+
+* Transition에 아무 것도 할당되어 있지 않으면 root로 돌아간다
+
+* StateTree를 실행하는 Processor는 UMassStateTreeActivationProcessor
