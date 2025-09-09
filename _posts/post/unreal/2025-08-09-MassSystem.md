@@ -10,10 +10,32 @@ author_profile: true
 ---
 
 ## Mass System
+
+![post_thumbnail](/assets/images/MassEntity/MassEntity_1.png)
+![post_thumbnail](/assets/images/MassEntity/MassEntity_2.png)
+
 * Fragment라는 이름의 데이터로 구성된 Mass Entity를 Processor가 구현된 로직대로 처리하는 시스템
   * [ECS 구조](https://jaykop.github.io/post/unity/ECS/)로 동작한다
 
+**Fragment**
+* 로직에 사용할 최소한의 데이터 단위
+
+**Archetype**
+* Fragment의 조합으로 정의된 타입
+
+**Entity**
+* 특정 Archetype의 객체(instance)
+
+**Chunk**
+* 메모리상으로 Entity들이 배치된 데이터 블록
+
+**Chunk Fragment**
+* Fragment는 아키타입 또는 Entity에 대응하는 데이터 단위다
+* Chunk는 Chunk 블록에 대응하는 데이터 단위다
+	* 즉, 같은 Chunk 내의 Entity 모두가 공유하는 데이터
+
 ### Processor
+* Fragment로 프로세싱 로직을 실행하는 클래스
 
 ```c++
 void UMassEntitySettings::BuildProcessorList()
@@ -98,14 +120,19 @@ void UGroundCheckProcessor::ConfigureQueries()
 
 * Entity는 Processor가 쿼리로 요구하는 Fragment 혹은 Tag를 가지고 있어야 한다
 
-![post_thumbnail](/assets/images/MassEntity/MassEntity_1.png)
+**엔티티 쿼리(Entity Query)**
+* 프로세서가 지정하는, 작업 수행에 필요한 Fragment 타입
+
+![post_thumbnail](/assets/images/MassEntity/MassEntity_3.png)
 
 * Mass Entity Configuration(MEC) 에셋을 통해 Entity에 Fragment를 등록한다
 * MEC에서는 Entity에 부여할 Trait을 할당한다
-  * Trait은 Fragment의 집합이다
+
+**Trait**
+* Trait은 로직 구동 시 필요한 Fragment와 Processor의 묶음이다
 
 > [!NOTE] Fragment와 Tag의 차이?  
-> * Tag는 정보의 여부 표기, 이른바 flag  
+> * Tag는 정보의 여부 표기, 이른바 flag (존재 여부 자체가 데이터로 활용된다)  
 > * Entity를 데이터로 제어하고자 할 경우 Fragment를 사용  
 
 ```c++
@@ -137,8 +164,8 @@ void UGroundCheckProcessor::Execute(FMassEntityManager& EntityManager, FMassExec
 
 ### Evaluator
 
-![post_thumbnail](/assets/images/MassEntity/MassEntity_2.png)
-![post_thumbnail](/assets/images/MassEntity/MassEntity_3.png)
+![post_thumbnail](/assets/images/MassEntity/MassEntity_4.png)
+![post_thumbnail](/assets/images/MassEntity/MassEntity_5.png)
 
 * 파라미터 또는 컨텍스트 데이터로는 StateTree에 제공할 수 없었던 데이터에 접근을 제공
 * StateTree에 시작 및 중지 시, 그리고 각 틱마다 커스텀 코드를 실행
