@@ -2,10 +2,10 @@
 title: "[Unreal] MassSystem"
 classes: wide
 categories: 
-	- post
-	- Unreal
+  - post
+  - Unreal
 sidebar:
-	nav: "main"
+  nav: "main"
 author_profile: true
 ---
 
@@ -15,7 +15,7 @@ author_profile: true
 ![post_thumbnail](/assets/images/MassEntity/MassEntity_2.png)
 
 * Fragment라는 이름의 데이터로 구성된 Mass Entity를 Processor가 구현된 로직대로 처리하는 시스템
-	* [ECS 구조](https://jaykop.github.io/post/unity/ECS/)로 동작한다
+  * [ECS 구조](https://jaykop.github.io/post/unity/ECS/)로 동작한다
 
 **Fragment**
 * 로직에 사용할 최소한의 데이터 단위
@@ -32,7 +32,7 @@ author_profile: true
 **Chunk Fragment**
 * Fragment는 아키타입 또는 Entity에 대응하는 데이터 단위다
 * Chunk는 Chunk 블록에 대응하는 데이터 단위다
-	* 즉, 같은 Chunk 내의 Entity 모두가 공유하는 데이터
+  * 즉, 같은 Chunk 내의 Entity 모두가 공유하는 데이터
 
 ### Processor
 * Fragment로 프로세싱 로직을 실행하는 클래스
@@ -40,51 +40,51 @@ author_profile: true
 ```c++
 void UMassEntitySettings::BuildProcessorList()
 {
-	ProcessorCDOs.Reset();
-	for (FMassProcessingPhaseConfig& PhaseConfig : ProcessingPhasesConfig)
-	{
-		PhaseConfig.ProcessorCDOs.Reset();
-	}
+  ProcessorCDOs.Reset();
+  for (FMassProcessingPhaseConfig& PhaseConfig : ProcessingPhasesConfig)
+  {
+    PhaseConfig.ProcessorCDOs.Reset();
+  }
 
-	TArray<UClass*> SubClassess;
-	GetDerivedClasses(UMassProcessor::StaticClass(), SubClassess);
+  TArray<UClass*> SubClassess;
+  GetDerivedClasses(UMassProcessor::StaticClass(), SubClassess);
 
-	for (int i = SubClassess.Num() - 1; i >= 0; --i)
-	{
-		if (SubClassess[i]->HasAnyClassFlags(CLASS_Abstract))
-		{
-			continue;
-		}
+  for (int i = SubClassess.Num() - 1; i >= 0; --i)
+  {
+    if (SubClassess[i]->HasAnyClassFlags(CLASS_Abstract))
+    {
+      continue;
+    }
 
-		UMassProcessor* ProcessorCDO = GetMutableDefault<UMassProcessor>(SubClassess[i]);
-		// we explicitly restrict adding UMassCompositeProcessor. If needed by specific project a derived class can be added
-		if (ProcessorCDO && SubClassess[i] != UMassCompositeProcessor::StaticClass()
+    UMassProcessor* ProcessorCDO = GetMutableDefault<UMassProcessor>(SubClassess[i]);
+    // we explicitly restrict adding UMassCompositeProcessor. If needed by specific project a derived class can be added
+    if (ProcessorCDO && SubClassess[i] != UMassCompositeProcessor::StaticClass()
 #if WITH_EDITOR
-			&& ProcessorCDO->ShouldShowUpInSettings()
+      && ProcessorCDO->ShouldShowUpInSettings()
 #endif // WITH_EDITOR
-		)
-		{
-			ProcessorCDOs.Add(ProcessorCDO);
-			if (ProcessorCDO->ShouldAutoAddToGlobalList())
-			{
-				ProcessingPhasesConfig[int(ProcessorCDO->GetProcessingPhase())].ProcessorCDOs.Add(ProcessorCDO);
-			}
-		}
-	}
+    )
+    {
+      ProcessorCDOs.Add(ProcessorCDO);
+      if (ProcessorCDO->ShouldAutoAddToGlobalList())
+      {
+        ProcessingPhasesConfig[int(ProcessorCDO->GetProcessingPhase())].ProcessorCDOs.Add(ProcessorCDO);
+      }
+    }
+  }
 
-	ProcessorCDOs.Sort([](UMassProcessor& LHS, UMassProcessor& RHS) {
-		return LHS.GetName().Compare(RHS.GetName()) < 0;
-	});
+  ProcessorCDOs.Sort([](UMassProcessor& LHS, UMassProcessor& RHS) {
+    return LHS.GetName().Compare(RHS.GetName()) < 0;
+  });
 }
 
 void FMassPhaseProcessorConfigurationHelper::Configure(TArrayView<UMassProcessor* const> DynamicProcessors
-	, EProcessorExecutionFlags InWorldExecutionFlags, const TSharedPtr<FMassEntityManager>& EntityManager
-	, FMassProcessorDependencySolver::FResult* OutOptionalResult)
+  , EProcessorExecutionFlags InWorldExecutionFlags, const TSharedPtr<FMassEntityManager>& EntityManager
+  , FMassProcessorDependencySolver::FResult* OutOptionalResult)
 {
-	FMassRuntimePipeline TmpPipeline(InWorldExecutionFlags);
-	TmpPipeline.CreateFromArray(PhaseConfig.ProcessorCDOs, ProcessorOuter);
+  FMassRuntimePipeline TmpPipeline(InWorldExecutionFlags);
+  TmpPipeline.CreateFromArray(PhaseConfig.ProcessorCDOs, ProcessorOuter);
 
-	// ...
+  // ...
 }
 ```
 
@@ -94,27 +94,27 @@ void FMassPhaseProcessorConfigurationHelper::Configure(TArrayView<UMassProcessor
  UCLASS()
 class UGroundCheckProcessor : public UMassProcessor
 {
- 	GENERATED_BODY()
+   GENERATED_BODY()
 
 public:
-	UGroundCheckProcessor();
+  UGroundCheckProcessor();
 
 protected:
-	virtual void ConfigureQueries() override;
-	virtual void Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context) override;
+  virtual void ConfigureQueries() override;
+  virtual void Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context) override;
 
-	FMassEntityQuery GroundCheckQuery;
+  FMassEntityQuery GroundCheckQuery;
 
-	// ...
+  // ...
 };
 
 void UGroundCheckProcessor::ConfigureQueries()
 {
-	GroundCheckQuery.AddRequirement<FTransformFragment>(EMassFragmentAccess::ReadWrite);
-	GroundCheckQuery.AddRequirement<FMZMassGravityFragment>(EMassFragmentAccess::ReadWrite);
-	GroundCheckQuery.AddRequirement<FMassRepresentationFragment>(EMassFragmentAccess::ReadOnly);
-	GroundCheckQuery.AddSharedRequirement<FMassRepresentationSubsystemSharedFragment>(EMassFragmentAccess::ReadWrite);
-	GroundCheckQuery.RegisterWithProcessor(*this);
+  GroundCheckQuery.AddRequirement<FTransformFragment>(EMassFragmentAccess::ReadWrite);
+  GroundCheckQuery.AddRequirement<FMZMassGravityFragment>(EMassFragmentAccess::ReadWrite);
+  GroundCheckQuery.AddRequirement<FMassRepresentationFragment>(EMassFragmentAccess::ReadOnly);
+  GroundCheckQuery.AddSharedRequirement<FMassRepresentationSubsystemSharedFragment>(EMassFragmentAccess::ReadWrite);
+  GroundCheckQuery.RegisterWithProcessor(*this);
 }
 ```
 
@@ -138,29 +138,56 @@ void UGroundCheckProcessor::ConfigureQueries()
 ```c++
 void UGroundCheckProcessor::Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context)
 {
-	// ...
+  // ...
 
-	// 쿼리로  Mass entity 싹 순회
-	GroundCheckQuery.ForEachEntityChunk(EntityManager, Context, [this, World, NavSys, &EntityManager](FMassExecutionContext& Context)
-			{
-				
-				// ...
+  // 쿼리로  Mass entity 싹 순회
+  GroundCheckQuery.ForEachEntityChunk(EntityManager, Context, [this, World, NavSys, &EntityManager](FMassExecutionContext& Context)
+      {
+        
+        // ...
 
-				for (int32 EntityIndex = 0; EntityIndex < NumEntities; ++EntityIndex)
-				{
-					// ...
-				}
+        for (int32 EntityIndex = 0; EntityIndex < NumEntities; ++EntityIndex)
+        {
+          // ...
+        }
 
-				// ...
-			}
-		});
-	// ...
+        // ...
+      }
+    });
+  // ...
 }
 ```
 
 * 요구되는 타입별 핸들을 쿼리에 등록하고 Context에서 타입에 해당하는 Fragment 데이터 접근
 * EntityChunk는 같은 구조(같은 Fragment/Tag)를 가진 Entity들을 묶어 둔 메모리 블록
-	* 블록을 받아온 다음 개별 엔ㄷ티티에 접근해 루프를 돈다
+  * 블록을 받아온 다음 개별 엔ㄷ티티에 접근해 루프를 돈다
+
+**Observer**
+* MassProcessor에서 상속한 클래스
+
+```c++
+// HealthFragment가 추가될 때 체력을 초기값으로 설정
+ObserveFragment<HealthFragment>(EMassObservedOperation::Add)
+
+// RenderFragment가 제거될 때 렌더링 리소스 해제
+ObserveFragment<RenderFragment>(EMassObservedOperation::Remove)
+
+// DeadTag가 추가될 때 사망 처리 로직 실행
+ObserveTag<DeadTag>(EMassObservedOperation::Add)
+```
+
+* Entity 초기화, 리소스 정리, 상태 전환 등에 사용할 수 있다
+
+  ||Observer Processor|일반 Processor|
+  ||---:|:---|:---|
+  |호출 타이밍|Entity 구성이 변화할 때만 실행 (이벤트 기반)
+|매 프레임/틱마다 정기적으로 실행|
+  |용도|특정 Fragment나 Tag가 추가/제거될 때 반응 (ex. 초기화, 정리, 상태 전환 처리)|엔티티들의 데이터를 업데이트 (ex. Movement, AI, Physics 처리)|
+
+**Translator**
+* Translator 역시 MassProcessor에서 상속한 클래스
+* Actor와 Mass Entity 간의 데이터 전달 용도
+  * ex. Mass 상태일 때 애니메이션 정보를 Actor로 전환하면서 싱크를 맞추기 위한 데이터를 전달
 
 ### Evaluator
 
@@ -173,62 +200,62 @@ void UGroundCheckProcessor::Execute(FMassEntityManager& EntityManager, FMassExec
 ```c++
 struct FAIStateEvaluator : public FMassStateTreeEvaluatorBase
 {
-	GENERATED_BODY()
+  GENERATED_BODY()
 
-	using FInstanceDataType = FAIStateEvaluatorInstanceData;
+  using FInstanceDataType = FAIStateEvaluatorInstanceData;
 
-	FAIStateEvaluator();
+  FAIStateEvaluator();
 
 protected:
-	virtual bool Link(FStateTreeLinker& Linker) override;
-	
-	// ..
-	
-	TStateTreeExternalDataHandle<FStatFragment> StatFragmentHandle;
+  virtual bool Link(FStateTreeLinker& Linker) override;
+  
+  // ..
+  
+  TStateTreeExternalDataHandle<FStatFragment> StatFragmentHandle;
 };
 
 bool FAIStateEvaluator::Link(FStateTreeLinker& Linker)
 {
-	Linker.LinkExternalData(StatFragmentHandle);
+  Linker.LinkExternalData(StatFragmentHandle);
 
-	return true;
+  return true;
 }
 
 ```
 
 * Evaluator에서 사용할 Fragment의 struct 타입을 핸들로 등록
 * StateTree에서 Tick 수행
-	* 변수 최신화
-	* 따로 interval을 부여해 관리할 필요까지는 없다
+  * 변수 최신화
+  * 따로 interval을 부여해 관리할 필요까지는 없다
 
 ### Task
 
 ```c++
 struct FChangeStateTask : public FMassStateTreeTaskBase
 {
-	GENERATED_BODY()
+  GENERATED_BODY()
 
-	using FInstanceDataType = FMZChangeStateTaskInstanceData;
+  using FInstanceDataType = FMZChangeStateTaskInstanceData;
 
 protected:
-	virtual bool Link(FStateTreeLinker& Linker) override;
-	
-	// ...
+  virtual bool Link(FStateTreeLinker& Linker) override;
+  
+  // ...
 
-	TStateTreeExternalDataHandle<struct FTransformFragment> TransformHandle;
-	TStateTreeExternalDataHandle<struct FMassMoveTargetFragment> MoveTargetHandle;
-	TStateTreeExternalDataHandle<struct FStatFragment> StatFragmentHandle;
+  TStateTreeExternalDataHandle<struct FTransformFragment> TransformHandle;
+  TStateTreeExternalDataHandle<struct FMassMoveTargetFragment> MoveTargetHandle;
+  TStateTreeExternalDataHandle<struct FStatFragment> StatFragmentHandle;
 };
 
 bool FChangeStateTask::Link(FStateTreeLinker& Linker)
 {
-	Linker.LinkExternalData(TransformHandle);
-	Linker.LinkExternalData(MoveTargetHandle);
-	Linker.LinkExternalData(StatFragmentHandle);
-	
-	return true;
+  Linker.LinkExternalData(TransformHandle);
+  Linker.LinkExternalData(MoveTargetHandle);
+  Linker.LinkExternalData(StatFragmentHandle);
+  
+  return true;
 }
 ```
 
 * Task에서 사용할 Fragment의 struct 타입을 핸들로 등록
-	* Evaluator와 동일하게 FStateTreeNodeBase strcut로부터 상속한 구조체
+  * Evaluator와 동일하게 FStateTreeNodeBase strcut로부터 상속한 구조체
