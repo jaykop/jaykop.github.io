@@ -2,10 +2,10 @@
 title: "[Unreal] MassSystem"
 classes: wide
 categories: 
-  - post
-  - Unreal
+	- post
+	- Unreal
 sidebar:
-  nav: "main"
+	nav: "main"
 author_profile: true
 ---
 
@@ -15,7 +15,7 @@ author_profile: true
 ![post_thumbnail](/assets/images/MassEntity/MassEntity_2.png)
 
 * Fragment라는 이름의 데이터로 구성된 Mass Entity를 Processor가 구현된 로직대로 처리하는 시스템
-  * [ECS 구조](https://jaykop.github.io/post/unity/ECS/)로 동작한다
+	* [ECS 구조](https://jaykop.github.io/post/unity/ECS/)로 동작한다
 
 **Fragment**
 * 로직에 사용할 최소한의 데이터 단위
@@ -84,7 +84,7 @@ void FMassPhaseProcessorConfigurationHelper::Configure(TArrayView<UMassProcessor
 	FMassRuntimePipeline TmpPipeline(InWorldExecutionFlags);
 	TmpPipeline.CreateFromArray(PhaseConfig.ProcessorCDOs, ProcessorOuter);
 
-  // ...
+	// ...
 }
 ```
 
@@ -103,9 +103,9 @@ protected:
 	virtual void ConfigureQueries() override;
 	virtual void Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context) override;
 
-  FMassEntityQuery GroundCheckQuery;
+	FMassEntityQuery GroundCheckQuery;
 
-  // ...
+	// ...
 };
 
 void UGroundCheckProcessor::ConfigureQueries()
@@ -138,29 +138,29 @@ void UGroundCheckProcessor::ConfigureQueries()
 ```c++
 void UGroundCheckProcessor::Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context)
 {
-  // ...
+	// ...
 
-  // 쿼리로  Mass entity 싹 순회
-  GroundCheckQuery.ForEachEntityChunk(EntityManager, Context, [this, World, NavSys, &EntityManager](FMassExecutionContext& Context)
-      {
-        
-        // ...
+	// 쿼리로  Mass entity 싹 순회
+	GroundCheckQuery.ForEachEntityChunk(EntityManager, Context, [this, World, NavSys, &EntityManager](FMassExecutionContext& Context)
+			{
+				
+				// ...
 
-        for (int32 EntityIndex = 0; EntityIndex < NumEntities; ++EntityIndex)
-        {
-          // ...
-        }
+				for (int32 EntityIndex = 0; EntityIndex < NumEntities; ++EntityIndex)
+				{
+					// ...
+				}
 
-        // ...
-		  }
-	  });
-  // ...
+				// ...
+			}
+		});
+	// ...
 }
 ```
 
 * 요구되는 타입별 핸들을 쿼리에 등록하고 Context에서 타입에 해당하는 Fragment 데이터 접근
 * EntityChunk는 같은 구조(같은 Fragment/Tag)를 가진 Entity들을 묶어 둔 메모리 블록
-  * 블록을 받아온 다음 개별 엔ㄷ티티에 접근해 루프를 돈다
+	* 블록을 받아온 다음 개별 엔ㄷ티티에 접근해 루프를 돈다
 
 ### Evaluator
 
@@ -182,8 +182,8 @@ struct FAIStateEvaluator : public FMassStateTreeEvaluatorBase
 protected:
 	virtual bool Link(FStateTreeLinker& Linker) override;
 	
-  // ..
-  
+	// ..
+	
 	TStateTreeExternalDataHandle<FStatFragment> StatFragmentHandle;
 };
 
@@ -198,8 +198,8 @@ bool FAIStateEvaluator::Link(FStateTreeLinker& Linker)
 
 * Evaluator에서 사용할 Fragment의 struct 타입을 핸들로 등록
 * StateTree에서 Tick 수행
-  * 변수 최신화
-  * 따로 interval을 부여해 관리할 필요까지는 없다
+	* 변수 최신화
+	* 따로 interval을 부여해 관리할 필요까지는 없다
 
 ### Task
 
@@ -212,8 +212,8 @@ struct FChangeStateTask : public FMassStateTreeTaskBase
 
 protected:
 	virtual bool Link(FStateTreeLinker& Linker) override;
-  
-  // ...
+	
+	// ...
 
 	TStateTreeExternalDataHandle<struct FTransformFragment> TransformHandle;
 	TStateTreeExternalDataHandle<struct FMassMoveTargetFragment> MoveTargetHandle;
@@ -231,4 +231,4 @@ bool FChangeStateTask::Link(FStateTreeLinker& Linker)
 ```
 
 * Task에서 사용할 Fragment의 struct 타입을 핸들로 등록
-  * Evaluator와 동일하게 FStateTreeNodeBase strcut로부터 상속한 구조체
+	* Evaluator와 동일하게 FStateTreeNodeBase strcut로부터 상속한 구조체
