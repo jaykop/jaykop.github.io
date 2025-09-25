@@ -9,10 +9,52 @@ sidebar:
 author_profile: true
 ---
 
-## Motion Matching
+## Motion Matching 개념
+* 현재 캐릭터의 동작과 상태를 기준으로, 가장 적절한 다음 동작을 선택하는 로직
+  * ABP의 StateMachine과 BlendSpace를 대체 가능
+  * 자연스러운 Blend를 위한 작업 Cost 감소
+* 여러 상황에 대응되는 애니메이션 에셋이 여러 개 있고, 테이블이 이 애니메이션을 리스트로 들고 있다
+  * 이 애니메이션 리스트 중에, 조건에 맞는 애니메이션을 하나 선택해 출력하는 것이다
 
-![post_thumbnail](/assets/images/StateTree/StateTree_1.png)
+### 작동 원리
 
-* Transition에 아무 것도 할당되어 있지 않으면 root로 돌아간다
+|에셋|Prefix|설명|
+|:---:|:---:|:---|
+|Anim Blueprint|ABP|모션매칭 노드 세팅|
+|Chooser Table|CHT|PSD 로 채워진 테이블|
+|Pose Search Database|PSD|선택될 애니메이션 목록|
 
-* StateTree를 실행하는 Processor는 UMassStateTreeActivationProcessor
+![post_thumbnail](/assets/images/MotionMatching/MotionMatching_1.png)
+
+**!. 캐릭터 상태 전달**
+
+![post_thumbnail](/assets/images/MotionMatching/MotionMatching_2.png)
+
+* ABP가 CHT로 정보를 전달한다
+  * Gait, Speed, MovementMode, IsMoving, IsStarting, ...
+
+**2. 조건에 맞는 PSD 선택**
+
+![post_thumbnail](/assets/images/MotionMatching/MotionMatching_3.png)
+
+* ABP에서 전달된 정보를 기준으로 적절한 PSD를 선택한다
+
+**3. 조건에 맞는 동작 찾기**
+
+![post_thumbnail](/assets/images/MotionMatching/MotionMatching_4.png)
+
+* PSD는 여러 애니메이션을 프레임 단위로 나눠, 각 프레임의 포즈 정보를 추출해 저장한 데이터이다
+  * 현재 캐릭터의 상태에서 다음 동작으로 이어질 가장 적절한 포즈를 여기서 찾는다
+
+### Pose Search Schema  
+* PSD에서 포즈를 선택할 때 비교 및 검색하는 기준을 정의  
+
+> [!NOTE] Channel  
+> 
+> 
+
+> [!NOTE] Feature  
+> 
+> 
+
+### 너무 많은 Animation 개수 줄이기
