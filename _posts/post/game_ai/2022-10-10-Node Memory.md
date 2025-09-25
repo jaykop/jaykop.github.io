@@ -1,9 +1,10 @@
 ---
-title: "Node Memory"
+title: "[Unreal] Node Memory"
 classes: wide
 categories: 
   - post
   - Unreal
+  - game_ai
 sidebar:
   nav: "main"
 author_profile: true
