@@ -4,7 +4,7 @@ classes: wide
 categories: 
   - post
   - CSharp
-  - C++
+  - CPP
 sidebar:
   nav: "main"
 author_profile: true

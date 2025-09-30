@@ -18,7 +18,7 @@ main:
       - title: "Unreal"
         url: /_pages/post/unreal
       - title: "C++"
-        url: /_pages/post/C++
+        url: /_pages/post/CPP
       - title: "Game A.I."
         url: /_pages/post/game_ai
       - title: "Design Pattern"

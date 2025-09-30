@@ -148,7 +148,7 @@ void APlayerCharacter::CheckReferenceStatus()
 ### Soft Reference
 * 지연 로딩이 필요한 경우
   * 게임의 진행을 막지 않으면서 로딩해도 되는 경우
-* [순환 참조](https://jaykop.github.io/post/c++/weak_ptr/#%EC%84%9C%EB%A1%9C-%EC%B0%B8%EC%A1%B0%ED%95%98%EB%8A%94-shared_ptr) 방지
+* [순환 참조](https://jaykop.github.io/post/cpp/weak_ptr/#%EC%84%9C%EB%A1%9C-%EC%B0%B8%EC%A1%B0%ED%95%98%EB%8A%94-shared_ptr) 방지
 
 ```c++
 UCLASS()
