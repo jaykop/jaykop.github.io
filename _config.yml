@@ -321,3 +321,9 @@ defaults:
       comments: false
       share: false
       related: false
+
+defaults:
+  - scope:
+      path: "sitemap.xml"
+    values:
+      layout: null
