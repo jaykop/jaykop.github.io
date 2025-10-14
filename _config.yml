@@ -321,8 +321,7 @@ defaults:
       comments: false
       share: false
       related: false
-
-defaults:
+  # sitemap.xml
   - scope:
       path: "sitemap.xml"
     values:
