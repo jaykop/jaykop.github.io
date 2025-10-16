@@ -201,8 +201,8 @@ int main() {
 * unique_ptr을 사용한 객체에 대한 소유권은 단 하나이기 때문에, 컨테이너에 넣기 전 외부에서 생성한 pa로는 더 이상 접근할 수 없다
 * 만약 컨테이너 인덱싱으로도, 외부에서 생성한 객체로도 모두 주소값에 접근하고 싶다면 unique_ptr을 사용하면 안된다
   
-## uniqure_ptr 을 리턴하는 함수
-* uniqure_ptr은 복사 혹은 대입이 불가능
+## unique_ptr 을 리턴하는 함수
+* unique_ptr은 복사 혹은 대입이 불가능
   
 ```c++
 std::unique_ptr<int> func()

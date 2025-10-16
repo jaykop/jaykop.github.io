@@ -92,7 +92,7 @@ Base *b =  new Derived;
 delete b;
 ```
 
-* 이 같은 경우에 virtual 키워드를 붙이지 않으면 derived class의 destructor가 override 되지 않움
+* 이 같은 경우에 virtual 키워드를 붙이지 않으면 derived class의 destructor가 override 되지 않음
 
 ```c++
 // 베이스 클래스의 destructor에 virtual 키워드 없는 경우
@@ -115,7 +115,7 @@ Derived constructor
 Base destructor
 ```
 
-* 하위 클래스의 destructor를 오버로딩 하도록 base 소멸자에 virtual 키워드를 붙이면 정상작동
+* 하위 클래스의 destructor를 오버라이드하도록 base 소멸자에 virtual 키워드를 붙이면 정상작동
 
 ```c++
 // 베이스 클래스의 destructor에 virtual 키워드 있는 경우
