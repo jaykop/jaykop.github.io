@@ -48,13 +48,14 @@ author_profile: true
         3. Semantic analysis (Analyzing) 코드 체크
             * 선언된 함수나 변수를 체크
             * 호출된 함수의 파라미터 수와 return type을 체크
+        4. Code generation
+            * 중간 코드나 최종 기계어를 생성
     * 신택스 분석과 시맨틱 분석이 실패하면 컴파일 에러를 생성
 3. 링크
     * 각 모듈별로 생성된 오브젝트 파일을 연결
     * .a나 .exe 파일을 최종적으로 생성
     * 각 오브젝트 파일이나 라이브러리를 실행가능한 파일 또는 라이브러리로 변환하는 것
-4. 코드 생성
-5. 실행
+4. 실행
 
 ## 출처
 * <https://www.geeksforgeeks.org/memory-layout-of-c-program/>
