@@ -9,12 +9,13 @@ sidebar:
 author_profile: true
 ---
 
+## 관찰자 패턴 (감시자 패턴)
 ### 관찰자 패턴의 사례
 * [MVC 패턴](https://jaykop.github.io/post/design_pattern/MVC/#mvc-%ED%8C%A8%ED%84%B4)
 * C#의 event
 * java의 라이브러리
 
-### 예제
+### 예시 - 도전 과제
 * 특정 기능을 담당하는 코드는 한 데 모아두는 것이 좋다. 하지만...
 * 어떤 조건을 만족하는지 체크 하기 위한 코드를 여기저기에 써야하는 상황에서는?
   * 충돌 검사 코드에도 넣어야 한다면?
@@ -36,8 +37,9 @@ void Physics::updateEntity(Entity& entity)
   {
     // 어떤 알림을 보내야하는지는 알아야 한다
     // 완전한 디커플링은 아니다
+
     // **실제로는 이렇게 작성하지 않을 것이다...**
-    notify(entity, ENVET_START_fALL);
+    notify(entity, ENVET_START_FALL);
   }
 }
 ```
@@ -54,8 +56,8 @@ class Observer
 {
   public: 
     virtual ~Observer() {};
-    // entity - Invoker: 누가, 어떤 대상Subject 이 함수를 실행시켰는가?
-    // event - message: Observer 함수 쪽에서 norify 함수를 받아서 실행시킬 때 필요한 정보
+    // entity == Invoker: 누가 함수를 실행시켰는가?
+    // event == Message: 실행시킬 때 필요한 정보
     virtual void onNotify(const Entity& entity, Event event) = 0;
 }
 ```
@@ -85,7 +87,7 @@ class Achievements : public Observer
   private:
     void unlcok(Achievement achievement)
     {
-      // 아직 업적이 남아있다면 해제
+      // 아직 업적이 해금되지 않았다면 해제
     }
     bool heroIsOnBridge_;
 }
@@ -95,9 +97,9 @@ class Achievements : public Observer
 * 관찰당하는 객체가 알림 메서드를 호출
 * 대상은 알림을 기다리는 관찰자 목록을 보유
   * 하나의 관찰자에만 반응하게 된다면 복수의 시스템과 동시에 상호작용할 수 없다
-  * 후에 알림을 넣은 관찰자가 먼저 알림을 넣은 관찰자를 방해할 수도 있다
-    * 물론 이런 구조로 짜면 안된다
-  * 관찰자는 다른 관찰자를 신경쓰지 않는다
+* 관찰자는 서로 신경쓰지 않는다
+  * 그래서 시간상 후순위 관찰자가 선순위 관찰자를 방해할 수도 있다
+    * 물론 이런 구조로 짜면 안된다...
 
 ```c++
 class Subject
@@ -164,14 +166,14 @@ void Subject::addObserver(Observer* observer)
 }
 ```
 
-![image](/assets/images/{08408586-56CF-492B-B9B1-9EF1C030D921}.png)  
+![image](/assets/images/DesignPattern/Observer_1.png)  
   * Observer를 linked list로 구현한다
     * 이 경우, Observer는 한 번에 하나의 대상만 관찰할 수 있다
     * 왜나하면, observer->next가 하나로만 정의되니까..
     * 반면에 대상마다 Observer 목록이 있다면 Observer를 여러 대상에 등록할 수 있다
       * 
 
-![image](/assets/images/{D5BFE3BA-CECB-4401-B0A2-4C54F216E8DB}.png)  
+![image](/assets/images/DesignPattern/Observer_2.png)  
   * Obsever Pool의 노드들이 Observer를 포인터로 가리키게 한다
     * 같은 관찰자를 여러 노드가 가리킬 수 있다
     * 같은 관찰자를 여러 대상에 추가할 수 있다
