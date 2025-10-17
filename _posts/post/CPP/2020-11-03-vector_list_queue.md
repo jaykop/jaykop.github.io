@@ -11,7 +11,7 @@ author_profile: true
 
 ## 컨테이너의 종류
 * Sequence Container
-  * 객체를 순사적으로 보관
+  * 객체를 순차적으로 보관
   * ex) vector, list, queue, ...
 * Associative Container
   * 키를 바탕으로 대응되는 값 함께 보관
@@ -50,7 +50,7 @@ author_profile: true
   a.reserve(2);
 
   // 이미 할당한 메모리를 반환하지 않는다
-  // reize를 통해 가용 가능한 메모리 사이즈는 조절힌다
+  // resize를 통해 가용 가능한 메모리 사이즈는 조절한다
   int c = a.capacity();
   int s = a.size();
   ```
@@ -99,7 +99,7 @@ vec.emplace_back(2000000);
   * **따라서 push_back을 호출하는 게 더 낫다**
 
 ## 반복자 iterator
-* 반복자는 각 컨테이너의 멤머 변수로 정의
+* 반복자는 각 컨테이너의 멤버 변수로 정의
 * *it와 같은 표현식으로 반복자가 가리키는 컨테이너 내의 값을 확인 가능
   * *는 포인터가 아니라 operator
 
