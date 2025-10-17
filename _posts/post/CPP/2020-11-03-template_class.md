@@ -78,7 +78,7 @@ int add(int a, int b)
 
 // 템플릿 함수
 template <typename T>
-T add(T a, Tb)
+T add(T a, T b)
 {
   return a+b;
 }
@@ -161,7 +161,7 @@ class MyClass2
     
     U u; //Error, U는 스코프 내에 없어요.
     // Arr 클래스에서 받는 인자
-    // 위의 Arr<T, 10> a;에서 10 = U
+    // 위의 Arr<T, 10> a;에서 10 = I
 };
 ```
 
@@ -173,7 +173,7 @@ class MyClass2
 ```c++
 // 템플릿 함수
 template <typename T>
-T add(T a, Tb)
+T add(T a, T b)
 {
   return a+b;
 }
@@ -195,7 +195,7 @@ int main()
 // 사용 여부에 상관없이 템플릿 함수 정의 코드를 
 // 생성하도록 컴파일러에게 전달
 template <typename T>
-T add(T a, Tb)
+T add(T a, T b)
 {
   return a+b;
 }
