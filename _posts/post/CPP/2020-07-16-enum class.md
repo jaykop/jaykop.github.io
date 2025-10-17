@@ -16,8 +16,8 @@ author_profile: true
 ```c++
 // enum
 // Error 발생
-enum shaderType {model, text, partyicle, light, end}
-enum someType {model, text, partyicle, light, end} 
+enum shaderType {model, text, particle, light, end}
+enum someType {model, text, particle, light, end} 
 
 // enum class
 // Error 없음
