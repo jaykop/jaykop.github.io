@@ -56,5 +56,5 @@ A a = THREE; // 1
 
 // enum 값 할당 
 enum A : char { ONE = 4, TWO = 3, THREE };
-A a = THREE; // 4
+A a = THREE; // 4 (THREE는 TWO 다음이므로 3+1=4)
 ```
