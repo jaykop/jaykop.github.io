@@ -168,3 +168,23 @@ Monster* instance = ghostSpawner->spawnMonster();
 * C++가 아닌 자바스크립트, 파이썬, 루비 등 클래스가 전달 가능한 일급 자료형인 동적 자료형 언어에서는 이보다 더 간단하게 작업할 수 있다고 한다
 * 원하는 몬스터 클래스의 런타임 객체를 함수에 전달하면 된단다
 
+### 정리
+
+```c++
+// Before - 타입마다 스포너 클래스 필요
+class GhostSpawner : public Spawner {
+  Monster* spawnerMonster() { return new Ghost(); } 
+};
+
+// After - 복제할 원본(프로토타입)을 가지고 있음
+class Spawner {
+  Monster* spawnerMonster() { 
+    return prototype_->clone();  // 원본 객체를 복제
+  }
+  Monster* prototype_; // "복사 틀" 역할
+};
+```
+
+* 명령 패턴처럼 실행할 로직을 객체에 위임한다는 점에서 공통적
+  * 하지만 명령 패턴은 로직을 변수처럼 다루기 위한 목적
+  * 프로토타입 패턴은 클래스 타입을 몰라도 객체를 생성하기 위한 목적
