@@ -31,7 +31,7 @@ class A{
   char c; // 1
 }; 
 
-// / 4+2+2 = 8 bytes: bbbb ac00
+// 4+2+2 = 8 bytes: bbbb ac00
 class A
 {
   int b; // 4
@@ -44,7 +44,7 @@ class A
 } 
 
 // 1 bytes
-// Methods don’t affect the size of the class
+// Methods don't affect the size of the class
 class A
 {
     void function(); 

@@ -22,9 +22,9 @@ class ABEntry
     const std::list<PhoneNumber>& phones);
     
   private:
-  std::string& theName;
-  std::string& theAddress;
-  std::list<PhoneNumber>& thePhones;
+  std::string theName;
+  std::string theAddress;
+  std::list<PhoneNumber> thePhones;
   int numTimesConsulted;
 }
 
@@ -46,7 +46,7 @@ ABEntry(const std::string& name, const std::string& address,
 ```c++
 ABEntry(const std::string& name, const std::string& address, 
   const std::list<PhoneNumber>& phones)
-    : theName(name), theAddress(address), thePhones(phones), numTimesConsulted(0), 
+    : theName(name), theAddress(address), thePhones(phones), numTimesConsulted(0)
   { }
 ```
 
@@ -59,4 +59,4 @@ ABEntry(const std::string& name, const std::string& address,
   * 그러나 상수이거나 참조자 데이터 멤버인 경우에는 반드시 초기화되어야 한다
 
 ## 출처
-* https://stackoverflow.com/questions/15679977/constructor-initialization-vs-assignment>
+* <https://stackoverflow.com/questions/15679977/constructor-initialization-vs-assignment>

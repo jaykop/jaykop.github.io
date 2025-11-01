@@ -16,8 +16,8 @@ author_profile: true
 ```c++
 // enum
 // Error 발생
-enum shaderType {model, text, partyicle, light, end}
-enum someType {model, text, partyicle, light, end} 
+enum shaderType {model, text, particle, light, end}
+enum someType {model, text, particle, light, end} 
 
 // enum class
 // Error 없음
@@ -56,5 +56,5 @@ A a = THREE; // 1
 
 // enum 값 할당 
 enum A : char { ONE = 4, TWO = 3, THREE };
-A a = THREE; // 4
+A a = THREE; // 4 (THREE는 TWO 다음이므로 3+1=4)
 ```

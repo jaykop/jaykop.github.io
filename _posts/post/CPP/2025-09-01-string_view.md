@@ -12,11 +12,11 @@ author_profile: true
 ## string_view
 * C++17부터 추가된 타입
 * 문자열의 길이와 문자열에 대한 포인터만 가지고 있다
-  * string 보다 훨씬 가볍단
+  * string 보다 훬씬 가볍다
 * null 종료 문자를 가지지 않는다
 
 > [!NOTE]
-> string_view가 문자열을 소유하고 있지 않기 때문에, 읽을 문자열이 소명된 상태인지 아닌지 주의해야한다
+> string_view가 문자열을 소유하고 있지 않기 때문에, 읽을 문자열이 소멸된 상태인지 아닌지 주의해야한다
 
 ### 위험한 참조 케이스
 
@@ -29,7 +29,7 @@ delete ptr;                              // ptr 삭제 후 sv는 dangling
 // 5. ???
 std::string_view get_view() {
     std::string local = "temporary";
-    return local;                        // 위험! local이 곧 소멸됨
+    return local;                        // 위험! local이 곳 소멸됨
 }
 ```
 
@@ -52,7 +52,7 @@ std::string str = "hello world";
     * 데이터 세그먼트의 리터럴을 힙으로 복사
 4. str.data()는 이제 힙의 주소를 가리킴
 
-### Short Sstring Optimization
+### Short String Optimization
 * std::string은 보통 리터럴 문자열을 복사해 힙에 저장한다
 * 일정 길이 이하의 작은 배열의 경우에는 오버헤드를 줄이기 위해 작은 배열을 만들어 스택에 저장한다
 
