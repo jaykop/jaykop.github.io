@@ -22,6 +22,7 @@ struct FSuggestProjectileVelocityParameters
   FCollisionResponseParams& ResponseParam = FCollisionResponseParams::DefaultResponseParam; 
 }
 ```
+
 * 위의 구조체에서, ResponseParam 변수를 레퍼런스로 받으면서 프로젝트 전체의 Collision이 의도한 세팅과 다르게 영구적으로 달라진다
 * 이슈는 [리포트](https://issues.unrealengine.com/issue/UE-224510) 되었지만, ~~문서 작성일 기준으로 아직 해결되지 않았다~~
 * ~~5.8 릴리즈 타겟으로 수정 예정이라고 적혀있는데, ~~ 현재 릴리즈된 엔진 5.6 이상에서는 해당 코드가 수정된 것으로 확인
