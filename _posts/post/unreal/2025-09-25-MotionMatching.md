@@ -85,11 +85,13 @@ author_profile: true
 ### 너무 많은 Animation 개수 줄이기
 
 **1. Idle 상태 애니메이션**
+
 |PSD|애니메이션|설|
 |:---|:---|:---|
 |PSD_Dense_Stand_Idles|Stand_Idle_Loop|Idle 모션|
 
 **2. 기본 이동 애니메이션**
+
 |PSD|애니메이션|설|
 |:---|:---|:---|
 |PSD_Dense_Stand_Run_Starts|Run_Start_F_Lfoot<br/>Run_Start_F_Rfoot|달리기 시작 모션|
@@ -100,6 +102,7 @@ author_profile: true
   * Start_F 애니메이션이 재생
 
 **3. 방향 회전 적용된 이동 애니메이션**
+
 |PSD|애니메이션|설|
 |:---|:---|:---|
 |PSD_Dense_Stand_Run_Starts|Run_Reface_F_L_090<br/>Run_Reface_F_R_090|F->L, F->R 으로 90도 회전하는 모션|
@@ -109,6 +112,7 @@ author_profile: true
 * 다만, 달리는 중 방향 전환 시에도 재생되는 문제
 
 **4. 달리던 중 방향 전환 애니메이션**
+
 |PSD|애니메이션|설|
 |:---|:---|:---|
 |PSD_Dense_Stand_Run_Pivots|Run_Turn_L_090_Lfoot<br/>Run_Turn_L_090_Rfoot<br/>Run_Turn_R_090_Lfoot<br/>Run_Turn_R_090_Rfoot|달리다가 L/R로 90도 방향 전환 모션|
@@ -118,6 +122,7 @@ author_profile: true
   * 이것 자체는 어색하지 않다고 생각하는데...
 
 **5. 큰 방향 회전 적용된 이동 애니메이션**
+
 |PSD|애니메이션|설|
 |:---|:---|:---|
 |PSD_Dense_Stand_Run_SpinTransition|Run_Reface_Start_F_L_180<br/>Run_Reface_Start_F_R_180|F->B 로 180도 회전 모션 시계/반시계 방향으로 회전|
