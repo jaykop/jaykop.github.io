@@ -1,9 +1,9 @@
 ---
-title: "std::function"
+title: "[C++] std::function"
 classes: wide
 categories: 
   - post
-  - unity
+  - CPP
 sidebar:
   nav: "main"
 author_profile: true
