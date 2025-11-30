@@ -83,7 +83,7 @@ T* GetActorComponent(AActor* Actor)
 }
 ```
 
-```C++
+```c++
 class UComponentCacheInterface : public UInterface
 {
 	GENERATED_BODY()
