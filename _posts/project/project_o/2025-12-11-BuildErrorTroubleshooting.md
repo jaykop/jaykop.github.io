@@ -34,13 +34,13 @@ author_profile: true
 ```cs
 public class YourProject : ModuleRules
 {
-    public YourProject(ReadOnlyTargetRules Target) : base(Target)
-    {
-        // ...
+  public YourProject(ReadOnlyTargetRules Target) : base(Target)
+  {
+    // ...
 
-        // NOMINMAX 정의 추가
-        PublicDefinitions.Add("NOMINMAX=1");
-    }
+    // NOMINMAX 정의 추가
+    PublicDefinitions.Add("NOMINMAX=1");
+  }
 }
 ```
 

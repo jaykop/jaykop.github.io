@@ -25,9 +25,9 @@ NavSys->ProjectPointToNavigation(MoveRequest.GetGoalLocation(), ProjectedLocatio
 ```c++
 // NavigationSystem.h
 bool ProjectPointToNavigation(const FVector& Point, FNavLocation& OutLocation, const FVector& Extent = INVALID_NAVEXTENT, const FNavAgentProperties* AgentProperties = NULL, FSharedConstNavQueryFilter QueryFilter = NULL)
-	{
-		return ProjectPointToNavigation(Point, OutLocation, Extent, AgentProperties != NULL ? GetNavDataForProps(*AgentProperties, Point) : GetDefaultNavDataInstance(FNavigationSystem::DontCreate), QueryFilter);
-	}
+  {
+    return ProjectPointToNavigation(Point, OutLocation, Extent, AgentProperties != NULL ? GetNavDataForProps(*AgentProperties, Point) : GetDefaultNavDataInstance(FNavigationSystem::DontCreate), QueryFilter);
+  }
 
 // NavigationType.h
 #define INVALID_NAVEXTENT (FVector::ZeroVector)
@@ -38,16 +38,16 @@ bool ProjectPointToNavigation(const FVector& Point, FNavLocation& OutLocation, c
 ```c++
 bool UNavigationSystemV1::ProjectPointToNavigation(const FVector& Point, FNavLocation& OutLocation, const FVector& Extent, const ANavigationData* NavData, FSharedConstNavQueryFilter QueryFilter) const
 {
-	SCOPE_CYCLE_COUNTER(STAT_Navigation_QueriesTimeSync);
+  SCOPE_CYCLE_COUNTER(STAT_Navigation_QueriesTimeSync);
 
-	if (NavData == nullptr)
-	{
-		NavData = GetDefaultNavDataInstance();
-	}
+  if (NavData == nullptr)
+  {
+    NavData = GetDefaultNavDataInstance();
+  }
 
-	return NavData != nullptr && NavData->ProjectPoint(Point, OutLocation
-											, UE::Navigation::Private::IsValidExtent(Extent) ? Extent : NavData->GetConfig().DefaultQueryExtent
-											, QueryFilter);
+  return NavData != nullptr && NavData->ProjectPoint(Point, OutLocation
+                      , UE::Navigation::Private::IsValidExtent(Extent) ? Extent : NavData->GetConfig().DefaultQueryExtent
+                      , QueryFilter);
 }
 ```
 
@@ -60,37 +60,37 @@ bool UNavigationSystemV1::ProjectPointToNavigation(const FVector& Point, FNavLoc
 ```c++
 dtStatus dtNavMeshQuery::closestPointOnPoly(dtPolyRef ref, const float* pos, float* closest) const
 {
-    // ...
-    closestPointOnPolyInTile(tile, poly, pos, closest);
-    return DT_SUCCESS;
+  // ...
+  closestPointOnPolyInTile(tile, poly, pos, closest);
+  return DT_SUCCESS;
 }
 
 void dtNavMeshQuery::closestPointOnPolyInTile(const dtMeshTile* tile, const dtPoly* poly, const float* pos, float* closest) const
 {
-    // ...
-    
-    // Clamp point to be inside the polygon.
-    dtVcopy(closest, pos);
-    if (!dtDistancePtPolyEdgesSqr(pos, verts, nv, edged, edget))
+  // ...
+  
+  // Clamp point to be inside the polygon.
+  dtVcopy(closest, pos);
+  if (!dtDistancePtPolyEdgesSqr(pos, verts, nv, edged, edget))
+  {
+    // Point is outside the polygon, clamp to nearest edge.
+    float dmin = FLT_MAX;
+    int imin = -1;
+    for (int i = 0; i < nv; ++i)
     {
-        // Point is outside the polygon, clamp to nearest edge.
-        float dmin = FLT_MAX;
-        int imin = -1;
-        for (int i = 0; i < nv; ++i)
-        {
-            if (edged[i] < dmin)
-            {
-                dmin = edged[i];
-                imin = i;
-            }
-        }
-        const float* va = &verts[imin*3];
-        const float* vb = &verts[((imin+1)%nv)*3];
-        dtVlerp(closest, va, vb, edget[imin]); // 가장 가까운 edge 위의 점
+      if (edged[i] < dmin)
+      {
+        dmin = edged[i];
+        imin = i;
+      }
     }
+    const float* va = &verts[imin*3];
+    const float* vb = &verts[((imin+1)%nv)*3];
+    dtVlerp(closest, va, vb, edget[imin]); // 가장 가까운 edge 위의 점
+  }
 
-    // Find height at the location using detail mesh
-    // ...
+  // Find height at the location using detail mesh
+  // ...
 }
 ```
 

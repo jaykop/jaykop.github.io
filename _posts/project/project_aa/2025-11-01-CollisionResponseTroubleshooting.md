@@ -17,9 +17,10 @@ author_profile: true
 ```c++
 struct FSuggestProjectileVelocityParameters
 {
-  ...
+  // ...
+  
   public:
-  FCollisionResponseParams& ResponseParam = FCollisionResponseParams::DefaultResponseParam; 
+    FCollisionResponseParams& ResponseParam = FCollisionResponseParams::DefaultResponseParam; 
 }
 ```
 

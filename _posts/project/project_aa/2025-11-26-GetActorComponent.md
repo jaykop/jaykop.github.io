@@ -24,7 +24,7 @@ GameObject는 단순히 복수의 Component를 담는 Wrapper 혹은 Holder의 �
 커플링 혹은 디커플링은 차치하고라도, 이렇게 함으로써 불필요한 상속을 막을 수 있다.<br>
 <br>
 ACharacter -> AMonster<br>
-           -> APlayer<br>
+ACharacter -> APlayer<br>
 <br>
 위와 같은 상속구조가 있다고 하자.<br>
 그런데 기획이 추가되어, 게임 기능에 탈 것을 구현해야 한다.<br>

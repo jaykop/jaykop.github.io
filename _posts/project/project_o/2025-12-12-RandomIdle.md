@@ -38,7 +38,6 @@ UAnimSequence* ULinkedAnimLayerInstance::SelectIdleAnimation()
 			}
 		}
 	}
-	
 
 	return SelectedIdle;
 }

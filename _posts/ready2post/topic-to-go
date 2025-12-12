@@ -1,15 +1,3 @@
----
-title: "Game Ability System"
-classes: wide
-categories: 
-  - post
-  - Unreal
-sidebar:
-  nav: "main"
-author_profile: true
----
-
-
 기타 알아볼 주제들
 
 - 월드 파티션, OFPA(One File Per Actor), 데이터 레이어, 레벨 인스턴싱, HLOD
@@ -36,5 +24,3 @@ author_profile: true
 좋아했던게임 모작을 한다면 어떻게 할지 기술구현 설명하기.
 
 Inertia 란? 사용해본적이 있는가? 
-
-Lyra 프로젝트를 열어보셨나요? 그렇다면 ALS를 선택한 이유가 있나요?  ALS 단점은 없었나요? 
