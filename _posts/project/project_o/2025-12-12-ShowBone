@@ -1,5 +1,5 @@
 ---
-title: "[DevNote] Broken Blueprint"
+title: "[DevNote] Show Bone 커맨드 사용 시 크래시"
 classes: wide
 categories: 
   - project
@@ -8,3 +8,4 @@ sidebar:
   nav: "main"
 author_profile: true
 ---
+
