@@ -109,7 +109,7 @@ namespace ConsoleApplication43 {
   *  런타임에 클래스나 코드를 생성할 수 있다
   *  IDE 같은 코드를 검사하는 프로그램에서 리플렉션 기능은 필수이다
 
-## [메타데이터](https://jaykop.github.io/post/csharp/.NetCompatible/#%EB%A9%94%ED%83%80%EB%8D%B0%EC%9D%B4%ED%84%B0)란?
+## [메타데이터](https://jaykop.github.io/post/csharp/DotNetCompatible/#%EB%A9%94%ED%83%80%EB%8D%B0%EC%9D%B4%ED%84%B0)란?
 * Data에 대한 구조화된 Data
 * 다른 Data를 설명해주는 Data
 * 대량의 정보 가운데 찾고 있는 정보를 효율적으로 찾아내서 이용하기 위해 일정한 규칙에 따라 콘텐츠에 대하여 부여되는 데이터
