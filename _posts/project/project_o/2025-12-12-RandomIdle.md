@@ -1,5 +1,5 @@
 ---
-title: "[DevNote] Build Error Troubleshooting"
+title: "[DevNote] Random Sequence Player"
 classes: wide
 categories: 
   - project
