@@ -39,7 +39,7 @@ public class YourProject : ModuleRules
     // ...
 
     // NOMINMAX 정의 추가
-    PublicDefinitions.Add("NOMINMAX=1");
+    PublicDefinitions.Add("NOMINMAX");
   }
 }
 ```
