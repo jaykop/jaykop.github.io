@@ -1,5 +1,5 @@
 ---
-title: "DevNote] CollisionResponse Troubleshooting"
+title: "[DevNote] CollisionResponse Troubleshooting"
 classes: wide
 categories: 
   - project
