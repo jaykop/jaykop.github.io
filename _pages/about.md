@@ -26,8 +26,8 @@ Git, Perforce
 
 ## Career
 
-### OCEANDRIVE Studio (2022.08 ~ Present)
-* **Project MZ Client Programmer** (2025.07 ~ Present)
+### Ocean Drive Studio (2022.08 ~ 2025.10)
+* **Project MZ Client Programmer** (2025.07 ~ 2025.10)
 
 
 * **[Project AA](https://jaykop.github.io/_pages/project/project_aa/) Client Programmer** (2022.08 ~ 2025.07)
