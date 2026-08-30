@@ -1,5 +1,6 @@
 ---
 title:  "Camera"
+permalink: /unreal/camera/
 classes: wide
 layout: category
 taxonomy: camera

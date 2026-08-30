@@ -1,5 +1,6 @@
 ---
 title:  "C++"
+permalink: /fundamentals/cpp/
 classes: wide
 layout: category
 taxonomy: cpp

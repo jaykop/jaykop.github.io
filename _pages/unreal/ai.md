@@ -1,5 +1,6 @@
 ---
 title:  "AI"
+permalink: /unreal/ai/
 classes: wide
 layout: category
 taxonomy: ai

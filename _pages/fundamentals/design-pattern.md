@@ -1,5 +1,6 @@
 ---
 title:  "Design Pattern"
+permalink: /fundamentals/design-pattern/
 classes: wide
 layout: category
 taxonomy: design-pattern

@@ -13,14 +13,14 @@ author_profile: true
 * C / C++의 프로젝트를 컴파일 할 때, 여러 translation unit을 하나로 뭉쳐서 빌드하는 방식
   * Unity 엔진과는 전혀 무관하다
 
-```c
+```c++
 // file_a.cc
 #include "header.h"
 
 // content of source file A ...
 ```
 
-```c
+```c++
 // file_b.cc
 #include "header.h"
 
@@ -29,7 +29,7 @@ author_profile: true
 
 * 위의 두 유닛이 같은 프로젝트에 있다면, 컴파일러에 의해 header.h 한번의 빌드 시에 2번 처리 된다
 
-```c
+```c++
 // jumbo_file.cc
 #include "file_a.cc"
 #include "file_b.cc"

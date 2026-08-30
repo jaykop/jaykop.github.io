@@ -1,5 +1,6 @@
 ---
 title:  "Unity"
+permalink: /post/unity/
 classes: wide
 layout: category
 taxonomy: Unity

@@ -1,5 +1,6 @@
 ---
 title:  "Math"
+permalink: /post/math/
 classes: wide
 layout: category
 taxonomy: Math

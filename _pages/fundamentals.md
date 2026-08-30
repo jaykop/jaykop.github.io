@@ -1,5 +1,6 @@
 ---
 title:  "Fundamentals"
+permalink: /fundamentals/
 classes: wide
 layout: category
 taxonomy: fundamentals

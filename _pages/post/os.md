@@ -1,5 +1,6 @@
 ---
 title:  "Operating System"
+permalink: /post/os/
 classes: wide
 layout: category
 taxonomy: OS

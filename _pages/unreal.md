@@ -1,5 +1,6 @@
 ---
 title:  "Unreal Engine"
+permalink: /unreal/
 classes: wide
 layout: category
 taxonomy: unreal

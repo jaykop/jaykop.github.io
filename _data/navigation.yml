@@ -1,55 +1,55 @@
 main:
   - title: "About"
-    url: /_pages/about/
+    url: /about/
 
   - title: "Unreal Engine"
-    url: /_pages/unreal/
+    url: /unreal/
     children:
       - title: "AI"
-        url: /_pages/unreal/ai
+        url: /unreal/ai
       - title: "Camera"
-        url: /_pages/unreal/camera
+        url: /unreal/camera
       - title: "Character & Animation"
-        url: /_pages/unreal/character
+        url: /unreal/character
       - title: "Combat & Ability"
-        url: /_pages/unreal/combat
+        url: /unreal/combat
       - title: "Engine Internals"
-        url: /_pages/unreal/engine-internals
+        url: /unreal/engine-internals
       - title: "Framework & Tools"
-        url: /_pages/unreal/framework
+        url: /unreal/framework
       - title: "Rendering & Performance"
-        url: /_pages/unreal/perf
+        url: /unreal/perf
 
   # 역기획 글 2편이 쌓이면 아래 주석 해제
   # - title: "Teardown"
-  #   url: /_pages/teardown/
+  #   url: /teardown/
 
   - title: "Fundamentals"
-    url: /_pages/fundamentals/
+    url: /fundamentals/
     children:
       - title: "C++"
-        url: /_pages/fundamentals/cpp
+        url: /fundamentals/cpp
       - title: "Design Pattern"
-        url: /_pages/fundamentals/design-pattern
+        url: /fundamentals/design-pattern
       - title: "Graphics"
-        url: /_pages/fundamentals/graphics
+        url: /fundamentals/graphics
 
   - title: "Archive"
-    url: /_pages/archive/
+    url: /archive/
     children:
       - title: "Academic"
-        url: /_pages/project/academic
+        url: /project/academic
       - title: "C#"
-        url: /_pages/post/CSharp
+        url: /post/csharp
       - title: "Game AI Theory"
-        url: /_pages/archive/game-ai-theory
+        url: /archive/game-ai-theory
       - title: "Math"
-        url: /_pages/post/math
+        url: /post/math
       - title: "Misc"
-        url: /_pages/post/misc
+        url: /post/misc
       - title: "Network"
-        url: /_pages/post/network
+        url: /post/network
       - title: "OS"
-        url: /_pages/post/os
+        url: /post/os
       - title: "Unity"
-        url: /_pages/post/unity
+        url: /post/unity

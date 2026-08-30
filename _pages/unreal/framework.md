@@ -1,5 +1,6 @@
 ---
 title:  "Framework & Tools"
+permalink: /unreal/framework/
 classes: wide
 layout: category
 taxonomy: framework

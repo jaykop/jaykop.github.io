@@ -1,5 +1,6 @@
 ---
 title:  "Character & Animation"
+permalink: /unreal/character/
 classes: wide
 layout: category
 taxonomy: character

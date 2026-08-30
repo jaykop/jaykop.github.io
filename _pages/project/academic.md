@@ -1,5 +1,6 @@
 ---
 title:  "Academic"
+permalink: /project/academic/
 classes: wide
 layout: category
 taxonomy: academic

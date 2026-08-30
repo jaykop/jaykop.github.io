@@ -1,5 +1,6 @@
 ---
 title:  "About Me"
+permalink: /about/
 layout: single
 classes: wide
 toc: true
@@ -40,7 +41,7 @@ Git, Perforce
   * 크래시, 버그, 성능 저하 등 다수의 기술적 문제 해결을 통한 프로젝트 안정성 기여 
 
 ### SundayToz (2021.02 ~ 2022.08)
-* **[Disney POP TOWN](https://jaykop.github.io/_pages/project/disney_pop/) Client Programmer**
+* **[Disney POP TOWN](https://jaykop.github.io/project/disney_pop/) Client Programmer**
   * C# Unity 엔진 사용하여 국내/아시아/북미 3개 브랜치 개발
   * 인게임 레벨 에디터에 신규 컨텐츠 적용 및 유지보수
   * 가챠 또는 상점 위주의 신규 이벤트 시스템 개발

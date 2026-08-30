@@ -15,7 +15,7 @@ author_profile: true
   * 근본적인 해결 방법은 찾지 못했지만, 일단은 취약성 경고를 에러로 처리하는 옵션을 해제하기로 했다
 * 영향을 받는 XXXX.csproj 파일에 아래 옵션을 추가했다
 
-```cs
+```csharp
 <Property>
   <NuGetAudit>false</NuGetAudit>
   <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904</WarningsNotAsErrors>
@@ -31,7 +31,7 @@ author_profile: true
 * claude에게 물어보니, Project.Build.cs에 추가하기를 권했다
   * windows.h 선언이 된 파일이 여러 개일 수도 있고, 우선순위 이슈도 있어 이게 가장 나은 방법인 듯하다
 
-```cs
+```csharp
 public class YourProject : ModuleRules
 {
   public YourProject(ReadOnlyTargetRules Target) : base(Target)

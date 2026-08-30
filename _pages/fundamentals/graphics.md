@@ -1,5 +1,6 @@
 ---
 title:  "Graphics"
+permalink: /fundamentals/graphics/
 classes: wide
 layout: category
 taxonomy: graphics

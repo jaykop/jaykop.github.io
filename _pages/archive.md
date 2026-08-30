@@ -1,5 +1,6 @@
 ---
 title:  "Archive"
+permalink: /archive/
 classes: wide
 layout: category
 taxonomy: post

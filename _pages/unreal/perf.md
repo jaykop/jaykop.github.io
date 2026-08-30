@@ -1,5 +1,6 @@
 ---
 title:  "Rendering & Performance"
+permalink: /unreal/perf/
 classes: wide
 layout: category
 taxonomy: perf
