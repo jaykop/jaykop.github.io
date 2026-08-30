@@ -177,7 +177,7 @@ public class Orc : Monster
 ```
 
 ### abstract 다중 상속이 안되는 이유
-![post_thumbnail](/assets/images/{B943E995-082D-4B3E-B6C4-1ED8D525A763}.png)
+![post_thumbnail](/assets/images/interface_abstract/01.png)
 * **죽음의 다이아몬드**
 * 다중 상속 시 모호성이 발생
 

@@ -6,19 +6,19 @@ categories:
   - project
   - academic
 header:
-  teaser: "assets/images/CaptainKorea_thumbnail.png"
+  teaser: "assets/images/CaptainKorea/01.png"
 sidebar:
   nav: "main"
 author_profile: true
 ---
 
 <figure class="half">
-    <a href="/assets/images/CaptainKorea_tech_hires.jpg"><img src="/assets/images/CaptainKorea_tech_hires.jpg"></a>
-    <a href="/assets/images/CaptainKorea_3_hires.jpg"><img src="/assets/images/CaptainKorea_3_hires.jpg"></a>
+    <a href="/assets/images/CaptainKorea/02.jpg"><img src="/assets/images/CaptainKorea/02.jpg"></a>
+    <a href="/assets/images/CaptainKorea/03.jpg"><img src="/assets/images/CaptainKorea/03.jpg"></a>
 </figure>
 <figure class="half">
-    <a href="/assets/images/CaptainKorea_2_hires.jpg"><img src="/assets/images/CaptainKorea_2_hires.jpg"></a>
-    <a href="/assets/images/CaptainKorea_1_hires.jpg"><img src="/assets/images/CaptainKorea_1_hires.jpg"></a>
+    <a href="/assets/images/CaptainKorea/04.jpg"><img src="/assets/images/CaptainKorea/04.jpg"></a>
+    <a href="/assets/images/CaptainKorea/05.jpg"><img src="/assets/images/CaptainKorea/05.jpg"></a>
 </figure>
 
 ## 개요

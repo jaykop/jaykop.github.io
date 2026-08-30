@@ -29,7 +29,7 @@ author_profile: true
 * 복잡한 데이터 통신을 하도록 하느 것
 
 ## 직렬화 (Serialization)
-![post_thumbnail](/assets/images/serialization-process.gif)
+![post_thumbnail](/assets/images/blittable/01.gif)
 * 개체를 저장하거나 메모리/DB/파일 전송을 위해 개체를 바이트 스트림으로 변환하는 프로세스
 * 프로세스 이후 다시 개체로 만들기 위함
 * 객체의 인스턴스 변수들의 값을 일렬로 나열하는 것
@@ -38,27 +38,27 @@ author_profile: true
 // 직렬화가 불가능한 클래스
 class A
 {
-    // ..
+  // ..
 }
 
 [Serializable]
 class B
 {
-    [NonSerialized]
-    // 본래 직렬화가 가능하지만, 직렬화 되지 않게 막음
-    // object 타입은 Serializable이 적용
-    object o; 
+  [NonSerialized]
+  // 본래 직렬화가 가능하지만, 직렬화 되지 않게 막음
+  // object 타입은 Serializable이 적용
+  object o; 
 
-    [NonSerialized]
-    // 직렬화가 불가능한 멤버는 별도로 직렬화를 막아야 함
-    A a;
+  [NonSerialized]
+  // 직렬화가 불가능한 멤버는 별도로 직렬화를 막아야 함
+  A a;
 
 }
 ```
 
 ### 직렬화, 역직렬화, 파싱
 
-![post_thumbnail](/assets/images/다운로드 (11).png)
+![post_thumbnail](/assets/images/blittable/02.png)
 
 * 직렬화 
   * 데이터의 문자열화

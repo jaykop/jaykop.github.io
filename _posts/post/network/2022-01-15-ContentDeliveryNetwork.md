@@ -1,5 +1,5 @@
 ---
-title: "[Networkd] Content Delivery Network"
+title: "[Network] Content Delivery Network"
 classes: wide
 categories: 
   - post

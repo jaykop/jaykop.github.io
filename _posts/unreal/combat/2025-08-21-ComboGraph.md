@@ -1,0 +1,268 @@
+---
+title: "[DevNote] Combo Graph"
+classes: wide
+categories:
+  - unreal
+  - combat
+sidebar:
+  nav: "main"
+author_profile: true
+---
+
+## 액션의 단위
+* Abl 플러그인을 사용하면서, 하나의 Abl이 캐릭터의 액션 단위로 정립되었다
+* Abl은 재생할 애니메이션, 그리고 이에 동반하는 효과 등을 여러 개의 AblTask로 구성했다.
+* Abl 플러그인이 기본적으로 지원하는 Branch 기능을 통해, 하나의 Abl에서 다른 Abl로 Transition 할 수 있었다
+  * 그러나 이 기능은 직관성이 떨어지고, 데이터를 관리하기에 용이하지 않았다
+  * 캐릭터의 무기 종류에 따라 카테고리를 나누고, 이 무기를 사용하는 액션들을 모아 기본 액션 또는 콤보 조합을 관리할 수 있는 새로운 에셋이 필요했다
+
+## Combo Graph
+
+![post_thumbnail](/assets/images/ComboGraph/01.png)
+
+* [GenericGraph](https://github.com/jinyuliao/GenericGraph) 플러그인을 사용해 그래프를 만들기로 했다
+* 크게 에디터 에셋 형태의 클래스와, 코드에서 처리할 데이터 형태의 클래스로 구분한다
+
+* Combo Graph 
+  - uasset으로서 존재하는 타입
+  - UGenericGraph를 상속한다
+
+* Combo Graph Node Base / UComboGraphEdge
+  - 각각 UGenericGraphEdge와 UGenericGraphEdge를 상속한다
+  - 에디터에서 Combo Graph를 조작시 사용하게 될 객체 타입들이다
+
+* Combo Asset 
+  - 코드에서 데이터를 처리하기 위해 한 번 가공한 UObject 형태의 Graph 데이터
+  - 그래프의 노드, 엣지, 엔트리 노드 등 정보를 타입별로 분류해 저장한다
+  - Combo Node Base / Combo Edge를 생성해 Graph Node / Graph Edge의 데이터를 이전한다
+
+* Combo Node Base / Combo Edge
+  - 이들 역시 UObject를 상속한다
+  - Graph Node / Graph Edge의 데이터를 가진다
+  - Combo Node Base는 Combo Node의 기본 클래스이다
+    - Combo Node / Entry Node / Any Node 등으로 파생한다
+    - Combo Node에서 Abl Component에 접근해 해당 Combo Node에 할당된 Abl(액션)을 실행한다
+
+> [!NOTE]
+> **왜 Graph 클래스를 그대로 사용하지 않고 별도의 클래스를 만들어 관리할까?**  
+> 에디터 에셋으로서 필요한, 게임 실행 중에 불필요한 데이터를 걸러낸다  
+> 같은 클래스를 쓰면 게임/에디터 상황에서 필요하지 않은 변수 및 함수까지 들고 있는 모양새다  
+> 다만 인게임 실행 시 사용할 데이터는 에디터 실행 시 조작하는 클래스에 멤버 변수로 넣고 관리해도 됐을 법한데....  
+
+### UComboComponent
+* Combo Graph, 그러니까 Combo Asset의 생명주기 관리
+* CurrentNode의 nullptr 여부로 ComboGraph를 실행중인지 아닌지 판별한다
+
+```c++
+void UComboComponent::OnAblComboTriggered(AActor* Channel, const FGM_Abl_ComboTriggered& Message)
+{
+  // ...
+  SetComponentTickEnabled(true);
+}
+
+// ...
+
+void UComboComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+{
+  Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+    
+  UpdateComboGraph();
+  
+  SetComponentTickEnabled(false);
+}
+
+void UComboComponent::UpdateComboGraph()
+{
+  if(ensure(ComboAsset) == false)
+  {
+    return;
+  }
+  
+  bool bSelected = ComboAsset->ComboTriggered(PendingComboTriggerTags);
+
+  // ...
+}
+
+// ...
+
+bool UComboAsset::ComboTriggered(const TArray<FGameplayTag>& TriggerTags)
+{
+  // CurrentEdges가 우선순위에 의해 정렬되었으므로, loop 돌면서 체크한다
+  for(UComboEdge* Edge : CurrentEdges)
+  {
+    for (const auto& TriggerTag : TriggerTags)
+    {
+      UComboNodeData* ComboNodeData = Cast<UComboNodeData>(Edge->DestNode->ComboNodeData);
+
+      // ...
+    
+      // 일단은 Exact 사용
+      if(Edge->TriggerTagContainer.HasTagExact(TriggerTag))
+      {
+        // Edge에 세팅된 조건을 확인하고, 조건이 맞으면 SelecNode 함수를 통해 Abl을 실행한다
+        if(Edge->DoesSatisfyCondition())
+        {
+          if(SelectNode(Edge->DestNode))
+          {
+            return true;
+          }
+        }
+      }
+    }
+  }
+
+  return false;
+}
+
+```
+
+* 메시지를 받아 Combo Graph를 실행시켜야 하는 순간이 되면, Tick을 한 프레임 실행시킨다
+  * Tick 함수에서 ComboGraph가 한 번 업데이트, 즉 실행되고 나면 Tick은 다시 멈춘다
+  * 그래서인지, ComboGraph 실행을 꼭 Tick 함수를 쓸 필요가 있나?는 잘 모르겠다
+
+### 콤보를 트리깅하는 방법
+
+![post_thumbnail](/assets/images/ComboGraph/02.png)
+
+* ComboGraph 상에서 분기 조건은 여러 개를 세팅할 수 있다
+  * 이하 내용에서는 특정 인풋을 조건으로 하는 경우를 설명한다
+  * 그리고 이 인풋들은 특정 태그와 매칭된다
+
+![post_thumbnail](/assets/images/ComboGraph/03.png)
+
+* (태그 <-> 인풋) -> Abl 실행으로 이어지는 구조다
+  * 이는 최초 인풋 -> Abl로 이어지는 경우
+  * 그리고 Abl 실행 중 다른 Abl로 분기되는 경우로 2가지이다
+
+* **인풋 -> 최초 Abl 실행하는 경우**
+
+```c++
+void UComboComponent::BindInputAction_Internal(UComboAsset* InComboAsset)
+{
+  if(!IsValid(InComboAsset))
+  {
+    return;
+  }
+
+  // ...
+  // ComboAsset을 참조해 EntryNode에 연결된 Edge를 참조해 Trigger Tag를 모두 탐색한다
+  // 해당 태그에 대응하는 InputAction들을 InputComponent를 통해 BindAction 한다
+  
+  if(UEnhancedInputComponent* InputComponent = FL::GetActorComponent<UEnhancedInputComponent>(GetOwner(), true))
+  {
+    for(const UInputAction* InputAction : EntryNodeInputActions)
+    {
+      const FEnhancedInputActionEventBinding& TriggerBinding = InputComponent->BindAction(InputAction, ETriggerEvent::Triggered, this, &ThisClass::OnInputActionTriggered, InputAction);
+      InputBindingHandles.Add(TriggerBinding.GetHandle());
+    }
+  }
+}
+
+// ...
+
+void UComboComponent::OnInputActionTriggered(const UInputAction* InputAction)
+{
+  // 콤보 플레이 중이면 InputAction은 무시한다.
+  if(!IsValid(ComboAsset) || ComboAsset->IsComboPlaying())
+  {
+    return;
+  }
+  
+  // Input으로 들어오는 전이는 Root에서만 유효하므로 바로 노드 셀렉트를 진행한다.
+  const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+  check(IsValid(DataCollection->ComboTriggerMappingContext));
+
+  const FGameplayTag* TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_InputAction.Find(InputAction);
+  if(TriggerTag)
+  {
+    TArray<FGameplayTag> TriggerTags { *TriggerTag };
+    ComboAsset->ComboTriggered(TriggerTags);
+
+    // ...
+  }
+}
+```
+
+* 아무런 Abl을 실행하지 않고 있던 상황에서, 인풋에 대응하는 Abl을 실행해야하는 상황이다
+* UComboComponent에서 InputAction과 함께 바인딩된 함수에서 ComboAsset을 실행한다
+  * **즉, InputComponent에 의해 실행된다**
+
+* **Abl 실행 중 -> 다른 Abl로 전환하는 경우**
+* 어떤 액션을 실행 중에 특정 인풋을 조건으로 다른 액션으로 분기를 해야 하는 상황이다
+* 이 경우, AblTask를 사용해 어떤 TriggerTag를 조건으로 할지 세팅하고 이 Tag에 대응하는 Input이 들어오면 분기하도록 한다
+
+![post_thumbnail](/assets/images/ComboGraph/04.png)
+
+```c++
+void UAblTask_ComboTriggerSection::OnTaskTick(const TWeakObjectPtr<const UAblAbilityContext>& Context, float deltaTime) const
+{
+  if(!Context.IsValid())
+  {
+    return;
+  }
+
+  UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = CastChecked<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this));
+
+  if(!bTriggerEventOnTaskEnd && !ScratchPad->TriggeredTriggerMappingTags.IsEmpty())
+  {
+    FGM_Abl_ComboTriggered Message;
+    Message.TriggerTags = ScratchPad->TriggeredTriggerMappingTags;
+    FL::ActorMessage::Publish(Context->GetSelfActor(), Message);
+
+    ScratchPad->TriggeredTriggerMappingTags.Empty();
+  }
+}
+
+// ...
+
+void UAblTask_ComboTriggerSection::AddMappingContextTag(const TWeakObjectPtr<const UAblAbilityContext>& Context, const UInputAction* InputAction, bool bNegate) const
+{
+  if(Context.IsValid())
+  {
+    const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+    check(IsValid(DataCollection->ComboTriggerMappingContext));
+
+    FGameplayTag* TriggerTag = nullptr;
+
+    if(bNegate)
+    {
+      TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_NegateInputAction.Find(InputAction);
+    }
+    else
+    {
+      TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_InputAction.Find(InputAction);
+    }
+
+    if(TriggerTag)
+    {
+      if(UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = Cast<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this)))
+      {
+        ScratchPad->TriggeredTriggerMappingTags.AddUnique(*TriggerTag);
+      }
+    }
+  }
+}
+
+void UAblTask_ComboTriggerSection::AddMappingContextTag(const TWeakObjectPtr<const UAblAbilityContext>& Context, FGameplayTag Tag) const
+{
+  if(Context.IsValid())
+  {
+    const UDataCollection* DataCollection = FL::GetDataCollectionChecked();
+    check(IsValid(DataCollection->ComboTriggerMappingContext));
+
+    const FGameplayTag* TriggerTag = DataCollection->ComboTriggerMappingContext->ComboTriggerMapping_GameplayTag.Find(Tag);
+    if(TriggerTag)
+    {
+      if(UAblAbilityTaskScratchPad_ComboTriggerSection* ScratchPad = Cast<UAblAbilityTaskScratchPad_ComboTriggerSection>(Context->GetScratchPadForTask(this)))
+      {
+        ScratchPad->TriggeredTriggerMappingTags.AddUnique(*TriggerTag);
+      }
+    }
+  }
+}
+```
+
+* AddMappingContextTag를 통해 InputAction에 대응하는 TriggerTag를 등록한다
+  * 이 함수 자체는 UAblTask_ComboTriggerSection를 상속한 AblTask의 Tick에서 호출된다
+* OnTaskTick에서 Task의 길이 동안 해당 Tag에 대응하는 Input이 입력되었는지 확인한다
+

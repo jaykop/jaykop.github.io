@@ -10,7 +10,7 @@ author_profile: true
 ---
 
 <div style="text-align:center;">
- <img src="/assets/images/SoftwareLicense/SoftwareLicense_1.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/SoftwareLicense/01.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 * 저작권 - 인간의 사상 또는 감정을 표현한 문학, 예술, 학술에 속하는 창작물에 대하여 저작자나 그 권리 승계인이 행사하는 배타적·독점적 권리
@@ -65,7 +65,7 @@ author_profile: true
 #### GNU General Public License
 
 <div style="text-align:center;">
- <img src="/assets/images/SoftwareLicense/SoftwareLicense_2.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/SoftwareLicense/02.png" width="50%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 * Copyleft
@@ -114,7 +114,7 @@ author_profile: true
 ### 개요
 
 <div style="text-align:center;">
- <img src="/assets/images/SoftwareLicense/SoftwareLicense_3.png" width="75%" alt="post_thumbnail" style="display: inline-block;">
+ <img src="/assets/images/SoftwareLicense/03.png" width="75%" alt="post_thumbnail" style="display: inline-block;">
 </div>
 
 > [!NOTE]  

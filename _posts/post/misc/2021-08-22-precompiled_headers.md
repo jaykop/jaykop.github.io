@@ -17,7 +17,7 @@ author_profile: true
 
 ## 사용법
 
-![post_thumbnail](/assets/images/stdafx.jfif)
+![post_thumbnail](/assets/images/precompiled_headers/01.jpg)
 * **Standard Application Frameworks (stdafx)**
 * 각 stdafx.h와 stdafx.cpp에 대해 위 그림과 같이 설정
 

@@ -30,7 +30,7 @@ author_profile: true
 
 ### 대응
 
-![image](/assets/images/{6DA2BE5B-2E93-4DA0-A160-90E02EC9CB1D}.png)
+![image](/assets/images/AffineSpace/01.png)
 * A의 점과 V의 벡터로 연산을 했을 때 결과는 점이다
 * 하나의 점과 하나의 벡터의 짝은 하나의 덧셈 연산으로만 대응된다
 

@@ -6,7 +6,7 @@ categories:
   - project
   - academic
 header:
-  teaser: "assets/images/ShepherdBoy_thumbnail.png"
+  teaser: "assets/images/ShepherdBoy/01.png"
 sidebar:
   nav: "main"
 author_profile: true

@@ -10,7 +10,7 @@ author_profile: true
 ---
    
 ## 저장장치 Storage
-![post_thumbnail](/assets/images/Memory-Hierarchy.jpg)
+![post_thumbnail](/assets/images/Memoryhierarchy/01.jpg)
 * 최소 단위는 bit
   * 8 bits = 1 byte
   * 컴퓨터 구조상 native unit of data는 word = one or more of bytes

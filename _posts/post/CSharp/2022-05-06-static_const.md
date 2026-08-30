@@ -1,10 +1,9 @@
 ---
 title: "[C++/C#] static과 const"
 classes: wide
-categories: 
+categories:
   - post
   - CSharp
-  - CPP
 sidebar:
   nav: "main"
 author_profile: true

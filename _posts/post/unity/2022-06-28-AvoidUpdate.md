@@ -11,7 +11,7 @@ author_profile: true
 
 ## Update의 비용
 
-![image](/assets/images/updateFunction.png)
+![image](/assets/images/AvoidUpdate/01.png)
 
 * Monobehaviour이 Enable한 상태하면 매 프레임마다 호출하는 함수
 * gameobject가 많아질수록 이 함수의 호출도 많아진다
@@ -56,7 +56,7 @@ private IEnumerator UpdateCoroutine()
   * 이 MonoBehaviour의 메서드는 알맞은 호출 리스트에 들어가게 되고, Unity는 이 리스트를 iterate한다
 
 ## Update 함수가 호출되는 순서 (IL2CPP)
-![image](/assets/images/table5.png)
+![image](/assets/images/AvoidUpdate/02.png)
 
 1. 유니티가 모든 업데이트할 모든 Behaviour를 iterate한다
   * iterate 도중 후위의 Behaviour가 삭제되는 게 아니라는 가정하에

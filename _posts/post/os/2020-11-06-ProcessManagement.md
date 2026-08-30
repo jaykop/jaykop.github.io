@@ -69,7 +69,7 @@ author_profile: true
   * fork a child (자식 프로세스를 만들 때)
   * wait for an interrupt (인터럽트 처리를 기다릴 때) 
 * 라운드로빈 스케줄링에서 OS는 주기적으로 프로세스를 스위치해야함
-![post_thumbnail](/assets/images/다운로드.jfif)
+![post_thumbnail](/assets/images/ProcessManagement/01.jpg)
 * 과정
   1. 프로세스 정보는 PCB로부터 읽어옴
   2. 타이머를 초기화

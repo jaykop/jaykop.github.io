@@ -30,7 +30,7 @@ Git, Perforce
 * **Project MZ Client Programmer** (2025.07 ~ 2025.10)
 
 
-* **[Project AA](https://jaykop.github.io/_pages/project/project_aa/) Client Programmer** (2022.08 ~ 2025.07)
+* **Project AA Client Programmer** (2022.08 ~ 2025.07)
   * 언리얼 엔진 5와 게임플레이 어빌리티 시스템(GAS)을 기반으로 스킬, 콤보, 가드 등 전투 시스템 설계 및 개발 
   * Behaviour Tree와 AI Perception 활용하여 몬스터의 전투 패턴 시스템 구현 
   * 3인칭 액션 카메라 및 상황별 카메라 시스템 개발 및 락온, 장애물 투명화 처리 기능 구현 
@@ -48,7 +48,7 @@ Git, Perforce
   * 사내 타 신규 프로젝트와 크로스 프로모션 작업 진행
 
 ### DigiPen-KMU (2017.09 ~ 2018.06)
-* **[Teaching Assistant](https://jaykop.github.io/project/academic/GAM150-EngineProject/)**
+* **[Teaching Assistant](https://jaykop.github.io/project/academic/GAM150EngineProject/)**
   * 게임 프로젝트 강의 수강 학생들에게 스크래치 엔진 개발하여 제공
   * C++, SDL, Box2D 라이브러리 이용하여 그래픽스, 사운드, 피직스 등 컴포넌트 시스템 구현
   * 학생들 피드백 수렴하여 버그 픽스 및 새 기능 추가 등 유지 보수

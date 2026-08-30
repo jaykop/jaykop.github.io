@@ -6,7 +6,7 @@ categories:
   - project
   - disney_pop
 header:
-  teaser: "assets/images/facebookShareImage.png"
+  teaser: "assets/images/DisneyPop/01.png"
 sidebar:
   nav: "main"
 author_profile: true

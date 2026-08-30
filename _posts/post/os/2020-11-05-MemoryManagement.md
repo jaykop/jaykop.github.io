@@ -27,7 +27,7 @@ author_profile: true
   * 프로그램이 허용되지 않은 메모리 영역에 접근을 시도하거나, 허용되지 않은 방법으로 메모리 영역에 접근을 시도할 경우 발생
 
 ## 가상 기억 장치 (가상 메모리)
-![post_thumbnail](/assets/images/MMU_principle_updated.png)
+![post_thumbnail](/assets/images/MemoryManagement/01.png)
 * 메모리 자원을 이상적으로 추상화하여 물리 기억 장치의 크기보다 더 큰 메모리를 제공
 * 활성 RAM과 디스크의 비활성 메모리로 결합
 * 가상 주소와 물리 주소로 구분되며, Memory Management Unit에 의해 가상 주소에서 물리 주소로 변환
@@ -55,7 +55,7 @@ author_profile: true
     * 파일을 비휘발성 저장장치에 백업
 
 ## 디스크에서 레지스터까지의 데이터 마이그레이션
-![post_thumbnail](/assets/images/image (1).png)
+![post_thumbnail](/assets/images/MemoryManagement/02.png)
 * 멀티태스킹 환경에서 모든 CPU가 가장 최근의, 동일한 데이터를 제공해주는 역할은 매우 중요
 * 이 데이터가 본래 어디에 저장되어 있든 상관없이 안정적으로 전달되어야 한다
 * 디스크 -> 주 메모리 -> 캐시 -> 레지스터

@@ -68,7 +68,7 @@ author_profile: true
 ## 컴퓨터 시스템 조직
 * 컴퓨터 시스템의 작동
 
-![post_thumbnail](/assets/images/1319300_orig.png)
+![post_thumbnail](/assets/images/computerSystem/01.png)
   * 하나 이상의 CPU와 Device Controller 들이 common bus 를 통해 연결
   * common bus는 shared memory에 access를 제공
   * 각 메모리의 사이클을 두고 CPU와 기기들이 실행을 위해 경쟁
@@ -86,7 +86,7 @@ author_profile: true
 ## 멀티프로세싱 vs. 멀티프로그래밍 vs. 멀티태스킹 vs. 멀티스레드
 * **멀티프로세싱** 
 
-![post_thumbnail](/assets/images/multiPROCESSINGjpg.jpg)
+![post_thumbnail](/assets/images/computerSystem/02.jpg)
   * 여러 프로세서가 협력하여 일을 처리 (= 멀티코어 시스템)
   * 병렬 구조의 프로세서 처리방식
     * 처리량 증대
@@ -97,7 +97,7 @@ author_profile: true
 
 * **멀티프로그래밍 Multiprogramming (Batch system)**
 
-  ![post_thumbnail](/assets/images/multiprogramming.jpg)
+  ![post_thumbnail](/assets/images/computerSystem/03.jpg)
   * 단일 프로세스 상에서 여러 프로그램이 실행되도록 하는 것
     * 프로세서가 입출력 작업(I/O)의 종료를 대기할 동안 다른 프로그램을 수행
     * 자원의 낭비를 막기 위한 목적
@@ -110,7 +110,7 @@ author_profile: true
 
 * **멀티태스킹 Multitasking (Time Sharing)**
 
-  ![post_thumbnail](/assets/images/multitasking.jpg)
+  ![post_thumbnail](/assets/images/computerSystem/04.jpg)
   * CPU가 태스크를 변경함에 있어 사용자가 각 태스크가 작동하는 동안 반응하고, 상호작용할 수 있도록 하는 논리적 확장
     * 반응 시간은 최대 1초
     * **실행되고 있는 프로세스들이 일정 시간을 분할 받아 돌아가며 실행**
@@ -122,7 +122,7 @@ author_profile: true
 
 * **멀티스레드** 
 
-![post_thumbnail](/assets/images/vlc.jpg)
+![post_thumbnail](/assets/images/computerSystem/05.jpg)
   * **하나의 프로세스 안에서 여러 스레드들이 자원을 공유하며 병렬 구조로 작업을 수행**
     * 하나의 Context 안에서 동시에 여러 Code Segment를 수행
   * 한 유저에 대해 프로그램의 복수 실행(또는 복사)없이 여러 Request를 받아 수행 가능

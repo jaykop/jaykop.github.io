@@ -30,7 +30,7 @@ author_profile: true
 
 ### GC Root란?
 
-![image](/assets/images/다운로드 (8).png)
+![image](/assets/images/GarbageCollector/01.png)
 
 * 오브젝트로의 참조 즉, 메모리 주소
   * 현재 실행 중인 스레드의 지역 변수
@@ -41,8 +41,8 @@ author_profile: true
 
 ### GC Root 목록
 
-![image](/assets/images/다운로드 (9).png)
-![image](/assets/images/다운로드 (10).png)
+![image](/assets/images/GarbageCollector/02.png)
+![image](/assets/images/GarbageCollector/03.png)
 
 * GC는 Root 목록을 생성하고 순회한다
   * 이 목록은 상시 접근 가능한 메모리 주소로 이루어져 있다

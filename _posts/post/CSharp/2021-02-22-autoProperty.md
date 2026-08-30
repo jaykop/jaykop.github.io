@@ -66,12 +66,12 @@ class MyClass
 ```csharp
 public class myint
 {
-    public int value{get;set;}
+  public int value{get;set;}
 }
 
 public class myint
 {
-    public int value;
+  public int value;
 }
 ```
 * 사실 상기 두 클래스의 기능적 차이는 없음

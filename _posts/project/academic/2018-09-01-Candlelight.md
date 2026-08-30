@@ -6,7 +6,7 @@ categories:
   - project
   - academic
 header:
-  teaser: "assets/images/Candlelight_thumbnail.png"
+  teaser: "assets/images/Candlelight/01.png"
 sidebar:
   nav: "main"
 author_profile: true

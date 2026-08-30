@@ -6,13 +6,13 @@ categories:
   - project
   - academic
 header:
-  teaser: "assets/images/GAM150 Projects_thumbnail.png"
+  teaser: "assets/images/GAM150EngineProject/01.png"
 sidebar:
   nav: "main"
 author_profile: true
 ---
 
-![Projects_thumbnail](/assets/images/GAM150 Projects_thumbnail.png)
+![Projects_thumbnail](/assets/images/GAM150EngineProject/01.png)
   
 ## 개요
 * 2018.02 ~ 2018.06

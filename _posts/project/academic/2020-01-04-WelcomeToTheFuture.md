@@ -6,19 +6,19 @@ categories:
   - project
   - academic
 header:
-  teaser: "assets/images/wttf_thumbnail.png"
+  teaser: "assets/images/WelcomeToTheFuture/01.png"
 sidebar:
   nav: "main"
 author_profile: true
 ---
 
 <figure class="half">
-    <a href="/assets/images/wttf_page1.png"><img src="/assets/images/wttf_page1.png"></a>
-    <a href="/assets/images/wttf_page2.png"><img src="/assets/images/wttf_page2.png"></a>
+    <a href="/assets/images/WelcomeToTheFuture/02.png"><img src="/assets/images/WelcomeToTheFuture/02.png"></a>
+    <a href="/assets/images/WelcomeToTheFuture/03.png"><img src="/assets/images/WelcomeToTheFuture/03.png"></a>
 </figure>
 <figure class="half">
-    <a href="/assets/images/wttf_page3.png"><img src="/assets/images/wttf_page3.png"></a>
-    <a href="/assets/images/wttf_thumbnail.png"><img src="/assets/images/wttf_thumbnail.png"></a>
+    <a href="/assets/images/WelcomeToTheFuture/04.png"><img src="/assets/images/WelcomeToTheFuture/04.png"></a>
+    <a href="/assets/images/WelcomeToTheFuture/01.png"><img src="/assets/images/WelcomeToTheFuture/01.png"></a>
 </figure>
 <div style="text-align: center" markdown="1">
 </div>

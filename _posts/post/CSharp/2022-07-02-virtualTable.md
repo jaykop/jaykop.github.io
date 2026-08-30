@@ -19,17 +19,17 @@ author_profile: true
 ```csharp
 class A
 {
-    public virtual void BaseMeth1() { }
-    public virtual void BaseMeth2() { }
+  public virtual void BaseMeth1() { }
+  public virtual void BaseMeth2() { }
 }
 class B : A
 {
-    public void DerivedMeth1() { }
-    public void DerivedMeth2() { }
+  public void DerivedMeth1() { }
+  public void DerivedMeth2() { }
 }
 ```
 
-![image](/assets/images/derived-vtable.png)
+![image](/assets/images/virtualTable/01.png)
 
 * 위 상속 클래스 A, B의 메서드 테이블
 
@@ -39,19 +39,19 @@ class B : A
 ```csharp
 class A
 {
-    public virtual void Run1() 
-    {
-        Console.WriteLine("A.Run1");
-    }
-    public virtual void Run2() { }
+  public virtual void Run1() 
+  {
+    Console.WriteLine("A.Run1");
+  }
+  public virtual void Run2() { }
 }
 class B : A
 {
-    public override void Run1() 
-    {
-        Console.WriteLine("B.Run1");
-    }        
-    public void OtherRun() {}
+  public override void Run1() 
+  {
+    Console.WriteLine("B.Run1");
+  }        
+  public void OtherRun() {}
 }
 
 // 케이스-A
@@ -63,13 +63,13 @@ A x = new B();
 x.Run1();  
 ```
 
-![image](/assets/images/VTable-view-range.png)
+![image](/assets/images/virtualTable/02.png)
 * 상속 계층에 따라 메서드 테이블이 다르게 구성된다
 
-![image](/assets/images/derived-vtable-baseonly.png)
+![image](/assets/images/virtualTable/03.png)
 * Base Class인 A의 메서드 테이블 구성
 
-![image](/assets/images/derived-vtable-overriding.png)
+![image](/assets/images/virtualTable/04.png)
 * Derived Class인 B의 메서드 테이블 구성
 * Object class의 메서드, A의 메서드, B의 메서드 순서로 VTable이 구성되어 있을 거라 예상됐지만, B.Run1이 A 메서드 자리에 들어와 있고, A.Run1이 보이지 않는다
   * override 되었기 때문이다
@@ -82,45 +82,45 @@ x.Run1();
 ```csharp
 class A
 {
-    public virtual void Run1()
-    {
-        Console.WriteLine("A.Run1");
-    }
-    public virtual void Run2() 
-    {
-        Console.WriteLine("A.Run2");
-    }
+  public virtual void Run1()
+  {
+    Console.WriteLine("A.Run1");
+  }
+  public virtual void Run2() 
+  {
+    Console.WriteLine("A.Run2");
+  }
 }
 class B : A
 {
-    public override void Run1()
-    {
-        Console.WriteLine("B.Run1");
-    }
-    public new void Run2()
-    {
-        Console.WriteLine("B.Run2");
-    }
+  public override void Run1()
+  {
+    Console.WriteLine("B.Run1");
+  }
+  public new void Run2()
+  {
+    Console.WriteLine("B.Run2");
+  }
 }
 class Program
 {
-    static void Main(string[] args)
-    {
-        //케이스-A
-        A a = new B();        
-        a.Run2();  // 베이스의 Run2 실행
+  static void Main(string[] args)
+  {
+    //케이스-A
+    A a = new B();        
+    a.Run2();  // 베이스의 Run2 실행
 
-        //케이스-B
-        B b = (B) a;
-        b.Run2(); // 파생클래스 Run2 실행
-    }
+    //케이스-B
+    B b = (B) a;
+    b.Run2(); // 파생클래스 Run2 실행
+  }
 }
 ```
 
 * 위의 예시에서는 파생 클래스 B가 A의 가상 메서드인 Run2를 무시하고 새로운 Run2를 정의 및 구현했다
   * 이 경우 파생 클래스인 B는 Base 클래스인 A의 Run2를 사용할 수 없다
 
-![image](/assets/images/method-hiding.png)
+![image](/assets/images/virtualTable/05.png)
 
 * IL 상으로는 메서드 테이블에는 A의 Run2가 목록에 있지만 override 되지 않은 B의 Run2도 동일한 이름으로 생성되었다
 * 다시 위의 예시에서, 케이스-A는 A 타입으로 할당된 객체 B를 생성한다
@@ -153,12 +153,12 @@ class Program
 ```csharp
 static void Main(string[] args)
 {
-    Console.WriteLine(GetString("Hello World"));
+  Console.WriteLine(GetString("Hello World"));
 }
 
 string GetString(object arg)
 {
-    return arg.ToString();
+  return arg.ToString();
 }
 ```
 
@@ -173,7 +173,7 @@ string GetString(object arg)
 * 거기서 메서드 테이블에 들어가 System.String이 제공하는 ToString의 Implementation을 찾는다
   * 이로써 메서드 코드에 접근하는 것이고, 필요하다면 컴파일을 거친 뒤 실행한다
 
-![image](/assets/images/vtable.png)
+![image](/assets/images/virtualTable/06.png)
 
 * 만약 ToString을 지원하지 않는 object가 인자로 들어왔다면?
   * CLR은 상속 계층을 확인하며 해당 메서드를 가진 class를 찾는다
@@ -187,16 +187,16 @@ string GetString(object arg)
 ```csharp
 static void Main(string[] args)
 {
-    var sb = new StringBuilder("Hello world.");
-    sb.ToString();
-    6.ToString();
-    GetString(sb);
-    GetString(6);
+  var sb = new StringBuilder("Hello world.");
+  sb.ToString();
+  6.ToString();
+  GetString(sb);
+  GetString(6);
 }
 
 static string GetString(object arg)
 {
-    return arg.ToString();
+  return arg.ToString();
 }
 ```
 
@@ -224,7 +224,7 @@ static string GetString(object arg)
 ```csharp
 static string GetString(int arg)
 {
-    return arg.ToString();
+  return arg.ToString();
 }
 ```
 

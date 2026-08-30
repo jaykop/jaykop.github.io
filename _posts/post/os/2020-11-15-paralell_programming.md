@@ -17,12 +17,12 @@ author_profile: true
 
 ## Shared variables
 
-![post_thumbnail](/assets/images/{7F0D7DB1-A481-4D6D-BEBF-291796F5FFE8}.png)
+![post_thumbnail](/assets/images/paralell_programming/01.png)
 * 위 두 스레드의 실행 결과는 매번 다르다
   * 5일 수도, 7일 수도 있다
 * **Race condition**: 복수의 이벤트가 발생하고 타이밍에 의해 결과값이 의존되어 달라지는 현상
   
-![post_thumbnail](/assets/images/{75A2D9B6-F1AC-4856-83C3-4B1221439B2D}.png)
+![post_thumbnail](/assets/images/paralell_programming/02.png)
 * 위 두 스레드의 실행 결과 역시 매번 다르다
   * 원래 값을 0이라고 할 때, 1일 수도, 2일 수도 있다
   * 한 구문이 완벽하게 끝날 때까지 침범받지 않는 구문이 필요
@@ -92,7 +92,7 @@ while ( 1 ) do {
 
 ## Amdahl의 법칙
 
-![post_thumbnail](/assets/images/{BF98C5E3-5B76-4639-AB08-FFE2FEBEF806}.png)
+![post_thumbnail](/assets/images/paralell_programming/03.png)
 
 |문자|내용|
 |:---:|:---|
@@ -114,7 +114,7 @@ while ( 1 ) do {
 
 ## Basic Syncronization Patterns
 
-![post_thumbnail](/assets/images/{57C2F452-895C-4816-A44C-8B1D2A9A4DDE}.png)
+![post_thumbnail](/assets/images/paralell_programming/04.png)
 
 * 위 코드는
   * b2가 a1을 기다리는 것을 보장

@@ -21,10 +21,10 @@ title                    : "jaykop's Devlog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Juyong Jeong"
-description              : "Jay's gitPage"
+description              : "Gameplay programming notes on Unreal Engine 5 — combat systems, character animation, and action camera."
 url                      : "https://jaykop.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "jaykop/jaykop.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/profile/logo.jpg"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -95,7 +95,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : "/assets/profile/logo.jpg" # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -116,7 +116,7 @@ author:
   name             : "Juyong Jeong"
   avatar           : "assets/profile/avatar.jpg"
   bio              : "💻Game Programmer"
-  location         : "Seoungnam, South Korea"
+  location         : "Seoul, South Korea"
   # email            : "jeykop14@gmail.com"
   links:
     - label: "Email"

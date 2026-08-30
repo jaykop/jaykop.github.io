@@ -21,11 +21,11 @@ using System.Collections;
 
 public class ExampleClass : MonoBehaviour {
 
-    // scene이 로드될 때 불린다
-    void Awake() {
-        // 이때, ExampleClass는 파괴되지 않는다
-        DontDestroyOnLoad(transform.gameObject);
-    }
+  // scene이 로드될 때 불린다
+  void Awake() {
+    // 이때, ExampleClass는 파괴되지 않는다
+    DontDestroyOnLoad(transform.gameObject);
+  }
 }
 ```
 * 여전히 이 오브젝트는 **Destroy** 함수를 통해 파괴할 수 있다

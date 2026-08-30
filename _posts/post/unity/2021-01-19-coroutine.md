@@ -30,40 +30,40 @@ author_profile: true
 // 일정 시간 텀을 두고 업데이트 가능
 IEnumerator Fade() 
 {
-    for (float ft = 1f; ft >= 0; ft -= 0.1f) 
-    {
-        Color c = renderer.material.color;
-        c.a = ft;
-        renderer.material.color = c;
-        yield return new WaitForSeconds(.1f);
-    }
+  for (float ft = 1f; ft >= 0; ft -= 0.1f) 
+  {
+    Color c = renderer.material.color;
+    c.a = ft;
+    renderer.material.color = c;
+    yield return new WaitForSeconds(.1f);
+  }
 }
 
 // 적이 지근 거리에 있는지 확인하는 함수
 // 매초 Update로 호출하기에는 overhead과 발생
 function ProximityCheck() 
 {
-    for (int i = 0; i < enemies.Length; i++)
-    {
-        if (Vector3.Distance(transform.position, enemies[i].transform.position) < dangerDistance) {
-                return true;
-        }
+  for (int i = 0; i < enemies.Length; i++)
+  {
+    if (Vector3.Distance(transform.position, enemies[i].transform.position) < dangerDistance) {
+        return true;
     }
+  }
     
-    return false;
+  return false;
 }
 
 // 아래와 같이 시간 텀을 두어 확인 가능
 IEnumerator DoCheck() 
 {
-    ProximityCheck();
-    yield return new WaitForSeconds(.1f);
+  ProximityCheck();
+  yield return new WaitForSeconds(.1f);
 }
 ```
 
 ### 스레드와의 차이?
 
-![post_thumbnail](/assets/images/코루틴.png)
+![post_thumbnail](/assets/images/coroutine/01.png)
 
 * 스레드 실행 도중 다른 스레드가 간섭하여 실행될 수 있다
 * 실행 중인 코루틴이 종료되어야 다음 코루틴이 실행된다
@@ -103,9 +103,9 @@ yield return new;
 ```csharp
 public interface IEnumerator
 {
-    object Current { get; }
-    bool MoveNext();
-    void Reset();
+  object Current { get; }
+  bool MoveNext();
+  void Reset();
 }
 ```
 ### IEnumerable
@@ -115,7 +115,7 @@ public interface IEnumerator
 ```csharp
 public interface IEnumerable
 {
-    IEnumerator GetEnumerator();
+  IEnumerator GetEnumerator();
 }
 ```
 

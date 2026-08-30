@@ -6,19 +6,19 @@ categories:
   - project
   - academic
 header:
-  teaser: "assets/images/DigiPenScheduler_thumbnail.png"
+  teaser: "assets/images/ClassScheduler/01.png"
 sidebar:
   nav: "main"
 author_profile: true
 ---
 
 <figure class="half">
-    <a href="/assets/images/DigiPenScheduler_page1.png"><img src="/assets/images/DigiPenScheduler_page1.png"></a>
-    <a href="/assets/images/DigiPenScheduler_page2.png"><img src="/assets/images/DigiPenScheduler_page2.png"></a>
+    <a href="/assets/images/ClassScheduler/02.png"><img src="/assets/images/ClassScheduler/02.png"></a>
+    <a href="/assets/images/ClassScheduler/03.png"><img src="/assets/images/ClassScheduler/03.png"></a>
 </figure>
 <figure class="half">
-    <a href="/assets/images/DigiPenScheduler_page3.png"><img src="/assets/images/DigiPenScheduler_page3.png"></a>
-    <a href="/assets/images/DigiPenScheduler_page4.png"><img src="/assets/images/DigiPenScheduler_page4.png"></a>
+    <a href="/assets/images/ClassScheduler/04.png"><img src="/assets/images/ClassScheduler/04.png"></a>
+    <a href="/assets/images/ClassScheduler/05.png"><img src="/assets/images/ClassScheduler/05.png"></a>
 </figure>
 <div style="text-align: center" markdown="1">
 </div>

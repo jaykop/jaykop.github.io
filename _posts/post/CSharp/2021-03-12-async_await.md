@@ -24,106 +24,106 @@ using System.Threading.Tasks;
 
 namespace AsyncBreakfast
 {
-    // 아래 클래스는 예시를 위한 더미 클래스
-    internal class Bacon { }
-    internal class Coffee { }
-    internal class Egg { }
-    internal class Juice { }
-    internal class Toast { }
+  // 아래 클래스는 예시를 위한 더미 클래스
+  internal class Bacon { }
+  internal class Coffee { }
+  internal class Egg { }
+  internal class Juice { }
+  internal class Toast { }
 
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Coffee cup = PourCoffee();
-            Console.WriteLine("coffee is ready");
+      Coffee cup = PourCoffee();
+      Console.WriteLine("coffee is ready");
 
-            Egg eggs = FryEggs(2);
-            Console.WriteLine("eggs are ready");
+      Egg eggs = FryEggs(2);
+      Console.WriteLine("eggs are ready");
 
-            Bacon bacon = FryBacon(3);
-            Console.WriteLine("bacon is ready");
+      Bacon bacon = FryBacon(3);
+      Console.WriteLine("bacon is ready");
 
-            Toast toast = ToastBread(2);
-            ApplyButter(toast);
-            ApplyJam(toast);
-            Console.WriteLine("toast is ready");
+      Toast toast = ToastBread(2);
+      ApplyButter(toast);
+      ApplyJam(toast);
+      Console.WriteLine("toast is ready");
 
-            Juice oj = PourOJ();
-            Console.WriteLine("oj is ready");
-            Console.WriteLine("Breakfast is ready!");
-        }
-
-        // 오렌지 주스 따르기
-        private static Juice PourOJ()
-        {
-            Console.WriteLine("Pouring orange juice");
-            return new Juice();
-        }
-
-        // 잼 바르기
-        private static void ApplyJam(Toast toast) =>
-            Console.WriteLine("Putting jam on the toast");
-
-        // 버터 바르기
-        private static void ApplyButter(Toast toast) =>
-            Console.WriteLine("Putting butter on the toast");
-
-        // 빵 굽기
-        private static Toast ToastBread(int slices)
-        {
-            for (int slice = 0; slice < slices; slice++)
-            {
-                Console.WriteLine("Putting a slice of bread in the toaster");
-            }
-            Console.WriteLine("Start toasting...");
-            Task.Delay(3000).Wait();
-            Console.WriteLine("Remove toast from toaster");
-
-            return new Toast();
-        }
-
-        // 베이컨 굽기
-        private static Bacon FryBacon(int slices)
-        {
-            Console.WriteLine($"putting {slices} slices of bacon in the pan");
-            Console.WriteLine("cooking first side of bacon...");
-            Task.Delay(3000).Wait();
-            for (int slice = 0; slice < slices; slice++)
-            {
-                Console.WriteLine("flipping a slice of bacon");
-            }
-            Console.WriteLine("cooking the second side of bacon...");
-            Task.Delay(3000).Wait();
-            Console.WriteLine("Put bacon on plate");
-
-            return new Bacon();
-        }
-
-        // 계란 프라이 굽기
-        private static Egg FryEggs(int howMany)
-        {
-            Console.WriteLine("Warming the egg pan...");
-            Task.Delay(3000).Wait();
-            Console.WriteLine($"cracking {howMany} eggs");
-            Console.WriteLine("cooking the eggs ...");
-            Task.Delay(3000).Wait();
-            Console.WriteLine("Put eggs on plate");
-
-            return new Egg();
-        }
-
-        // 커피 따르기
-        private static Coffee PourCoffee()
-        {
-            Console.WriteLine("Pouring coffee");
-            return new Coffee();
-        }
+      Juice oj = PourOJ();
+      Console.WriteLine("oj is ready");
+      Console.WriteLine("Breakfast is ready!");
     }
+
+    // 오렌지 주스 따르기
+    private static Juice PourOJ()
+    {
+      Console.WriteLine("Pouring orange juice");
+      return new Juice();
+    }
+
+    // 잼 바르기
+    private static void ApplyJam(Toast toast) =>
+      Console.WriteLine("Putting jam on the toast");
+
+    // 버터 바르기
+    private static void ApplyButter(Toast toast) =>
+      Console.WriteLine("Putting butter on the toast");
+
+    // 빵 굽기
+    private static Toast ToastBread(int slices)
+    {
+      for (int slice = 0; slice < slices; slice++)
+      {
+        Console.WriteLine("Putting a slice of bread in the toaster");
+      }
+      Console.WriteLine("Start toasting...");
+      Task.Delay(3000).Wait();
+      Console.WriteLine("Remove toast from toaster");
+
+      return new Toast();
+    }
+
+    // 베이컨 굽기
+    private static Bacon FryBacon(int slices)
+    {
+      Console.WriteLine($"putting {slices} slices of bacon in the pan");
+      Console.WriteLine("cooking first side of bacon...");
+      Task.Delay(3000).Wait();
+      for (int slice = 0; slice < slices; slice++)
+      {
+        Console.WriteLine("flipping a slice of bacon");
+      }
+      Console.WriteLine("cooking the second side of bacon...");
+      Task.Delay(3000).Wait();
+      Console.WriteLine("Put bacon on plate");
+
+      return new Bacon();
+    }
+
+    // 계란 프라이 굽기
+    private static Egg FryEggs(int howMany)
+    {
+      Console.WriteLine("Warming the egg pan...");
+      Task.Delay(3000).Wait();
+      Console.WriteLine($"cracking {howMany} eggs");
+      Console.WriteLine("cooking the eggs ...");
+      Task.Delay(3000).Wait();
+      Console.WriteLine("Put eggs on plate");
+
+      return new Egg();
+    }
+
+    // 커피 따르기
+    private static Coffee PourCoffee()
+    {
+      Console.WriteLine("Pouring coffee");
+      return new Coffee();
+    }
+  }
 }
 ```
   
-![post_thumbnail](/assets/images/synchronous-breakfast.png)
+![post_thumbnail](/assets/images/async_await/01.png)
 
 * 위의 코드대로라면, 아침 식사를 동기적으로 수행했고 총 30붕이 소요됐다
 * 하나의 작업이 완료되기 전까지는 다른 작업을 실행할 수 없다
@@ -142,23 +142,23 @@ internal class Toast { }
 
 static async Task Main(string[] args)
 {
-    Coffee cup = PourCoffee();
-    Console.WriteLine("coffee is ready");
+  Coffee cup = PourCoffee();
+  Console.WriteLine("coffee is ready");
 
-    Egg eggs = await FryEggsAsync(2);
-    Console.WriteLine("eggs are ready");
+  Egg eggs = await FryEggsAsync(2);
+  Console.WriteLine("eggs are ready");
 
-    Bacon bacon = await FryBaconAsync(3);
-    Console.WriteLine("bacon is ready");
+  Bacon bacon = await FryBaconAsync(3);
+  Console.WriteLine("bacon is ready");
 
-    Toast toast = await ToastBreadAsync(2);
-    ApplyButter(toast);
-    ApplyJam(toast);
-    Console.WriteLine("toast is ready");
+  Toast toast = await ToastBreadAsync(2);
+  ApplyButter(toast);
+  ApplyJam(toast);
+  Console.WriteLine("toast is ready");
 
-    Juice oj = PourOJ();
-    Console.WriteLine("oj is ready");
-    Console.WriteLine("Breakfast is ready!");
+  Juice oj = PourOJ();
+  Console.WriteLine("oj is ready");
+  Console.WriteLine("Breakfast is ready!");
 }
 ```
 
@@ -191,7 +191,7 @@ Console.WriteLine("Bacon is ready");
 Console.WriteLine("Breakfast is ready!");
 ```
 
-![post_thumbnail](/assets/images/asynchronous-breakfast.png)
+![post_thumbnail](/assets/images/async_await/02.png)
 
 * 기존 작업이 완료되기까지 기다리지 않고 다음 작업을 시작할 때, 진행하던 작업을 저장할 수 있다
   * Task 키워드를 사용한다
@@ -208,34 +208,34 @@ internal class Toast { }
 
 static async Task<Toast> MakeToastWithButterAndJamAsync(int number)
 {
-    var toast = await ToastBreadAsync(number);
-    ApplyButter(toast);
-    ApplyJam(toast);
+  var toast = await ToastBreadAsync(number);
+  ApplyButter(toast);
+  ApplyJam(toast);
 
-    return toast;
+  return toast;
 }
 
 static async Task Main(string[] args)
 {
-    Coffee cup = PourCoffee();
-    Console.WriteLine("coffee is ready");
+  Coffee cup = PourCoffee();
+  Console.WriteLine("coffee is ready");
 
-    var eggsTask = FryEggsAsync(2);
-    var baconTask = FryBaconAsync(3);
-    var toastTask = MakeToastWithButterAndJamAsync(2);
+  var eggsTask = FryEggsAsync(2);
+  var baconTask = FryBaconAsync(3);
+  var toastTask = MakeToastWithButterAndJamAsync(2);
 
-    var eggs = await eggsTask;
-    Console.WriteLine("eggs are ready");
+  var eggs = await eggsTask;
+  Console.WriteLine("eggs are ready");
 
-    var bacon = await baconTask;
-    Console.WriteLine("bacon is ready");
+  var bacon = await baconTask;
+  Console.WriteLine("bacon is ready");
 
-    var toast = await toastTask;
-    Console.WriteLine("toast is ready");
+  var toast = await toastTask;
+  Console.WriteLine("toast is ready");
 
-    Juice oj = PourOJ();
-    Console.WriteLine("oj is ready");
-    Console.WriteLine("Breakfast is ready!");
+  Juice oj = PourOJ();
+  Console.WriteLine("oj is ready");
+  Console.WriteLine("Breakfast is ready!");
 }
 ```
 

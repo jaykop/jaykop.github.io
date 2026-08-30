@@ -44,7 +44,7 @@ author_profile: true
 * 외부 인터럽트 > 내부 인터럽트
 
 ## 인터럽트 동작 순서
-![post_thumbnail](/assets/images/MD4NrLz.png)
+![post_thumbnail](/assets/images/interrupt/01.png)
 1. 인터럽트 요청
 2. 프로그램 실행 중단
 3. 프로그램 상태 보존

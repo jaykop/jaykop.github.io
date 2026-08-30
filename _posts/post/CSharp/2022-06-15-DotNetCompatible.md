@@ -11,7 +11,7 @@ author_profile: true
 
 ## 닷넷 프레임워크
 
-![image](/assets/images/25688747595867C11A.gif)
+![image](/assets/images/DotNetCompatible/01.gif)
 
 * MS에서 개발한 윈도우 프로그램 개발 및 실행환경
 * 프로그램이 구동하도록 지원해주는 뼈대 역할
@@ -35,7 +35,7 @@ author_profile: true
 * CTS는 언어에 필요한 정도만 지원하면 되지만, 이는 최소 사양이므로 반드시 충족해야 한다
 
 ### 공용 언어 기반구조 Common Language Infrastructure
-![image](/assets/images/Overview_of_the_Common_Language_Infrastructure.svg.png)
+![image](/assets/images/DotNetCompatible/02.png)
 
 * MS에서 ECMA 표준으로 제출한 공개 규약
   * MS .NET Framework, Mono 등의 실행코드와 런타임 환경을 설명하기 위한 오픈 규격

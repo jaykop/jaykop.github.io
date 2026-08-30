@@ -1,0 +1,167 @@
+old_path,action,new_categories,featured,note
+_posts/post/unreal/2025-07-20-GameplayAbilitySystem.md,remap,unreal|combat,true,
+_posts/project/project_aa/2025-08-12-SoftTarget.md,remap,unreal|combat,true,
+_posts/project/project_aa/2025-08-21-ComboGraph.md,remap,unreal|combat,true,
+_posts/project/project_aa/2025-08-27-SkillComponent.md,remap,unreal|combat,true,
+_posts/project/project_aa/2025-08-13-Death_Revival.md,remap,unreal|combat,true,
+_posts/project/project_aa/2025-08-11-Coop_Balance.md,remap,unreal|combat,,
+_posts/project/project_aa/2025-07-29-PlayerRestriction.md,remap,unreal|combat,,
+_posts/project/project_aa/2025-08-27-Camp.md,remap,unreal|combat,true,
+_posts/post/unreal/2022-09-04-IK_Rig.md,remap,unreal|character,,
+_posts/post/unreal/2023-01-21-RoorMotion.md,remap,unreal|character,,
+_posts/post/unreal/2025-07-25-SyncMarker.md,remap,unreal|character,,
+_posts/post/unreal/2025-08-07-Mover.md,remap,unreal|character,,
+_posts/post/unreal/2025-09-25-MotionMatching.md,remap,unreal|character,true,
+_posts/post/unreal/2025-07-27-BrakingFriction.md,remap,unreal|character,,
+_posts/project/project_aa/2025-07-21-QuadrupedMovement.md,remap,unreal|character,,
+_posts/project/project_aa/2025-08-11-ALSCharacterScale.md,remap,unreal|character,true,
+_posts/project/project_aa/2025-08-13-AnimLayer.md,remap,unreal|character,,
+_posts/project/project_o/2025-11-14-Vehicle.md,remap,unreal|character,,
+_posts/project/project_o/2025-11-14-WallIK.md,remap,unreal|character,,
+_posts/project/project_o/2025-12-12-RandomIdle.md,remap,unreal|character,,
+_posts/project/project_o/2025-12-12-ShowBone.md,remap,unreal|character,,
+_posts/project/project_aa/2025-08-12-InGameCamera.md,remap,unreal|camera,true,
+_posts/project/project_aa/2025-07-30-LockOnTroubleshooting.md,remap,unreal|camera,,
+_posts/project/project_aa/2025-08-04-Occlusion.md,remap,unreal|camera,,
+_posts/project/project_aa/2025-08-04-Highlighting.md,remap,unreal|camera,,
+_posts/post/game_ai/2022-10-10-NodeMemory.md,remap,unreal|ai,,
+_posts/post/game_ai/2023-01-21-UnrealAITheory.md,remap,unreal|ai,,
+_posts/post/game_ai/2023-01-21-UnrealBehaviorTreeTheory1.md,remap,unreal|ai,,
+_posts/post/game_ai/2023-01-21-UnrealNavigationTheory.md,remap,unreal|ai,,
+_posts/post/game_ai/2023-01-21-UnrealPerception1.md,remap,unreal|ai,,
+_posts/project/project_aa/2025-07-21-PerceptionStimuliSource.md,remap,unreal|ai,,
+_posts/project/project_aa/2025-07-21-Service_and_Decorator.md,remap,unreal|ai,true,
+_posts/project/project_o/2025-11-26-StateTree.md,remap,unreal|ai,,
+_posts/project/project_o/2025-11-01-ProjectPointToNavigation.md,remap,unreal|ai,,
+_posts/post/unreal/2025-07-27-Lumen.md,remap,unreal|perf,,
+_posts/post/unreal/2025-07-27-Nanite.md,remap,unreal|perf,,
+_posts/post/unreal/2025-08-05-PSOCache.md,remap,unreal|perf,,
+_posts/post/unreal/2025-09-09-MassSystem.md,remap,unreal|perf,true,
+_posts/project/project_aa/2025-08-26-AnimationTroubleshooting.md,remap,unreal|perf,,
+_posts/post/unreal/2022-04-27-UnrealMacro.md,remap,unreal|framework,,
+_posts/post/unreal/2022-04-30-Actor_Pawn_Chracter.md,remap,unreal|framework,,
+_posts/post/unreal/2022-05-01-Blueprint.md,remap,unreal|framework,,
+_posts/post/unreal/2022-05-01-CollapseGraph.md,remap,unreal|framework,,
+_posts/post/unreal/2022-09-04-ActorLifecyle.md,remap,unreal|framework,,
+_posts/post/unreal/2022-09-04-CDO.md,remap,unreal|framework,,
+_posts/post/unreal/2023-01-03-UObject.md,remap,unreal|framework,true,
+_posts/post/unreal/2023-01-04-Strong_WeakReference.md,remap,unreal|framework,,
+_posts/post/unreal/2023-01-08-UnrealType.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-14-UnrealGarbageCollection.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-14-UnrealReflection.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-15-UnrealText.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-17-UnrealReplication.md,remap,unreal|framework,true,
+_posts/post/unreal/2025-07-24-Deprecated.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-24-UFUNCTION_Override.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-25-Transient.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-25-UnityBuild.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-26-BlueprintPureConst.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-26-FORCEINLINE.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-26-bool_uint1.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-29-check_verify_ensure.md,remap,unreal|framework,,
+_posts/post/unreal/2025-07-30-GameFeature.md,remap,unreal|framework,,
+_posts/project/project_aa/2025-07-31-World2ScreenWidget.md,remap,unreal|framework,,
+_posts/project/project_aa/2025-08-01-OnlineSubsystemTroubleshooting.md,remap,unreal|framework,,
+_posts/project/project_aa/2025-08-20-dualsense.md,remap,unreal|framework,true,
+_posts/project/project_aa/2025-11-01-CollisionResponseTroubleshooting.md,remap,unreal|framework,,
+_posts/project/project_aa/2025-11-26-GetActorComponent.md,remap,unreal|framework,true,
+_posts/project/project_aa/2025-12-20-InputCondition.md,remap,unreal|framework,,
+_posts/project/project_o/2025-12-11-BuildErrorTroubleshooting.md,remap,unreal|framework,,
+_posts/project/project_o/2025-12-12-OverrideDefaultSubobjectClassTroubleshooting.md,remap,unreal|framework,,
+_posts/project/project_o/2025-12-12-MouseHoverSelect.md,remap,unreal|framework,,
+_posts/post/game_ai/2020-01-13-A_star.md,remap,archive|game-ai-theory,,학부 이론
+_posts/post/game_ai/2020-01-13-BehaviorTree.md,remap,archive|game-ai-theory,,학부 이론
+_posts/post/game_ai/2020-01-13-Flocking.md,remap,archive|game-ai-theory,,학부 이론
+_posts/post/game_ai/2020-02-04-FSM.md,remap,archive|game-ai-theory,,학부 이론
+_posts/post/game_ai/2021-11-14-PathFinding.md,remap,archive|game-ai-theory,,학부 이론
+_posts/post/game_ai/2022-02-01-Rubberbanding_Smoothing.md,remap,archive|game-ai-theory,,학부 이론
+_posts/post/game_ai/2022-02-15-Propagation.md,remap,archive|game-ai-theory,,학부 이론
+_posts/project/project_aa/2022-08-29-ProjectAA.md,delete,,,프로젝트 소개 페이지. 라벨 제거 대상
+_posts/project/project_aa/2025-08-XX-Abl,draft,,,본문 59자 스텁
+_posts/project/project_aa/2025-08-XX-Animation Curve,draft,,,본문 59자 스텁
+_posts/project/project_aa/2025-08-XX-Facial,draft,,,본문 59자 스텁
+_posts/project/project_aa/2025-08-XX-Guard,draft,,,본문 59자 스텁
+_posts/project/project_aa/2025-08-XX-MoveToTask,draft,,,본문 59자 스텁
+_posts/project/project_aa/2025-08-XX-Patrol,draft,,,본문 59자 스텁
+_posts/project/project_aa/2025-08-XX-ViewModel,draft,,,본문 59자 스텁
+_posts/project/project_aa/2025-09-02-CircleAround,draft,,,본문 59자 스텁
+_posts/project/project_o/2025-12-12-SetLeaderPoseComponent,draft,,,본문 0자
+_posts/project/project_o/2025-12-12-UDPMessageEnsureIssue,draft,,,본문 0자
+_posts/ready2post/2021-10-21-bigo,draft,,,발행 사고 방지
+_posts/ready2post/topic-to-go,draft,,,발행 사고 방지
+_posts/post/unity/2021-03-04-frame debugger,rename,,,→ 2021-03-04-FrameDebugger.md
+_posts/post/unity/2021-04-12-animation,rename,,,→ 2021-04-12-Animation.md
+_posts/post/CPP/2021-08-04-std_function,rename,,,→ 2021-08-04-std_function.md
+_posts/post/CPP/2020-07-14-Casting.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-14-MemoryLayout.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-14-SizeOfClass.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-14-diffBtwC_Cpp.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-14-static.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-15-PointerDeclaration.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-15-VirtualFunction.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-15-const_volatile.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-15-diffBteRefandPointer.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-15-lvalue_rvalue.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-16-copy.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-16-enum_class.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-07-16-if_switch.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-10-20-sorting.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-11-02-overriding_overloading.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-11-03-map_set.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-11-03-template_class.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2020-11-03-vector_list_queue.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-02-05-friend_keyword.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-07-14-callback.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-07-14-inline.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-08-11-DOP.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-08-20-map_unorderedMap.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-11-mutable.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-13-explicit.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-13-final.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-22-decltype.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-23-exception.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-24-move.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-24-perfectforwarding.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-24-shared_ptr.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-24-unique_ptr.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-24-weak_ptr.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-10-29-Heap.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-11-11-template_generic.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-11-13-MemoryAllocator.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-11-14-DFS_BFS.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2021-11-16-MultipleInheritance.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2022-03-01-rtti.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2022-03-01-stack_overflow.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2022-04-06-ReturnValueOptimization.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2022-05-11-InitializationinConstructor.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2022-05-11-auto_var.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2022-08-07-Inheritance.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2022-08-07-memmove.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2023-01-02-lamdba.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2025-09-01-string_view.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/CPP/2025-09-07-chrono.md,remap,writing|cpp,,[선택] Writing 그룹
+_posts/post/graphics/2020-01-13-OpenGLPipeline.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2020-02-04-LightingEffect.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2020-02-04-Rendering.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2020-02-04-Skybox.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2020-02-08-3dPicking.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2021-07-30-TextureOfPO2.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2021-11-12-VSync.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2021-11-15-Transforming.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2022-05-22-FrameBuffer.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/graphics/2024-06-18-Upscaling_FrameGeneration.md,remap,writing|graphics,,[선택] Writing 그룹
+_posts/post/design_pattern/2020-01-13-BuilderPattern.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/design_pattern/2020-01-13-FactoryPattern.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/design_pattern/2021-10-28-AdapterPattern.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/design_pattern/2021-10-28-MVC.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/design_pattern/2021-11-12-SingletonPattern.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/design_pattern/2022-01-15-CommandPattern.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/design_pattern/2022-01-19-FlyweightPattern.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/design_pattern/2022-01-21-ObserverPattern.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/design_pattern/2022-01-24-PrototypePattern.md,remap,writing|design-pattern,,[선택] Writing 그룹
+_posts/post/CPP/2021-08-04-std_function.md,remap,writing|cpp,,[선택] Writing 그룹 (확장자 복구 후)
+_posts/post/unity/2021-03-04-FrameDebugger.md,remap,post|Unity,,대소문자 정규화
+_posts/post/unity/2021-04-12-Animation.md,remap,post|Unity,,대소문자 정규화
+_posts/post/CSharp/2021-08-04-event.md,remap,post|CSharp,,3중 카테고리 정리
+_posts/post/CSharp/2022-05-06-static_const.md,remap,post|CSharp,,3중 카테고리 정리
+_posts/post/CSharp/2021-02-19-ParamModifier.md,remap,post|CSharp,,3중 카테고리 정리

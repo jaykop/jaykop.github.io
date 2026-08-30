@@ -1,40 +1,55 @@
 main:
   - title: "About"
     url: /_pages/about/
-  - title: "Project"
-    url: /_pages/project/
+
+  - title: "Unreal Engine"
+    url: /_pages/unreal/
     children:
-      - title: "Project AA"
-        url: /_pages/project/project_aa
-      - title: "Disney Pop Town"
-        url: /_pages/project/disney_pop
+      - title: "AI"
+        url: /_pages/unreal/ai
+      - title: "Camera"
+        url: /_pages/unreal/camera
+      - title: "Character & Animation"
+        url: /_pages/unreal/character
+      - title: "Combat & Ability"
+        url: /_pages/unreal/combat
+      - title: "Engine Internals"
+        url: /_pages/unreal/engine-internals
+      - title: "Framework & Tools"
+        url: /_pages/unreal/framework
+      - title: "Rendering & Performance"
+        url: /_pages/unreal/perf
+
+  # 역기획 글 2편이 쌓이면 아래 주석 해제
+  # - title: "Teardown"
+  #   url: /_pages/teardown/
+
+  - title: "Writing"
+    url: /_pages/writing/
+    children:
+      - title: "C++"
+        url: /_pages/writing/cpp
+      - title: "Design Pattern"
+        url: /_pages/writing/design-pattern
+      - title: "Graphics"
+        url: /_pages/writing/graphics
+
+  - title: "Archive"
+    url: /_pages/archive/
+    children:
       - title: "Academic"
         url: /_pages/project/academic
-      - title: "Side Project"
-        url: /_pages/project/side_project
-  - title: "Post"
-    url: /_pages/post/
-    children:
-      - title: "Unreal"
-        url: /_pages/post/unreal
-      - title: "C++"
-        url: /_pages/post/CPP
-      - title: "Game A.I."
-        url: /_pages/post/game_ai
-      - title: "Design Pattern"
-        url: /_pages/post/design_pattern
-      - title: "Graphics"
-        url: /_pages/post/graphics
+      - title: "C#"
+        url: /_pages/post/CSharp
+      - title: "Game AI Theory"
+        url: /_pages/archive/game-ai-theory
       - title: "Math"
         url: /_pages/post/math
+      - title: "Misc"
+        url: /_pages/post/misc
       - title: "Network"
         url: /_pages/post/network
       - title: "OS"
         url: /_pages/post/os
-      - title: "C#"
-        url: /_pages/post/CSharp
       - title: "Unity"
         url: /_pages/post/unity
-      - title: "Misc"
-        url: /_pages/post/misc
-

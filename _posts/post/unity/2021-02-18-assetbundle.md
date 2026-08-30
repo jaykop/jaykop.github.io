@@ -10,7 +10,7 @@ author_profile: true
 ---
   
 ## 에셋번들
-![post_thumbnail](/assets/images/24306D4A5837A29D28.jfif)
+![post_thumbnail](/assets/images/assetbundle/01.jpg)
 * 유니티 프로젝트에 사용할 리소스들을 묶은 것
   1. 유니티에서 에셋 번들 생성
   2. 외부 스토리지(서버)에 저장

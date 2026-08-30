@@ -13,7 +13,7 @@ author_profile: true
 * LLVM을 사용하여 IL을 고도로 최적화된 네이티브 코드로 변환하는 컴파일러
 
 ### LLVM 
-![image](/assets/images/다운로드 (7).png)
+![image](/assets/images/BurstCompiler/01.png)
 * Low Level Virual Machine 저수준 가상 머신
 * 모듈화된, 재사용 가능한 컴파일러, 툴체인 기술의 집합체라고 한다
   * 가상 머신과는 상관이 없다
@@ -30,7 +30,7 @@ author_profile: true
 
 ### 프론트엔드
 
-![image](/assets/images/다운로드 (1).jfif)
+![image](/assets/images/BurstCompiler/02.jpg)
 
 * 앱을 만들기 위해 사용하는 언어로 작성된 부분을 읽고 파싱
 * Intermediate Representation을 생성

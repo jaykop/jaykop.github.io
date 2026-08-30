@@ -27,12 +27,12 @@ author_profile: true
 * draw call을 줄이기 위해 sprite atlas를 사용할 수 있다
 
 ### SpriteRenderer vs. UI Image 메쉬 생성
-![image](/assets/images/sprite-example.webp)
-![image](/assets/images/sprite-example-2.webp)
+![image](/assets/images/SpriteRenderer_UIImage/01.webp)
+![image](/assets/images/SpriteRenderer_UIImage/02.webp)
 * sprite renderer는 최적의 메쉬를 생성
 * UI Image는 직사각형의 메쉬를 생성
 
-![image](/assets/images/sprite-meshes.webp)
+![image](/assets/images/SpriteRenderer_UIImage/03.webp)
 * island(이미지가 붙어있지 않고 떨어진)인 경우, 별도의 메쉬를 생성한 sprite renderer
 * UI Image는 그런 거 없음
 

@@ -1,5 +1,5 @@
 ---
-title: "[Networkd] Socket과 Port"
+title: "[Network] Socket과 Port"
 classes: wide
 categories: 
   - post

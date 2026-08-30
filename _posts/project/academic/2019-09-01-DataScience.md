@@ -6,19 +6,19 @@ categories:
   - project
   - academic
 header:
-  teaser: "assets/images/data_science_2.png"
+  teaser: "assets/images/DataScience/01.png"
 sidebar:
   nav: "main"
 author_profile: true
 ---
 
 <figure class="half">
-    <a href="/assets/images/data_science_1.png"><img src="/assets/images/data_science_1.png"></a>
-    <a href="/assets/images/data_science_2.png"><img src="/assets/images/data_science_2.png"></a>
+    <a href="/assets/images/DataScience/02.png"><img src="/assets/images/DataScience/02.png"></a>
+    <a href="/assets/images/DataScience/01.png"><img src="/assets/images/DataScience/01.png"></a>
 </figure>
 <figure class="half">
-    <a href="/assets/images/data_science_3.png"><img src="/assets/images/data_science_3.png"></a>
-    <a href="/assets/images/data_science_4.png"><img src="/assets/images/data_science_4.png"></a>
+    <a href="/assets/images/DataScience/03.png"><img src="/assets/images/DataScience/03.png"></a>
+    <a href="/assets/images/DataScience/04.png"><img src="/assets/images/DataScience/04.png"></a>
 </figure>
 
 ## 개요
