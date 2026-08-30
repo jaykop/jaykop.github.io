@@ -91,6 +91,5 @@ git diff --name-only 4.27.3 -- _includes _layouts _sass
 
 - `assets/js/` 는 4.27.1 시절 사본이 남아 테마 것을 덮어쓴다. upstream 과 다르므로 지워도 안전한지 증명되지 않았고, 빌드 경고(`lunr-en.js` conflict) 한 줄이 유일한 증상이다. JS 를 4.27.3 으로 올리고 싶을 때만 손댄다.
 - `assets/css/main.scss` 의 Sass `lighten()` deprecation 경고 223건은 테마 쪽 코드에서 난다. 빌드는 통과하므로 쫓지 않는다.
-- `_config.yml` 은 `jekyll serve` 가 감시하지 않는다. 고쳤으면 서버를 껐다 켠다.
 - 파일은 CRLF 로 체크아웃된다. 스크립트로 본문을 다룰 때 줄바꿈을 정규화한다.
 - 배포는 `.github/workflows/jekyll.yml` 이 프로젝트 Gemfile 로 직접 빌드한다. GitHub Pages 의 플러그인 화이트리스트에 묶이지 않으므로 어떤 젬이든 쓸 수 있다. `build.yml` 과 `bad-pr.yml` 은 fork 잔재로, 저장소 조건이 안 맞아 실행되지 않는다.
