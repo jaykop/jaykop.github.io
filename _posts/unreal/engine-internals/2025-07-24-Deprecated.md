@@ -1,5 +1,5 @@
 ---
-title: "클래스 Deprecated 처리하기"
+title: "[Unreal] 클래스 Deprecated 처리하기"
 classes: wide
 categories:
   - unreal

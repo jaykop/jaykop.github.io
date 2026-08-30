@@ -24,15 +24,15 @@ main:
   # - title: "Teardown"
   #   url: /_pages/teardown/
 
-  - title: "Writing"
-    url: /_pages/writing/
+  - title: "Fundamentals"
+    url: /_pages/fundamentals/
     children:
       - title: "C++"
-        url: /_pages/writing/cpp
+        url: /_pages/fundamentals/cpp
       - title: "Design Pattern"
-        url: /_pages/writing/design-pattern
+        url: /_pages/fundamentals/design-pattern
       - title: "Graphics"
-        url: /_pages/writing/graphics
+        url: /_pages/fundamentals/graphics
 
   - title: "Archive"
     url: /_pages/archive/

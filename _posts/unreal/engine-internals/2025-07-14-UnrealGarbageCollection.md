@@ -1,5 +1,5 @@
 ---
-title: "Garbage Collection"
+title: "[Unreal] Garbage Collection"
 classes: wide
 categories:
   - unreal
