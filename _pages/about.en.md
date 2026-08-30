@@ -30,7 +30,7 @@ Git, Perforce
 
 
 * **Project AA — Client Programmer** (2022.08 ~ 2025.07)
-  * Designed and built combat systems — skills, combos and guard — on top of Unreal Engine 5 and the Gameplay Ability System
+  * Designed and built combat systems — skills, combos and guard — on the Gameplay Ability System
   * Implemented enemy combat behaviour using Behavior Trees and AI Perception
   * Built the third-person action camera and per-situation camera modes, including lock-on and see-through handling for occluding geometry
   * Developed character animation on the Advanced Locomotion System plugin
