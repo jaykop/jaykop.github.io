@@ -9,7 +9,9 @@ sidebar:
   nav: "main"
 ---
 
+<!-- 영문판 준비되면 아래 줄의 주석을 푼다
 *[English](/en/about/)*
+-->
 
 <!---
  <div style="text-align:center">
