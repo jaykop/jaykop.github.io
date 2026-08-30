@@ -61,8 +61,36 @@ python .claude/skills/devlog-check/devlog_check.py --all    # 전체 점검
 
 스킬 두 개가 있다 — `new-post` 로 새 글 뼈대를 잡고, `devlog-check` 로 발행 전 점검한다.
 
+## 다국어
+
+- 본문은 한국어. `_config.yml` 의 defaults 가 모든 글·페이지에 `lang: ko` 를 준다.
+- 영문판은 같은 이름에 `.en.md` 를 붙이고 `permalink: /en/<경로>/` 와 `lang: en` 을 적는다. 예: `_pages/about.en.md` → `/en/about/`.
+- `_layouts/default.html` 이 `page.lang` 을 `site.locale` 보다 우선해 `<html lang>` 에 쓴다.
+- 전체 번역은 하지 않는다. 채용자에게 값이 큰 것부터 — About, 그다음 잘 쓴 `[DevNote]` 몇 편.
+- 플러그인(`jekyll-polyglot`)은 아직 넣지 않았다. 번역이 쌓이면 그때 옮겨도 이 `lang` front matter 를 그대로 읽으므로 이월 비용이 없다.
+
+## 테마
+
+`remote_theme: mmistakes/minimal-mistakes@4.27.3` 을 `jekyll-remote-theme` 으로 실제로 받아 쓴다. 로컬에는 **손댄 13개만** 남아 테마 파일을 덮어쓴다.
+
+```
+_includes/  archive-single.html · copyright.html · copyright.js
+            footer/custom.html · head/custom.html · gallery
+_layouts/   default.html · home.html · posts.html
+_sass/minimal-mistakes/  _copyright.scss · _utilities.scss · _variables.scss · skins/_air.scss
+```
+
+테마 파일을 고쳐야 하면 upstream 원본을 그 자리에 복사한 뒤 고친다. 무엇이 다른지는 언제든 확인할 수 있다:
+
+```bash
+git fetch upstream
+git diff --name-only 4.27.3 -- _includes _layouts _sass
+```
+
 ## 알아둘 것
 
-- `_includes/` `_layouts/` `_sass/` 에 Minimal Mistakes 사본이 통째로 들어 있고, 로컬 사본이 `remote_theme` 설정을 이긴다. 즉 `_config.yml` 의 `mmistakes/minimal-mistakes@4.27.3` 은 실제로 아무 일도 하지 않으며, `jekyll-remote-theme` 도 설치돼 있지 않다. 테마를 올리려면 사본을 먼저 정리해야 한다.
-- `Gemfile` 의 `gemspec` 지시자가 `minimal-mistakes-jekyll.gemspec` 을, 그 gemspec 이 `package.json` 의 version 을 읽는다. 셋 다 지우려면 Gemfile 을 같이 고쳐야 한다.
+- `assets/js/` 는 4.27.1 시절 사본이 남아 테마 것을 덮어쓴다. upstream 과 다르므로 지워도 안전한지 증명되지 않았고, 빌드 경고(`lunr-en.js` conflict) 한 줄이 유일한 증상이다. JS 를 4.27.3 으로 올리고 싶을 때만 손댄다.
+- `assets/css/main.scss` 의 Sass `lighten()` deprecation 경고 223건은 테마 쪽 코드에서 난다. 빌드는 통과하므로 쫓지 않는다.
+- `_config.yml` 은 `jekyll serve` 가 감시하지 않는다. 고쳤으면 서버를 껐다 켠다.
 - 파일은 CRLF 로 체크아웃된다. 스크립트로 본문을 다룰 때 줄바꿈을 정규화한다.
+- 배포는 `.github/workflows/jekyll.yml` 이 프로젝트 Gemfile 로 직접 빌드한다. GitHub Pages 의 플러그인 화이트리스트에 묶이지 않으므로 어떤 젬이든 쓸 수 있다. `build.yml` 과 `bad-pr.yml` 은 fork 잔재로, 저장소 조건이 안 맞아 실행되지 않는다.

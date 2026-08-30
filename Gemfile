@@ -1,12 +1,14 @@
 source "https://rubygems.org"
-gemspec
 
 gem "jekyll", "~> 4.4"
+gem "jekyll-remote-theme"
 
+# _config.yml 의 plugins 목록과 짝을 맞춘다
 group :jekyll_plugins do
-   
-   # Other plugins go here ...
-   
-   # ... Add this line:
-   gem "jekyll-gfm-admonitions"
+  gem "jekyll-paginate"
+  gem "jekyll-sitemap"
+  gem "jekyll-gist"
+  gem "jekyll-feed"
+  gem "jekyll-include-cache"
+  gem "jekyll-gfm-admonitions"
 end

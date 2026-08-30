@@ -4,12 +4,13 @@ permalink: /about/
 layout: single
 classes: wide
 toc: true
-classes: wide
 author_profile: true
 sidebar:
   nav: "main"
 ---
-  
+
+*[English](/en/about/)*
+
 <!---
  <div style="text-align:center">
    <a href="/assets/profile/face.png"><img src="/assets/profile/face.jpg"></a>
