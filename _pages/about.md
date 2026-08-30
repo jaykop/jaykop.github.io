@@ -28,15 +28,6 @@ Unreal Engine 5, Unity, Godot 4.x
 ### Version Control
 Git, Perforce
 
-### Unreal Engine 주요 작업 영역
-* **전투** — Gameplay Ability System 기반 스킬 · 콤보 · 가드, 락온과 소프트 타겟, 사망/부활 처리
-* **캐릭터 애니메이션** — Advanced Locomotion System, Anim Layer, Root Motion, Sync Marker, IK, Motion Matching
-* **카메라** — 3인칭 액션 카메라, 상황별 카메라 모드, 장애물 투명화 및 하이라이트
-* **AI** — Behavior Tree, AI Perception, State Tree, Navigation
-* **프레임워크** — Replication, Common UI, Game Feature, Online Subsystem
-* **엔진 내부** — UObject, Garbage Collection, Reflection, CDO
-* **성능** — Lumen, Nanite, PSO Cache, Mass
-
 ## Career
 
 ### Ocean Drive Studio (2022.08 ~ 2025.10)
@@ -47,8 +38,8 @@ Git, Perforce
   * 언리얼 엔진 5와 게임플레이 어빌리티 시스템(GAS)을 기반으로 스킬, 콤보, 가드 등 전투 시스템 설계 및 개발 
   * Behaviour Tree와 AI Perception 활용하여 몬스터의 전투 패턴 시스템 구현 
   * 3인칭 액션 카메라 및 상황별 카메라 시스템 개발 및 락온, 장애물 투명화 처리 기능 구현 
-  * Advanced Locomotion System 플러그인 기반의 로코모션, IK, 시선 처리, 페이셜 등 캐릭터 애니메이션 개발 
-  * 위젯 프로젝션 방식의 3D 월드 상호작용 UI 및 전투 HUD 등 주요 UI/UX 기능 개발 
+  * Advanced Locomotion System 플러그인 기반의 캐릭터 애니메이션 개발 
+  * 상호작용 UI 및 전투 HUD 등 주요 UI/UX 기능 개발 
   * 멀티플레이 환경을 위한 게임플레이 기능 리플리케이션 처리 
   * 크래시, 버그, 성능 저하 등 다수의 기술적 문제 해결을 통한 프로젝트 안정성 기여 
 
