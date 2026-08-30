@@ -41,8 +41,6 @@ main:
         url: /project/academic
       - title: "C#"
         url: /post/csharp
-      - title: "Disney Pop Town"
-        url: /project/disney_pop
       - title: "Game AI Theory"
         url: /archive/game-ai-theory
       - title: "Math"
