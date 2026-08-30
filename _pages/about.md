@@ -28,6 +28,15 @@ Unreal Engine 5, Unity, Godot 4.x
 ### Version Control
 Git, Perforce
 
+### Unreal Engine 주요 작업 영역
+* **전투** — Gameplay Ability System 기반 스킬 · 콤보 · 가드, 락온과 소프트 타겟, 사망/부활 처리
+* **캐릭터 애니메이션** — Advanced Locomotion System, Anim Layer, Root Motion, Sync Marker, IK, Motion Matching
+* **카메라** — 3인칭 액션 카메라, 상황별 카메라 모드, 장애물 투명화 및 하이라이트
+* **AI** — Behavior Tree, AI Perception, State Tree, Navigation
+* **프레임워크** — Replication, Common UI, Game Feature, Online Subsystem
+* **엔진 내부** — UObject, Garbage Collection, Reflection, CDO
+* **성능** — Lumen, Nanite, PSO Cache, Mass
+
 ## Career
 
 ### Ocean Drive Studio (2022.08 ~ 2025.10)
